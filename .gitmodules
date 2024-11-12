@@ -19,6 +19,4 @@
 [submodule "deps/SparseICP"]
 	path = deps/SparseICP
 	url = git@github.com:StandardCyborg/SparseICP.git
-[submodule "deps/XcodeClangFormatWarnings"]
-	path = deps/XcodeClangFormatWarnings
-	url = git@github.com:StandardCyborg/XcodeClangFormatWarnings.git
+
