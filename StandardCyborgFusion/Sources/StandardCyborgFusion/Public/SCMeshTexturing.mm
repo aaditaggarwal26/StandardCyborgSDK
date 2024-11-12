@@ -9,14 +9,18 @@
 #import <CoreImage/CoreImage.h>
 #import <CoreServices/CoreServices.h>
 #import <Metal/Metal.h>
+#import <StandardCyborgFusion/SCMeshingOperation.h>
+#import <StandardCyborgFusion/SCPointCloud+Geometry.h>
 
 #import "MeshUvMap.hpp"
+#import "MetalTextureProjection.hpp"
 #import "PerspectiveCamera+AVFoundation.hpp"
+#import "PointCloudIO.hpp"
 #import "SCMesh+Geometry.h"
 #import "SCMesh_Private.h"
+#import "SCMeshTexturing.h"
 #import "SCPointCloud+FileIO.h"
 #import "SCPointCloud_Private.h"
-#import "PointCloudIO.hpp"
 
 #import <standard_cyborg/io/imgfile/ColorImageFileIO.hpp>
 #import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
@@ -28,8 +32,6 @@
 
 //#define SAVE_DIAGNOSTICS
 
-#import "MetalTextureProjection.hpp"
-#import "SCMeshTexturing.h"
 
 using namespace standard_cyborg;
 

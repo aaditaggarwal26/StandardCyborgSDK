@@ -8,9 +8,9 @@
 
 #pragma once
 
-#include <StandardCyborgFusion/EigenHelpers.hpp>
-#include <StandardCyborgFusion/RawFrame.hpp>
-#include <StandardCyborgFusion/Surfel.hpp>
+#include "EigenHelpers.hpp"
+#include "RawFrame.hpp"
+#include "Surfel.hpp"
 #include <vector>
 
 class SurfelIndexMap {

@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import "StandardCyborgFusion.h"
 
 #include <StandardCyborgFusion/EigenHelpers.hpp>
 

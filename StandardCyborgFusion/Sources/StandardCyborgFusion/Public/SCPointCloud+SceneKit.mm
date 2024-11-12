@@ -8,11 +8,11 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <SceneKit/SceneKit.h>
-#import "Surfel.hpp"
 
 #import "SCLandmark3D.h"
 #import "SCPointCloud+SceneKit.h"
 #import "SCPointCloud_Private.h"
+#import "Surfel.hpp"
 
 @implementation SCPointCloud (SceneKit)
 

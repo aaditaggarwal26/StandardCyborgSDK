@@ -6,7 +6,7 @@
 //  Copyright © 2019 Standard Cyborg. All rights reserved.
 //
 
-#import <StandardCyborgFusion/SurfelIndexMap.hpp>
+#import "SurfelIndexMap.hpp"
 #import <Metal/Metal.h>
 
 class MetalSurfelIndexMap: public SurfelIndexMap {

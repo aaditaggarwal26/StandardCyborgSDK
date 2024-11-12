@@ -33,16 +33,12 @@ let package = Package(
             ],
             path: "Sources/standard_cyborg",
             publicHeadersPath: "include",
-            // cSettings: [
-            //     .define("DEBUG", .when(configuration: .debug)),
-            // ],
             cxxSettings: [
-                // .headerSearchPath("include"),
                 .define("DEBUG", .when(configuration: .debug)),
-                // .define("-DFMT_HEADER_ONLY", to: "1", when(platforms: [.iOS, .macOS])),
-                // .define("-DHAVE_CONFIG_H", to: "1", when(platforms: [.iOS, .macOS])),
-                // .define("-DHAVE_PTHREAD", to: "1", when(platforms: [.iOS, .macOS])),
-                // .define("-DGUID_LIBUUID", when(platforms: [.iOS, .macOS])),
+                .define("FMT_HEADER_ONLY", to: "1", .when(platforms: [.iOS, .macOS])),
+                .define("HAVE_CONFIG_H", to: "1", .when(platforms: [.iOS, .macOS])),
+                .define("HAVE_PTHREAD", to: "1", .when(platforms: [.iOS, .macOS])),
+                .define("GUID_LIBUUID", .when(platforms: [.iOS, .macOS])),
             ]
         ),
         // .testTarget(
@@ -50,5 +46,5 @@ let package = Package(
         //     dependencies: ["scsdk"]
         // ),
     ],
-    cxxLanguageStandard: .cxx11
+    cxxLanguageStandard: .cxx17
 )

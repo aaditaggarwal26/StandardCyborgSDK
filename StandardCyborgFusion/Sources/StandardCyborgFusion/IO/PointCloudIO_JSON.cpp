@@ -6,8 +6,9 @@
 //  Copyright © 2019 Standard Cyborg. All rights reserved.
 //
 
+#include "PointCloudIO.hpp"
+
 #include <json.hpp>
-#include <StandardCyborgFusion/PointCloudIO.hpp>
 #include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
 #include <standard_cyborg/io/json/PerspectiveCameraFileIO_JSON_Private.hpp>
 

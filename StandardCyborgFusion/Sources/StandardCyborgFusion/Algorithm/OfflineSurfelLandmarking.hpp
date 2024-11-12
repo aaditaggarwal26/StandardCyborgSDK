@@ -8,14 +8,16 @@
 
 #pragma once
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <StandardCyborgFusion/Surfel.hpp>
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
-#include <StandardCyborgFusion/SparseSurfelLandmarksIndex.hpp>
-#include <StandardCyborgFusion/SurfelIndexMap.hpp>
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
 #include <unordered_map>
 #include <vector>
+
+#include <standard_cyborg/util/IncludeEigen.hpp>
+
+#include "Surfel.hpp"
+#include "ScreenSpaceLandmark.hpp"
+#include "SparseSurfelLandmarksIndex.hpp"
+#include "SurfelIndexMap.hpp"
+#include "ScreenSpaceLandmark.hpp"
 
 class OfflineSurfelLandmarking {
     

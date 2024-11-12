@@ -12,6 +12,7 @@
 #import <StandardCyborgFusion/SCMesh.h>
 
 @class AVCameraCalibrationData;
+@class SCMeshingParameters;
 @class SCPointCloud;
 
 NS_ASSUME_NONNULL_BEGIN

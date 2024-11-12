@@ -9,7 +9,8 @@
 #import <CoreImage/CoreImage.h>
 #import <MetalKit/MetalKit.h>
 #import <ModelIO/ModelIO.h>
-#import <SSZipArchive/SSZipArchive.h>
+#import <ZipArchive.h>
+
 #import <standard_cyborg/math/Vec3.hpp>
 #import <standard_cyborg/math/Vec4.hpp>
 #import <standard_cyborg/io/imgfile/ColorImageFileIO.hpp>

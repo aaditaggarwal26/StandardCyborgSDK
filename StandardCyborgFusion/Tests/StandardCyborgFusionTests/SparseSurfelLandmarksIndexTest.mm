@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import "StandardCyborgFusion.h"
 #include <standard_cyborg/util/IncludeEigen.hpp>
 #include <StandardCyborgFusion/MetalSurfelIndexMap.hpp>
 #include <StandardCyborgFusion/PointCloudIO.hpp>

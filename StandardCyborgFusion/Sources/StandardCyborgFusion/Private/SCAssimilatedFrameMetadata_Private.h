@@ -6,9 +6,10 @@
 //  Copyright © 2018 Standard Cyborg. All rights reserved.
 //
 
-#import <StandardCyborgFusion/PBFAssimilatedFrameMetadata.hpp>
 #import <StandardCyborgFusion/SCAssimilatedFrameMetadata.h>
-#import <StandardCyborgFusion/EigenHelpers.hpp>
+
+#import "PBFAssimilatedFrameMetadata.hpp"
+#import "EigenHelpers.hpp"
 
 static SCAssimilatedFrameMetadata
 SCAssimilatedFrameMetadataFromPBFAssimilatedFrameMetadata(PBFAssimilatedFrameMetadata pbfMetadata,

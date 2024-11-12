@@ -14,7 +14,7 @@
 #import <standard_cyborg/math/Vec3.hpp>
 #import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
 
-#import <StandardCyborgFusion/MeshUvMap.hpp>
+#import "MeshUvMap.hpp"
 
 @interface MeshUvMapTests : XCTestCase
 

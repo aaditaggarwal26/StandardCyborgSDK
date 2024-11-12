@@ -6,17 +6,15 @@
 //  Copyright © 2020 Standard Cyborg. All rights reserved.
 //
 
-#import <StandardCyborgFusion/PBFDefinitions.h>
-#include <StandardCyborgFusion/EigenHelpers.hpp>
+#import "PBFDefinitions.h"
 
 #import <standard_cyborg/util/DataUtils.hpp>
-#include <standard_cyborg/util/IncludeEigen.hpp>
+#import <standard_cyborg/util/DebugHelpers.hpp>
+#import <standard_cyborg/util/IncludeEigen.hpp>
 
-#include <standard_cyborg/util/DebugHelpers.hpp>
-
-#include "SurfelFusion.hpp"
-
-#include "DebugLog.h"
+#import "EigenHelpers.hpp"
+#import "DebugLog.h"
+#import "SurfelFusion.hpp"
 
 const std::vector<uint32_t>& SurfelFusion::getSurfelIndexLookups() const
 {

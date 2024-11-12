@@ -17,39 +17,42 @@ let package = Package(
         .package(url: "https://github.com/nlohmann/json.git", from: "3.11.3"),
         .package(url: "https://github.com/ZipArchive/ZipArchive.git", from: "2.6.0"),
         .package(path: "../scsdk"),
+        .package(path: "../deps/libigl"),
         .package(path: "../deps/PoissonRecon"),
     ],
     targets: [
         .target(
             name: "StandardCyborgFusion",
             dependencies: [
-                "json", "scsdk", "PoissonRecon", "ZipArchive"
+                "json",
+                "libigl",
+                "scsdk",
+                "PoissonRecon",
+                "ZipArchive",
             ],
             path: "Sources/StandardCyborgFusion",
-            resources: [
-                .process("Models/SCEarLandmarking.mlmodel"),
-                .process("Models/SCEarTrackingModel.mlmodel"),
-                .process("Models/SCFootTrackingModel.mlmodel"),
-            ],
-            publicHeadersPath: "include",
-            // cSettings: [
-            //     .define("DEBUG", .when(configuration: .debug)),
-            //     .headerSearchPath("Algorithm"),
-            //     .headerSearchPath("DataStructures"),
-            //     .headerSearchPath("Helpers"),
-            //     .headerSearchPath("IO"),
-            //     .headerSearchPath("MetalDepthProcessor"),
-            //     // .unsafeFlags(["-stdlib=libc++"]),
+            // resources: [
+            //     .process("Models/SCEarLandmarking.mlmodel"),
+            //     .process("Models/SCEarTrackingModel.mlmodel"),
+            //     .process("Models/SCFootTrackingModel.mlmodel"),
             // ],
+            publicHeadersPath: "include",
             cxxSettings: [
                 .define("DEBUG", .when(configuration: .debug)),
                 .define("STD_LIB_FLAG"),
+                .define("OBJC_OLD_DISPATCH_PROTOTYPES", to: "1"),
+                .unsafeFlags(["-fobjc-arc"]),
                 .headerSearchPath("Algorithm"),
                 .headerSearchPath("DataStructures"),
+                .headerSearchPath("EarLandmarking"),
                 .headerSearchPath("Helpers"),
                 .headerSearchPath("IO"),
                 .headerSearchPath("MetalDepthProcessor"),
-                // .unsafeFlags(["-stdlib=libc++"]),
+                .headerSearchPath("Private"),
+            ],
+            linkerSettings: [
+                .linkedFramework("Foundation"),
+                .linkedFramework("Metal")
             ]
         ),
         // .testTarget(
@@ -65,5 +68,5 @@ let package = Package(
         //     ]
         // )
     ],
-    cxxLanguageStandard: .cxx11
+    cxxLanguageStandard: .cxx17
 )

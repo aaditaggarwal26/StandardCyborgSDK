@@ -11,7 +11,7 @@
 #import <simd/simd.h>
 #import <vector>
 #import <standard_cyborg/util/IncludeEigen.hpp>
-#import <StandardCyborgFusion/Surfel.hpp>
+#import "Surfel.hpp"
 
 namespace Eigen {
     typedef Matrix<uint32_t, 1, Dynamic> VectorXu;

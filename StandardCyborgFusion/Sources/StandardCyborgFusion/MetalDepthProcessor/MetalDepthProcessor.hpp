@@ -11,7 +11,7 @@
 #import "DepthProcessor.hpp"
 #import "MetalDepthProcessorData.hpp"
 #import "ProcessedFrame.hpp"
-#import <StandardCyborgFusion/RawFrame.hpp>
+#import "RawFrame.hpp"
 
 @class MetalComputeEngine;
 @protocol MTLCommandQueue;

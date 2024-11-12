@@ -7,7 +7,7 @@
 //
 
 #import <Metal/Metal.h>
-#import <StandardCyborgFusion/ProcessedFrame.hpp>
+#import "ProcessedFrame.hpp"
 #import <standard_cyborg/sc3d/PerspectiveCamera.hpp>
 #import "MetalComputeEngine.h"
 

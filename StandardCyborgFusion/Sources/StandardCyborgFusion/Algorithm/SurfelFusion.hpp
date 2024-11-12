@@ -11,9 +11,9 @@
 
 #include "SurfelIndexMap.hpp"
 
-#include <StandardCyborgFusion/ProcessedFrame.hpp>
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
-#include <StandardCyborgFusion/SparseSurfelLandmarksIndex.hpp>
+#include "ProcessedFrame.hpp"
+#include "ScreenSpaceLandmark.hpp"
+#include "SparseSurfelLandmarksIndex.hpp"
 
 struct SurfelFusionConfiguration {
     float maxSurfelIncidenceThreshold = (70 * M_PI / 180);

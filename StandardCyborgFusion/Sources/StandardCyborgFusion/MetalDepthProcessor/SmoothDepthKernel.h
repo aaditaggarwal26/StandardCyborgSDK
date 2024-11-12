@@ -7,7 +7,7 @@
 //
 
 #import <Metal/Metal.h>
-#import <StandardCyborgFusion/ProcessedFrame.hpp>
+#import "ProcessedFrame.hpp"
 #import "MetalComputeEngine.h"
 
 NS_ASSUME_NONNULL_BEGIN

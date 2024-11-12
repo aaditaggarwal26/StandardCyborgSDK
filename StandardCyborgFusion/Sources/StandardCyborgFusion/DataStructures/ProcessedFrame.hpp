@@ -9,8 +9,9 @@
 #pragma once
 
 #include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
-#include <StandardCyborgFusion/RawFrame.hpp>
 #include <standard_cyborg/math/Vec3.hpp>
+
+#include "RawFrame.hpp"
 
 #define METAL_REQUIRED_ALIGNMENT 4096
 

@@ -17,10 +17,10 @@
 #import <standard_cyborg/util/IncludeEigen.hpp>
 #import <standard_cyborg/math/Vec3.hpp>
 #import <standard_cyborg/sc3d/VertexSelection.hpp>
-#import <StandardCyborgFusion/MetalDepthProcessor.hpp>
-#import <StandardCyborgFusion/PBFModel.hpp>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import "MetalDepthProcessor.hpp"
+#import "PBFModel.hpp"
+#import "PointCloudIO.hpp"
+#import "StandardCyborgFusion.h"
 #import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
 
 #import "Helpers/PathHelpers.h"

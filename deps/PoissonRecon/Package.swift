@@ -13,11 +13,9 @@ let package = Package(
             path: "Sources",
             publicHeadersPath: "include",
             cxxSettings: [
-                .headerSearchPath("include"),
                 .define("STD_LIB_FLAG"),
-                .unsafeFlags(["-stdlib=libc++", "-std=c++11"]),
             ]
         ),
     ],
-    cxxLanguageStandard: .cxx11
+    cxxLanguageStandard: .cxx17
 )

@@ -9,9 +9,10 @@
 #import <CoreImage/CoreImage.h>
 #import <CoreServices/CoreServices.h>
 
+#import <StandardCyborgFusion/SCEarLandmarking.h>
+#import <StandardCyborgFusion/SCLandmark2D.h>
+
 #import "EarLandmarkingAnalysis.h"
-#import "SCEarLandmarking.h"
-#import "SCLandmark2D.h"
 #import "SCLandmark2D_Private.h"
 
 NS_ASSUME_NONNULL_BEGIN

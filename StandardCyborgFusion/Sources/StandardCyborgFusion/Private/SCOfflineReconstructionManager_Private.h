@@ -10,12 +10,14 @@
 #ifdef __cplusplus
 
 #import <StandardCyborgFusion/SCOfflineReconstructionManager.h>
-#import <StandardCyborgFusion/SCReconstructionManagerParameters_Private.h>
-#import <StandardCyborgFusion/ICP.hpp>
-#import <StandardCyborgFusion/EigenHelpers.hpp>
-#import <StandardCyborgFusion/Surfel.hpp>
-#import <StandardCyborgFusion/RawFrame.hpp>
-#import <StandardCyborgFusion/PBFAssimilatedFrameMetadata.hpp>
+#import "SCReconstructionManagerParameters_Private.h"
+#import "ICP.hpp"
+#import "EigenHelpers.hpp"
+#import "Surfel.hpp"
+#import "RawFrame.hpp"
+#import "PBFAssimilatedFrameMetadata.hpp"
+
+#import <Foundation/Foundation.h>
 #import <memory>
 #import <StandardCyborgFusion/PBFFinalStatistics.h>
 

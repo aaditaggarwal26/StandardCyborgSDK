@@ -6,16 +6,14 @@
 //  Copyright © 2018 Standard Cyborg. All rights reserved.
 //
 
-#include <StandardCyborgFusion/ICP.hpp>
-#include "ThreadPool.hpp"
-#include <StandardCyborgFusion/GeometryHelpers.hpp>
+#include <dispatch/dispatch.h>
 
 #include <standard_cyborg/util/DataUtils.hpp>
-
 #include <standard_cyborg/util/DebugHelpers.hpp>
 
-
-#include <dispatch/dispatch.h>
+#include "GeometryHelpers.hpp"
+#include "ThreadPool.hpp"
+#include "ICP.hpp"
 
 #include "EigenHelpers.hpp"
 #pragma clang diagnostic push

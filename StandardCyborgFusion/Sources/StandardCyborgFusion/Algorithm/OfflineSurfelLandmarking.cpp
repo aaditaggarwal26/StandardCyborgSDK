@@ -7,9 +7,9 @@
 //
 
 #include <standard_cyborg/util/IncludeEigen.hpp>
-#include <StandardCyborgFusion/PBFDefinitions.h>
 #include <iostream>
 
+#include "PBFDefinitions.h"
 #include "OfflineSurfelLandmarking.hpp"
 
 OfflineSurfelLandmarking::OfflineSurfelLandmarking(std::shared_ptr<SurfelIndexMap> surfelIndexMap) :

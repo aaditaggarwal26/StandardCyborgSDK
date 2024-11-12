@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import "StandardCyborgFusion.h"
 
 #include <standard_cyborg/util/IncludeEigen.hpp>
 #include <standard_cyborg/util/DataUtils.hpp>
@@ -21,7 +21,7 @@
 #include <iostream>
 #include <cmath>
 
-#import <StandardCyborgFusion/PointCloudIO.hpp>
+#import "PointCloudIO.hpp"
 #import <standard_cyborg/math/Mat3x4.hpp>
 #import <standard_cyborg/math/Mat3x3.hpp>
 #import <standard_cyborg/sc3d/PerspectiveCamera.hpp>

@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MetalVisualizationEngine.hpp"
+#import <Metal/Metal.h>
+// #import "MetalVisualizationEngine.hpp"
 
 #include <standard_cyborg/sc3d/Geometry.hpp>
 #include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+
+using namespace standard_cyborg;
 
 @interface RenderUvs : NSObject
 

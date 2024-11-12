@@ -10,19 +10,19 @@
 
 #include <vector>
 
-#include <StandardCyborgFusion/FastRand.hpp>
+#include <standard_cyborg/sc3d/Geometry.hpp>
 #include <standard_cyborg/util/IncludeEigen.hpp>
 #include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
-#include <StandardCyborgFusion/ICP.hpp>
-#include <StandardCyborgFusion/Surfel.hpp>
+
 #include <StandardCyborgFusion/PBFFinalStatistics.h>
-#include <StandardCyborgFusion/SurfelFusion.hpp>
 
+#include "FastRand.hpp"
+#include "ICP.hpp"
+#include "Surfel.hpp"
+#include "SurfelFusion.hpp"
+#include "ScreenSpaceLandmark.hpp"
+#include "SparseSurfelLandmarksIndex.hpp"
 
-#include <standard_cyborg/sc3d/Geometry.hpp>
-
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
-#include <StandardCyborgFusion/SparseSurfelLandmarksIndex.hpp>
 #include "PBFAssimilatedFrameMetadata.hpp"
 #include "ProcessedFrame.hpp"
 #include "PBFConfiguration.hpp"

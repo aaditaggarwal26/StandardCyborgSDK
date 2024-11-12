@@ -9,13 +9,13 @@
 #pragma once
 
 #include <string>
-
 #include <json.hpp>
 
 #include <standard_cyborg/util/IncludeEigen.hpp>
-#include <StandardCyborgFusion/RawFrame.hpp>
-#include <StandardCyborgFusion/Surfel.hpp>
 #include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+
+#include "RawFrame.hpp"
+#include "Surfel.hpp"
 
 using JSON = nlohmann::json;
 using namespace standard_cyborg;
