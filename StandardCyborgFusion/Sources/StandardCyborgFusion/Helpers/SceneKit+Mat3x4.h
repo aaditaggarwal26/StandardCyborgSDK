@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
-#include <standard_cyborg/math/Mat3x4.hpp>
+#import <standard_cyborg/math/Mat3x4.hpp>
 
 
 NS_ASSUME_NONNULL_BEGIN

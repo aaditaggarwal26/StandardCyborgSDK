@@ -12,7 +12,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
 #endif
-#include <simd/simd.h>
+#import <simd/simd.h>
 
 #if defined(__cplusplus)
 #define EXTERN extern "C"

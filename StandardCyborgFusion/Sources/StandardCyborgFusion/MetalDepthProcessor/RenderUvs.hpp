@@ -10,8 +10,8 @@
 #import <Metal/Metal.h>
 // #import "MetalVisualizationEngine.hpp"
 
-#include <standard_cyborg/sc3d/Geometry.hpp>
-#include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#import <standard_cyborg/sc3d/Geometry.hpp>
+#import <standard_cyborg/sc3d/PerspectiveCamera.hpp>
 
 using namespace standard_cyborg;
 

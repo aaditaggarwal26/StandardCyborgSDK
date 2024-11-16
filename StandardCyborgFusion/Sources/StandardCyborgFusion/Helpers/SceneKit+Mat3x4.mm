@@ -7,10 +7,10 @@
 //
 
 #import "SceneKit+Mat3x4.h"
-#include <vector>
-#include <iostream>
+#import <vector>
+#import <iostream>
 
-#include <standard_cyborg/math/Vec3.hpp>
+#import <standard_cyborg/math/Vec3.hpp>
 
 using namespace standard_cyborg;
 using math::Vec3;

@@ -7,9 +7,9 @@
 //
 
 #import "SceneKit+BoundingBox3.h"
-#include <vector>
+#import <vector>
 
-#include <standard_cyborg/math/Vec3.hpp>
+#import <standard_cyborg/math/Vec3.hpp>
 
 using namespace standard_cyborg;
 

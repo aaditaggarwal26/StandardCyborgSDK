@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <string>
-#include <vector>
+#import <string>
+#import <vector>
 
 extern int WriteUSDZCompatibleZip(const std::string outputFilename, const std::vector<std::string> filenameList);

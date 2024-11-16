@@ -6,8 +6,8 @@
 //  Copyright © 2018 Standard Cyborg. All rights reserved.
 //
 
-#include <StandardCyborgFusion/SCReconstructionManager.h>
-#include <StandardCyborgFusion/SCReconstructionManagerParameters_Private.h>
+#import <StandardCyborgFusion/SCReconstructionManager.h>
+#import "SCReconstructionManagerParameters_Private.h"
 
 @protocol SCReconstructionManagerDelegatePrivate <SCReconstructionManagerDelegate>
 

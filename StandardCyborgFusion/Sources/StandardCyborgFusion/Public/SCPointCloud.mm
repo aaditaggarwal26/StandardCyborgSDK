@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#include "SCPointCloud.h"
-#include "SCPointCloud_Private.h"
-#include "Surfel.hpp"
+#import "SCPointCloud.h"
+#import "SCPointCloud_Private.h"
+#import "Surfel.hpp"
 
 @implementation SCPointCloud
 

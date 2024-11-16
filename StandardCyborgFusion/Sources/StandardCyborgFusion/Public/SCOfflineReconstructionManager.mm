@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreVideo/CoreVideo.h>
 
-#include <json.hpp>
+#import <json.hpp>
 
 #import "DepthProcessor.hpp"
 #import "GeometryHelpers.hpp"
@@ -28,7 +28,7 @@
 
 #import "GravityEstimator.hpp"
 
-#include <fstream>
+#import <fstream>
 
 using JSON = nlohmann::json;
 using namespace standard_cyborg;

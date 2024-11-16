@@ -7,10 +7,10 @@
 //
 
 #import "SceneKit+Mat3x3.h"
-#include <vector>
+#import <vector>
 
-#include <standard_cyborg/math/Vec3.hpp>
-#include <standard_cyborg/math/Mat3x4.hpp>
+#import <standard_cyborg/math/Vec3.hpp>
+#import <standard_cyborg/math/Mat3x4.hpp>
 
 #import "SceneKit+Mat3x4.h"
 

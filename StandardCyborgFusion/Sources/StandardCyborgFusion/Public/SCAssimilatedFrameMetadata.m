@@ -7,7 +7,7 @@
 //
 
 #import "SCAssimilatedFrameMetadata.h"
-#include <math.h>
+#import <math.h>
 
 simd_float3 EulerAnglesFromSCAssimilatedFrameMetadata(SCAssimilatedFrameMetadata metadata) {
     matrix_float4x4 matrix = metadata.viewMatrix;

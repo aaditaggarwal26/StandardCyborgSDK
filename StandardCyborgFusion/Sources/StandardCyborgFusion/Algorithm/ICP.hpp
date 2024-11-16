@@ -8,13 +8,13 @@
 
 #pragma once
 
-#include <standard_cyborg/math/Mat4x4.hpp>
-#include <standard_cyborg/math/Vec3.hpp>
-#include <standard_cyborg/sc3d/Geometry.hpp>
+#import <standard_cyborg/math/Mat4x4.hpp>
+#import <standard_cyborg/math/Vec3.hpp>
+#import <standard_cyborg/sc3d/Geometry.hpp>
 
-#include <TargetConditionals.h>
+#import <TargetConditionals.h>
 #if DEBUG
-#include <vector>
+#import <vector>
 #endif
 
 using namespace standard_cyborg;

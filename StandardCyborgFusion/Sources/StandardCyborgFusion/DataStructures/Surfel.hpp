@@ -12,7 +12,7 @@
 #ifdef __METAL_VERSION__
 
 // Alows us to use the same Surfel struct in our Metal shaders as in our C++ code
-#include <metal_stdlib>
+#import <metal_stdlib>
 using namespace metal;
 
 #define Vector3f  packed_float3
@@ -21,7 +21,7 @@ using namespace metal;
 
 #else /* ! __METAL_VERSION__ */
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
+#import <standard_cyborg/util/IncludeEigen.hpp>
 using Vector3f = Eigen::Vector3f;
 
 #endif // __METAL_VERSION__
@@ -53,7 +53,7 @@ typedef std::vector<Surfel> Surfels __attribute__((aligned(METAL_REQUIRED_ALIGNM
 #ifdef DEBUG
 // To prevent std::vector from agressively inlining, which prevents inspection with lldb
 // https://stackoverflow.com/questions/39680320/printing-debugging-libc-stl-with-xcode-lldb
-#include <vector>
+#import <vector>
 template struct std::vector<Surfel>;
 #endif /* DEBUG */
 

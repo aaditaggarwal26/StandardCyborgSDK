@@ -7,8 +7,8 @@
 //
 
 #include <metal_stdlib>
-#include "StandardCyborgFusion/DataStructures/Surfel.hpp"
-#include "StandardCyborgFusion/MetalDepthProcessor/ApplyLensCalibration.metal"
+#include "../DataStructures/Surfel.hpp"
+#include "ApplyLensCalibration.metal"
 using namespace metal;
 
 struct Vertex {

@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include "ProcessedFrame.hpp"
-#include "RawFrame.hpp"
+#import "ProcessedFrame.hpp"
+#import "RawFrame.hpp"
 
 class DepthProcessor {
 public:

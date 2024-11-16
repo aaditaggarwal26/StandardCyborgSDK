@@ -6,8 +6,8 @@
 //  Copyright © 2019 Standard Cyborg. All rights reserved.
 //
 
-#include <Foundation/Foundation.h>
-#include "PointCloudIO.hpp"
+#import <Foundation/Foundation.h>
+#import "PointCloudIO.hpp"
 
 const char *SCFrameworkVersion() {
     static const char *__version;

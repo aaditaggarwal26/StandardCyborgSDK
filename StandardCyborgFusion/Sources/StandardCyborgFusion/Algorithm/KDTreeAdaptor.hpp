@@ -8,9 +8,9 @@
 
 #pragma once
 
-#include <standard_cyborg/math/Vec3.hpp>
+#import <standard_cyborg/math/Vec3.hpp>
 
-#include <nanoflann.hpp>
+#import <nanoflann.hpp>
 
 /** Squared Euclidean (L2) distance functor (suitable for low-dimensionality
  * datasets, like 2D or 3D point clouds) Corresponding distance traits:

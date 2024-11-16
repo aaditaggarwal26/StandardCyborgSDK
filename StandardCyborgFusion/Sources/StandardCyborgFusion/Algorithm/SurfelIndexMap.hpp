@@ -8,10 +8,10 @@
 
 #pragma once
 
-#include "EigenHelpers.hpp"
-#include "RawFrame.hpp"
-#include "Surfel.hpp"
-#include <vector>
+#import "EigenHelpers.hpp"
+#import "RawFrame.hpp"
+#import "Surfel.hpp"
+#import <vector>
 
 class SurfelIndexMap {
 public:

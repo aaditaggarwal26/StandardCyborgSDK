@@ -9,11 +9,11 @@
 #ifndef SurfelFusion_hpp
 #define SurfelFusion_hpp
 
-#include "SurfelIndexMap.hpp"
+#import "SurfelIndexMap.hpp"
 
-#include "ProcessedFrame.hpp"
-#include "ScreenSpaceLandmark.hpp"
-#include "SparseSurfelLandmarksIndex.hpp"
+#import "ProcessedFrame.hpp"
+#import "ScreenSpaceLandmark.hpp"
+#import "SparseSurfelLandmarksIndex.hpp"
 
 struct SurfelFusionConfiguration {
     float maxSurfelIncidenceThreshold = (70 * M_PI / 180);

@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <simd/simd.h>
+#import <standard_cyborg/util/IncludeEigen.hpp>
+#import <simd/simd.h>
 
 class GravityEstimator {
 public:

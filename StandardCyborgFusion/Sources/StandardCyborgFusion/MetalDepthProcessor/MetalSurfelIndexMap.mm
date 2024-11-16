@@ -6,16 +6,16 @@
 //  Copyright © 2018 Standard Cyborg. All rights reserved.
 //
 
-#include <CoreGraphics/CoreGraphics.h>
-#include <iostream>
-#include <standard_cyborg/util/DataUtils.hpp>
+#import <CoreGraphics/CoreGraphics.h>
+#import <iostream>
+#import <standard_cyborg/util/DataUtils.hpp>
 
-#include "crc32.hpp"
-#include "DebugLog.h"
-#include "GeometryHelpers.hpp"
-#include "MathHelpers.h"
-#include "MetalSurfelIndexMap.hpp"
-#include "PBFDefinitions.h"
+#import "crc32.hpp"
+#import "DebugLog.h"
+#import "GeometryHelpers.hpp"
+#import "MathHelpers.h"
+#import "MetalSurfelIndexMap.hpp"
+#import "PBFDefinitions.h"
 
 using namespace Eigen;
 

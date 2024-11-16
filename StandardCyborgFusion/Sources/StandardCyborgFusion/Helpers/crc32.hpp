@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <cstdint>
-#include <cstddef>
+#import <cstdint>
+#import <cstddef>
 
 extern uint32_t crc32(const void *data, size_t n_bytes);

@@ -11,7 +11,7 @@
 // This preprocessor macro is #defined in the build settings via XCODE_ACTION_${ACTION}=1
 #if XCODE_ACTION_install
 
-#include <stdarg.h>
+#import <stdarg.h>
 
 static inline void __unused_consumer(__attribute__((unused)) int x, ...) { }
 

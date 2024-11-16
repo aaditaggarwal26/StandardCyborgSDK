@@ -8,24 +8,24 @@
 
 #pragma once
 
-#include <vector>
+#import <vector>
 
-#include <standard_cyborg/sc3d/Geometry.hpp>
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#import <standard_cyborg/sc3d/Geometry.hpp>
+#import <standard_cyborg/util/IncludeEigen.hpp>
+#import <standard_cyborg/sc3d/PerspectiveCamera.hpp>
 
-#include <StandardCyborgFusion/PBFFinalStatistics.h>
+#import <StandardCyborgFusion/PBFFinalStatistics.h>
 
-#include "FastRand.hpp"
-#include "ICP.hpp"
-#include "Surfel.hpp"
-#include "SurfelFusion.hpp"
-#include "ScreenSpaceLandmark.hpp"
-#include "SparseSurfelLandmarksIndex.hpp"
+#import "FastRand.hpp"
+#import "ICP.hpp"
+#import "Surfel.hpp"
+#import "SurfelFusion.hpp"
+#import "ScreenSpaceLandmark.hpp"
+#import "SparseSurfelLandmarksIndex.hpp"
 
-#include "PBFAssimilatedFrameMetadata.hpp"
-#include "ProcessedFrame.hpp"
-#include "PBFConfiguration.hpp"
+#import "PBFAssimilatedFrameMetadata.hpp"
+#import "ProcessedFrame.hpp"
+#import "PBFConfiguration.hpp"
 
 using namespace standard_cyborg;
 

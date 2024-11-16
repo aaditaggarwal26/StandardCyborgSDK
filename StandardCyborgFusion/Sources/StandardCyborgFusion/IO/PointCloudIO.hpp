@@ -8,14 +8,14 @@
 
 #pragma once
 
-#include <string>
-#include <json.hpp>
+#import <string>
+#import <json.hpp>
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#import <standard_cyborg/util/IncludeEigen.hpp>
+#import <standard_cyborg/sc3d/PerspectiveCamera.hpp>
 
-#include "RawFrame.hpp"
-#include "Surfel.hpp"
+#import "RawFrame.hpp"
+#import "Surfel.hpp"
 
 using JSON = nlohmann::json;
 using namespace standard_cyborg;

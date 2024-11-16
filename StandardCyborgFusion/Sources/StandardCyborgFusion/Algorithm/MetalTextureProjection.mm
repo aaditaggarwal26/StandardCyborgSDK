@@ -6,7 +6,7 @@
 //  Copyright © 2019 Standard Cyborg. All rights reserved.
 //
 
-#include "MetalTextureProjection.hpp"
+#import "MetalTextureProjection.hpp"
 
 using namespace standard_cyborg;
 

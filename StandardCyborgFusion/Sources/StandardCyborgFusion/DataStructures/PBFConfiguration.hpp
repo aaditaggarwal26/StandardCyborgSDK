@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include <ostream>
-#include <cmath>
+#import <ostream>
+#import <cmath>
 
 struct PBFConfiguration {
     float maxCameraVelocity = 0.6;

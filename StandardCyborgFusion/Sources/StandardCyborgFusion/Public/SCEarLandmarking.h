@@ -6,8 +6,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreML/CoreML.h>
-#include <stdint.h>
-#include <os/log.h>
+#import <stdint.h>
+#import <os/log.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

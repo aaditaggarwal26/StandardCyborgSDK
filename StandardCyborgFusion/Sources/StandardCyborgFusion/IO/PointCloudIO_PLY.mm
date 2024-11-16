@@ -6,10 +6,10 @@
 //  Copyright © 2019 Standard Cyborg. All rights reserved.
 //
 
-#include "PointCloudIO.hpp"
-#include "GeometryHelpers.hpp"
+#import "PointCloudIO.hpp"
+#import "GeometryHelpers.hpp"
 
-#include <iostream>
+#import <iostream>
 #import <Foundation/Foundation.h>
 
 #define PLY_LINE_LENGTH 128
