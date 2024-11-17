@@ -69,7 +69,7 @@ API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0)) __attribute__((
 /**
     Initialize SCEarTrackingModel instance with the model in this bundle.
 */
-- (nullable instancetype)init;
+- (instancetype)init;
 
 /**
     Initialize SCEarTrackingModel instance with the model in this bundle.

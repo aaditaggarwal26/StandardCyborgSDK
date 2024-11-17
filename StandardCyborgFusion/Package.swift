@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "StandardCyborgFusion",
     platforms: [
-        .iOS(.v13), .macOS(.v11)
+        .iOS(.v16), .macOS(.v12)
     ],
     products: [
         .library(
@@ -30,7 +30,7 @@ let package = Package(
                 "PoissonRecon",
                 "ZipArchive",
             ],
-            path: "Sources/StandardCyborgFusion",
+            path: "Sources",
             // resources: [
             //     .process("Models/SCEarLandmarking.mlmodel"),
             //     .process("Models/SCEarTrackingModel.mlmodel"),
@@ -39,21 +39,24 @@ let package = Package(
             publicHeadersPath: "include",
             cxxSettings: [
                 .define("DEBUG", .when(configuration: .debug)),
-                .define("STD_LIB_FLAG"),
-                .define("OBJC_OLD_DISPATCH_PROTOTYPES", to: "1"),
+                // .define("STD_LIB_FLAG"),
+                // .define("OBJC_OLD_DISPATCH_PROTOTYPES", to: "1"),
+                .define("IGL_STATIC_LIBRARY"),
                 .unsafeFlags(["-fobjc-arc"]),
-                .headerSearchPath("Algorithm"),
-                .headerSearchPath("DataStructures"),
-                .headerSearchPath("EarLandmarking"),
-                .headerSearchPath("Helpers"),
-                .headerSearchPath("IO"),
-                .headerSearchPath("MetalDepthProcessor"),
-                .headerSearchPath("Private"),
-            ],
-            linkerSettings: [
-                .linkedFramework("Foundation"),
-                .linkedFramework("Metal")
+                .headerSearchPath("."),
+                .headerSearchPath("StandardCyborgFusion/Algorithm"),
+                .headerSearchPath("StandardCyborgFusion/DataStructures"),
+                .headerSearchPath("StandardCyborgFusion/EarLandmarking"),
+                .headerSearchPath("StandardCyborgFusion/Helpers"),
+                .headerSearchPath("StandardCyborgFusion/IO"),
+                .headerSearchPath("StandardCyborgFusion/MetalDepthProcessor"),
+                .headerSearchPath("StandardCyborgFusion/Private"),
+                .headerSearchPath("include/StandardCyborgFusion"),
             ]
+            // linkerSettings: [
+            //     .linkedFramework("Foundation"),
+            //     .linkedFramework("Metal")
+            // ]
         ),
         // .testTarget(
         //     name: "StandardCyborgFusionTests",
@@ -68,5 +71,6 @@ let package = Package(
         //     ]
         // )
     ],
+    swiftLanguageModes: [.v5],
     cxxLanguageStandard: .cxx17
 )

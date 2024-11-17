@@ -14,5 +14,5 @@ let package = Package(
             publicHeadersPath: "."
         ),
     ],
-    cxxLanguageStandard: .cxx11
+    cxxLanguageStandard: .cxx17
 )
