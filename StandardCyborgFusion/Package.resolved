@@ -1,15 +1,6 @@
 {
-  "originHash" : "ca06a4622ade96668b910ce00b946ce436c6ef31c33573c8ec691c2b03c723fa",
+  "originHash" : "c58b9dedbb9d43c5d4c07d0b73d2e359bcbdaf1dc9afbf1d06615daa4a086c13",
   "pins" : [
-    {
-      "identity" : "json",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nlohmann/json.git",
-      "state" : {
-        "revision" : "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
-        "version" : "3.11.3"
-      }
-    },
     {
       "identity" : "ziparchive",
       "kind" : "remoteSourceControl",

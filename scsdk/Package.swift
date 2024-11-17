@@ -14,8 +14,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/nlohmann/json.git", from: "3.11.3"),
+        // .package(url: "https://github.com/nlohmann/json.git", from: "3.11.3"),
         .package(path: "../deps/Eigen"),
+        .package(path: "../deps/json"),
         .package(path: "../deps/happly"),
         .package(path: "../deps/nanoflann"),
         .package(path: "../deps/SparseICP"),

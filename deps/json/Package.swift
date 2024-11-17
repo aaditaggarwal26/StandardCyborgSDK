@@ -2,13 +2,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "Eigen",
+    name: "json",
     products: [
-        .library(name: "Eigen", targets: ["Eigen"]),
+        .library(name: "json", targets: ["json"]),
     ],
     targets: [
         .target(
-            name: "Eigen",
+            name: "json",
             path: ".",
             publicHeadersPath: "include"
         ),

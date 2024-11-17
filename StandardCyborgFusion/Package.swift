@@ -14,9 +14,10 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/nlohmann/json.git", from: "3.11.3"),
+        // .package(url: "https://github.com/nlohmann/json.git", from: "3.11.3"),
         .package(url: "https://github.com/ZipArchive/ZipArchive.git", from: "2.6.0"),
         .package(path: "../scsdk"),
+        .package(path: "../deps/json"),
         .package(path: "../deps/libigl"),
         .package(path: "../deps/PoissonRecon"),
     ],
