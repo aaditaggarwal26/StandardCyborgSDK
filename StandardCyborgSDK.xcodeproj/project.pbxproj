@@ -43,6 +43,7 @@
 		07F0169F24E4516900EBAB19 /* maxrects.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07F0169D24E4516900EBAB19 /* maxrects.hpp */; };
 		07F016A024E4516900EBAB19 /* maxrects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F0169E24E4516900EBAB19 /* maxrects.cpp */; };
 		07F4A70924E496D70059D80E /* MeshUvMapTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F4A70824E496D70059D80E /* MeshUvMapTests.mm */; };
+		421368622DA76EB20084F902 /* SendEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421368612DA76EB10084F902 /* SendEmailController.swift */; };
 		75079CB449930783ED401F1B /* libPods-StandardCyborgFusion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707F5A724928EB516F1BF3C /* libPods-StandardCyborgFusion.a */; };
 		7609B71321167D4200C0C8D2 /* PointCloudIO_OBJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609B71221167D4200C0C8D2 /* PointCloudIO_OBJ.cpp */; };
 		7609B7192117B4C600C0C8D2 /* ProcessedFrame.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7609B7182117B4C600C0C8D2 /* ProcessedFrame.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -620,6 +621,7 @@
 		24D3338D00CB49BE1B7CC35E /* libPods-StandardCyborgFusionOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StandardCyborgFusionOSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5B1DA7375E5B9BE3D137F7 /* Pods-VisualTesterMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualTesterMac.release.xcconfig"; path = "Target Support Files/Pods-VisualTesterMac/Pods-VisualTesterMac.release.xcconfig"; sourceTree = "<group>"; };
 		393601E903C325BFB12CF074 /* Pods-StandardCyborgFusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusion.release.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusion/Pods-StandardCyborgFusion.release.xcconfig"; sourceTree = "<group>"; };
+		421368612DA76EB10084F902 /* SendEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailController.swift; sourceTree = "<group>"; };
 		47146284F4E2ED08D4BCBA37 /* Pods-TrueDepthFusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueDepthFusion.release.xcconfig"; path = "Target Support Files/Pods-TrueDepthFusion/Pods-TrueDepthFusion.release.xcconfig"; sourceTree = "<group>"; };
 		4B8A869C6ABA6C24FE824293 /* Pods-VisualTesteriOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualTesteriOS.release.xcconfig"; path = "Target Support Files/Pods-VisualTesteriOS/Pods-VisualTesteriOS.release.xcconfig"; sourceTree = "<group>"; };
 		542369A8C29974799FD116A8 /* libPods-VisualTesterMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisualTesterMac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1337,6 +1339,7 @@
 				76857187222CCB4000066B6E /* BPLYScanningViewController.swift */,
 				768F650621215A6000C1B1DA /* ScanPreviewViewController.scn */,
 				768F650721215A6100C1B1DA /* ScanPreviewViewController.swift */,
+				421368612DA76EB10084F902 /* SendEmailController.swift */,
 				76E2E7E2212BC452006BEAC6 /* ScansViewController.swift */,
 				768F650C21215BD500C1B1DA /* Scan.h */,
 				768F650D21215BD500C1B1DA /* Scan.mm */,
@@ -2398,6 +2401,7 @@
 				76C7C6B221759CC3000941E7 /* CameraManager.swift in Sources */,
 				7693C461215886FC005A4772 /* SCPointCloudRenderer.metal in Sources */,
 				76EE33D3212E0D9000D62C3D /* SoundEffect.m in Sources */,
+				421368622DA76EB20084F902 /* SendEmailController.swift in Sources */,
 				7667811221CD77F8005BFAA2 /* UIImageHelpers.swift in Sources */,
 				76EE33CD212DDD9300D62C3D /* AudioAndHapticEngine.swift in Sources */,
 				7693C45F215886D4005A4772 /* SCPointCloudRenderer.m in Sources */,
@@ -2975,7 +2979,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = NDQ8YML4NY;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2990,7 +2994,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3003,7 +3007,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = NDQ8YML4NY;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3018,7 +3022,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3033,7 +3037,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = NDQ8YML4NY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StandardCyborgFusion",
@@ -3049,7 +3053,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion1;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";
@@ -3065,7 +3069,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = NDQ8YML4NY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StandardCyborgFusion",
@@ -3081,7 +3085,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion1;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";
