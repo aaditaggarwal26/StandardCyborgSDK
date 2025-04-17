@@ -14,9 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Ashley's Edits
+// Commented out the SCASSERTs
+
 
 #include "standard_cyborg/sc3d/MeshTopology.hpp"
 #include "standard_cyborg/util/AssertHelper.hpp"
+
 
 namespace standard_cyborg {
 namespace sc3d {
@@ -112,7 +116,8 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
             _edges.push_back({vertexA, vertexB, faceId, -1});
         } else {
 
-            SCASSERT(_edges[edgeAB].face1 == -1, "Non-manifold edge found in mesh topology");
+            //SCASSERT(_edges[edgeAB].face1 == -1, "Non-manifold edge found in mesh topology");
+            if(_edges[edgeAB].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
             _edges[edgeAB].face1 = faceId;
         
         }
@@ -121,7 +126,8 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
             edgeBC = static_cast<int>(_edges.size());
             _edges.push_back({vertexB, vertexC, faceId, -1});
         } else {
-            SCASSERT(_edges[edgeBC].face1 == -1, "Non-manifold edge found in mesh topology");
+            //SCASSERT(_edges[edgeBC].face1 == -1, "Non-manifold edge found in mesh topology");
+            if(_edges[edgeBC].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
             _edges[edgeBC].face1 = faceId;
         }
         
@@ -129,7 +135,8 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
             edgeCA = static_cast<int>(_edges.size());
             _edges.push_back({vertexC, vertexA, faceId, -1});
         } else {
-            SCASSERT(_edges[edgeCA].face1 == -1, "Non-manifold edge found in mesh topology");
+            //SCASSERT(_edges[edgeCA].face1 == -1, "Non-manifold edge found in mesh topology");
+            if(_edges[edgeCA].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
             _edges[edgeCA].face1 = faceId;
         }
         

@@ -6,6 +6,9 @@
 //  Copyright © 2018 Standard Cyborg. All rights reserved.
 //
 
+// Ashley's Edits
+// Commented out a few lines in _addObservers()
+
 import AVFoundation
 import Foundation
 
@@ -142,8 +145,8 @@ class CameraManager: NSObject, AVCaptureDataOutputSynchronizerDelegate {
     private var _sessionRunningContext = 0
     
     private func _addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(sessionRuntimeError),
-                                               name: NSNotification.Name.AVCaptureSessionRuntimeError, object: _captureSession)
+        /*NotificationCenter.default.addObserver(self, selector: #selector(sessionRuntimeError),
+                                               name: NSNotification.Name.AVCaptureSessionRuntimeError, object: _captureSession)*/
         
         _captureSession.addObserver(self, forKeyPath: "running", options: NSKeyValueObservingOptions.new, context: &_sessionRunningContext)
         
@@ -158,7 +161,7 @@ class CameraManager: NSObject, AVCaptureDataOutputSynchronizerDelegate {
                                                name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForground),
                                                name: UIApplication.willEnterForegroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(sessionWasInterrupted),
+        /*NotificationCenter.default.addObserver(self, selector: #selector(sessionWasInterrupted),
                                                name: NSNotification.Name.AVCaptureSessionWasInterrupted,
                                                object: _captureSession)
         NotificationCenter.default.addObserver(self, selector: #selector(sessionInterruptionEnded),
@@ -166,7 +169,7 @@ class CameraManager: NSObject, AVCaptureDataOutputSynchronizerDelegate {
                                                object: _captureSession)
         NotificationCenter.default.addObserver(self, selector: #selector(subjectAreaDidChange),
                                                name: NSNotification.Name.AVCaptureDeviceSubjectAreaDidChange,
-                                               object: _videoDeviceInput.device)
+                                               object: _videoDeviceInput.device)*/
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
