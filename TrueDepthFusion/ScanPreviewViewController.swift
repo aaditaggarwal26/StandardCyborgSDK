@@ -125,57 +125,60 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     }
     
     @IBAction private func _runMeshing(_ sender: Any) {
-        guard let scan = scan else { return }
-        
-        meshingProgressContainer.isHidden = false
-        meshingProgressContainer.alpha = 0
-        meshingProgressView.progress = 0
-        UIView.animate(withDuration: 0.4) {
-            self.meshingProgressContainer.alpha = 1
-        }
-        
-        let meshingParameters = SCMeshingParameters()
-        meshingParameters.resolution = 10
-        meshingParameters.smoothness = 5
-        meshingParameters.surfaceTrimmingAmount = 10
-        meshingParameters.closed = false
-        
-        let textureResolutionPixels = 2048
-        
-        scan.meshTexturing.reconstructMesh(
-            pointCloud: scan.pointCloud,
-            textureResolution: textureResolutionPixels,
-            meshingParameters: meshingParameters,
-            coloringStrategy: .vertex,
-            progress: { percentComplete, shouldStop in
-                DispatchQueue.main.async {
-                    self.meshingProgressView.progress = percentComplete
-                }
-                
-                shouldStop.pointee = ObjCBool(self._shouldCancelMeshing)
-            },
-            completion: { error, scMesh in
-                if let error = error {
-                    print("Meshing error: \(error)")
-                }
-                
-                DispatchQueue.main.async {
-                    self.meshingProgressContainer.isHidden = true
-                    self._shouldCancelMeshing = false
-                    
-                    if let mesh = scMesh {
-                        let node = mesh.buildMeshNode()
-                        node.transform = self._pointCloudNode?.transform ?? SCNMatrix4Identity
-                        self._pointCloudNode = node
-                        self._mesh = mesh
-                        self._export(mesh)
-                    }
-                }
-                // Here?
-            }
-        )
-        // Here?
+    guard let scan = scan else { return }
+    
+    meshingProgressContainer.isHidden = false
+    meshingProgressContainer.alpha = 0
+    meshingProgressView.progress = 0
+    UIView.animate(withDuration: 0.4) {
+        self.meshingProgressContainer.alpha = 1
     }
+    
+    let meshingParameters = SCMeshingParameters()
+    // Lower resolution for more detail in the mesh
+    meshingParameters.resolution = 4  // Lower value = more detail
+    // Lower smoothness to keep details
+    meshingParameters.smoothness = 1
+    // Decrease trimming to keep more of the mesh
+    meshingParameters.surfaceTrimmingAmount = 3  // Lower value = keep more of the point cloud
+    // Keep as true to help create a solid mesh
+    meshingParameters.closed = true
+    
+    let textureResolutionPixels = 2048
+    
+    scan.meshTexturing.reconstructMesh(
+        pointCloud: scan.pointCloud,
+        textureResolution: textureResolutionPixels,
+        meshingParameters: meshingParameters,
+        // Change coloring strategy to textured which requires UV mapping
+        coloringStrategy: .textured,
+        progress: { percentComplete, shouldStop in
+            DispatchQueue.main.async {
+                self.meshingProgressView.progress = percentComplete
+            }
+            
+            shouldStop.pointee = ObjCBool(self._shouldCancelMeshing)
+        },
+        completion: { error, scMesh in
+            if let error = error {
+                print("Meshing error: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self.meshingProgressContainer.isHidden = true
+                self._shouldCancelMeshing = false
+                
+                if let mesh = scMesh {
+                    let node = mesh.buildMeshNode()
+                    node.transform = self._pointCloudNode?.transform ?? SCNMatrix4Identity
+                    self._pointCloudNode = node
+                    self._mesh = mesh
+                    self._export(mesh)
+                }
+            }
+        }
+    )
+}
     
     @IBAction private func cancelMeshing(_ sender: Any) {
         _shouldCancelMeshing = true
