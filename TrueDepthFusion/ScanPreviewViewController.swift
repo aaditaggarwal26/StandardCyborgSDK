@@ -135,13 +135,10 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     }
     
     let meshingParameters = SCMeshingParameters()
-    // Lower resolution for more detail in the mesh
-    meshingParameters.resolution = 4  // Lower value = more detail
-    // Lower smoothness to keep details
+    // Use your original settings that worked for scanning
+    meshingParameters.resolution = 5
     meshingParameters.smoothness = 1
-    // Decrease trimming to keep more of the mesh
-    meshingParameters.surfaceTrimmingAmount = 3  // Lower value = keep more of the point cloud
-    // Keep as true to help create a solid mesh
+    meshingParameters.surfaceTrimmingAmount = 5
     meshingParameters.closed = true
     
     let textureResolutionPixels = 2048
@@ -150,8 +147,8 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         pointCloud: scan.pointCloud,
         textureResolution: textureResolutionPixels,
         meshingParameters: meshingParameters,
-        // Change coloring strategy to textured which requires UV mapping
-        coloringStrategy: .textured,
+        // Use vertex coloring to bypass UV mapping issues
+        coloringStrategy: .vertex,
         progress: { percentComplete, shouldStop in
             DispatchQueue.main.async {
                 self.meshingProgressView.progress = percentComplete
