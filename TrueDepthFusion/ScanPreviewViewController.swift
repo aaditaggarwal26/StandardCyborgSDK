@@ -135,9 +135,9 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         }
         
         let meshingParameters = SCMeshingParameters()
-        meshingParameters.resolution = 8
-        meshingParameters.smoothness = 2
-        meshingParameters.surfaceTrimmingAmount = 6
+        meshingParameters.resolution = 10
+        meshingParameters.smoothness = 5
+        meshingParameters.surfaceTrimmingAmount = 10
         meshingParameters.closed = false
         
         let textureResolutionPixels = 2048
