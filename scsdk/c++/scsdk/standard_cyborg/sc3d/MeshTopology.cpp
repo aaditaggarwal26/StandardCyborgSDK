@@ -14,10 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Ashley's Edits
-// Commented out the SCASSERTs
-
-
 #include "standard_cyborg/sc3d/MeshTopology.hpp"
 #include "standard_cyborg/util/AssertHelper.hpp"
 
@@ -88,13 +84,19 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
 
             // Check for an edge that matches either AB or BA
             if ((edge.vertex0 == vertexA && edge.vertex1 == vertexB) || (edge.vertex0 == vertexB && edge.vertex1 == vertexA)) {
-                edgeAB = edgeIndex;
+                // Only use this edge if face1 is not yet assigned
+                if (edge.face1 == -1) {
+                    edgeAB = edgeIndex;
+                }
                 if (edgeCA != -1) break;
             }
             
             // Similarly, check for an edge matching AC or CA
             if ((edge.vertex0 == vertexA && edge.vertex1 == vertexC) || (edge.vertex0 == vertexC && edge.vertex1 == vertexA)) {
-                edgeCA = edgeIndex;
+                // Only use this edge if face1 is not yet assigned
+                if (edge.face1 == -1) {
+                    edgeCA = edgeIndex;
+                }
                 if (edgeAB != -1) break;
             }
         }
@@ -105,7 +107,10 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
             // The procedure for vertex B's edges is slightly different. Since we've checked
             // A-C and A-B. we now only need to check for matches with edge B-C.
             if ((edge.vertex0 == vertexB && edge.vertex1 == vertexC) || (edge.vertex0 == vertexC && edge.vertex1 == vertexB)) {
-                edgeBC = edgeIndex;
+                // Only use this edge if face1 is not yet assigned
+                if (edge.face1 == -1) {
+                    edgeBC = edgeIndex;
+                }
                 break;
             }
         }
@@ -115,29 +120,39 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
             edgeAB = static_cast<int>(_edges.size());
             _edges.push_back({vertexA, vertexB, faceId, -1});
         } else {
-
-            //SCASSERT(_edges[edgeAB].face1 == -1, "Non-manifold edge found in mesh topology");
-            if(_edges[edgeAB].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
-            _edges[edgeAB].face1 = faceId;
-        
+            // If edge already has two faces, create a new edge instead
+            if(_edges[edgeAB].face1 != -1) {
+                edgeAB = static_cast<int>(_edges.size());
+                _edges.push_back({vertexA, vertexB, faceId, -1});
+            } else {
+                _edges[edgeAB].face1 = faceId;
+            }
         }
         
         if (edgeBC == -1) {
             edgeBC = static_cast<int>(_edges.size());
             _edges.push_back({vertexB, vertexC, faceId, -1});
         } else {
-            //SCASSERT(_edges[edgeBC].face1 == -1, "Non-manifold edge found in mesh topology");
-            if(_edges[edgeBC].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
-            _edges[edgeBC].face1 = faceId;
+            // If edge already has two faces, create a new edge instead
+            if(_edges[edgeBC].face1 != -1) {
+                edgeBC = static_cast<int>(_edges.size());
+                _edges.push_back({vertexB, vertexC, faceId, -1});
+            } else {
+                _edges[edgeBC].face1 = faceId;
+            }
         }
         
         if (edgeCA == -1) {
             edgeCA = static_cast<int>(_edges.size());
             _edges.push_back({vertexC, vertexA, faceId, -1});
         } else {
-            //SCASSERT(_edges[edgeCA].face1 == -1, "Non-manifold edge found in mesh topology");
-            if(_edges[edgeCA].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
-            _edges[edgeCA].face1 = faceId;
+            // If edge already has two faces, create a new edge instead
+            if(_edges[edgeCA].face1 != -1) {
+                edgeCA = static_cast<int>(_edges.size());
+                _edges.push_back({vertexC, vertexA, faceId, -1});
+            } else {
+                _edges[edgeCA].face1 = faceId;
+            }
         }
         
         // Set the three edges for this face
@@ -157,6 +172,31 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
     }
     
     //std::cout<<"topology actual size = "<<_vertexEdges.size()<<std::endl;
+}
+
+void MeshTopology::validateTopology() 
+{
+    // Simple validation function to check if we have non-manifold edges
+    int nonManifoldCount = 0;
+    
+    // Count edges that connect the same pair of vertices
+    for (size_t i = 0; i < _edges.size(); i++) {
+        for (size_t j = i + 1; j < _edges.size(); j++) {
+            if ((_edges[i].vertex0 == _edges[j].vertex0 && _edges[i].vertex1 == _edges[j].vertex1) || 
+                (_edges[i].vertex0 == _edges[j].vertex1 && _edges[i].vertex1 == _edges[j].vertex0)) {
+                if (_edges[i].face0 != -1 && _edges[j].face0 != -1) {
+                    nonManifoldCount++;
+                }
+            }
+        }
+    }
+    
+    if (nonManifoldCount > 0) {
+        std::cout << "Warning: Mesh topology validation found " << nonManifoldCount 
+                  << " non-manifold edges. This should not happen with properly repaired mesh." << std::endl;
+    } else {
+        std::cout << "Mesh topology validation successful. All edges are properly manifold." << std::endl;
+    }
 }
 
 const std::vector<Edge> MeshTopology::getEdges() const
