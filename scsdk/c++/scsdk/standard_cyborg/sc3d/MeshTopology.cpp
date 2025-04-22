@@ -14,9 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Ashley's Edits
+// Commented out the SCASSERTs
+
+
 #include "standard_cyborg/sc3d/MeshTopology.hpp"
 #include "standard_cyborg/util/AssertHelper.hpp"
-#include <iostream>
+
 
 namespace standard_cyborg {
 namespace sc3d {
@@ -54,11 +58,10 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
     // array of vertex data right before we're done.
     _vertexEdges.reserve(static_cast<int>(numFaces * 0.52));
     
+    //std::cout<<"topology estimated capcity = "<<_vertexEdges.capacity()<<std::endl;
+    
     // We know exactly the required length here
     _faceEdges.resize(numFaces);
-    
-    // Track non-manifold edges to handle them properly
-    bool hasNonManifoldEdges = false;
     
     for (int faceId = 0; faceId < numFaces; faceId++) {
         Face3 face = faces[faceId];
@@ -112,51 +115,29 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
             edgeAB = static_cast<int>(_edges.size());
             _edges.push_back({vertexA, vertexB, faceId, -1});
         } else {
-            // Handle non-manifold edge instead of asserting
-            if (_edges[edgeAB].face1 != -1) {
-                hasNonManifoldEdges = true;
-                std::cerr << "Warning: Non-manifold edge found in mesh topology at face " << faceId << std::endl;
-                
-                // Create a duplicate edge instead of reusing the non-manifold one
-                edgeAB = static_cast<int>(_edges.size());
-                _edges.push_back({vertexA, vertexB, faceId, -1});
-            } else {
-                _edges[edgeAB].face1 = faceId;
-            }
+
+            //SCASSERT(_edges[edgeAB].face1 == -1, "Non-manifold edge found in mesh topology");
+            if(_edges[edgeAB].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
+            _edges[edgeAB].face1 = faceId;
+        
         }
         
         if (edgeBC == -1) {
             edgeBC = static_cast<int>(_edges.size());
             _edges.push_back({vertexB, vertexC, faceId, -1});
         } else {
-            // Handle non-manifold edge instead of asserting
-            if (_edges[edgeBC].face1 != -1) {
-                hasNonManifoldEdges = true;
-                std::cerr << "Warning: Non-manifold edge found in mesh topology at face " << faceId << std::endl;
-                
-                // Create a duplicate edge instead of reusing the non-manifold one
-                edgeBC = static_cast<int>(_edges.size());
-                _edges.push_back({vertexB, vertexC, faceId, -1});
-            } else {
-                _edges[edgeBC].face1 = faceId;
-            }
+            //SCASSERT(_edges[edgeBC].face1 == -1, "Non-manifold edge found in mesh topology");
+            if(_edges[edgeBC].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
+            _edges[edgeBC].face1 = faceId;
         }
         
         if (edgeCA == -1) {
             edgeCA = static_cast<int>(_edges.size());
             _edges.push_back({vertexC, vertexA, faceId, -1});
         } else {
-            // Handle non-manifold edge instead of asserting
-            if (_edges[edgeCA].face1 != -1) {
-                hasNonManifoldEdges = true;
-                std::cerr << "Warning: Non-manifold edge found in mesh topology at face " << faceId << std::endl;
-                
-                // Create a duplicate edge instead of reusing the non-manifold one
-                edgeCA = static_cast<int>(_edges.size());
-                _edges.push_back({vertexC, vertexA, faceId, -1});
-            } else {
-                _edges[edgeCA].face1 = faceId;
-            }
+            //SCASSERT(_edges[edgeCA].face1 == -1, "Non-manifold edge found in mesh topology");
+            if(_edges[edgeCA].face1 != -1) {printf("Non-manifold edge found in mesh topology");}
+            _edges[edgeCA].face1 = faceId;
         }
         
         // Set the three edges for this face
@@ -175,9 +156,7 @@ void MeshTopology::compute(const std::vector<Face3>& faces)
         _vertexEdges[vertexC].insert(edgeCA);
     }
     
-    if (hasNonManifoldEdges) {
-        std::cout << "Warning: Mesh contains non-manifold edges. Mesh quality may be affected." << std::endl;
-    }
+    //std::cout<<"topology actual size = "<<_vertexEdges.size()<<std::endl;
 }
 
 const std::vector<Edge> MeshTopology::getEdges() const
