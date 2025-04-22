@@ -80,6 +80,8 @@ public:
     MeshTopology& operator=(MeshTopology const& other) = delete;
     
 private:
+    void validateTopology();
+    
     std::vector<Edge> _edges;
     std::vector<FaceEdges> _faceEdges;
     std::vector<VertexEdges> _vertexEdges;
