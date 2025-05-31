@@ -20,8 +20,6 @@
     SCNGeometrySource *_normalSource;
     SCNGeometrySource *_colorSource;
     SCPointCloud *_pointCloud;
-    
-    SCMeshTexturing *_meshTexturing;
 }
 
 + (NSString *)stringFromDate:(NSDate *)date
@@ -38,7 +36,7 @@
  
 - (instancetype)initWithPointCloud:(SCPointCloud *)pointCloud
                          thumbnail:(UIImage * _Nullable)thumbnail
-                         meshTexturing:(SCMeshTexturing*)meshTexturing
+                         meshTexturing:(id _Nullable)meshTexturing
 {
     self = [super init];
     if (self) {
@@ -46,8 +44,7 @@
         _thumbnail = thumbnail;
         _dateCreated = [NSDate date];
         
-        _meshTexturing = meshTexturing;
-
+        // Removed meshTexturing assignment - we don't need it anymore
     }
     return self;
 }

@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <StandardCyborgFusion/SCMeshTexturing.h>
-
 @class SCPointCloud;
 @class SCNGeometrySource;
 @class UIImage;
@@ -22,8 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithPointCloud:(SCPointCloud *)scan
                          thumbnail:(UIImage * _Nullable)thumbnail
-                         meshTexturing:(SCMeshTexturing*)meshTexturing
-;
+                         meshTexturing:(id _Nullable)meshTexturing;
 
 - (instancetype)initWithPLYPath:(NSString *)path;
 
@@ -38,8 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) SCNGeometrySource *vertexSource;
 @property (nonatomic, readonly) SCNGeometrySource *normalSource;
 @property (nonatomic, readonly) SCNGeometrySource *colorSource;
- 
-@property (nonatomic, readonly) SCMeshTexturing *meshTexturing;
 
 @end
 

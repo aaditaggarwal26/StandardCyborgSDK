@@ -2,7 +2,7 @@ import MediaPlayer
 import StandardCyborgFusion
 import UIKit
 
-class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconstructionManagerDelegate {
+class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCReconstructionManagerDelegate {
     
     private enum ScanningTerminationReason {
         case canceled
@@ -14,11 +14,9 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     @IBOutlet private weak var metalContainerView: UIView!
     @IBOutlet private weak var scanDurationContainerView: UIView!
     @IBOutlet private weak var scanDurationLabel: UILabel!
-    @IBOutlet private weak var showScansButton: UIButton!
     @IBOutlet private weak var elapsedDurationLabel: UILabel!
     @IBOutlet private weak var shutterButton: UIButton!
     @IBOutlet private weak var countdownLabel: UILabel!
-    @IBOutlet private weak var scanFailedLabel: UILabel!
     
     // MARK: -
     
@@ -44,14 +42,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction private func showLatestScan(_ sender: UIButton) {
-        guard let scan = _appDelegate.scans.first else { return }
-        
-        _scanPreviewViewController.scan = scan
-        
-        present(_scanPreviewViewController, animated: true, completion: nil)
-    }
-    
     // MARK: - Properties
     
     private let _appDelegate = UIApplication.shared.delegate! as! AppDelegate
@@ -62,9 +52,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     
     private var _latestViewMatrix = matrix_identity_float4x4
     private var _scanningTimer: Timer?
-    
-    private let _meshTexturing = SCMeshTexturing()
-    private var _frameIndex = 0
     
     private lazy var _algorithmCommandQueue: MTLCommandQueue = _metalDevice.makeCommandQueue()!
     private lazy var _visualizationCommandQueue: MTLCommandQueue = _metalDevice.makeCommandQueue()!
@@ -94,8 +81,8 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         _reconstructionManager.delegate = self
         _reconstructionManager.includesColorBuffersInMetadata = true
         
-        _algorithmCommandQueue.label = "ScanningViewController._algorithmCommandQueue"
-        _visualizationCommandQueue.label = "ScanningViewController._visualizationCommandQueue"
+        _algorithmCommandQueue.label = "BPLYScanningViewController._algorithmCommandQueue"
+        _visualizationCommandQueue.label = "BPLYScanningViewController._visualizationCommandQueue"
         
         _installVolumeShutterButton()
         
@@ -106,8 +93,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let latestScan = _appDelegate.scans.first
-        showScansButton.setBackgroundImage(latestScan?.thumbnail, for: UIControl.State.normal)
         scanDurationContainerView.isHidden = _tapToStartStop
         
         _cameraManager.startSession { result in
@@ -246,28 +231,10 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     {
         _latestViewMatrix = metadata.viewMatrix
         
-        if metadata.result == .succeeded || metadata.result == .poorTracking {
-            _meshTexturing.cameraCalibrationData = manager.latestCameraCalibrationData
-            _meshTexturing.cameraCalibrationFrameWidth = manager.latestCameraCalibrationFrameWidth
-            _meshTexturing.cameraCalibrationFrameHeight = manager.latestCameraCalibrationFrameHeight
-            
-            if _frameIndex % 5 == 0 {
-                
-                _meshTexturing.saveColorBufferForReconstruction(
-                    metadata.colorBuffer!.takeUnretainedValue(),
-                    withViewMatrix: metadata.viewMatrix,
-                    projectionMatrix: metadata.projectionMatrix)
-            }
-            
-            _frameIndex += 1
-        }
-        
         if _stopScanOnReconFail && metadata.result == .failed {
             let assimilatedTooFewFrames = statistics.succeededCount < self._failedScanShowPreviewMinFrameCount
             
             self._stopScanning(reason: assimilatedTooFewFrames ? .canceled : .finished)
-            
-            self._showScanFailedMessage()
         }
     }
     
@@ -392,8 +359,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         
         _elapsedSeconds = 0
         _scanning = true
-        _meshTexturing.reset()
-        _frameIndex = 0
     }
     
     private func _stopScanning(reason: ScanningTerminationReason) {
@@ -420,7 +385,7 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
                 
                 let scan = Scan(pointCloud: pointCloud,
                                 thumbnail: nil,
-                                meshTexturing: self._meshTexturing)
+                                meshTexturing: nil)
                 
                 self._scanPreviewViewController.scan = scan
                 self.present(self._scanPreviewViewController, animated: true, completion: nil)
@@ -432,17 +397,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
             _reconstructionManager.reset()
             _cameraManager.paused = false
         }
-    }
-    
-    private func _showScanFailedMessage() {
-        scanFailedLabel.isHidden = false
-        scanFailedLabel.alpha = 1
-        
-        UIView.animate(withDuration: 0.8, delay: 3.0, options: [], animations: {
-            self.scanFailedLabel.alpha = 0
-        }, completion: { finished in
-            self.scanFailedLabel.isHidden = true
-        })
     }
     
     // MARK: - Volume Shutter Button
