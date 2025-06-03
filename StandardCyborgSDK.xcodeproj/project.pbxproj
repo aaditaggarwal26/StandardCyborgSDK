@@ -2979,7 +2979,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = NDQ8YML4NY;
+				DEVELOPMENT_TEAM = 2JD889U6XW;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2994,7 +2994,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3007,7 +3007,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = NDQ8YML4NY;
+				DEVELOPMENT_TEAM = 2JD889U6XW;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3022,7 +3022,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3037,7 +3037,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NDQ8YML4NY;
+				DEVELOPMENT_TEAM = 2JD889U6XW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StandardCyborgFusion",
@@ -3053,7 +3053,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion123;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";
@@ -3069,7 +3069,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NDQ8YML4NY;
+				DEVELOPMENT_TEAM = 2JD889U6XW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StandardCyborgFusion",
@@ -3085,7 +3085,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion123;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";
