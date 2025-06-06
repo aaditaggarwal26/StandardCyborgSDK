@@ -1,9 +1,9 @@
 //
 //  SCFootTracking.m
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 10/11/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreImage/CoreImage.h>

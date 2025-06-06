@@ -1,12 +1,12 @@
 //
 //  MetalSurfelIndexMap.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 4/19/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
-#import <StandardCyborgFusion/SurfelIndexMap.hpp>
+#import <RHLwoundcare/SurfelIndexMap.hpp>
 #import <Metal/Metal.h>
 
 class MetalSurfelIndexMap: public SurfelIndexMap {

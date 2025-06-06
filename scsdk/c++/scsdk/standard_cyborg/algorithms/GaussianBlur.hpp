@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@ limitations under the License.
 */
 #pragma once
 
-#include "standard_cyborg/util/AssertHelper.hpp"
+#include "rhl_woundcare/util/AssertHelper.hpp"
 
 #include <vector>
 #include <algorithm>
@@ -23,7 +23,7 @@ limitations under the License.
 #define _USE_MATH_DEFINES
 #include <cmath>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class ColorImage;
@@ -37,8 +37,8 @@ void computeGaussianBlurKernel (std::vector<float>& kernelOut, float radius);
 template <class T>
 void GaussianBlur(std::vector<T>& output, const std::vector<T>& input, int width, int height, float radius);
 
-void GaussianBlur(standard_cyborg::sc3d::ColorImage& output, const standard_cyborg::sc3d::ColorImage& input, float radius);
-void GaussianBlur(standard_cyborg::sc3d::DepthImage& output, const standard_cyborg::sc3d::DepthImage& input, float radius);
+void GaussianBlur(rhl_woundcare::sc3d::ColorImage& output, const rhl_woundcare::sc3d::ColorImage& input, float radius);
+void GaussianBlur(rhl_woundcare::sc3d::DepthImage& output, const rhl_woundcare::sc3d::DepthImage& input, float radius);
 
 
 /* Generic template implementation */

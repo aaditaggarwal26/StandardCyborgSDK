@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,15 +18,15 @@
 
 #include <sstream>
 
-#include "standard_cyborg/sc3d/Landmark.hpp"
-#include "standard_cyborg/io/json/LandmarkFileIO_JSON.hpp"
+#include "rhl_woundcare/sc3d/Landmark.hpp"
+#include "rhl_woundcare/io/json/LandmarkFileIO_JSON.hpp"
 
-using standard_cyborg::sc3d::Landmark;
+using rhl_woundcare::sc3d::Landmark;
 
-using standard_cyborg::io::json::WriteLandmarkToJSONStream;
-using standard_cyborg::io::json::ReadLandmarkFromJSONStream;
-using standard_cyborg::io::json::WriteLandmarkToJSONFile;
-using standard_cyborg::io::json::ReadLandmarkFromJSONFile;
+using rhl_woundcare::io::json::WriteLandmarkToJSONStream;
+using rhl_woundcare::io::json::ReadLandmarkFromJSONStream;
+using rhl_woundcare::io::json::WriteLandmarkToJSONFile;
+using rhl_woundcare::io::json::ReadLandmarkFromJSONFile;
 
 TEST(LandmarkFileIOTests, testLandmarkReadWrite)
 {

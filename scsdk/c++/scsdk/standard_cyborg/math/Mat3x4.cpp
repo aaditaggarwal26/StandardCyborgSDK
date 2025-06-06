@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,15 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
 
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/math/Mat4x4.hpp"
-#include "standard_cyborg/math/Transform.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat4x4.hpp"
+#include "rhl_woundcare/math/Transform.hpp"
 
 #include <cmath>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace math {
 
 // clang-format off
@@ -254,4 +254,4 @@ Mat3x4 Mat3x4::fromTransform(const Transform& t) {
 }
 
 } // namespace math
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

@@ -1,16 +1,16 @@
 //
 //  SurfelIndexMap.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/26/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <StandardCyborgFusion/EigenHelpers.hpp>
-#include <StandardCyborgFusion/RawFrame.hpp>
-#include <StandardCyborgFusion/Surfel.hpp>
+#include <RHLwoundcare/EigenHelpers.hpp>
+#include <RHLwoundcare/RawFrame.hpp>
+#include <RHLwoundcare/Surfel.hpp>
 #include <vector>
 
 class SurfelIndexMap {

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -20,9 +20,9 @@
  #define _USE_MATH_DEFINES
  #include <cmath>
  
- #include <StandardCyborgData/Face3.hpp>
+ #include <RHLwoundcareData/Face3.hpp>
  
- using namespace StandardCyborg;
+ using namespace RHLwoundcare;
  
  @interface Face3Tests : XCTestCase
  
@@ -33,9 +33,9 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/Face3.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
 
-using namespace standard_cyborg::sc3d;
+using namespace rhl_woundcare::sc3d;
 
 TEST(Face3Tests, testGetIndex)
 {

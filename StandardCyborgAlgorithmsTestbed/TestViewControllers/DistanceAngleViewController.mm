@@ -1,17 +1,17 @@
 //
 //  DistanceAngleViewController.mm
-//  StandardCyborgGeometryTestbed
+//  RHLwoundcareGeometryTestbed
 //
 //  Created by Aaron Thompson on 3/28/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <SceneKit/SceneKit.h>
-#import <StandardCyborgFusion/SceneKit+Geometry.h>
+#import <RHLwoundcare/SceneKit+Geometry.h>
 
 #import "DistanceAngleViewController.h"
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
 #import "NodeToNodeLineNode.h"
 
 @implementation DistanceAngleViewController {

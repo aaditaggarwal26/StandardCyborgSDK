@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/sc3d/MeshTopology.hpp"
-#include "standard_cyborg/util/AssertHelper.hpp"
+#include "rhl_woundcare/sc3d/MeshTopology.hpp"
+#include "rhl_woundcare/util/AssertHelper.hpp"
 
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 namespace MeshTopology {
 
@@ -229,6 +229,6 @@ int MeshTopology::getNumVertexEdges() const
     return static_cast<int>(_vertexEdges.size());
 }
 
-} // namespace standard_cyborg::MeshTopology
+} // namespace rhl_woundcare::MeshTopology
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

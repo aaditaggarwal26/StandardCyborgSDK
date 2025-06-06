@@ -1,18 +1,18 @@
 //
 //  PointCloudIO_JSON.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 3/11/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #include <nlohmann/json.hpp>
-#include <StandardCyborgFusion/PointCloudIO.hpp>
-#include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
-#include <standard_cyborg/io/json/PerspectiveCameraFileIO_JSON_Private.hpp>
+#include <RHLwoundcare/PointCloudIO.hpp>
+#include <rhl_woundcare/sc3d/PerspectiveCamera.hpp>
+#include <rhl_woundcare/io/json/PerspectiveCameraFileIO_JSON_Private.hpp>
 
 using JSON = nlohmann::json;
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 sc3d::PerspectiveCamera PointCloudIO::PerspectiveCameraFromJSON(const JSON& json)
 {

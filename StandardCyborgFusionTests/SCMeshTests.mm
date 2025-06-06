@@ -1,9 +1,9 @@
 //
 //  SCMeshTests.mm
-//  StandardCyborgFusionTests
+//  RHLwoundcareTests
 //
 //  Created by Aaron Thompson on 10/19/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
@@ -11,9 +11,9 @@
 #import "SCMesh+FileIO.h"
 #import "SCMesh_Private.h"
 
-using namespace standard_cyborg;
-using namespace standard_cyborg::math;
-using namespace standard_cyborg::sc3d;
+using namespace rhl_woundcare;
+using namespace rhl_woundcare::math;
+using namespace rhl_woundcare::sc3d;
 
 
 @interface SCMeshTests : XCTestCase

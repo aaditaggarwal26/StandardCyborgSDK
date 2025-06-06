@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/algorithms/MeshSlice.hpp"
+#include "rhl_woundcare/algorithms/MeshSlice.hpp"
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Plane.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/sc3d/MeshTopology.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Plane.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/MeshTopology.hpp"
 
 #include <unordered_map>
 
@@ -30,7 +30,7 @@ limitations under the License.
 
 #define MAX_EDGE_MARCH_STEPS 100000
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 using math::Vec3;
 using sc3d::Polyline;
@@ -194,4 +194,4 @@ std::vector<sc3d::Polyline> sliceMesh(const sc3d::Geometry& geometry,
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

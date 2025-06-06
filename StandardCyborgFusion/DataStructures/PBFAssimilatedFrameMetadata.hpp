@@ -1,14 +1,14 @@
 //
 //  PBFAssimilatedFrameMetadata.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 9/28/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
 
 struct PBFAssimilatedFrameMetadata {
     /**

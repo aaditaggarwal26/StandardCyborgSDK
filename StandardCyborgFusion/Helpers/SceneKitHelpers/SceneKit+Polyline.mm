@@ -1,16 +1,16 @@
 //
 //  SceneKit+Polyline.m
-//  StandardCyborgData
+//  RHLwoundcareData
 //
 //  Created by Ricky Reusser on 5/20/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SceneKit+Polyline.h"
-#import <standard_cyborg/math/Vec3.hpp>
+#import <rhl_woundcare/math/Vec3.hpp>
 #import <vector>
 
-@implementation SCNNode (StandardCyborgDataPolyline)
+@implementation SCNNode (RHLwoundcareDataPolyline)
 
 + (instancetype)nodeFromPolyline:(const sc3d::Polyline&)polyline
 {

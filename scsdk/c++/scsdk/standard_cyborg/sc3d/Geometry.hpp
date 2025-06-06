@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,13 +19,13 @@ limitations under the License.
 
 #include <vector>
 
-#include "standard_cyborg/sc3d/Face3.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 struct RayTraceResult {
@@ -173,5 +173,5 @@ private:
 bool operator==(const Geometry& lhs, const Geometry& rhs);
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare
 

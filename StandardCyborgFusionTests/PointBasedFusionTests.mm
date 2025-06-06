@@ -1,19 +1,19 @@
 //
-//  StandardCyborgFusionTests.mm
-//  StandardCyborgFusionTests
+//  RHLwoundcareTests.mm
+//  RHLwoundcareTests
 //
 //  Created by Aaron Thompson on 7/10/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <RHLwoundcare/RHLwoundcare.h>
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <standard_cyborg/util/DataUtils.hpp>
-#include <StandardCyborgFusion/MathHelpers.h>
-#include <StandardCyborgFusion/MetalDepthProcessor.hpp>
-#include <StandardCyborgFusion/PBFModel.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
+#include <rhl_woundcare/util/DataUtils.hpp>
+#include <RHLwoundcare/MathHelpers.h>
+#include <RHLwoundcare/MetalDepthProcessor.hpp>
+#include <RHLwoundcare/PBFModel.hpp>
 
 #include "Helpers/PathHelpers.h"
 #include "Helpers/ReconstructionHelpers.h"
@@ -21,21 +21,21 @@
 #include <iostream>
 #include <cmath>
 
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <standard_cyborg/math/Mat3x4.hpp>
-#import <standard_cyborg/math/Mat3x3.hpp>
-#import <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <rhl_woundcare/math/Mat3x4.hpp>
+#import <rhl_woundcare/math/Mat3x3.hpp>
+#import <rhl_woundcare/sc3d/PerspectiveCamera.hpp>
 
 
 // https://stackoverflow.com/questions/39680320/printing-debugging-libc-stl-with-xcode-lldb
 template struct std::vector<Eigen::VectorXf>;
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
-@interface StandardCyborgFusionTests : XCTestCase
+@interface RHLwoundcareTests : XCTestCase
 
 @end
 
-@implementation StandardCyborgFusionTests
+@implementation RHLwoundcareTests
 
 - (sc3d::PerspectiveCamera)_realPerspectiveCamera
 {

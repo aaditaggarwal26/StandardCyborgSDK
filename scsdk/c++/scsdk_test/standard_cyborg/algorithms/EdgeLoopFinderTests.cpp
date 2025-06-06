@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,14 +17,14 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/EdgeLoopFinder.hpp"
+#include "rhl_woundcare/algorithms/EdgeLoopFinder.hpp"
 
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 
 
 TEST(EdgeLoopFinderTests, testFindEdgeLoops) {
@@ -73,7 +73,7 @@ TEST(EdgeLoopFinderTests, testFindEdgeLoops) {
         {0.0f, 0.2f, 0.0f},
     };
     
-    std::vector<standard_cyborg::sc3d::Face3> faces {
+    std::vector<rhl_woundcare::sc3d::Face3> faces {
         { 0, 1, 2 },
         { 3, 4, 5 },
         
@@ -81,9 +81,9 @@ TEST(EdgeLoopFinderTests, testFindEdgeLoops) {
         { 7, 9, 8 },
     };
     
-    standard_cyborg::sc3d::Geometry geometry0 (positions, normals, colors, faces);
+    rhl_woundcare::sc3d::Geometry geometry0 (positions, normals, colors, faces);
     
-    std::vector<std::vector<std::pair<int,int>>> edgeLoops =  standard_cyborg::algorithms::findEdgeLoops(geometry0);
+    std::vector<std::vector<std::pair<int,int>>> edgeLoops =  rhl_woundcare::algorithms::findEdgeLoops(geometry0);
     
     {
         std::vector<std::pair<int,int> > loop0 = {

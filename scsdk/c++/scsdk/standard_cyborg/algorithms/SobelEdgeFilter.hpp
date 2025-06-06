@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 #pragma once
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class DepthImage;
@@ -28,10 +28,10 @@ namespace algorithms {
  * may *not* be the same image instance. To prevent noise that doesn't correspond to edges, the
  * `threshold` parameter is a value below which output values are mapped to zero.
  */
-void SobelEdgeFilter(standard_cyborg::sc3d::ColorImage& dst, const standard_cyborg::sc3d::ColorImage& src, float threshold = 0.25f);
+void SobelEdgeFilter(rhl_woundcare::sc3d::ColorImage& dst, const rhl_woundcare::sc3d::ColorImage& src, float threshold = 0.25f);
 
-void SobelEdgeFilter(standard_cyborg::sc3d::DepthImage& dst, const standard_cyborg::sc3d::DepthImage& src, float threshold = 0.25f);
+void SobelEdgeFilter(rhl_woundcare::sc3d::DepthImage& dst, const rhl_woundcare::sc3d::DepthImage& src, float threshold = 0.25f);
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

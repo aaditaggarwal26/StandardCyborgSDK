@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,17 +18,17 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
 
-#include "standard_cyborg/util/DebugHelpers.hpp"
+#include "rhl_woundcare/util/DebugHelpers.hpp"
 
-using standard_cyborg::sc3d::Geometry;
-using standard_cyborg::sc3d::VertexSelection;
-using standard_cyborg::sc3d::Face3;
+using rhl_woundcare::sc3d::Geometry;
+using rhl_woundcare::sc3d::VertexSelection;
+using rhl_woundcare::sc3d::Face3;
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec4;
 using math::Vec3;
 using math::Vec2;
@@ -231,11 +231,11 @@ TEST(GeometryTests, testSetTexture)
     
     EXPECT_FALSE(geo.hasTexture());
     
-    standard_cyborg::sc3d::ColorImage texture{1, 1, {Vec4{1.0f, 0.0f, 0.0f, 1.0f}}};
+    rhl_woundcare::sc3d::ColorImage texture{1, 1, {Vec4{1.0f, 0.0f, 0.0f, 1.0f}}};
     
     bool success = geo.setTexture(texture);
     
-    standard_cyborg::sc3d::ColorImage texture2{1, 1, {Vec4{1.0f, 0.0f, 0.0f, 1.0f}}};
+    rhl_woundcare::sc3d::ColorImage texture2{1, 1, {Vec4{1.0f, 0.0f, 0.0f, 1.0f}}};
     EXPECT_TRUE(success);
     EXPECT_TRUE(geo.getTexture() == texture2);
     EXPECT_TRUE(geo.hasTexture());
@@ -723,7 +723,7 @@ TEST(GeometryTests, testRayTrace)
         Vec3 rayOrigin{+2, +5, +2};
         Vec3 rayDirection{+0,+0,-1};
         
-        standard_cyborg::sc3d::RayTraceResult result = tri.rayTrace(rayOrigin, rayDirection);
+        rhl_woundcare::sc3d::RayTraceResult result = tri.rayTrace(rayOrigin, rayDirection);
         
         EXPECT_NEAR(result.t, 2.0f, FLT_EPSILON);
         EXPECT_EQ(result.index, 0);
@@ -733,7 +733,7 @@ TEST(GeometryTests, testRayTrace)
         Vec3 rayOrigin{+3.001, +5, +2};
         Vec3 rayDirection{+0,+0,-1};
         
-        standard_cyborg::sc3d::RayTraceResult result = tri.rayTrace(rayOrigin, rayDirection);
+        rhl_woundcare::sc3d::RayTraceResult result = tri.rayTrace(rayOrigin, rayDirection);
         
         EXPECT_NEAR(result.t, 3.0f, FLT_EPSILON);
         EXPECT_EQ(result.index, 1);
@@ -750,7 +750,7 @@ TEST(GeometryTests, testRayTrace)
         Vec3 rayOrigin{+3.001 + 7.0, +5, +2};
         Vec3 rayDirection{+0,+0,-1};
         
-        standard_cyborg::sc3d::RayTraceResult result = tri.rayTrace(rayOrigin, rayDirection);
+        rhl_woundcare::sc3d::RayTraceResult result = tri.rayTrace(rayOrigin, rayDirection);
         
         EXPECT_NEAR(result.t, 3.0f, FLT_EPSILON);
         EXPECT_EQ(result.index, 1);

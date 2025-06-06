@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,12 +15,12 @@ limitations under the License.
 */
 
 
-#include "standard_cyborg/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
 
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 #include "stb_image_resize2.h"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 using math::Vec4;
@@ -199,4 +199,4 @@ void ColorImage::mutatePixelsByColRow(const std::function<Vec4(int col, int row,
 
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

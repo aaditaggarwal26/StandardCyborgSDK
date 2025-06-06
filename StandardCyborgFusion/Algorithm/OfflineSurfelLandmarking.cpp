@@ -1,13 +1,13 @@
 //
 //  OfflineSurfelLandmarking.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 5/28/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <StandardCyborgFusion/PBFDefinitions.h>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
+#include <RHLwoundcare/PBFDefinitions.h>
 #include <iostream>
 
 #include "OfflineSurfelLandmarking.hpp"

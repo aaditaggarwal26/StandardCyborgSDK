@@ -199,7 +199,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "Standard Cyborg";
+				ORGANIZATIONNAME = "RHL Woundcare";
 				TargetAttributes = {
 					764212EF22C4FD660087A14E = {
 						CreatedOnToolsVersion = 10.2.1;

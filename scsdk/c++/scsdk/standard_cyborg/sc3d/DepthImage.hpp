@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,10 +19,10 @@ limitations under the License.
 #include <functional>
 #include <vector>
 
-#include "standard_cyborg/math/Vec2.hpp"
-#include "standard_cyborg/util/AssertHelper.hpp"
+#include "rhl_woundcare/math/Vec2.hpp"
+#include "rhl_woundcare/util/AssertHelper.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 /**
@@ -163,4 +163,4 @@ inline math::Vec2 DepthImage::getTexCoordAtColRow(int col, int row) const
 
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

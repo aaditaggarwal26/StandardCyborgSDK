@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ limitations under the License.
 
 #pragma once
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d{
 class Geometry;
@@ -31,12 +31,12 @@ struct Vec3;
 
 namespace algorithms {
 
-standard_cyborg::math::Mat3x4 computeNormalwisePrincipalAxes(const sc3d::Geometry& geometry);
+rhl_woundcare::math::Mat3x4 computeNormalwisePrincipalAxes(const sc3d::Geometry& geometry);
 
-standard_cyborg::math::Mat3x4 computePointwisePrincipalAxes(const sc3d::Geometry& geometry);
+rhl_woundcare::math::Mat3x4 computePointwisePrincipalAxes(const sc3d::Geometry& geometry);
 
-standard_cyborg::math::Mat3x4 computePointwisePrincipalAxes(const std::vector<standard_cyborg::math::Vec3>& positions);
+rhl_woundcare::math::Mat3x4 computePointwisePrincipalAxes(const std::vector<rhl_woundcare::math::Vec3>& positions);
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

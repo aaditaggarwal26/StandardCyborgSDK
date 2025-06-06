@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,15 +13,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-#include "standard_cyborg/algorithms/GaussianBlur.hpp"
+#include "rhl_woundcare/algorithms/GaussianBlur.hpp"
 
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
 
-using standard_cyborg::sc3d::ColorImage;
-using standard_cyborg::sc3d::DepthImage;
+using rhl_woundcare::sc3d::ColorImage;
+using rhl_woundcare::sc3d::DepthImage;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 
@@ -65,4 +65,4 @@ void GaussianBlur(DepthImage& output, const DepthImage& input, float radius)
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

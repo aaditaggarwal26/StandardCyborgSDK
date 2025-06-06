@@ -1,26 +1,26 @@
 //
 //  SCMesh+Geometry.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 10/17/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <vector>
-#import <standard_cyborg/io/imgfile/ColorImageFileIO.hpp>
+#import <rhl_woundcare/io/imgfile/ColorImageFileIO.hpp>
 
 #import "SCMesh_Private.h"
 #import "SCMesh+Geometry.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 using sc3d::Face3;
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec4;
 using math::Vec3;
 using math::Vec2;
 
-@implementation SCMesh (StandardCyborgGeometry)
+@implementation SCMesh (RHLwoundcareGeometry)
 
 + (NSData *)_positionDataFromGeometry:(const sc3d::Geometry &)geo
 {

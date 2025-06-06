@@ -6,7 +6,7 @@ PODS:
   - SSZipArchive (2.4.3)
 
 DEPENDENCIES:
-  - PoissonRecon (from `StandardCyborgFusion/PoissonRecon.podspec`)
+  - PoissonRecon (from `RHLwoundcare/PoissonRecon.podspec`)
   - scsdk (from `scsdk/`)
   - SSZipArchive
 
@@ -17,14 +17,14 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   PoissonRecon:
-    :podspec: StandardCyborgFusion/PoissonRecon.podspec
+    :podspec: RHLwoundcare/PoissonRecon.podspec
   scsdk:
     :path: scsdk/
 
 CHECKOUT OPTIONS:
   PoissonRecon:
     :commit: 9f30316c1b247736654652c72e06b3f0db2e79ed
-    :git: "git@github.com:StandardCyborg/PoissonRecon.git"
+    :git: "git@github.com:RHLwoundcare/PoissonRecon.git"
 
 SPEC CHECKSUMS:
   EigenCPPCocoa: 4b79c92db8d6e634c34e28e3cf5e97ba1ab100b5

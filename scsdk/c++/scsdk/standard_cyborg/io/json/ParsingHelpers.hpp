@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ limitations under the License.
 #include <nlohmann/json.hpp>
 #include <vector>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace json {
 
@@ -39,4 +39,4 @@ std::vector<T> toNumericVectorWithNullAsNAN(nlohmann::basic_json<>& input) {
 
 } // namespace json
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,23 +15,23 @@ limitations under the License.
 */
 #pragma once
 
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-#include "standard_cyborg/algorithms/KMeans.hpp"
+#include "rhl_woundcare/algorithms/KMeans.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 
 struct Vec3KMeansAdaptor {
     typedef float DistanceType;
-    typedef standard_cyborg::math::Vec3 PointType;
+    typedef rhl_woundcare::math::Vec3 PointType;
     
     /*
      * Lloyd's algorithm for k-means only needs distance for the sake of comparison.
      * For this part, we can avoid some square roots.
      */
-    static inline float distanceComparisonMetric(const standard_cyborg::math::Vec3& a, const standard_cyborg::math::Vec3& b)
+    static inline float distanceComparisonMetric(const rhl_woundcare::math::Vec3& a, const rhl_woundcare::math::Vec3& b)
     {
         float d = a.x - b.x;
         float sum = d * d;
@@ -46,7 +46,7 @@ struct Vec3KMeansAdaptor {
      * to initialize the solution. For this step we actually need a meaningful distance
      * metric and not just an ordinal metric.
      */
-    static inline float distanceMetric(const standard_cyborg::math::Vec3& a, const standard_cyborg::math::Vec3& b)
+    static inline float distanceMetric(const rhl_woundcare::math::Vec3& a, const rhl_woundcare::math::Vec3& b)
     {
         float d = a.x - b.x;
         float sum = d * d;

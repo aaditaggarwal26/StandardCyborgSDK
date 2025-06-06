@@ -3,11 +3,11 @@
 //  VisualTesteriOS
 //
 //  Created by Aaron Thompson on 8/11/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <SceneKit/SceneKit.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <RHLwoundcare/RHLwoundcare.h>
 #import <nlohmann/json.hpp>
 
 #import <cstdlib>

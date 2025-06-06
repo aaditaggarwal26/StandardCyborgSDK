@@ -1,33 +1,33 @@
 //
 //  PBFModel.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/25/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
 #include <vector>
 
-#include <StandardCyborgFusion/FastRand.hpp>
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
-#include <StandardCyborgFusion/ICP.hpp>
-#include <StandardCyborgFusion/Surfel.hpp>
-#include <StandardCyborgFusion/PBFFinalStatistics.h>
-#include <StandardCyborgFusion/SurfelFusion.hpp>
+#include <RHLwoundcare/FastRand.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
+#include <rhl_woundcare/sc3d/PerspectiveCamera.hpp>
+#include <RHLwoundcare/ICP.hpp>
+#include <RHLwoundcare/Surfel.hpp>
+#include <RHLwoundcare/PBFFinalStatistics.h>
+#include <RHLwoundcare/SurfelFusion.hpp>
 
 
-#include <standard_cyborg/sc3d/Geometry.hpp>
+#include <rhl_woundcare/sc3d/Geometry.hpp>
 
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
-#include <StandardCyborgFusion/SparseSurfelLandmarksIndex.hpp>
+#include <RHLwoundcare/ScreenSpaceLandmark.hpp>
+#include <RHLwoundcare/SparseSurfelLandmarksIndex.hpp>
 #include "PBFAssimilatedFrameMetadata.hpp"
 #include "ProcessedFrame.hpp"
 #include "PBFConfiguration.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 class PBFModel {
 public:

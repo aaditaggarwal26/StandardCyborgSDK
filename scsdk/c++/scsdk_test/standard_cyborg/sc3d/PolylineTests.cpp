@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,11 +18,11 @@
 #include <vector>
 
 #include <gtest/gtest.h>
-#include "standard_cyborg/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
 
 
-using standard_cyborg::sc3d::Polyline;
-namespace math = standard_cyborg::math;
+using rhl_woundcare::sc3d::Polyline;
+namespace math = rhl_woundcare::math;
 using math::Vec3;
 
 TEST(PolylineTests, testEmptyConstructor) {

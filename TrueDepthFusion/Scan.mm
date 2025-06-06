@@ -3,15 +3,15 @@
 //  DepthRenderer
 //
 //  Created by Aaron Thompson on 5/14/18.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <ModelIO/ModelIO.h>
 #import <SceneKit/SceneKit.h>
 #import <SSZipArchive/SSZipArchive.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <RHLwoundcare/RHLwoundcare.h>
 #import <UIKit/UIKit.h>
-#import <standard_cyborg/sc3d/ColorImage.hpp>
+#import <rhl_woundcare/sc3d/ColorImage.hpp>
 
 #import "Scan.h"
 

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,13 +16,13 @@ limitations under the License.
 #pragma once
 
 
-#include "standard_cyborg/sc3d/Plane.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/sc3d/Plane.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
 
 #include <memory>
 #include <vector>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 struct Vec3;
@@ -31,14 +31,14 @@ struct Vec3;
 namespace algorithms {
 
 struct EstimatePlaneResult {
-    standard_cyborg::sc3d::Plane plane;
+    rhl_woundcare::sc3d::Plane plane;
     bool converged = false;
     float rmsProjectedDistance = 0.0;
-    std::unique_ptr<standard_cyborg::sc3d::VertexSelection> planeVertices = std::make_unique<standard_cyborg::sc3d::VertexSelection>();
+    std::unique_ptr<rhl_woundcare::sc3d::VertexSelection> planeVertices = std::make_unique<rhl_woundcare::sc3d::VertexSelection>();
 };
 
-EstimatePlaneResult estimatePlane(const std::vector<standard_cyborg::math::Vec3>& positions,
-                                  const standard_cyborg::sc3d::VertexSelection& initialVertexSet = standard_cyborg::sc3d::VertexSelection(),
+EstimatePlaneResult estimatePlane(const std::vector<rhl_woundcare::math::Vec3>& positions,
+                                  const rhl_woundcare::sc3d::VertexSelection& initialVertexSet = rhl_woundcare::sc3d::VertexSelection(),
                                   int maxIterations = 20,
                                   float outlierStandardDeviationThreshold = 5.0,
                                   float relativeConvergenceTolerance = 1e-4,
@@ -47,4 +47,4 @@ EstimatePlaneResult estimatePlane(const std::vector<standard_cyborg::math::Vec3>
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

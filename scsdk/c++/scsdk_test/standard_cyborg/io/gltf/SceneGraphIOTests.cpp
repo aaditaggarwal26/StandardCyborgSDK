@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -19,15 +19,15 @@
 
 #include <fstream>
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Landmark.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/scene_graph/SceneGraph.hpp"
-#include "standard_cyborg/io/gltf/SceneGraphFileIO_GLTF.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Landmark.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/scene_graph/SceneGraph.hpp"
+#include "rhl_woundcare/io/gltf/SceneGraphFileIO_GLTF.hpp"
 
-using namespace standard_cyborg::sc3d;
-using namespace standard_cyborg::scene_graph;
-namespace math = standard_cyborg::math;
+using namespace rhl_woundcare::sc3d;
+using namespace rhl_woundcare::scene_graph;
+namespace math = rhl_woundcare::math;
 
 std::shared_ptr<Node> getTestLandmarkNode(const std::string &name, const math::Vec3 &pos)
 {
@@ -94,10 +94,10 @@ TEST(SceneGraphIOTests, testSceneGraphsSingleNode)
     
     std::string gltfPath = "/tmp/test.gltf";
     
-    EXPECT_TRUE(standard_cyborg::io::gltf::WriteSceneGraphToGltf(originalNode, gltfPath));
+    EXPECT_TRUE(rhl_woundcare::io::gltf::WriteSceneGraphToGltf(originalNode, gltfPath));
     
     std::string gltfSource = stringFromPath(gltfPath);
-    std::shared_ptr<Node> deserializedNode = standard_cyborg::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
+    std::shared_ptr<Node> deserializedNode = rhl_woundcare::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
     GeometryNode *deserializedGeometryNode = deserializedNode->asGeometryNode();
     const Geometry &deserializedGeometry = deserializedGeometryNode->getGeometry();
     
@@ -120,10 +120,10 @@ TEST(SceneGraphIOTests, testSceneGraphRootWithChildren)
     root->setName("parent");
     
     std::string gltfPath = "/tmp/test.gltf";
-    standard_cyborg::io::gltf::WriteSceneGraphToGltf({root}, gltfPath);
+    rhl_woundcare::io::gltf::WriteSceneGraphToGltf({root}, gltfPath);
     
     std::string gltfSource = stringFromPath(gltfPath);
-    std::shared_ptr<Node> deserializedRoot = standard_cyborg::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
+    std::shared_ptr<Node> deserializedRoot = rhl_woundcare::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
     
     EXPECT_EQ(deserializedRoot->numChildren(), 2);
     EXPECT_EQ(math::Mat3x4::fromTransform(deserializedRoot->getTransform()), math::Mat3x4{});
@@ -142,10 +142,10 @@ TEST(SceneGraphIOTests, testGeometryNodeBase64)
     std::shared_ptr<GeometryNode> geometryNode = std::make_shared<GeometryNode>("test0", geometry);
     
     std::string gltfPath = "/tmp/test.gltf";
-    EXPECT_TRUE(standard_cyborg::io::gltf::WriteSceneGraphToGltf(geometryNode, gltfPath));
+    EXPECT_TRUE(rhl_woundcare::io::gltf::WriteSceneGraphToGltf(geometryNode, gltfPath));
     
     std::string gltfSource = stringFromPath(gltfPath);
-    std::shared_ptr<Node> deserializedNode = standard_cyborg::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
+    std::shared_ptr<Node> deserializedNode = rhl_woundcare::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
     
     EXPECT_TRUE(deserializedNode->equals(*geometryNode));
 }
@@ -161,10 +161,10 @@ TEST(SceneGraphIOTests, testGeometryNodeTexture)
     std::shared_ptr<GeometryNode> geometryNode = std::make_shared<GeometryNode>("test0", geometry);
     
     std::string gltfPath = "/tmp/test.gltf";
-    EXPECT_TRUE(standard_cyborg::io::gltf::WriteSceneGraphToGltf(geometryNode, gltfPath));
+    EXPECT_TRUE(rhl_woundcare::io::gltf::WriteSceneGraphToGltf(geometryNode, gltfPath));
     
     std::string gltfSource = stringFromPath(gltfPath);
-    std::shared_ptr<Node> deserializedNode = standard_cyborg::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
+    std::shared_ptr<Node> deserializedNode = rhl_woundcare::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
     
     EXPECT_TRUE(deserializedNode->asGeometryNode()->getGeometry().hasTexture());
     EXPECT_TRUE(texture2 == deserializedNode->asGeometryNode()->getGeometry().getTexture());
@@ -182,10 +182,10 @@ TEST(SceneGraphIOTests, testNodeMaterial)
     
     
     std::string gltfPath = "/tmp/test.gltf";
-    EXPECT_TRUE(standard_cyborg::io::gltf::WriteSceneGraphToGltf(node, gltfPath));
+    EXPECT_TRUE(rhl_woundcare::io::gltf::WriteSceneGraphToGltf(node, gltfPath));
     
     std::string gltfSource = stringFromPath(gltfPath);
-    std::shared_ptr<Node> deserializedNode = standard_cyborg::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
+    std::shared_ptr<Node> deserializedNode = rhl_woundcare::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
     
     EXPECT_TRUE(objectColor == deserializedNode->getMaterial().objectColor);
     EXPECT_TRUE(materialModel == deserializedNode->getMaterial().materialModel);
@@ -199,10 +199,10 @@ TEST(SceneGraphIOTests, testPolylineGLTFIO)
     std::shared_ptr<PolylineNode> polylineNode = std::make_shared<PolylineNode>("Polyline", polyline);
     
     std::string gltfPath = "/tmp/test.gltf";
-    EXPECT_TRUE(standard_cyborg::io::gltf::WriteSceneGraphToGltf(polylineNode, gltfPath));
+    EXPECT_TRUE(rhl_woundcare::io::gltf::WriteSceneGraphToGltf(polylineNode, gltfPath));
     
     std::string gltfSource = stringFromPath(gltfPath);
-    std::shared_ptr<Node> deserializedNode = standard_cyborg::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
+    std::shared_ptr<Node> deserializedNode = rhl_woundcare::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
     
     EXPECT_TRUE(deserializedNode->isPolylineNode());
     EXPECT_EQ(deserializedNode->numChildren(), 0);
@@ -235,10 +235,10 @@ TEST(SceneGraphIOTests, testSceneGraphsEqualsLandmarkNode)
         
         Landmark landmark{"nose", {1, 2, 3}};
         std::shared_ptr<LandmarkNode> landmarkNode = std::make_shared<LandmarkNode>("landmark", landmark);
-        EXPECT_TRUE(standard_cyborg::io::gltf::WriteSceneGraphToGltf(landmarkNode, gltfPath));
+        EXPECT_TRUE(rhl_woundcare::io::gltf::WriteSceneGraphToGltf(landmarkNode, gltfPath));
         
         std::string gltfSource = stringFromPath(gltfPath);
-        std::shared_ptr<Node> deserializedNode = standard_cyborg::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
+        std::shared_ptr<Node> deserializedNode = rhl_woundcare::io::gltf::ReadSceneGraphFromGltf(gltfSource)[0];
         
         EXPECT_EQ(deserializedNode->getName(), landmarkNode->getName());
         EXPECT_EQ(deserializedNode->getTransform(), landmarkNode->getTransform());

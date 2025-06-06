@@ -13,4 +13,4 @@ You can feed raw frames obtained from **TrueDepthFusion** into this program, and
 8. Click Open Directory…, then select the folder where you unzipped that scan data
 9. Click Assimilate All
 
-<img width="528" alt="image" src="https://github.com/StandardCyborg/StandardCyborgSDK/assets/6288076/6ce7077e-12a8-4157-bbb2-0dacd465c6a5">
+<img width="528" alt="image" src="https://github.com/RHLwoundcare/RHLwoundcareSDK/assets/6288076/6ce7077e-12a8-4157-bbb2-0dacd465c6a5">

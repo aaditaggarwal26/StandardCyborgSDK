@@ -3,7 +3,7 @@
 //  EarLandmarking
 //
 //  Created by Aaron Thompson on 5/23/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreML/CoreML.h>
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EarLandmarkingAnalysis : NSObject
 
-/** @param modelURL Pointing to the mlmodelc directory provided by Standard Cyborg */
+/** @param modelURL Pointing to the mlmodelc directory provided by RHL Woundcare */
 - (instancetype)initWithModelAtURL:(NSURL *)modelURL;
 
 /**

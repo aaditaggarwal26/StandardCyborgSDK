@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,11 +20,11 @@ limitations under the License.
 #include <limits>
 #include <vector>
 
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/MathHelpers.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/MathHelpers.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 class Geometry;
@@ -128,4 +128,4 @@ inline bool BoundingBox3::almostEqual(const BoundingBox3& lhs, const BoundingBox
 }
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

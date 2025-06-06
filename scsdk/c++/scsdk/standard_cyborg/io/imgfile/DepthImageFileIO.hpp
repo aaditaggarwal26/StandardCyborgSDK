@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,9 +19,9 @@ limitations under the License.
 #include <istream>
 #include <ostream>
 
-#include "standard_cyborg/io/imgfile/ColorImageFileIO.hpp"
+#include "rhl_woundcare/io/imgfile/ColorImageFileIO.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class DepthImage;
@@ -49,4 +49,4 @@ extern bool WriteDepthImageToFile(std::string filename, const sc3d::DepthImage& 
 
 } // namespace imgfile
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

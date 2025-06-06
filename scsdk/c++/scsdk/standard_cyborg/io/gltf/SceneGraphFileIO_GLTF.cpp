@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,19 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/io/gltf/SceneGraphFileIO_GLTF.hpp"
+#include "rhl_woundcare/io/gltf/SceneGraphFileIO_GLTF.hpp"
 
-#include "standard_cyborg/io/gltf/Base64.hpp"
-#include "standard_cyborg/io/imgfile/ColorImageFileIO.hpp"
-#include "standard_cyborg/io/ply/DepthImageFileIO_PLY.hpp"
-#include "standard_cyborg/io/ply/GeometryFileIO_PLY.hpp"
-#include "standard_cyborg/io/json/LandmarkFileIO_JSON.hpp"
-#include "standard_cyborg/io/json/PerspectiveCameraFileIO_JSON.hpp"
-#include "standard_cyborg/io/json/PlaneFileIO_JSON.hpp"
-#include "standard_cyborg/io/json/PolylineFileIO_JSON.hpp"
+#include "rhl_woundcare/io/gltf/Base64.hpp"
+#include "rhl_woundcare/io/imgfile/ColorImageFileIO.hpp"
+#include "rhl_woundcare/io/ply/DepthImageFileIO_PLY.hpp"
+#include "rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp"
+#include "rhl_woundcare/io/json/LandmarkFileIO_JSON.hpp"
+#include "rhl_woundcare/io/json/PerspectiveCameraFileIO_JSON.hpp"
+#include "rhl_woundcare/io/json/PlaneFileIO_JSON.hpp"
+#include "rhl_woundcare/io/json/PolylineFileIO_JSON.hpp"
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/scene_graph/SceneGraph.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/scene_graph/SceneGraph.hpp"
 
 #include <iostream>
 #include <sstream>
@@ -55,15 +55,15 @@ limitations under the License.
 #pragma clang diagnostic pop
 
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace gltf {
 
 
-namespace sg = standard_cyborg::scene_graph;
-using namespace standard_cyborg::io::imgfile;
-using namespace standard_cyborg::io::json;
-using namespace standard_cyborg::io::ply;
+namespace sg = rhl_woundcare::scene_graph;
+using namespace rhl_woundcare::io::imgfile;
+using namespace rhl_woundcare::io::json;
+using namespace rhl_woundcare::io::ply;
 
 
 static bool startsWith(const std::string& s, const std::string& prefix)
@@ -525,9 +525,9 @@ bool WriteSceneGraphToGltf(std::vector<std::shared_ptr<sg::Node>> sceneGraph, co
     tinygltf::Model model;
 
     model.asset.version = "2.0";
-    model.asset.generator = "StandardCyborgSceneGraph";
+    model.asset.generator = "RHLwoundcareSceneGraph";
     model.asset.minVersion = "2.0";
-    model.asset.copyright = "Standard Cyborg";
+    model.asset.copyright = "RHL Woundcare";
 
     tinygltf::Scene scene;
 
@@ -727,4 +727,4 @@ bool WriteSceneGraphToGltf(std::vector<std::shared_ptr<sg::Node>> sceneGraph, co
 
 } // namespace gltf
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

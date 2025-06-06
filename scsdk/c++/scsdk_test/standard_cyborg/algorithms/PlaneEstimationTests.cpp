@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,19 +17,19 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/EstimatePlane.hpp"
-#include "standard_cyborg/sc3d/Plane.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
-#include "standard_cyborg/util/DataUtils.hpp"
+#include "rhl_woundcare/algorithms/EstimatePlane.hpp"
+#include "rhl_woundcare/sc3d/Plane.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
+#include "rhl_woundcare/util/DataUtils.hpp"
 
 #include <random>
 #include <iostream>
 
-using standard_cyborg::sc3d::Geometry;
-using standard_cyborg::sc3d::Polyline;
-using standard_cyborg::sc3d::Face3;
+using rhl_woundcare::sc3d::Geometry;
+using rhl_woundcare::sc3d::Polyline;
+using rhl_woundcare::sc3d::Face3;
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 using math::Vec3;
 
 TEST(PlaneEstimationTests, testEstimatePlane) {
@@ -45,18 +45,18 @@ TEST(PlaneEstimationTests, testEstimatePlane) {
     
     // We need to make this test deterministic across platforms, and it covers
     // a very small set of points, so we seed the initial set manually.
-    standard_cyborg::sc3d::VertexSelection planeVertices;
+    rhl_woundcare::sc3d::VertexSelection planeVertices;
     planeVertices.insertValue(3);
     planeVertices.insertValue(4);
     planeVertices.insertValue(6);
-    standard_cyborg::algorithms::EstimatePlaneResult result = standard_cyborg::algorithms::estimatePlane(positions, planeVertices);
+    rhl_woundcare::algorithms::EstimatePlaneResult result = rhl_woundcare::algorithms::estimatePlane(positions, planeVertices);
     
     EXPECT_NEAR(result.plane.position.x, 3.03, 0.1);
     EXPECT_NEAR(result.plane.position.y, 1.0, 0.1);
     EXPECT_NEAR(result.plane.position.z, 0.266, 0.1);
     
     // Dot the result with the expected value and compare the absolute value to 1 to ensure they're roughly identical.
-    EXPECT_NEAR(std::abs(standard_cyborg::toVector3f(result.plane.normal).transpose() * Eigen::Vector3f(0.0, 1.0, 0.0)), 1.0, 0.01);
+    EXPECT_NEAR(std::abs(rhl_woundcare::toVector3f(result.plane.normal).transpose() * Eigen::Vector3f(0.0, 1.0, 0.0)), 1.0, 0.01);
     
     // It's a bit of a degenerate case since there aren't more points. It collapses to a plane
     // and the error is almost (but not exactly) zero
@@ -64,7 +64,7 @@ TEST(PlaneEstimationTests, testEstimatePlane) {
     
     EXPECT_TRUE(result.converged);
     
-    EXPECT_TRUE(*result.planeVertices == standard_cyborg::sc3d::VertexSelection(7, {3, 4, 6}));
+    EXPECT_TRUE(*result.planeVertices == rhl_woundcare::sc3d::VertexSelection(7, {3, 4, 6}));
 }
 
 TEST(PlaneEstimationTests, testEstimatePlaneFromPointCloud) {
@@ -87,7 +87,7 @@ TEST(PlaneEstimationTests, testEstimatePlaneFromPointCloud) {
                             + bitangent * uniform(re));
     }
     
-    standard_cyborg::algorithms::EstimatePlaneResult result = standard_cyborg::algorithms::estimatePlane(positions);
+    rhl_woundcare::algorithms::EstimatePlaneResult result = rhl_woundcare::algorithms::estimatePlane(positions);
     
     float projectedDistanceFromActualPositionToEstimatedPlane = std::abs(Vec3::dot(result.plane.normal, position - result.plane.position));
     

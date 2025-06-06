@@ -1,24 +1,24 @@
 //
 //  SCPointCloud+FileIO.m
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 12/19/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <ModelIO/ModelIO.h>
-#import <standard_cyborg/sc3d/Landmark.hpp>
-#import <standard_cyborg/scene_graph/SceneGraph.hpp>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <StandardCyborgFusion/SCPointCloud_Private.h>
+#import <rhl_woundcare/sc3d/Landmark.hpp>
+#import <rhl_woundcare/scene_graph/SceneGraph.hpp>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <RHLwoundcare/SCPointCloud_Private.h>
 #import "WriteUSDZCompatibleZip.hpp"
-#import <standard_cyborg/io/gltf/SceneGraphFileIO_GLTF.hpp>
+#import <rhl_woundcare/io/gltf/SceneGraphFileIO_GLTF.hpp>
 
 #import "SCLandmark3D.h"
 #import "SCPointCloud+FileIO.h"
 #import "SCPointCloud+Geometry.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @implementation SCPointCloud (FileIO)
 

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "76539C9620F5B1FE009C332E"
-               BuildableName = "StandardCyborgFusion.framework"
-               BlueprintName = "StandardCyborgFusion"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               BuildableName = "RHLwoundcare.framework"
+               BlueprintName = "RHLwoundcare"
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76539C9620F5B1FE009C332E"
-            BuildableName = "StandardCyborgFusion.framework"
-            BlueprintName = "StandardCyborgFusion"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            BuildableName = "RHLwoundcare.framework"
+            BlueprintName = "RHLwoundcare"
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -42,9 +42,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "76539C9F20F5B1FE009C332E"
-               BuildableName = "StandardCyborgFusionTests.xctest"
-               BlueprintName = "StandardCyborgFusionTests"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               BuildableName = "RHLwoundcareTests.xctest"
+               BlueprintName = "RHLwoundcareTests"
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76539C9620F5B1FE009C332E"
-            BuildableName = "StandardCyborgFusion.framework"
-            BlueprintName = "StandardCyborgFusion"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            BuildableName = "RHLwoundcare.framework"
+            BlueprintName = "RHLwoundcare"
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -79,9 +79,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76539C9620F5B1FE009C332E"
-            BuildableName = "StandardCyborgFusion.framework"
-            BlueprintName = "StandardCyborgFusion"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            BuildableName = "RHLwoundcare.framework"
+            BlueprintName = "RHLwoundcare"
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -1,9 +1,9 @@
 //
 //  SCReconstructionManager.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/5/18.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 
@@ -12,21 +12,21 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMotion/CoreMotion.h>
-#import <StandardCyborgFusion/CVPixelBufferHelpers.h>
-#import <StandardCyborgFusion/GeometryHelpers.hpp>
-#import <StandardCyborgFusion/MathHelpers.h>
-#import <StandardCyborgFusion/MetalDepthProcessor.hpp>
-#import <StandardCyborgFusion/MetalSurfelIndexMap.hpp>
-#import <StandardCyborgFusion/PBFModel.hpp>
-#import <StandardCyborgFusion/PerspectiveCamera+AVFoundation.hpp>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <StandardCyborgFusion/SCAssimilatedFrameMetadata_Private.h>
-#import <StandardCyborgFusion/SCPointCloud.h>
-#import <StandardCyborgFusion/SCPointCloud_Private.h>
-#import <StandardCyborgFusion/SurfelFusion.hpp>
-#import <standard_cyborg/util/DataUtils.hpp>
-#import <StandardCyborgFusion/SCReconstructionManagerParameters_Private.h>
-#import <StandardCyborgFusion/SCReconstructionManager_Private.h>
+#import <RHLwoundcare/CVPixelBufferHelpers.h>
+#import <RHLwoundcare/GeometryHelpers.hpp>
+#import <RHLwoundcare/MathHelpers.h>
+#import <RHLwoundcare/MetalDepthProcessor.hpp>
+#import <RHLwoundcare/MetalSurfelIndexMap.hpp>
+#import <RHLwoundcare/PBFModel.hpp>
+#import <RHLwoundcare/PerspectiveCamera+AVFoundation.hpp>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <RHLwoundcare/SCAssimilatedFrameMetadata_Private.h>
+#import <RHLwoundcare/SCPointCloud.h>
+#import <RHLwoundcare/SCPointCloud_Private.h>
+#import <RHLwoundcare/SurfelFusion.hpp>
+#import <rhl_woundcare/util/DataUtils.hpp>
+#import <RHLwoundcare/SCReconstructionManagerParameters_Private.h>
+#import <RHLwoundcare/SCReconstructionManager_Private.h>
 
 #import <iostream>
 #import <objc/runtime.h>
@@ -34,7 +34,7 @@
 #import "GravityEstimator.hpp"
 #import "SCReconstructionManager.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 NS_ASSUME_NONNULL_BEGIN
 

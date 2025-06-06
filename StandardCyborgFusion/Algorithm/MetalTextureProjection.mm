@@ -1,14 +1,14 @@
 //
 //  MetalTextureProjection.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by eric on 2019-09-03.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #include "MetalTextureProjection.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 MetalTextureProjection::MetalTextureProjection(id<MTLDevice> device,
                                                int textureResolution)
@@ -17,7 +17,7 @@ MetalTextureProjection::MetalTextureProjection(id<MTLDevice> device,
 
     NSError* error;
 
-    _library = [_device newDefaultLibraryWithBundle:[NSBundle bundleWithIdentifier:@"com.standardcyborg.StandardCyborgFusion"] error:&error];
+    _library = [_device newDefaultLibraryWithBundle:[NSBundle bundleWithIdentifier:@"com.RHLwoundcare.RHLwoundcare"] error:&error];
     if (_library == nil) { NSLog(@"Unable to create library: %@", error); }
 
     _textureResolution = textureResolution;

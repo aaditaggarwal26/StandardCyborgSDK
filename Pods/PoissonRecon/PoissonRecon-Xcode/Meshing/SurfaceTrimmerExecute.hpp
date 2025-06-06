@@ -3,7 +3,7 @@
 //  PoissonRecon
 //
 //  Created by Aaron Thompson on 2/12/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #ifndef SurfaceTrimmerExecute_hpp

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ limitations under the License.
 #include <optional>
 #include <string>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 // Why wrap things in Result?
 //  * in offline pipelines, it can be OK to throw an exception or do an assert fail
@@ -54,4 +54,4 @@ struct Result {
 using OkOrErr = Result<bool>;
 static const OkOrErr kOK = {.value = true};
 
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

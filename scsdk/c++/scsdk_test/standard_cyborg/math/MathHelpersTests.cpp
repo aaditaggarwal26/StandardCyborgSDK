@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/math/MathHelpers.hpp"
+#include "rhl_woundcare/math/MathHelpers.hpp"
 
-using namespace standard_cyborg::math;
+using namespace rhl_woundcare::math;
 
 TEST(MathHelpersTests, testAlmostEquals) {
-    EXPECT_FALSE(standard_cyborg::math::AlmostEqual(100.0, 100.0 + 1e-4));
-    EXPECT_TRUE(standard_cyborg::math::AlmostEqual(100.0, 100.0 + 1e-5));
-    EXPECT_TRUE(standard_cyborg::math::AlmostEqual(100.0, 100.0 + 1e-4, 1e-6, 1e-6));
+    EXPECT_FALSE(rhl_woundcare::math::AlmostEqual(100.0, 100.0 + 1e-4));
+    EXPECT_TRUE(rhl_woundcare::math::AlmostEqual(100.0, 100.0 + 1e-5));
+    EXPECT_TRUE(rhl_woundcare::math::AlmostEqual(100.0, 100.0 + 1e-4, 1e-6, 1e-6));
 }

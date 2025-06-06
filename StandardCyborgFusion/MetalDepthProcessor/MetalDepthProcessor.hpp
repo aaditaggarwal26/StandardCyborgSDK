@@ -1,9 +1,9 @@
 //
 //  MetalDepthProcessor.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/1/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
@@ -11,7 +11,7 @@
 #import "DepthProcessor.hpp"
 #import "MetalDepthProcessorData.hpp"
 #import "ProcessedFrame.hpp"
-#import <StandardCyborgFusion/RawFrame.hpp>
+#import <RHLwoundcare/RawFrame.hpp>
 
 @class MetalComputeEngine;
 @protocol MTLCommandQueue;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-#include "standard_cyborg/io/ply/GeometryFileIO_PLY.hpp"
+#include "rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp"
 
 #include <algorithm>
 #include <cstdio>
@@ -28,14 +28,14 @@ limitations under the License.
 #include "happly.h"
 #pragma clang diagnostic pop
 
-#include "standard_cyborg/util/DebugHelpers.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/util/DebugHelpers.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
 
 #define PLY_LINE_LENGTH 128
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace ply {
 
@@ -330,7 +330,7 @@ void FragileWriteGeometryToPLYStream(std::ostream& output, const Geometry& geome
 
     output << "ply\n";
     output << "format ascii 1.0\n";
-    output << "comment StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n";
+    output << "comment RHLwoundcareMetadata { \"color_space\": \"sRGB\" }\n";
     output << "element vertex " << vertexCount << "\n";
     output << "property float x\n";
     output << "property float y\n";
@@ -452,4 +452,4 @@ bool FragileReadGeometryFromPLYFile(Geometry& geometryOut, std::string filename)
 
 } // namespace ply
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

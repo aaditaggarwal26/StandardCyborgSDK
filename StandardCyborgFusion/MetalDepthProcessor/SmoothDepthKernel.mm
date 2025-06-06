@@ -3,12 +3,12 @@
 //  DepthRenderer
 //
 //  Created by Aaron Thompson on 7/25/18.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SmoothDepthKernel.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 struct SmoothDepthKernelUniforms {
     int minValidNeighborsBeforeBleed = 1;

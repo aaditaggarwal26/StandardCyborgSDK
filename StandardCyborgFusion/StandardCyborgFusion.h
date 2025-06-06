@@ -1,36 +1,36 @@
 //
-//  StandardCyborgFusion.h
-//  StandardCyborgFusion
+//  RHLwoundcare.h
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/10/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-//! Project version number for StandardCyborgFusion.
-FOUNDATION_EXPORT double StandardCyborgFusionVersionNumber;
+//! Project version number for RHLwoundcare.
+FOUNDATION_EXPORT double RHLwoundcareVersionNumber;
 
-//! Project version string for StandardCyborgFusion.
-FOUNDATION_EXPORT const unsigned char StandardCyborgFusionVersionString[];
+//! Project version string for RHLwoundcare.
+FOUNDATION_EXPORT const unsigned char RHLwoundcareVersionString[];
 
-#import <StandardCyborgFusion/CVPixelBufferHelpers.h>
-#import <StandardCyborgFusion/SCAssimilatedFrameMetadata.h>
-#import <StandardCyborgFusion/SCFootTracking.h>
-#import <StandardCyborgFusion/SCLandmark2D.h>
-#import <StandardCyborgFusion/SCLandmark3D.h>
-#import <StandardCyborgFusion/SCLandmarking2D.h>
-#import <StandardCyborgFusion/SCMesh.h>
-#import <StandardCyborgFusion/SCMesh+FileIO.h>
-#import <StandardCyborgFusion/SCMesh+Geometry.h>
-#import <StandardCyborgFusion/SCMesh+SceneKit.h>
-#import <StandardCyborgFusion/SCMeshingOperation.h>
-#import <StandardCyborgFusion/SCMeshTexturing.h>
-#import <StandardCyborgFusion/SCPointCloud.h>
-#import <StandardCyborgFusion/SCPointCloud+FileIO.h>
-#import <StandardCyborgFusion/SCPointCloud+Geometry.h>
-#import <StandardCyborgFusion/SCPointCloud+Metal.h>
-#import <StandardCyborgFusion/SCPointCloud+SceneKit.h>
-#import <StandardCyborgFusion/SCReconstructionManager.h>
-#import <StandardCyborgFusion/SCReconstructionManagerParameters.h>
-#import <StandardCyborgFusion/SCScene.h>
+#import <RHLwoundcare/CVPixelBufferHelpers.h>
+#import <RHLwoundcare/SCAssimilatedFrameMetadata.h>
+#import <RHLwoundcare/SCFootTracking.h>
+#import <RHLwoundcare/SCLandmark2D.h>
+#import <RHLwoundcare/SCLandmark3D.h>
+#import <RHLwoundcare/SCLandmarking2D.h>
+#import <RHLwoundcare/SCMesh.h>
+#import <RHLwoundcare/SCMesh+FileIO.h>
+#import <RHLwoundcare/SCMesh+Geometry.h>
+#import <RHLwoundcare/SCMesh+SceneKit.h>
+#import <RHLwoundcare/SCMeshingOperation.h>
+#import <RHLwoundcare/SCMeshTexturing.h>
+#import <RHLwoundcare/SCPointCloud.h>
+#import <RHLwoundcare/SCPointCloud+FileIO.h>
+#import <RHLwoundcare/SCPointCloud+Geometry.h>
+#import <RHLwoundcare/SCPointCloud+Metal.h>
+#import <RHLwoundcare/SCPointCloud+SceneKit.h>
+#import <RHLwoundcare/SCReconstructionManager.h>
+#import <RHLwoundcare/SCReconstructionManagerParameters.h>
+#import <RHLwoundcare/SCScene.h>

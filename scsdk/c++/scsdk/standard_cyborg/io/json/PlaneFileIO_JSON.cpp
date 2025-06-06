@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/io/json/PlaneFileIO_JSON.hpp"
-#include "standard_cyborg/sc3d/Plane.hpp"
+#include "rhl_woundcare/io/json/PlaneFileIO_JSON.hpp"
+#include "rhl_woundcare/sc3d/Plane.hpp"
 
 #include <fstream>
 #include <sstream>
@@ -25,7 +25,7 @@ limitations under the License.
 #include <nlohmann/json.hpp>
 using JSON = nlohmann::json;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace json {
 
@@ -117,4 +117,4 @@ bool WritePlaneToJSONStream(std::ostream& output, const sc3d::Plane& plane)
 
 } // namespace json
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,11 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-#include "standard_cyborg/math/Transform.hpp"
+#include "rhl_woundcare/math/Transform.hpp"
 
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/util/DataUtils.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/util/DataUtils.hpp"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
@@ -28,7 +28,7 @@ limitations under the License.
 #include <Eigen/Cholesky>
 #pragma clang diagnostic pop
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace math {
 
 // This function is derived from the transforms3d python package and specialized for 3x3 matrices.
@@ -148,7 +148,7 @@ Transform Transform::fromMat3x4(const math::Mat3x4& A) {
         R = RZS * ZS.inverse();
     }
 
-    // Extract the result into StandardCyborg data types
+    // Extract the result into RHLwoundcare data types
     transform.scale = toVec3(Z);
     
     transform.shear = math::Vec3{
@@ -176,4 +176,4 @@ Transform Transform::inverse() const {
 
 
 } // namespace math
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

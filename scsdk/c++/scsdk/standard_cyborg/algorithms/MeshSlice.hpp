@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,12 +15,12 @@ limitations under the License.
 */
 #pragma once
 
-#include "standard_cyborg/sc3d/MeshTopology.hpp"
+#include "rhl_woundcare/sc3d/MeshTopology.hpp"
 
 #include <functional>
 #include <vector>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class Geometry;
@@ -40,4 +40,4 @@ std::vector<sc3d::Polyline> sliceMesh(const sc3d::Geometry& geometry,
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

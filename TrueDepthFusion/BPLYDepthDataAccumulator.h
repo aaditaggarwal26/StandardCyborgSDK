@@ -3,7 +3,7 @@
 //  DepthRenderer
 //
 //  Created by Aaron Thompson on 7/5/18.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <AVKit/AVKit.h>
@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
 
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <RHLwoundcare/RHLwoundcare.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

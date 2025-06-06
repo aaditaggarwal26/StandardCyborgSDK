@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,19 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/algorithms/Centroid.hpp"
+#include "rhl_woundcare/algorithms/Centroid.hpp"
 
-#include "standard_cyborg/sc3d/Face3.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace algorithms {
 
 using math::Vec3;
-using namespace standard_cyborg::sc3d;
+using namespace rhl_woundcare::sc3d;
 
 Vec3 computeCentroid(const std::vector<Vec3>& positions)
 {
@@ -108,4 +108,4 @@ Vec3 computeCentroid(const Geometry& geometry)
 }
 
 } // namespace algorithms
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

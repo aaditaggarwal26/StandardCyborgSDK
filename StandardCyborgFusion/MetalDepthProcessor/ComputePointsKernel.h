@@ -1,17 +1,17 @@
 //
 //  ComputePointsKernel.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/29/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Metal/Metal.h>
-#import <StandardCyborgFusion/ProcessedFrame.hpp>
-#import <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#import <RHLwoundcare/ProcessedFrame.hpp>
+#import <rhl_woundcare/sc3d/PerspectiveCamera.hpp>
 #import "MetalComputeEngine.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -1,19 +1,19 @@
 //
 //  SCMesh+FileIO.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 10/19/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreImage/CoreImage.h>
 #import <MetalKit/MetalKit.h>
 #import <ModelIO/ModelIO.h>
 #import <SSZipArchive/SSZipArchive.h>
-#import <standard_cyborg/math/Vec3.hpp>
-#import <standard_cyborg/math/Vec4.hpp>
-#import <standard_cyborg/io/imgfile/ColorImageFileIO.hpp>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
+#import <rhl_woundcare/math/Vec3.hpp>
+#import <rhl_woundcare/math/Vec4.hpp>
+#import <rhl_woundcare/io/imgfile/ColorImageFileIO.hpp>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
 #import <vector>
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
@@ -27,7 +27,7 @@
 #import "SCMesh_Private.h"
 #import "WriteUSDZCompatibleZip.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @implementation SCMesh (FileIO)
 
@@ -91,8 +91,8 @@ using namespace standard_cyborg;
             return false;
         }
         
-        fprintf(file, "# StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
-        fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+        fprintf(file, "# RHLwoundcareVersion %s\n", SCFrameworkVersion());
+        fprintf(file, "# RHLwoundcareMetadata { \"color_space\": \"sRGB\" }\n");
         
         fprintf(file, "mtllib %s\n", [mtlFilename UTF8String]);
         fprintf(file, "o %s\n", [objZipName UTF8String]);
@@ -146,8 +146,8 @@ using namespace standard_cyborg;
             return false;
         }
         
-        fprintf(file, "# StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
-        fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+        fprintf(file, "# RHLwoundcareVersion %s\n", SCFrameworkVersion());
+        fprintf(file, "# RHLwoundcareMetadata { \"color_space\": \"sRGB\" }\n");
         
         fprintf(file, "newmtl Texture\n");
         fprintf(file, "Ns 0.000000\n");
@@ -249,9 +249,9 @@ using namespace standard_cyborg;
     tinygltf::Model model;
     
     model.asset.version = "2.0";
-    model.asset.generator = "StandardCyborgFusion";
+    model.asset.generator = "RHLwoundcare";
     model.asset.minVersion = "2.0";
-    model.asset.copyright = "Standard Cyborg";
+    model.asset.copyright = "RHL Woundcare";
     model.defaultScene = 0;
     
     {

@@ -1,9 +1,9 @@
 //
 //  SCMeshTexturing.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Eric Arnebäck on 5/27/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 // Ashley Edits
@@ -14,19 +14,19 @@
 #import <CoreServices/CoreServices.h>
 #import <Metal/Metal.h>
 
-//#import <StandardCyborgFusion/MeshUvMap.hpp>
+//#import <RHLwoundcare/MeshUvMap.hpp>
 #import "../../Algorithm/MeshUvMap.hpp"
 
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/math/Vec4.hpp>
-#import <StandardCyborgFusion/PerspectiveCamera+AVFoundation.hpp>
-#import <StandardCyborgFusion/SCMesh+Geometry.h>
-#import <StandardCyborgFusion/SCMesh_Private.h>
-#import <StandardCyborgFusion/SCPointCloud+FileIO.h>
-#import <StandardCyborgFusion/SCPointCloud_Private.h>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <standard_cyborg/io/imgfile/ColorImageFileIO.hpp>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/math/Vec4.hpp>
+#import <RHLwoundcare/PerspectiveCamera+AVFoundation.hpp>
+#import <RHLwoundcare/SCMesh+Geometry.h>
+#import <RHLwoundcare/SCMesh_Private.h>
+#import <RHLwoundcare/SCPointCloud+FileIO.h>
+#import <RHLwoundcare/SCPointCloud_Private.h>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <rhl_woundcare/io/imgfile/ColorImageFileIO.hpp>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
 #import <fstream>
 #import <memory>
 
@@ -35,7 +35,7 @@
 #import "MetalTextureProjection.hpp"
 #import "SCMeshTexturing.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 // clang-format off
 NSString * const SCMeshTexturingAPIErrorDomain = @"SCMeshTexturingAPIErrorDomain";

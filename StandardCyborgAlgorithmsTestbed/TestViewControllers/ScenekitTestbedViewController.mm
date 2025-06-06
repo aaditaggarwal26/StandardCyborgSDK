@@ -1,34 +1,34 @@
 //
 //  ScenekitTestbedViewController.m
-//  StandardCyborgAlgorithmsTestbed
+//  RHLwoundcareAlgorithmsTestbed
 //
 //  Created by Ricky Reusser on 5/17/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <standard_cyborg/algorithms/MeshSlice.hpp>
-#import <standard_cyborg/sc3d/BoundingBox3.hpp>
-#import <standard_cyborg/util/DataUtils.hpp>
-#import <standard_cyborg/util/DebugHelpers.hpp>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/math/Mat3x3.hpp>
-#import <standard_cyborg/sc3d/Polyline.hpp>
-#import <standard_cyborg/sc3d/VertexSelection.hpp>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
-#import <StandardCyborgFusion/SceneKit+BoundingBox3.h>
-#import <StandardCyborgFusion/SceneKit+Geometry.h>
-#import <StandardCyborgFusion/SceneKit+Lines.h>
-#import <StandardCyborgFusion/SceneKit+Mat3x3.h>
-#import <StandardCyborgFusion/SceneKit+Mat3x4.h>
-#import <StandardCyborgFusion/SceneKit+Plane.h>
-#import <StandardCyborgFusion/SceneKit+Polyline.h>
+#import <rhl_woundcare/algorithms/MeshSlice.hpp>
+#import <rhl_woundcare/sc3d/BoundingBox3.hpp>
+#import <rhl_woundcare/util/DataUtils.hpp>
+#import <rhl_woundcare/util/DebugHelpers.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/math/Mat3x3.hpp>
+#import <rhl_woundcare/sc3d/Polyline.hpp>
+#import <rhl_woundcare/sc3d/VertexSelection.hpp>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
+#import <RHLwoundcare/SceneKit+BoundingBox3.h>
+#import <RHLwoundcare/SceneKit+Geometry.h>
+#import <RHLwoundcare/SceneKit+Lines.h>
+#import <RHLwoundcare/SceneKit+Mat3x3.h>
+#import <RHLwoundcare/SceneKit+Mat3x4.h>
+#import <RHLwoundcare/SceneKit+Plane.h>
+#import <RHLwoundcare/SceneKit+Polyline.h>
 
 #import "NodeToNodeLineNode.h"
 
 #import "ScenekitTestbedViewController.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @implementation ScenekitTestbedViewController {
     __weak IBOutlet SCNView *_sceneView;

@@ -1,12 +1,12 @@
 //
 //  SCPointCloud_Private.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 12/17/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
-#import <StandardCyborgFusion/SCPointCloud.h>
+#import <RHLwoundcare/SCPointCloud.h>
 
 @interface SCPointCloud (Private)
 

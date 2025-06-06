@@ -1,19 +1,19 @@
 //
 //  PlaneRemovalViewController.mm
-//  StandardCyborgGeometryTestbed
+//  RHLwoundcareGeometryTestbed
 //
 //  Created by Ricky Reusser on 4/10/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
-#import <standard_cyborg/algorithms/EstimatePlane.hpp>
-#import <standard_cyborg/util/DataUtils.hpp>
-#import <standard_cyborg/util/DebugHelpers.hpp>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/util/IncludeEigen.hpp>
-#import <standard_cyborg/sc3d/VertexSelection.hpp>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
-#import <StandardCyborgFusion/SceneKit+Geometry.h>
+#import <rhl_woundcare/algorithms/EstimatePlane.hpp>
+#import <rhl_woundcare/util/DataUtils.hpp>
+#import <rhl_woundcare/util/DebugHelpers.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/util/IncludeEigen.hpp>
+#import <rhl_woundcare/sc3d/VertexSelection.hpp>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
+#import <RHLwoundcare/SceneKit+Geometry.h>
 
 
 #import <iostream>
@@ -23,7 +23,7 @@
 #import "NodeToNodeLineNode.h"
 
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @implementation PlaneRemovalViewController {
     __weak IBOutlet SCNView *sceneView;

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/Landmark.hpp"
+#include "rhl_woundcare/sc3d/Landmark.hpp"
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 
 /*
  
@@ -30,26 +30,26 @@ namespace math = standard_cyborg::math;
  #include <algorithm>
  #include <vector>
  
- #include <StandardCyborgData/Landmark.hpp>
+ #include <RHLwoundcareData/Landmark.hpp>
  
  
- namespace math = StandardCyborg::math;
+ namespace math = RHLwoundcare::math;
  */
 
 TEST(LandmarkTests, tesInitialization) {
     
     using math::Vec3;
     
-    standard_cyborg::sc3d::Landmark l;
+    rhl_woundcare::sc3d::Landmark l;
     l.setName("nose");
     l.setPosition(Vec3{1.0f, 2.0f, 3.0f});
     
     EXPECT_TRUE(l.getPosition() == Vec3({1.0f, 2.0f, 3.0f}));
     EXPECT_TRUE(l.getName() == "nose");
     
-    EXPECT_TRUE(l == standard_cyborg::sc3d::Landmark({"nose", Vec3({1.0f, 2.0f, 3.0f})}));
-    EXPECT_TRUE(l != standard_cyborg::sc3d::Landmark({"nosee", Vec3({1.0f, 2.0f, 3.0f})}));
-    EXPECT_TRUE(l != standard_cyborg::sc3d::Landmark({"nose", Vec3({9.0f, 2.0f, 3.0f})}));
-    EXPECT_FALSE(l != standard_cyborg::sc3d::Landmark({"nose", Vec3({1.0f, 2.0f, 3.0f})}));
+    EXPECT_TRUE(l == rhl_woundcare::sc3d::Landmark({"nose", Vec3({1.0f, 2.0f, 3.0f})}));
+    EXPECT_TRUE(l != rhl_woundcare::sc3d::Landmark({"nosee", Vec3({1.0f, 2.0f, 3.0f})}));
+    EXPECT_TRUE(l != rhl_woundcare::sc3d::Landmark({"nose", Vec3({9.0f, 2.0f, 3.0f})}));
+    EXPECT_FALSE(l != rhl_woundcare::sc3d::Landmark({"nose", Vec3({1.0f, 2.0f, 3.0f})}));
     
 }

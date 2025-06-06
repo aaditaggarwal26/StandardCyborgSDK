@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@ limitations under the License.
 */
 
 
-#include "standard_cyborg/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 using math::Vec3;
@@ -76,4 +76,4 @@ bool operator==(const Polyline& lhs, const Polyline& rhs) {
 
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

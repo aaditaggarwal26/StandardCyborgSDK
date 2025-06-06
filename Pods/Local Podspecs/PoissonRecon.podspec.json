@@ -3,20 +3,20 @@
   "version": "9.011",
   "summary": "Poisson Surface Reconstruction",
   "description": "\"Screened Poisson Surface Reconstruction and Smoothed Signed Distance Reconstruction\"",
-  "homepage": "https://github.com/StandardCyborg/PoissonRecon",
+  "homepage": "https://github.com/RHLwoundcare/PoissonRecon",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "Standard Cyborg": "sdk@standardcyborg.com"
+    "RHL Woundcare": "sdk@RHLwoundcare.com"
   },
   "platforms": {
     "ios": "13.0",
     "osx": "11.0"
   },
   "source": {
-    "git": "git@github.com:StandardCyborg/PoissonRecon.git",
+    "git": "git@github.com:RHLwoundcare/PoissonRecon.git",
     "branch": "xcodeproj"
   },
   "source_files": [

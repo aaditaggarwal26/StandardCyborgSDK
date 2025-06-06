@@ -1,23 +1,23 @@
 //
 //  ICP.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/10/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <standard_cyborg/math/Mat4x4.hpp>
-#include <standard_cyborg/math/Vec3.hpp>
-#include <standard_cyborg/sc3d/Geometry.hpp>
+#include <rhl_woundcare/math/Mat4x4.hpp>
+#include <rhl_woundcare/math/Vec3.hpp>
+#include <rhl_woundcare/sc3d/Geometry.hpp>
 
 #include <TargetConditionals.h>
 #if DEBUG
 #include <vector>
 #endif
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 struct ICPConfiguration {
     float tolerance = 1e-4; // if the relative correspondence error is below this tolerance value, then the ICP is done.

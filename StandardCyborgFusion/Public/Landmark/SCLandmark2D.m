@@ -3,7 +3,7 @@
 //  
 //
 //  Created by Aaron Thompson on 5/23/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SCLandmark2D_Private.h"

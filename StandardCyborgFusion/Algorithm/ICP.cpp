@@ -1,18 +1,18 @@
 //
 //  ICP.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/10/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
-#include <StandardCyborgFusion/ICP.hpp>
+#include <RHLwoundcare/ICP.hpp>
 #include "ThreadPool.hpp"
-#include <StandardCyborgFusion/GeometryHelpers.hpp>
+#include <RHLwoundcare/GeometryHelpers.hpp>
 
-#include <standard_cyborg/util/DataUtils.hpp>
+#include <rhl_woundcare/util/DataUtils.hpp>
 
-#include <standard_cyborg/util/DebugHelpers.hpp>
+#include <rhl_woundcare/util/DebugHelpers.hpp>
 
 
 #include <dispatch/dispatch.h>
@@ -23,7 +23,7 @@
 #include "Eigen/Jacobi"
 #pragma clang diagnostic pop
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 struct _ICPCorrespondence {
     const std::vector<math::Vec3>& sourceVertices;
@@ -54,7 +54,7 @@ struct _ICPCorrespondence {
         double weightSum = 0;
         
         for (size_t i = 0; i < sourceVerticesLength; ++i) {
-            Vector3f correspondenceError = standard_cyborg::toVector3f(sourceVertices[i]) - standard_cyborg::toVector3f(targetVertices[i]);
+            Vector3f correspondenceError = rhl_woundcare::toVector3f(sourceVertices[i]) - rhl_woundcare::toVector3f(targetVertices[i]);
             float errorSquared = correspondenceError.squaredNorm(); // squaredNorm is the squared Euclidean distance
             float weight = 1.0; //(*weights)(i);
             sumSquaredError += errorSquared * weight;
@@ -248,9 +248,9 @@ static Eigen::Matrix4f _computePointToPlaneTransform(_ICPCorrespondence& corresp
     
     for (off_t i = 0; i < sourceVerticesLength; i++) {
         float w = weights(i);
-        p = standard_cyborg::toVector3f(sourceVertices[i]);
-        q = standard_cyborg::toVector3f(targetVertices[i]);
-        n = standard_cyborg::toVector3f(targetNormals[i]);
+        p = rhl_woundcare::toVector3f(sourceVertices[i]);
+        q = rhl_woundcare::toVector3f(targetVertices[i]);
+        n = rhl_woundcare::toVector3f(targetNormals[i]);
         cn.head<3>() = p.cross(n) * w;
         cn.tail<3>() = n * w;
         
@@ -293,7 +293,7 @@ void transformVectors(const Eigen::Matrix4f& m, std::vector<math::Vec3>& target)
     
     size_t count = target.size();
     for (size_t i = 0; i < count; ++i) {
-        Vector3f a = standard_cyborg::toVector3f(target[i]);
+        Vector3f a = rhl_woundcare::toVector3f(target[i]);
         
         const float x = a.x(), y = a.y(), z = a.z();
         float w = m(3, 0) * x + m(3, 1) * y + m(3, 2) * z + m(3, 3);
@@ -387,7 +387,7 @@ ICPResult ICP::run(ICPConfiguration config,
             break;
         }
         
-        result.sourceTransform = standard_cyborg::toMat4x4(sourceTransform);
+        result.sourceTransform = rhl_woundcare::toMat4x4(sourceTransform);
         result.rmsCorrespondenceError = rmsError;
         result.iterationCount = iteration;
         

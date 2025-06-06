@@ -1,17 +1,17 @@
 //
 //  EigenHelpers.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/23/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
 #import <simd/simd.h>
 #import <vector>
-#import <standard_cyborg/util/IncludeEigen.hpp>
-#import <StandardCyborgFusion/Surfel.hpp>
+#import <rhl_woundcare/util/IncludeEigen.hpp>
+#import <RHLwoundcare/Surfel.hpp>
 
 namespace Eigen {
     typedef Matrix<uint32_t, 1, Dynamic> VectorXu;

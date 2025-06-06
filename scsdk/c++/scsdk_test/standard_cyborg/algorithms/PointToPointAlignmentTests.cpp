@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,12 +18,12 @@
 /*
  #import <XCTest/XCTest.h>
  
- #import "../StandardCyborgAlgorithms/PointToPointAlignment.hpp"
+ #import "../RHLwoundcareAlgorithms/PointToPointAlignment.hpp"
  
- #import <StandardCyborgData/Vec3.hpp>
- #import <StandardCyborgData/Mat3x4.hpp>
+ #import <RHLwoundcareData/Vec3.hpp>
+ #import <RHLwoundcareData/Mat3x4.hpp>
  
- namespace math = StandardCyborg::math;
+ namespace math = RHLwoundcare::math;
  
  @interface PointToPointAlignmentTests : XCTestCase
  
@@ -34,14 +34,14 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/PointToPointAlignment.hpp"
+#include "rhl_woundcare/algorithms/PointToPointAlignment.hpp"
 
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
 
 
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 
 TEST(PlaneEstimationTests, testPointToPointAlignment) {
     
@@ -57,7 +57,7 @@ TEST(PlaneEstimationTests, testPointToPointAlignment) {
         {1.0f, 4.0f, 0.01f},
     };
     
-    math::Mat3x4 m = standard_cyborg::algorithms::PointToPointAlignment(positions0, positions1);
+    math::Mat3x4 m = rhl_woundcare::algorithms::PointToPointAlignment(positions0, positions1);
     
     EXPECT_TRUE(math::Mat3x4::almostEqual(m, math::Mat3x4({
         1, 0, 0, +0.0,

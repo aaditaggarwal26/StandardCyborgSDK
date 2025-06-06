@@ -1,5 +1,5 @@
-# StandardCyborgFusionTests
+# RHLwoundcareTests
 
-Implements unit tests for the framework `StandardCyborgFusion`. 
+Implements unit tests for the framework `RHLwoundcare`. 
 
-To run the tests, open the xcode project, select the target `StandardCyborgFusionTest` and press `cmd-u`.
+To run the tests, open the xcode project, select the target `RHLwoundcareTest` and press `cmd-u`.

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ limitations under the License.
 #include <string>
 #include <vector>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace scene_graph {
 class Node;
@@ -29,7 +29,7 @@ class Node;
 namespace io {
 namespace gltf {
 
-namespace sg = standard_cyborg::scene_graph;
+namespace sg = rhl_woundcare::scene_graph;
 
 /** Read from a string formatted as gltf-file. */
 std::vector<std::shared_ptr<sg::Node>> ReadSceneGraphFromGltf(const std::string& gltfSource);
@@ -41,4 +41,4 @@ bool WriteSceneGraphToGltf(sg::Node* sceneGraph, const std::string& path);
 
 } // namespace gltf
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

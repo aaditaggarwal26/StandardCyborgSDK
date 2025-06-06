@@ -3,7 +3,7 @@
 //  UvMapBaker
 //
 //  Created by eric on 2019-09-03.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
@@ -13,16 +13,16 @@
 #import <vector>
 
 
-#import <standard_cyborg/math/Mat3x3.hpp>
-#import <standard_cyborg/math/Vec4.hpp>
-#import <standard_cyborg/sc3d/ColorImage.hpp>
-#import <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#import <rhl_woundcare/math/Mat3x3.hpp>
+#import <rhl_woundcare/math/Vec4.hpp>
+#import <rhl_woundcare/sc3d/ColorImage.hpp>
+#import <rhl_woundcare/sc3d/PerspectiveCamera.hpp>
 
 #import "ClearPassNan.hpp"
 #import "RenderUvs.hpp"
 #import "RenderPositions.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 class MetalTextureProjection {
 public:

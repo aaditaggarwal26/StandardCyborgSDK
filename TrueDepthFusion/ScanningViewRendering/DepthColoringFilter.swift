@@ -3,14 +3,14 @@
 //  TrueDepthFusion
 //
 //  Created by Aaron Thompson on 8/22/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 import CoreImage
 import CoreVideo
 import Foundation
 import MetalPerformanceShaders
-import StandardCyborgFusion
+import RHLwoundcare
 
 class DepthColoringFilter {
     

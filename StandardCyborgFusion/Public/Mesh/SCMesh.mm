@@ -1,21 +1,21 @@
 //
 //  SCMesh.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 12/13/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
-#import <standard_cyborg/math/Vec3.hpp>
-#import <standard_cyborg/sc3d/Face3.hpp>
+#import <rhl_woundcare/math/Vec3.hpp>
+#import <rhl_woundcare/sc3d/Face3.hpp>
 
 #import "SCMesh.h"
 #import "SCMesh_Private.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @implementation SCMesh
 

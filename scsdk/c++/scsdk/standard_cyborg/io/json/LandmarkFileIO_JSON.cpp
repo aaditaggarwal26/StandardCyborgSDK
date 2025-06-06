@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/io/json/LandmarkFileIO_JSON.hpp"
+#include "rhl_woundcare/io/json/LandmarkFileIO_JSON.hpp"
 
 #include <fstream>
 #include <sstream>
@@ -24,9 +24,9 @@ limitations under the License.
 #include <nlohmann/json.hpp>
 using JSON = nlohmann::json;
 
-#include "standard_cyborg/sc3d/Landmark.hpp"
+#include "rhl_woundcare/sc3d/Landmark.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace json {
 
@@ -106,4 +106,4 @@ bool WriteLandmarkToJSONStream(std::ostream& output, const sc3d::Landmark& landm
 
 } // namespace json
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

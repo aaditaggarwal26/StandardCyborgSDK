@@ -1,14 +1,14 @@
 //
 //  SCPointCloud+SceneKit.m
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 12/17/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <SceneKit/SceneKit.h>
-#import <StandardCyborgFusion/Surfel.hpp>
+#import <RHLwoundcare/Surfel.hpp>
 
 #import "SCLandmark3D.h"
 #import "SCPointCloud+SceneKit.h"

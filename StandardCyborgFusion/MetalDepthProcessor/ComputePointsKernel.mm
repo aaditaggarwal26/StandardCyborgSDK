@@ -1,19 +1,19 @@
 //
 //  ComputePointsKernel.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/29/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <iostream>
 #import <simd/simd.h>
-#import <standard_cyborg/util/DebugHelpers.hpp>
+#import <rhl_woundcare/util/DebugHelpers.hpp>
 
 #import "ComputePointsKernel.h"
 #import "GeometryHelpers.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 struct ComputePointsKernelUniforms {
     simd_float2 opticalImageSize;

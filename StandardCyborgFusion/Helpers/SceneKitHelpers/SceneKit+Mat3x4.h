@@ -1,21 +1,21 @@
 //
 //  SceneKit+Mat3x4.h
-//  StandardCyborgSDK
+//  RHLwoundcareSDK
 //
 //  Created by Eric Arneback on 5/21/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
-#include <standard_cyborg/math/Mat3x4.hpp>
+#include <rhl_woundcare/math/Mat3x4.hpp>
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCNNode (StandardCyborgDataMat3x4)
+@interface SCNNode (RHLwoundcareDataMat3x4)
 
-+ (instancetype)nodeFromMat3x4:(const standard_cyborg::math::Mat3x4&)mat  withScale:(float)scale;
++ (instancetype)nodeFromMat3x4:(const rhl_woundcare::math::Mat3x4&)mat  withScale:(float)scale;
 
 @end
 

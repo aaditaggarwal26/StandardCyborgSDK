@@ -1,12 +1,12 @@
 //
 //  SCLandmark2D_Private.h
-//  StandardCyborgSDK
+//  RHLwoundcareSDK
 //
 //  Created by Aaron Thompson on 7/4/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
-#import <StandardCyborgFusion/SCLandmark2D.h>
+#import <RHLwoundcare/SCLandmark2D.h>
 
 @interface SCLandmark2D ()
 

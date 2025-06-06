@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "76603F5B224D749B00C4C0C4"
-               BuildableName = "StandardCyborgAlgorithmsTestbed.app"
-               BlueprintName = "StandardCyborgAlgorithmsTestbed"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               BuildableName = "RHLwoundcareAlgorithmsTestbed.app"
+               BlueprintName = "RHLwoundcareAlgorithmsTestbed"
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76603F5B224D749B00C4C0C4"
-            BuildableName = "StandardCyborgAlgorithmsTestbed.app"
-            BlueprintName = "StandardCyborgAlgorithmsTestbed"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            BuildableName = "RHLwoundcareAlgorithmsTestbed.app"
+            BlueprintName = "RHLwoundcareAlgorithmsTestbed"
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76603F5B224D749B00C4C0C4"
-            BuildableName = "StandardCyborgAlgorithmsTestbed.app"
-            BlueprintName = "StandardCyborgAlgorithmsTestbed"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            BuildableName = "RHLwoundcareAlgorithmsTestbed.app"
+            BlueprintName = "RHLwoundcareAlgorithmsTestbed"
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76603F5B224D749B00C4C0C4"
-            BuildableName = "StandardCyborgAlgorithmsTestbed.app"
-            BlueprintName = "StandardCyborgAlgorithmsTestbed"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            BuildableName = "RHLwoundcareAlgorithmsTestbed.app"
+            BlueprintName = "RHLwoundcareAlgorithmsTestbed"
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

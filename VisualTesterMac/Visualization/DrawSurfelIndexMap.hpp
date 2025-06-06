@@ -3,13 +3,13 @@
 //  VisualTesterMac
 //
 //  Created by Aaron Thompson on 10/17/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
-#import <StandardCyborgFusion/EigenHelpers.hpp>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <RHLwoundcare/EigenHelpers.hpp>
+#import <RHLwoundcare/RHLwoundcare.h>
 
 @protocol CAMetalDrawable;
 

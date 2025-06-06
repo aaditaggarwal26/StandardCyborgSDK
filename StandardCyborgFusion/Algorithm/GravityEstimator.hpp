@@ -1,14 +1,14 @@
 //
 //  GravityEstimator.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Eric Arneback on 2019-03-15.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
 #include <simd/simd.h>
 
 class GravityEstimator {

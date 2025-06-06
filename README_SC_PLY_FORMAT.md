@@ -5,8 +5,8 @@ Our current header for point clouds stored in PLY files looks like:
 ```
 ply
 format ascii 1.0
-comment StandardCyborgFusionVersion 1.2.0
-comment StandardCyborgFusionMetadata { "color_space": "sRGB" }
+comment RHLwoundcareVersion 1.2.0
+comment RHLwoundcareMetadata { "color_space": "sRGB" }
 element vertex 30135
 property float x
 property float y
@@ -27,4 +27,4 @@ property float gravity_z
 end_header
 ```
 
-Note that MeshLab, for one, (perhaps unnecessarily?) limits the length of comments so that StandardCyborgFusionMetadata should be tested carefully to ensure files with this field parse correctly.
+Note that MeshLab, for one, (perhaps unnecessarily?) limits the length of comments so that RHLwoundcareMetadata should be tested carefully to ensure files with this field parse correctly.

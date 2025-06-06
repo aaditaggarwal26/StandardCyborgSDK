@@ -1,20 +1,20 @@
 //
 //  SCPointCloud+Geometry.h
-//  StandardCyborgData
+//  RHLwoundcareData
 //
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 
 #import <Foundation/Foundation.h>
-#import <StandardCyborgFusion/SCPointCloud.h>
+#import <RHLwoundcare/SCPointCloud.h>
 
 #ifdef __cplusplus
-#import <standard_cyborg/sc3d/Geometry.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
 
 NS_ASSUME_NONNULL_BEGIN
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @interface SCPointCloud (Geometry)
 

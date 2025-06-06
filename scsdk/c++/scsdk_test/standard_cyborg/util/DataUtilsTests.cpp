@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -19,14 +19,14 @@
  #include <iostream>
  #include <vector>
  
- #include <StandardCyborgData/DataUtils.hpp>
- #include <StandardCyborgData/DebugHelpers.hpp>
- #include <StandardCyborgData/Vec3.hpp>
- #include <StandardCyborgData/Face3.hpp>
+ #include <RHLwoundcareData/DataUtils.hpp>
+ #include <RHLwoundcareData/DebugHelpers.hpp>
+ #include <RHLwoundcareData/Vec3.hpp>
+ #include <RHLwoundcareData/Face3.hpp>
  
- using standard_cyborg::Face3;
+ using rhl_woundcare::Face3;
  
- namespace math = standard_cyborg::math;
+ namespace math = rhl_woundcare::math;
  using math::Vec3;
  
  @interface DataUtilsTests : XCTestCase
@@ -42,12 +42,12 @@
 
 #include <vector>
 
-#include "standard_cyborg/util/DataUtils.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
+#include "rhl_woundcare/util/DataUtils.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
 
-using standard_cyborg::sc3d::Face3;
+using rhl_woundcare::sc3d::Face3;
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec3;
 
 TEST(DataUtilsTests, testVec3ArrayToEigen3Xf) {
@@ -58,7 +58,7 @@ TEST(DataUtilsTests, testVec3ArrayToEigen3Xf) {
         { 10.0f, 11.0f, 12.0f },
     };
     
-    Eigen::Ref<Eigen::Matrix3Xf> matrix (standard_cyborg::toMatrix3Xf(data));
+    Eigen::Ref<Eigen::Matrix3Xf> matrix (rhl_woundcare::toMatrix3Xf(data));
     
     Eigen::Matrix3Xf expected (3, 4);
     expected <<
@@ -90,7 +90,7 @@ TEST(DataUtilsTests, testVec3ArrayToEigen3XfDataMutation) {
         { 10.0f, 11.0f, 12.0f },
     };
     
-    Eigen::Ref<Eigen::Matrix3Xf> matrix {standard_cyborg::toMatrix3Xf(data)};
+    Eigen::Ref<Eigen::Matrix3Xf> matrix {rhl_woundcare::toMatrix3Xf(data)};
     
     // Sanity-check it starts out correct
     EXPECT_EQ(data[2].y, 8.0f);
@@ -113,7 +113,7 @@ TEST(DataUtilsTests, testConstVec3ArrayToEigen3Xf) {
         { 10.0f, 11.0f, 12.0f },
     };
     
-    const Eigen::Ref<const Eigen::Matrix3Xf> matrix {standard_cyborg::toMatrix3Xf(data)};
+    const Eigen::Ref<const Eigen::Matrix3Xf> matrix {rhl_woundcare::toMatrix3Xf(data)};
     
     // woot, "Expression is not assignable"
     // matrix(1, 2) = 100.0f;
@@ -140,7 +140,7 @@ TEST(DataUtilsTests, testVec3ArrayToEigenX3f) {
         { 10.0f, 11.0f, 12.0f },
     };
     
-    auto matrix = standard_cyborg::toMatrixX3f(data);
+    auto matrix = rhl_woundcare::toMatrixX3f(data);
     
     EXPECT_EQ(matrix(0, 0), 1.0f);
     EXPECT_EQ(matrix(0, 1), 2.0f);
@@ -166,7 +166,7 @@ TEST(DataUtilsTests, testVec3ArrayToEigenX3fDataMutation) {
     
     // I would, of course, *highly* recomment `auto` here. I have elected instead to be
     // abundantly clear about the type.
-    Eigen::Ref<Eigen::Matrix<float, Eigen::Dynamic, 3, Eigen::RowMajor>> matrix {standard_cyborg::toMatrixX3f(data)};
+    Eigen::Ref<Eigen::Matrix<float, Eigen::Dynamic, 3, Eigen::RowMajor>> matrix {rhl_woundcare::toMatrixX3f(data)};
     
     // Sanity-check it starts out correct
     EXPECT_EQ(data[2].y, 8.0f);
@@ -189,7 +189,7 @@ TEST(DataUtilsTests, testConstVec3ArrayToEigenX3f) {
         { 10.0f, 11.0f, 12.0f },
     };
     
-    const auto matrix {standard_cyborg::toMatrixX3f(data)};
+    const auto matrix {rhl_woundcare::toMatrixX3f(data)};
     
     // woot, "Expression is not assignable"
     // matrix(1, 2) = 100.0f;
@@ -218,7 +218,7 @@ TEST(DataUtilsTests, testFace3ArrayToEigen3Xi) {
         { 10, 11, 12 },
     };
     
-    Eigen::Ref<Eigen::Matrix3Xi> matrix (standard_cyborg::toMatrix3Xi(data));
+    Eigen::Ref<Eigen::Matrix3Xi> matrix (rhl_woundcare::toMatrix3Xi(data));
     
     Eigen::Matrix3Xi expected (3, 4);
     expected <<
@@ -250,7 +250,7 @@ TEST(DataUtilsTests, testFace3ArrayToEigen3XiDataMutation) {
         { 10, 11, 12 },
     };
     
-    Eigen::Ref<Eigen::Matrix3Xi> matrix {standard_cyborg::toMatrix3Xi(data)};
+    Eigen::Ref<Eigen::Matrix3Xi> matrix {rhl_woundcare::toMatrix3Xi(data)};
     
     // Sanity-check it starts out correct
     EXPECT_EQ(data[2][1], 8);
@@ -273,7 +273,7 @@ TEST(DataUtilsTests, testConstFace3ArrayToEigen3Xi) {
         { 10, 11, 12 },
     };
     
-    const Eigen::Ref<const Eigen::Matrix3Xi> matrix {standard_cyborg::toMatrix3Xi(data)};
+    const Eigen::Ref<const Eigen::Matrix3Xi> matrix {rhl_woundcare::toMatrix3Xi(data)};
     
     // woot, "Expression is not assignable"
     // matrix(1, 2) = 100;
@@ -300,7 +300,7 @@ TEST(DataUtilsTests, testFace3ArrayToEigenX3i) {
         { 10, 11, 12 },
     };
     
-    auto matrix = standard_cyborg::toMatrixX3i(data);
+    auto matrix = rhl_woundcare::toMatrixX3i(data);
     
     EXPECT_EQ(matrix(0, 0), 1);
     EXPECT_EQ(matrix(0, 1), 2);
@@ -326,7 +326,7 @@ TEST(DataUtilsTests, testFace3ArrayToEigenX3iDataMutation) {
     
     // I would, of course, *highly* recomment `auto` here. I have elected instead to be
     // abundantly clear about the type.
-    Eigen::Ref<Eigen::Matrix<int, Eigen::Dynamic, 3, Eigen::RowMajor>> matrix {standard_cyborg::toMatrixX3i(data)};
+    Eigen::Ref<Eigen::Matrix<int, Eigen::Dynamic, 3, Eigen::RowMajor>> matrix {rhl_woundcare::toMatrixX3i(data)};
     
     // Sanity-check it starts out correct
     EXPECT_EQ(data[2][1], 8);
@@ -349,7 +349,7 @@ TEST(DataUtilsTests, testConstFace3ArrayToEigenX3i) {
         { 10, 11, 12 },
     };
     
-    const auto matrix {standard_cyborg::toMatrixX3i(data)};
+    const auto matrix {rhl_woundcare::toMatrixX3i(data)};
     
     // woot, "Expression is not assignable"
     // matrix(1, 2) = 100;

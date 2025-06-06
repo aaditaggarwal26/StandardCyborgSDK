@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,33 +18,33 @@
 
 #include <sstream>
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/io/ply/GeometryFileIO_PLY.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp"
 
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-#include "standard_cyborg/test_helpers/TestHelpers.hpp"
+#include "rhl_woundcare/test_helpers/TestHelpers.hpp"
 
-using namespace standard_cyborg::sc3d;
-using namespace standard_cyborg::math;
-using namespace standard_cyborg::io::ply;
+using namespace rhl_woundcare::sc3d;
+using namespace rhl_woundcare::math;
+using namespace rhl_woundcare::io::ply;
 
 TEST(FileIOTests, testReading) {
     {
-        std::string PLYPath = standard_cyborg::getTestCasesPath() + std::string("Expected.ply");
+        std::string PLYPath = rhl_woundcare::getTestCasesPath() + std::string("Expected.ply");
         
         Geometry geometry;
-        EXPECT_TRUE(standard_cyborg::io::ply::FragileReadGeometryFromPLYFile(geometry, PLYPath));
+        EXPECT_TRUE(rhl_woundcare::io::ply::FragileReadGeometryFromPLYFile(geometry, PLYPath));
         EXPECT_EQ(geometry.vertexCount(), 45428);
         EXPECT_EQ(geometry.faceCount(), 0);
     }
     
     // mesh with only normals and positions.
     {
-        std::string PLYPath = standard_cyborg::getTestCasesPath() + std::string("test-plane.ply");
+        std::string PLYPath = rhl_woundcare::getTestCasesPath() + std::string("test-plane.ply");
         
         Geometry geometry;
-        EXPECT_TRUE(standard_cyborg::io::ply::FragileReadGeometryFromPLYFile(geometry, PLYPath));
+        EXPECT_TRUE(rhl_woundcare::io::ply::FragileReadGeometryFromPLYFile(geometry, PLYPath));
         EXPECT_EQ(geometry.vertexCount(), 41);
         EXPECT_EQ(geometry.faceCount(), 64);
     }
@@ -96,7 +96,7 @@ TEST(FileIOTests, testEncodingSurfelRadius) {
 
 TEST(FileIOTests, testRobustPLYReading) {
     {
-        std::string PLYPath = standard_cyborg::getTestCasesPath() + std::string("test-plane.ply");
+        std::string PLYPath = rhl_woundcare::getTestCasesPath() + std::string("test-plane.ply");
         
         Geometry geometry;
         ReadGeometryFromPLYFile(geometry, PLYPath);
@@ -108,7 +108,7 @@ TEST(FileIOTests, testRobustPLYReading) {
         EXPECT_EQ(geometry.faceCount(), 64);
     }
     {
-        std::string PLYPath = standard_cyborg::getTestCasesPath() + std::string("Expected.ply");
+        std::string PLYPath = rhl_woundcare::getTestCasesPath() + std::string("Expected.ply");
         
         Geometry geometry;
         ReadGeometryFromPLYFile(geometry, PLYPath);

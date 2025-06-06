@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
 
-using standard_cyborg::sc3d::VertexSelection;
-namespace math = standard_cyborg::math;
+using rhl_woundcare::sc3d::VertexSelection;
+namespace math = rhl_woundcare::math;
 
 /*
  #import <XCTest/XCTest.h>
@@ -33,14 +33,14 @@ namespace math = standard_cyborg::math;
  #include <set>
  #include <vector>
  
- #include <StandardCyborgData/DebugHelpers.hpp>
+ #include <RHLwoundcareData/DebugHelpers.hpp>
  
- #include <StandardCyborgData/Polyline.hpp>
- #include <StandardCyborgData/VertexSelection.hpp>
+ #include <RHLwoundcareData/Polyline.hpp>
+ #include <RHLwoundcareData/VertexSelection.hpp>
  
- using standard_cyborg::sc3d::VertexSelection;
+ using rhl_woundcare::sc3d::VertexSelection;
  
- namespace math = StandardCyborg::math;
+ namespace math = RHLwoundcare::math;
  
  @interface VertexSelectionTests : XCTestCase
  
@@ -244,7 +244,7 @@ TEST(VertexSelectionTests, testFromGeometry)
         {0.0f, 0.0f, 0.0f},
     };
     
-    standard_cyborg::sc3d::Geometry geo(positions, normals, colors);
+    rhl_woundcare::sc3d::Geometry geo(positions, normals, colors);
     
     /* Test filtering via position */
     std::shared_ptr<VertexSelection> viaPosition = VertexSelection::fromGeometryVertices(geo, [](int index, math::Vec3 position, math::Vec3 normal, math::Vec3 color) {
@@ -276,7 +276,7 @@ TEST(VertexSelectionTests, testFromPolyline)
         {-2.0f, -1.0f, -6.0f},
         {-9.0f, +4.0f, +1.0f},
     };
-    standard_cyborg::sc3d::Polyline polyline(positions);
+    rhl_woundcare::sc3d::Polyline polyline(positions);
     VertexSelection selection(polyline, std::vector<int>{1, 2});
     EXPECT_TRUE(selection == VertexSelection(4, {1, 2}));
 }
@@ -294,7 +294,7 @@ TEST(VertexSelectionTests, testInvert)
 
 TEST(VertexSelectionTests, testInvertWRTGeometry)
 {
-    standard_cyborg::sc3d::Geometry geometry(std::vector<math::Vec3>{
+    rhl_woundcare::sc3d::Geometry geometry(std::vector<math::Vec3>{
         math::Vec3 {0.0f, 0.0f, 0.0f},
         math::Vec3 {0.0f, 0.0f, 0.0f},
         math::Vec3 {0.0f, 0.0f, 0.0f},

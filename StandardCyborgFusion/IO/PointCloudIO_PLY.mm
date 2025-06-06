@@ -1,9 +1,9 @@
 //
 //  PointCloudIO_PLY.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 3/11/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #include "PointCloudIO.hpp"
@@ -67,7 +67,7 @@ bool PointCloudIO::ReadSurfelsFromPLYFile(Surfels& surfels, std::string filename
 
             surfels.push_back(surfel);
         }
-        else if (strncmp(line, "comment StandardCyborgFusionVersion ", strlen("comment StandardCyborgFusionVersion ")) == 0) {
+        else if (strncmp(line, "comment RHLwoundcareVersion ", strlen("comment RHLwoundcareVersion ")) == 0) {
             // Don't even bother reading the version string, as we didn't write it until version 1.1.0
             flipNormals = false;
             unapplyGamma = true;
@@ -94,8 +94,8 @@ bool PointCloudIO::WriteSurfelsToPLYFile(const Surfel* surfels,
     
     fprintf(file, "ply\n");
     fprintf(file, "format ascii 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
-    fprintf(file, "comment StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "comment RHLwoundcareVersion %s\n", SCFrameworkVersion());
+    fprintf(file, "comment RHLwoundcareMetadata { \"color_space\": \"sRGB\" }\n");
     fprintf(file, "element vertex %ld\n", surfelCount);
     fprintf(file, "property float x\n");
     fprintf(file, "property float y\n");
@@ -231,7 +231,7 @@ void PointCloudIO::WriteRawFrameToBPLYFile(const RawFrame& rawFrame, std::string
     // Header
     fprintf(file, "ply\n");
     fprintf(file, "format binary_little_endian 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
+    fprintf(file, "comment RHLwoundcareVersion %s\n", SCFrameworkVersion());
     fprintf(file, "element metadata %ld\n", metadataString.size());
     fprintf(file, "property uchar char\n");
     fprintf(file, "element color %ld\n", rawFrame.colors.size());

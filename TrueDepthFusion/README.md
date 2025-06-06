@@ -1,6 +1,6 @@
 # TrueDepthFusion
 
-Our internal testing app, that we use for testing and running the reconstruction algorithm in the framework `StandardCyborgFusion` in iOS, on the phone. 
+Our internal testing app, that we use for testing and running the reconstruction algorithm in the framework `RHLwoundcare` in iOS, on the phone. 
 
 ## How to mesh a pointcloud
 

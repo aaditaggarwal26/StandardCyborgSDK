@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/io/imgfile/ColorImageFileIO.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/io/imgfile/ColorImageFileIO.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
 
 #include <ios>
 #include <iostream>
@@ -35,7 +35,7 @@ limitations under the License.
 #include <stb_image_write.h>
 #include <stb_image.h>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace imgfile {
 
@@ -254,4 +254,4 @@ bool WriteColorImageToBuffer(
 
 } // namespace imgfile
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

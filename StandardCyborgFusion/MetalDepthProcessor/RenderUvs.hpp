@@ -3,14 +3,14 @@
 //  VisualTesterMac
 //
 //  Created by Eric on 8/31/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "MetalVisualizationEngine.hpp"
 
-#include <standard_cyborg/sc3d/Geometry.hpp>
-#include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#include <rhl_woundcare/sc3d/Geometry.hpp>
+#include <rhl_woundcare/sc3d/PerspectiveCamera.hpp>
 
 @interface RenderUvs : NSObject
 

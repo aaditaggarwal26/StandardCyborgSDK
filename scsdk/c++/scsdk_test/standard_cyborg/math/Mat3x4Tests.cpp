@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,11 +17,11 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/math/Mat4x4.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat4x4.hpp"
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Mat3x4;
 
 TEST(Mat3x4Tests, testEquality) {

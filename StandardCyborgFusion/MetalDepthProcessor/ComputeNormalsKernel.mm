@@ -1,9 +1,9 @@
 //
 //  ComputeNormalsKernel.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/2/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <simd/simd.h>
@@ -11,7 +11,7 @@
 #import "GeometryHelpers.hpp"
 #import "ProcessedFrame.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 struct ComputeNormalsKernelUniforms {
     simd_float2 opticalImageSize, opticalImageCenter, resolution;

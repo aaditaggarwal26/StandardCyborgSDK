@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,22 +17,22 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/SobelEdgeFilter.hpp"
+#include "rhl_woundcare/algorithms/SobelEdgeFilter.hpp"
 
 #include <algorithm>
 
-#include "standard_cyborg/util/AssertHelper.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/util/AssertHelper.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
 
-#include "standard_cyborg/math/Vec2.hpp"
-#include "standard_cyborg/math/Vec4.hpp"
+#include "rhl_woundcare/math/Vec2.hpp"
+#include "rhl_woundcare/math/Vec4.hpp"
 
 
-using standard_cyborg::sc3d::ColorImage;
-using standard_cyborg::sc3d::DepthImage;
+using rhl_woundcare::sc3d::ColorImage;
+using rhl_woundcare::sc3d::DepthImage;
 
-using standard_cyborg::algorithms::SobelEdgeFilter;
+using rhl_woundcare::algorithms::SobelEdgeFilter;
 
 TEST(SobelEdgeFilterTests, testSobelEdgeFilterDepthImage) {
     DepthImage src (3, 3, {

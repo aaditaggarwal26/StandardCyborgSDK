@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,10 +16,10 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/math/Vec2.hpp"
-#include "standard_cyborg/sc3d/Size2D.hpp"
+#include "rhl_woundcare/math/Vec2.hpp"
+#include "rhl_woundcare/sc3d/Size2D.hpp"
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec2;
 
 TEST(Vec2Tests, testDotProduct) {
@@ -179,5 +179,5 @@ TEST(Vec2Tests, testVec2Pow) {
 TEST(Vec2Tests, testVec2Constructor) {
     EXPECT_EQ(Vec2(1, 2), Vec2(1, 2));
     EXPECT_EQ(Vec2(10), Vec2(10));
-    EXPECT_EQ(Vec2(standard_cyborg::sc3d::Size2D{1, 2}), Vec2(1.0f, 2.0f));
+    EXPECT_EQ(Vec2(rhl_woundcare::sc3d::Size2D{1, 2}), Vec2(1.0f, 2.0f));
 }

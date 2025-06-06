@@ -3,7 +3,7 @@
 //  DepthRenderer
 //
 //  Created by Aaron Thompson on 7/23/18.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #include <metal_stdlib>

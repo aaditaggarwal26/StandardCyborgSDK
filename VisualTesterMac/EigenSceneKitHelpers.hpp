@@ -3,13 +3,13 @@
 //  VisualTesterMac
 //
 //  Created by Aaron Thompson on 7/14/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #ifndef EigenHelpers_hpp
 #define EigenHelpers_hpp
 
-#import <standard_cyborg/util/IncludeEigen.hpp>
+#import <rhl_woundcare/util/IncludeEigen.hpp>
 
 #import <SceneKit/SceneKit.h>
 

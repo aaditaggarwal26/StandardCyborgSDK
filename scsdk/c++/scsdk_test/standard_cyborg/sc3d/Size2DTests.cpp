@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/Size2D.hpp"
+#include "rhl_woundcare/sc3d/Size2D.hpp"
 
-using namespace standard_cyborg::sc3d;
+using namespace rhl_woundcare::sc3d;
 
 TEST(VertexSelectionTests, testConstructor) {
     Size2D s;

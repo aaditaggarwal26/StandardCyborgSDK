@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ limitations under the License.
 #include <string>
 #include <ostream>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class Geometry;
@@ -48,4 +48,4 @@ bool FragileReadGeometryFromPLYFile(sc3d::Geometry& geometryOut, std::string fil
 
 } // namespace ply
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

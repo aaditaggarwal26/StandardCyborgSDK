@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,17 +17,17 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
 
-#include "standard_cyborg/io/imgfile/ColorImageFileIO.hpp"
-#include "standard_cyborg/io/ply/DepthImageFileIO_PLY.hpp"
+#include "rhl_woundcare/io/imgfile/ColorImageFileIO.hpp"
+#include "rhl_woundcare/io/ply/DepthImageFileIO_PLY.hpp"
 
 #include <fstream>
 
-using namespace standard_cyborg::sc3d;
-using namespace standard_cyborg::math;
-using namespace standard_cyborg::io::imgfile;
+using namespace rhl_woundcare::sc3d;
+using namespace rhl_woundcare::math;
+using namespace rhl_woundcare::io::imgfile;
 
 TEST(ColorImageFileIOTests, testWritingPNGToFile) {
     std::string imagePath = "/tmp/test.png";
@@ -72,7 +72,7 @@ TEST(ColorImageFileIOTests, testReadPNGFromFile) {
     EXPECT_TRUE(WriteColorImageToFile(imagePath, inputImage, ImageFormat::PNG));
     
     ColorImage outputImage;
-    EXPECT_TRUE(standard_cyborg::io::imgfile::ReadColorImageFromFile(outputImage, imagePath));
+    EXPECT_TRUE(rhl_woundcare::io::imgfile::ReadColorImageFromFile(outputImage, imagePath));
     
     EXPECT_EQ(outputImage.getWidth(), 2);
     EXPECT_EQ(outputImage.getHeight(), 2);
@@ -101,7 +101,7 @@ TEST(ColorImageFileIOTests, testReadJPEGFromFile) {
     EXPECT_TRUE(WriteColorImageToFile(imagePath, inputImage, ImageFormat::JPEG, 100));
     
     ColorImage outputImage;
-    EXPECT_TRUE(standard_cyborg::io::imgfile::ReadColorImageFromFile(outputImage, imagePath));
+    EXPECT_TRUE(rhl_woundcare::io::imgfile::ReadColorImageFromFile(outputImage, imagePath));
     
     EXPECT_EQ(outputImage.getWidth(), 2);
     EXPECT_EQ(outputImage.getHeight(), 2);
@@ -190,11 +190,11 @@ TEST(ColorImageFileIOTests, testDepthImageSerialization) {
     std::stringstream ioBuffer;
     
     DepthImage inputImage (2, 2, std::vector<float>{1.0f, 2.0f, 3.0f, 4.0f});
-    standard_cyborg::io::ply::WriteDepthImageToPLYStream(ioBuffer, inputImage);
+    rhl_woundcare::io::ply::WriteDepthImageToPLYStream(ioBuffer, inputImage);
     
     DepthImage outputImage;
     
-    standard_cyborg::io::ply::ReadDepthImageFromPLYStream(outputImage, ioBuffer);
+    rhl_woundcare::io::ply::ReadDepthImageFromPLYStream(outputImage, ioBuffer);
     
     EXPECT_EQ(outputImage.getWidth(), 2);
     EXPECT_EQ(outputImage.getHeight(), 2);

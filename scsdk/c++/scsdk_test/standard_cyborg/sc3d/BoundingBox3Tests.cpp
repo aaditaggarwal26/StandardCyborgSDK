@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -22,15 +22,15 @@
  #include <cmath>
  #include <iostream>
  
- #include <StandardCyborgData/BoundingBox3.hpp>
- #include <StandardCyborgData/Geometry.hpp>
- #include <StandardCyborgData/DebugHelpers.hpp>
- #include <StandardCyborgData/Vec3.hpp>
- #include <StandardCyborgData/Polyline.hpp>
+ #include <RHLwoundcareData/BoundingBox3.hpp>
+ #include <RHLwoundcareData/Geometry.hpp>
+ #include <RHLwoundcareData/DebugHelpers.hpp>
+ #include <RHLwoundcareData/Vec3.hpp>
+ #include <RHLwoundcareData/Polyline.hpp>
  
- using StandardCyborg::BoundingBox3;
+ using RHLwoundcare::BoundingBox3;
  
- namespace math = StandardCyborg::math;
+ namespace math = RHLwoundcare::math;
  using math::Vec3;
  
  @interface BoundingBox3Tests : XCTestCase
@@ -42,16 +42,16 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/BoundingBox3.hpp"
+#include "rhl_woundcare/sc3d/BoundingBox3.hpp"
 
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
 
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec3;
 
-using standard_cyborg::sc3d::BoundingBox3;
+using rhl_woundcare::sc3d::BoundingBox3;
 
 
 TEST(BoundingBox3Tests, testEmptyConstructor) {
@@ -118,7 +118,7 @@ TEST(BoundingBox3Tests, testApproximateEquality) {
 }
 
 TEST(BoundingBox3Tests, testInitializationFromGeometry) {
-    BoundingBox3 bbox {standard_cyborg::sc3d::Geometry({Vec3{1, 4, 3}, Vec3{2, 2, 4}})};
+    BoundingBox3 bbox {rhl_woundcare::sc3d::Geometry({Vec3{1, 4, 3}, Vec3{2, 2, 4}})};
     BoundingBox3 expected {{1.0f, 2.0f, 3.0f}, {2.0f, 4.0f, 4.0f}};
     EXPECT_EQ(bbox, expected);
     
@@ -137,7 +137,7 @@ TEST(BoundingBox3Tests, testInitializationFromGeometry) {
                        0,0,1,9
                        );
         
-        BoundingBox3 aabb {standard_cyborg::sc3d::Geometry({lower, upper}), m};
+        BoundingBox3 aabb {rhl_woundcare::sc3d::Geometry({lower, upper}), m};
         
         EXPECT_EQ(aabb.getLower(), lower + Vec3(tx, ty, tz));
         EXPECT_EQ(aabb.getUpper(), upper +  Vec3(tx, ty, tz));
@@ -233,7 +233,7 @@ TEST(BoundingBox3Tests, testPolylineConstructor)
         
         Vec3 upper{+2.0f, +4.0f, +4.0f};
         
-        standard_cyborg::sc3d::Polyline polyline{ std::vector<Vec3>{lower, Vec3{+1.5f, +3.0f, +3.5f}, upper} };
+        rhl_woundcare::sc3d::Polyline polyline{ std::vector<Vec3>{lower, Vec3{+1.5f, +3.0f, +3.5f}, upper} };
         
         BoundingBox3 aabb {polyline};
         
@@ -256,7 +256,7 @@ TEST(BoundingBox3Tests, testPolylineConstructor)
                        0,0,1,9
                        );
         
-        standard_cyborg::sc3d::Polyline polyline{ std::vector<Vec3>{lower, Vec3{+1.5f, +3.0f, +3.5f}, upper} };
+        rhl_woundcare::sc3d::Polyline polyline{ std::vector<Vec3>{lower, Vec3{+1.5f, +3.0f, +3.5f}, upper} };
         
         BoundingBox3 aabb {polyline, m};
         

@@ -1,16 +1,16 @@
 //
 //  RawFrame.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 10/16/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <standard_cyborg/sc3d/PerspectiveCamera.hpp>
+#include <rhl_woundcare/sc3d/PerspectiveCamera.hpp>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 #define METAL_REQUIRED_ALIGNMENT 4096
 

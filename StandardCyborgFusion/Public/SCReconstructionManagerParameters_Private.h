@@ -1,12 +1,12 @@
 //
 //  SCReconstructionManagerParameters_Private.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 1/15/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
-#import <StandardCyborgFusion/SCReconstructionManagerParameters.h>
+#import <RHLwoundcare/SCReconstructionManagerParameters.h>
 
 @protocol SCReconstructionManagerParameters_Private <SCReconstructionManagerParameters>
 

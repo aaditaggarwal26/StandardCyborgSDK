@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/math/Vec4.hpp"
+#include "rhl_woundcare/math/Vec4.hpp"
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec4;
 
 TEST(Vec4Tests, testConstructionFromParts) {

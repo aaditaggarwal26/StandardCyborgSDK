@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,10 +16,10 @@ limitations under the License.
 
 #pragma once
 
-#include "standard_cyborg/sc3d/Point2D.hpp"
-#include "standard_cyborg/sc3d/Size2D.hpp"
+#include "rhl_woundcare/sc3d/Point2D.hpp"
+#include "rhl_woundcare/sc3d/Size2D.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 struct Rect2D {
@@ -28,5 +28,5 @@ struct Rect2D {
 };
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare
 

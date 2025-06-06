@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/io/json/PolylineFileIO_JSON.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/io/json/ParsingHelpers.hpp"
+#include "rhl_woundcare/io/json/PolylineFileIO_JSON.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/io/json/ParsingHelpers.hpp"
 
 #include <fstream>
 #include <iomanip>
@@ -26,7 +26,7 @@ limitations under the License.
 #include <nlohmann/json.hpp>
 using JSON = nlohmann::json;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace json {
 
@@ -108,4 +108,4 @@ bool WritePolylineToJSONStream(std::ostream& output, const sc3d::Polyline& polyl
 
 } // namespace json
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,10 +19,10 @@ limitations under the License.
 #include <limits>
 #include <vector>
 
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/util/AssertHelper.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/util/AssertHelper.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace math {
 
 struct Mat3x3;
@@ -187,4 +187,4 @@ inline std::vector<float> Mat3x4::toRowMajorVector() const
 }
 
 } // namespace math
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

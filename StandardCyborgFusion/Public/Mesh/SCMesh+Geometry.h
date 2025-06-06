@@ -1,22 +1,22 @@
 //
 //  SCMesh+Geometry.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 10/17/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #ifdef __cplusplus
 
 #import <Foundation/Foundation.h>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <StandardCyborgFusion/SCMesh.h>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <RHLwoundcare/SCMesh.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
-@interface SCMesh (StandardCyborgGeometry)
+@interface SCMesh (RHLwoundcareGeometry)
 
 + (SCMesh * _Nullable)meshWithVertexColorsFromGeometry:(const sc3d::Geometry &)geometry;
 

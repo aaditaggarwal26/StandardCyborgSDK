@@ -1,15 +1,15 @@
 //
 //  DepthProcessor.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/14/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
 #include "ProcessedFrame.hpp"
-#include <StandardCyborgFusion/RawFrame.hpp>
+#include <RHLwoundcare/RawFrame.hpp>
 
 class DepthProcessor {
 public:

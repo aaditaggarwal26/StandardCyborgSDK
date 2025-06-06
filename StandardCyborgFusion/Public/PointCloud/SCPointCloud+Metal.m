@@ -1,14 +1,14 @@
 //
 //  SCPointCloud+Metal.m
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 12/17/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import "SCPointCloud+Metal.h"
 #import <Metal/Metal.h>
-#import <StandardCyborgFusion/MathHelpers.h>
+#import <RHLwoundcare/MathHelpers.h>
 
 @implementation SCPointCloud (Metal)
 

@@ -1,14 +1,14 @@
 //
 //  SCAssimilatedFrameMetadata_Private.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 12/20/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
-#import <StandardCyborgFusion/PBFAssimilatedFrameMetadata.hpp>
-#import <StandardCyborgFusion/SCAssimilatedFrameMetadata.h>
-#import <StandardCyborgFusion/EigenHelpers.hpp>
+#import <RHLwoundcare/PBFAssimilatedFrameMetadata.hpp>
+#import <RHLwoundcare/SCAssimilatedFrameMetadata.h>
+#import <RHLwoundcare/EigenHelpers.hpp>
 
 static SCAssimilatedFrameMetadata
 SCAssimilatedFrameMetadataFromPBFAssimilatedFrameMetadata(PBFAssimilatedFrameMetadata pbfMetadata,

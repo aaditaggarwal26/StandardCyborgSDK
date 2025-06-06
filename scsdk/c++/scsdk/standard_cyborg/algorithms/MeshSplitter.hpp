@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ limitations under the License.
  it will return the two squares as two separate meshes, since they are not connected to each other.
  
  */
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class Geometry;
@@ -47,4 +47,4 @@ std::vector<std::shared_ptr<sc3d::Geometry>> splitMeshIntoPieces(const sc3d::Geo
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

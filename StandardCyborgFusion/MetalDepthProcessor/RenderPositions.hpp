@@ -3,14 +3,14 @@
 //  VisualTesterMac
 //
 //  Created by Eric on 8/31/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
-#import <standard_cyborg/sc3d/Geometry.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @interface RenderPositions : NSObject
 

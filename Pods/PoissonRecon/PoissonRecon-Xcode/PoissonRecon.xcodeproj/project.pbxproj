@@ -749,7 +749,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "Standard Cyborg";
+				ORGANIZATIONNAME = "RHL Woundcare";
 				TargetAttributes = {
 					762D5AC022162C0B0066EE74 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1090,7 +1090,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.PoissonRecon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.PoissonRecon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
@@ -1118,7 +1118,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.PoissonRecon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.PoissonRecon;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
@@ -1140,7 +1140,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.MeshingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.MeshingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1160,7 +1160,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.MeshingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.MeshingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

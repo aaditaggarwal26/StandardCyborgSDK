@@ -1,33 +1,33 @@
 //
 //  EarToEarTests.m
-//  StandardCyborgFusionTests
+//  RHLwoundcareTests
 //
 //  Created by eric on 2019-04-26.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import <cmath>
 #import <iostream>
 
-#import <standard_cyborg/util/DataUtils.hpp>
-#import <standard_cyborg/util/DebugHelpers.hpp>
-#import <standard_cyborg/sc3d/Face3.hpp>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/util/IncludeEigen.hpp>
-#import <standard_cyborg/math/Vec3.hpp>
-#import <standard_cyborg/sc3d/VertexSelection.hpp>
-#import <StandardCyborgFusion/MetalDepthProcessor.hpp>
-#import <StandardCyborgFusion/PBFModel.hpp>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
+#import <rhl_woundcare/util/DataUtils.hpp>
+#import <rhl_woundcare/util/DebugHelpers.hpp>
+#import <rhl_woundcare/sc3d/Face3.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/util/IncludeEigen.hpp>
+#import <rhl_woundcare/math/Vec3.hpp>
+#import <rhl_woundcare/sc3d/VertexSelection.hpp>
+#import <RHLwoundcare/MetalDepthProcessor.hpp>
+#import <RHLwoundcare/PBFModel.hpp>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <RHLwoundcare/RHLwoundcare.h>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
 
 #import "Helpers/PathHelpers.h"
 #import "Helpers/ReconstructionHelpers.h"
 
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 void AveragePosNormal(const sc3d::Geometry& geo,
                       const sc3d::VertexSelection& selection,

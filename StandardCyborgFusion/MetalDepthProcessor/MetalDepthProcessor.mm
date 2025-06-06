@@ -1,16 +1,16 @@
 //
 //  MetalDepthProcessor.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/1/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <vector>
-#import <StandardCyborgFusion/ProcessedFrame.hpp>
-#import <StandardCyborgFusion/RawFrame.hpp>
-#import <StandardCyborgFusion/MathHelpers.h>
-#import <StandardCyborgFusion/EigenHelpers.hpp>
+#import <RHLwoundcare/ProcessedFrame.hpp>
+#import <RHLwoundcare/RawFrame.hpp>
+#import <RHLwoundcare/MathHelpers.h>
+#import <RHLwoundcare/EigenHelpers.hpp>
 #import <Metal/Metal.h>
 
 #import "MetalComputeEngine.h"
@@ -26,7 +26,7 @@
 
 MetalDepthProcessor::MetalDepthProcessor(id<MTLDevice> device, id<MTLCommandQueue> commandQueue) {
     assert(device != nil);
-    id<MTLLibrary> library = [device newDefaultLibraryWithBundle:[NSBundle bundleWithIdentifier:@"com.standardcyborg.StandardCyborgFusion"] error:NULL];
+    id<MTLLibrary> library = [device newDefaultLibraryWithBundle:[NSBundle bundleWithIdentifier:@"com.RHLwoundcare.RHLwoundcare"] error:NULL];
 
     NSArray *kernels = @[
                          [[InitializeDepthConfidenceKernel alloc] initWithDevice:device library:library],

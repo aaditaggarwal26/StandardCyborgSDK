@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,10 +19,10 @@ limitations under the License.
 #include <cmath>
 #include <limits>
 
-#include "standard_cyborg/math/MathHelpers.hpp"
-#include "standard_cyborg/sc3d/Size2D.hpp"
+#include "rhl_woundcare/math/MathHelpers.hpp"
+#include "rhl_woundcare/sc3d/Size2D.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace math {
 
 struct Vec2 {
@@ -310,4 +310,4 @@ inline Vec2 Vec2::pow(const Vec2& a, float exponent)
 }
 
 } // namespace math
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,12 +15,12 @@ limitations under the License.
 */
 
 
-#include "standard_cyborg/io/ply/RawFrameDataIO_PLY.hpp"
+#include "rhl_woundcare/io/ply/RawFrameDataIO_PLY.hpp"
 
-#include "standard_cyborg/sc3d/DepthImage.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/PerspectiveCamera.hpp"
-#include "standard_cyborg/io/json/PerspectiveCameraFileIO_JSON_Private.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/PerspectiveCamera.hpp"
+#include "rhl_woundcare/io/json/PerspectiveCameraFileIO_JSON_Private.hpp"
 
 #include <algorithm>
 #include <iostream>
@@ -30,7 +30,7 @@ limitations under the License.
 #pragma clang diagnostic pop
 #include <nlohmann/json.hpp>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace ply {
 
@@ -122,4 +122,4 @@ bool ReadRawFrameDataFromPLYStream(ColorImage& imageOut, DepthImage& depthOut, P
 
 } // namespace ply
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

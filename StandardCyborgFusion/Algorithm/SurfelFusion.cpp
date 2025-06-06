@@ -1,18 +1,18 @@
 //
 //  SurfelFusion.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by eric on 2020-03-12.
-//  Copyright © 2020 Standard Cyborg. All rights reserved.
+//  Copyright © 2020 RHL Woundcare. All rights reserved.
 //
 
-#import <StandardCyborgFusion/PBFDefinitions.h>
-#include <StandardCyborgFusion/EigenHelpers.hpp>
+#import <RHLwoundcare/PBFDefinitions.h>
+#include <RHLwoundcare/EigenHelpers.hpp>
 
-#import <standard_cyborg/util/DataUtils.hpp>
-#include <standard_cyborg/util/IncludeEigen.hpp>
+#import <rhl_woundcare/util/DataUtils.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
 
-#include <standard_cyborg/util/DebugHelpers.hpp>
+#include <rhl_woundcare/util/DebugHelpers.hpp>
 
 #include "SurfelFusion.hpp"
 
@@ -172,8 +172,8 @@ bool SurfelFusion::doFusion(SurfelFusionConfiguration surfelFusionConfiguration,
             assert(surfelIndex < surfels.size() || surfelIndex == EMPTY_SURFEL_INDEX);
 
             // If there's no surfel here, add it
-            const Vector3f incomingPosition = standard_cyborg::toVector3f(frame.positions[index]);
-            const Vector3f incomingNormal =  standard_cyborg::toVector3f(frame.normals[index]);
+            const Vector3f incomingPosition = rhl_woundcare::toVector3f(frame.positions[index]);
+            const Vector3f incomingNormal =  rhl_woundcare::toVector3f(frame.normals[index]);
             const float incomingSurfelSize = frame.surfelSizes[index];
             
             // *Before transforming*, check the angle of incidence since this is much easier
@@ -225,7 +225,7 @@ bool SurfelFusion::doFusion(SurfelFusionConfiguration surfelFusionConfiguration,
                 }
             }
 
-            Vector3f incomingColor = standard_cyborg::toVector3f(frame.rawFrame.colors[index]);
+            Vector3f incomingColor = rhl_woundcare::toVector3f(frame.rawFrame.colors[index]);
 
             if (surfelIndex == EMPTY_SURFEL_INDEX) {
                 _addValuesAsNewSurfel(incomingPositionInModelFrame,

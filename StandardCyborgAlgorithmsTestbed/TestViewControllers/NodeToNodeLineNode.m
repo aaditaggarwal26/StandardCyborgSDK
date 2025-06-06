@@ -1,9 +1,9 @@
 //
 //  NodeToNodeLineNode.m
-//  StandardCyborgGeometryTestbed
+//  RHLwoundcareGeometryTestbed
 //
 //  Created by Aaron Thompson on 4/6/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "NodeToNodeLineNode.h"

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,18 +17,18 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/math/TransformRegistry.hpp"
-#include "standard_cyborg/math/Transform.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/util/DebugHelpers.hpp"
-#include "standard_cyborg/util/Result.hpp"
+#include "rhl_woundcare/math/TransformRegistry.hpp"
+#include "rhl_woundcare/math/Transform.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/util/DebugHelpers.hpp"
+#include "rhl_woundcare/util/Result.hpp"
 
-using standard_cyborg::math::TransformRegistry;
-using standard_cyborg::math::Transform;
-using standard_cyborg::math::Mat3x4;
-namespace math = standard_cyborg::math;
-using ::standard_cyborg::Result;
+using rhl_woundcare::math::TransformRegistry;
+using rhl_woundcare::math::Transform;
+using rhl_woundcare::math::Mat3x4;
+namespace math = rhl_woundcare::math;
+using ::rhl_woundcare::Result;
 using math::Vec3;
 
 TEST(TransformRegistryTests, testRegistrationDeregistration) {

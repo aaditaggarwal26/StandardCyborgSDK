@@ -1,8 +1,8 @@
 //
 //  SCEarTracking.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -38,8 +38,8 @@ NS_SWIFT_NAME(earTrackingDidLoseTracking(_:));
 @property (nonatomic) float smoothing;
 
 /**
-@param modelURL Local file URL to the SCEarTracking.mlmodelc directory provided by Standard Cyborg.
-                Please contact sdk@standardcyborg.com for these models.
+@param modelURL Local file URL to the SCEarTracking.mlmodelc directory provided by RHL Woundcare.
+                Please contact sdk@RHLwoundcare.com for these models.
 */
 - (instancetype)initWithModelURL:(NSURL *)modelURL
                         delegate:(id<SCEarTrackingDelegate> _Nullable)delegate;

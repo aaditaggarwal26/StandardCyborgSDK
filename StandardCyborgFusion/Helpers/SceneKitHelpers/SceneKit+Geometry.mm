@@ -1,25 +1,25 @@
 //
 //  SceneKit+Geometry.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 3/28/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
-#import <standard_cyborg/algorithms/Centroid.hpp>
-#import <standard_cyborg/sc3d/Face3.hpp>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/math/Vec3.hpp>
-#import <standard_cyborg/io/imgfile/ColorImageFileIO.hpp>
+#import <rhl_woundcare/algorithms/Centroid.hpp>
+#import <rhl_woundcare/sc3d/Face3.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/math/Vec3.hpp>
+#import <rhl_woundcare/io/imgfile/ColorImageFileIO.hpp>
 #import <vector>
 
 #import "SceneKit+Geometry.h"
 
 using namespace std;
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
-@implementation SCNGeometrySource (StandardCyborgDataGeometry)
+@implementation SCNGeometrySource (RHLwoundcareDataGeometry)
 
 + (instancetype)vertexSourceFromGeometry:(const sc3d::Geometry&)geometry
 {
@@ -91,7 +91,7 @@ using namespace standard_cyborg;
 @end
 
 
-@implementation SCNGeometryElement (StandardCyborgDataGeometry)
+@implementation SCNGeometryElement (RHLwoundcareDataGeometry)
 
 + (instancetype)pointElementFromGeometry:(const sc3d::Geometry&)geometry
 {
@@ -120,7 +120,7 @@ using namespace standard_cyborg;
 @end
 
 
-@implementation SCNGeometry (StandardCyborgDataGeometry)
+@implementation SCNGeometry (RHLwoundcareDataGeometry)
 
 + (instancetype)geometryFromGeometry:(const sc3d::Geometry&)geometry
 {
@@ -182,7 +182,7 @@ using namespace standard_cyborg;
 @end
 
 
-@implementation SCNNode (StandardCyborgDataGeometry)
+@implementation SCNNode (RHLwoundcareDataGeometry)
 
 + (instancetype)nodeFromGeometry:(const sc3d::Geometry&)geometry withDefaultTransform:(BOOL)useDefaultTransform
 {

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
 
-#include "standard_cyborg/algorithms/TransformGeometry.hpp"
+#include "rhl_woundcare/algorithms/TransformGeometry.hpp"
 
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace algorithms {
 
 void transformGeometry(const sc3d::Geometry& geometry, const math::Mat3x4& mat)
@@ -47,4 +47,4 @@ void transformGeometry(const sc3d::Geometry& geometry, const math::Mat3x4& mat)
 }
 
 } // namespace algorithms
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

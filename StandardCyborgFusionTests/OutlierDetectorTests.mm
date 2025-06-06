@@ -1,17 +1,17 @@
 //
 //  OutlierDetectorTests.m
-//  StandardCyborgFusionTests
+//  RHLwoundcareTests
 //
 //  Created by Ricky Reusser on 8/13/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#include <StandardCyborgFusion/OutlierDetector.hpp>
+#include <RHLwoundcare/OutlierDetector.hpp>
 #include <iostream>
 #include <random>
 
-using namespace StandardCyborg;
+using namespace RHLwoundcare;
 
 @interface OutlierDetectorTests : XCTestCase
 @end

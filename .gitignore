@@ -26,7 +26,7 @@ OptimizationProfiles
 
 
 **/.DS_Store
-StandardCyborgGeometryTests/TestCases/Scans
+RHLwoundcareGeometryTests/TestCases/Scans
 
 node_modules
 *.wasm
@@ -40,7 +40,7 @@ scsdk/js/dist
 SceneGraphWebViewer/package-lock.json
 
 **/*.o
-StandardCyborgEmscripten/build/
+RHLwoundcareEmscripten/build/
 build-all
 
 ## enable local testing without throwing off the diff
@@ -50,17 +50,17 @@ ScratchSpace
 VisualTesteriOS/AccessSecretKey.h
 
 *.so
-StandardCyborgPython/out.gltf
-StandardCyborgPython/out.ply
+RHLwoundcarePython/out.gltf
+RHLwoundcarePython/out.ply
 
-StandardCyborgPython/dist/
-StandardCyborgPython/StandardCyborgSDK.egg-info/
+RHLwoundcarePython/dist/
+RHLwoundcarePython/RHLwoundcareSDK.egg-info/
 
 __pycache__
 .mypy_cache/
 *.pyc
 
-StandardCyborgOrbDemo/out.jpeg
+RHLwoundcareOrbDemo/out.jpeg
 
 src/utils/fusion/components-build
 src/utils/fusion/test.ply

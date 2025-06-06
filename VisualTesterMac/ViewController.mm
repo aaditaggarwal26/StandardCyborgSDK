@@ -3,22 +3,22 @@
 //  VisualTesterMac
 //
 //  Created by Aaron Thompson on 7/12/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <SceneKit/SceneKit.h>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/math/Mat3x4.hpp>
-#import <standard_cyborg/math/Mat3x3.hpp>
-#import <standard_cyborg/scene_graph/SceneGraph.hpp>
-#import <StandardCyborgFusion/GeometryHelpers.hpp>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <StandardCyborgFusion/SCOfflineReconstructionManager.h>
-#import <StandardCyborgFusion/SCOfflineReconstructionManager_Private.h>
-#import <StandardCyborgFusion/SCPointCloud+Geometry.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
-#import <StandardCyborgFusion/Surfel.hpp>
-#import <standard_cyborg/io/gltf/SceneGraphFileIO_GLTF.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/math/Mat3x4.hpp>
+#import <rhl_woundcare/math/Mat3x3.hpp>
+#import <rhl_woundcare/scene_graph/SceneGraph.hpp>
+#import <RHLwoundcare/GeometryHelpers.hpp>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <RHLwoundcare/SCOfflineReconstructionManager.h>
+#import <RHLwoundcare/SCOfflineReconstructionManager_Private.h>
+#import <RHLwoundcare/SCPointCloud+Geometry.h>
+#import <RHLwoundcare/RHLwoundcare.h>
+#import <RHLwoundcare/Surfel.hpp>
+#import <rhl_woundcare/io/gltf/SceneGraphFileIO_GLTF.hpp>
 #import <stdlib.h>
 #import <fstream>
 
@@ -36,7 +36,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 static SCNVector3 SurfelsBoundingBoxCenter(const Surfels& surfels);
 

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/MeshSplitter.hpp"
+#include "rhl_woundcare/algorithms/MeshSplitter.hpp"
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
 
-using standard_cyborg::math::Vec3;
-using standard_cyborg::sc3d::Geometry;
-using standard_cyborg::sc3d::Face3;
+using rhl_woundcare::math::Vec3;
+using rhl_woundcare::sc3d::Geometry;
+using rhl_woundcare::sc3d::Face3;
 
 TEST(MeshSplitterTests, testMeshSplitter) {
     
@@ -82,7 +82,7 @@ TEST(MeshSplitterTests, testMeshSplitter) {
     
     Geometry geometry0(positions, normals, colors, faces);
     
-    auto result = standard_cyborg::algorithms::splitMeshIntoPieces(geometry0);
+    auto result = rhl_woundcare::algorithms::splitMeshIntoPieces(geometry0);
     
     {
         auto geo0 = result[0];
@@ -185,16 +185,16 @@ TEST(MeshSplitterTests, testMeshSplitterEmptyMesh) {
     
     {
         Geometry geometry0(std::vector<Vec3>({}));
-        EXPECT_EQ(standard_cyborg::algorithms::splitMeshIntoPieces(geometry0).size(), 0);
+        EXPECT_EQ(rhl_woundcare::algorithms::splitMeshIntoPieces(geometry0).size(), 0);
     }
     
     {
         Geometry geometry0(std::vector<Vec3>({1.0f, 2.0f, 3.0f}), std::vector<Face3>({}));
-        EXPECT_EQ(standard_cyborg::algorithms::splitMeshIntoPieces(geometry0).size(), 0);
+        EXPECT_EQ(rhl_woundcare::algorithms::splitMeshIntoPieces(geometry0).size(), 0);
     }
     
     {
         Geometry geometry0(std::vector<Vec3>({}), std::vector<Face3>({Face3{1, 2, 3}}));
-        EXPECT_EQ(standard_cyborg::algorithms::splitMeshIntoPieces(geometry0).size(), 0);
+        EXPECT_EQ(rhl_woundcare::algorithms::splitMeshIntoPieces(geometry0).size(), 0);
     }
 }

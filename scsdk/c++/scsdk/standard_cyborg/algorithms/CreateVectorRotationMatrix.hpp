@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 #pragma once
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 
@@ -38,4 +38,4 @@ math::Mat3x3 createVectorRotationMatrix(const math::Vec3& v0, const math::Vec3& 
 
 } // algorithms
 
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

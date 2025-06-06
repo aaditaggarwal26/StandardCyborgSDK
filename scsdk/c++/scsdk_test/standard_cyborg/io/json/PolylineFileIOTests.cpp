@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,34 +18,34 @@
 
 #include <sstream>
 
-#include "standard_cyborg/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
 
-#include "standard_cyborg/io/json/PolylineFileIO_JSON.hpp"
+#include "rhl_woundcare/io/json/PolylineFileIO_JSON.hpp"
 
-using standard_cyborg::math::Vec3;
+using rhl_woundcare::math::Vec3;
 
 TEST(PolylineFileIOTests, testPolylineReadWrite)
 {
-    standard_cyborg::sc3d::Polyline originalPolyline({{1.0, 2.0, 3.0}, {2.0, 3.0, 4.0}});
+    rhl_woundcare::sc3d::Polyline originalPolyline({{1.0, 2.0, 3.0}, {2.0, 3.0, 4.0}});
     
     std::stringstream buf;
-    standard_cyborg::io::json::WritePolylineToJSONStream(buf, originalPolyline);
+    rhl_woundcare::io::json::WritePolylineToJSONStream(buf, originalPolyline);
     
-    standard_cyborg::sc3d::Polyline readPolyline;
-    EXPECT_TRUE(standard_cyborg::io::json::ReadPolylineFromJSONStream(readPolyline, buf));
+    rhl_woundcare::sc3d::Polyline readPolyline;
+    EXPECT_TRUE(rhl_woundcare::io::json::ReadPolylineFromJSONStream(readPolyline, buf));
     
     EXPECT_EQ(originalPolyline.getPositions(), readPolyline.getPositions());
 }
 
 TEST(PolylineFileIOTests, testPolylineWithNaN)
 {
-    standard_cyborg::sc3d::Polyline originalPolyline({{1.0, NAN, 3.0}, {2.0, 3.0, 4.0}});
+    rhl_woundcare::sc3d::Polyline originalPolyline({{1.0, NAN, 3.0}, {2.0, 3.0, 4.0}});
     
     std::stringstream buf;
-    standard_cyborg::io::json::WritePolylineToJSONStream(buf, originalPolyline);
+    rhl_woundcare::io::json::WritePolylineToJSONStream(buf, originalPolyline);
     
-    standard_cyborg::sc3d::Polyline readPolyline;
-    EXPECT_TRUE(standard_cyborg::io::json::ReadPolylineFromJSONStream(readPolyline, buf));
+    rhl_woundcare::sc3d::Polyline readPolyline;
+    EXPECT_TRUE(rhl_woundcare::io::json::ReadPolylineFromJSONStream(readPolyline, buf));
     
     std::vector<Vec3> positions = readPolyline.getPositions();
     EXPECT_EQ(positions[0].x, 1.0);

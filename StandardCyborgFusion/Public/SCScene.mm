@@ -3,8 +3,8 @@
 //  Created by Aaron Thompson on 12/30/19.
 //
 
-#import <standard_cyborg/scene_graph/SceneGraph.hpp>
-#import <standard_cyborg/io/gltf/SceneGraphFileIO_GLTF.hpp>
+#import <rhl_woundcare/scene_graph/SceneGraph.hpp>
+#import <rhl_woundcare/io/gltf/SceneGraphFileIO_GLTF.hpp>
 #import <fstream>
 #import <iostream>
 #import <memory>
@@ -12,12 +12,12 @@
 #import "GeometryHelpers.hpp"
 #import "SCMesh+Geometry.h"
 #import "SCPointCloud+Geometry.h"
-#import "SceneKit+StandardCyborgNode.h"
+#import "SceneKit+RHLwoundcareNode.h"
 
 #import "SCScene.h"
 
-using namespace standard_cyborg;
-namespace sg = standard_cyborg::scene_graph;
+using namespace rhl_woundcare;
+namespace sg = rhl_woundcare::scene_graph;
 
 @implementation SCScene {
     std::shared_ptr<sg::Node> _scene;
@@ -72,7 +72,7 @@ namespace sg = standard_cyborg::scene_graph;
             _scene->appendChild(meshNode);
         }
         
-        _rootNode = [SCNNode nodeFromStandardCyborgNode:_scene withDefaultTransform:NO];
+        _rootNode = [SCNNode nodeFromRHLwoundcareNode:_scene withDefaultTransform:NO];
     }
     return self;
 }
@@ -92,7 +92,7 @@ namespace sg = standard_cyborg::scene_graph;
             _scene.reset(new sg::Node("SCScene"));
         }
         
-        _rootNode = [SCNNode nodeFromStandardCyborgNode:_scene withDefaultTransform:NO];
+        _rootNode = [SCNNode nodeFromRHLwoundcareNode:_scene withDefaultTransform:NO];
     }
     return self;
 }

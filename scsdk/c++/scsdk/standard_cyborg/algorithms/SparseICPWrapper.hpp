@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@ limitations under the License.
 
 #pragma once
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class Geometry;
@@ -42,7 +42,7 @@ struct SparseICPParameters {
     double outlierDeviationsThreshold = 1.0f; // The number of standard deviations outside of which a depth value being aligned is coinsidered an outlier
 };
     
-standard_cyborg::math::Mat3x4 SparseICPPointToPlane(const standard_cyborg::sc3d::Geometry& source, const standard_cyborg::sc3d::Geometry& target, const SparseICPParameters& pars);
+rhl_woundcare::math::Mat3x4 SparseICPPointToPlane(const rhl_woundcare::sc3d::Geometry& source, const rhl_woundcare::sc3d::Geometry& target, const SparseICPParameters& pars);
     
 }
 }

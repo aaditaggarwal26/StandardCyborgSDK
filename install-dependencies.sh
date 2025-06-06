@@ -46,5 +46,5 @@ fi
 pod install
 
 echo "Finished installing and updating dependencies"
-echo "Please open StandardCyborgSDK.xcworkspace"
+echo "Please open RHLwoundcareSDK.xcworkspace"
 

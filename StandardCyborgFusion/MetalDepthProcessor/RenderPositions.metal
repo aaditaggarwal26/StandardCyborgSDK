@@ -1,9 +1,9 @@
 //
 //  RenderPositions.metal
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by eric on 7/25/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #include <metal_stdlib>

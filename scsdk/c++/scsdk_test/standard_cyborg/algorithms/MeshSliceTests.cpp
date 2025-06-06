@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,17 +17,17 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/MeshSlice.hpp"
+#include "rhl_woundcare/algorithms/MeshSlice.hpp"
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Plane.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Plane.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
 
-using standard_cyborg::sc3d::Geometry;
-using standard_cyborg::sc3d::Polyline;
-using standard_cyborg::sc3d::Face3;
+using rhl_woundcare::sc3d::Geometry;
+using rhl_woundcare::sc3d::Polyline;
+using rhl_woundcare::sc3d::Face3;
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec3;
 
 TEST(MeshSliceTests, testSimpleOpenPolyline) {
@@ -46,7 +46,7 @@ TEST(MeshSliceTests, testSimpleOpenPolyline) {
                        {{0, 1, 2}, {0, 2, 3}, {1, 4, 2}}
                        );
     
-    std::vector<Polyline> polylines (standard_cyborg::algorithms::sliceMesh(geometry, [=](int i, Vec3 p) {
+    std::vector<Polyline> polylines (rhl_woundcare::algorithms::sliceMesh(geometry, [=](int i, Vec3 p) {
         return p.y - 0.5;
     }));
     
@@ -76,7 +76,7 @@ TEST(MeshSliceTests, testOpenWithDifficultOrderingPolyline) {
         Face3{0, 1, 2}
     });
     
-    std::vector<Polyline> polylines (standard_cyborg::algorithms::sliceMesh(geometry, [](int i, Vec3 p) { return p.y - 0.5; }));
+    std::vector<Polyline> polylines (rhl_woundcare::algorithms::sliceMesh(geometry, [](int i, Vec3 p) { return p.y - 0.5; }));
     
     EXPECT_EQ(polylines.size(), 1);
     EXPECT_EQ(polylines[0].vertexCount(), 4);
@@ -99,9 +99,9 @@ TEST(MeshSliceTests, testSimpleOpenPolylineWithPrecomputedTopology) {
                        {{0, 1, 2}, {0, 2, 3}, {1, 4, 2}}
                        );
     
-    standard_cyborg::sc3d::MeshTopology::MeshTopology topology (geometry.getFaces());
+    rhl_woundcare::sc3d::MeshTopology::MeshTopology topology (geometry.getFaces());
     
-    std::vector<Polyline> polylines (standard_cyborg::algorithms::sliceMesh(geometry, [](int i, Vec3 p) {
+    std::vector<Polyline> polylines (rhl_woundcare::algorithms::sliceMesh(geometry, [](int i, Vec3 p) {
         return p.y - 0.5;
     }, topology));
     
@@ -127,7 +127,7 @@ TEST(MeshSliceTests, testSimpleClosedPolyline) {
                        std::vector<Face3>{{4, 0, 1}, {4, 1, 2}, {4, 2, 3}, {4, 3, 0}}
                        );
     
-    std::vector<Polyline> polylines (standard_cyborg::algorithms::sliceMesh(geometry, [](int i, Vec3 p) {
+    std::vector<Polyline> polylines (rhl_woundcare::algorithms::sliceMesh(geometry, [](int i, Vec3 p) {
         return p.squaredNorm() - 1.0f;
     }));
     
@@ -166,7 +166,7 @@ TEST(MeshSliceTests, testVertexIntersection) {
     }
                        );
     
-    std::vector<Polyline> polylines (standard_cyborg::algorithms::sliceMesh(geometry, [](int i, Vec3 p) {
+    std::vector<Polyline> polylines (rhl_woundcare::algorithms::sliceMesh(geometry, [](int i, Vec3 p) {
         return p.y;
     }));
     

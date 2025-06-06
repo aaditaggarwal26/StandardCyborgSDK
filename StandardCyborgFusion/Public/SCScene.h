@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithPointCloud:(SCPointCloud * _Nullable)pointCloud
                               mesh:(SCMesh * _Nullable)mesh;
 
-/// Useful for migrating scans generated with StandardCyborgFusion versions < 1.6.4
+/// Useful for migrating scans generated with RHLwoundcare versions < 1.6.4
 /// into the new standard orientation
 - (instancetype)initWithPointCloud:(SCPointCloud * _Nullable)pointCloud
                               mesh:(SCMesh * _Nullable)mesh

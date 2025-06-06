@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,14 +15,14 @@ limitations under the License.
 */
 
 
-#include "standard_cyborg/util/AssertHelper.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/scene_graph/SceneGraph.hpp"
+#include "rhl_woundcare/util/AssertHelper.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/scene_graph/SceneGraph.hpp"
 
 #include <algorithm>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace scene_graph {
 
 using sc3d::ColorImage;
@@ -179,4 +179,4 @@ ColorImage* ColorImageNode::getColorImagePtr()
 #endif // EMBIND_ONLY
 
 } // namespace scene_graph
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ limitations under the License.
 
 #include <memory>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace sc3d {
 class Geometry;
@@ -33,8 +33,8 @@ namespace algorithms {
  
     Only works on point clouds, i.e. only the position, normal, and color attributes
     of the incoming Geometry instances. */
-std::unique_ptr<standard_cyborg::sc3d::Geometry> mergeGeometries(const standard_cyborg::sc3d::Geometry& first,
-                                          const standard_cyborg::sc3d::Geometry& second,
+std::unique_ptr<rhl_woundcare::sc3d::Geometry> mergeGeometries(const rhl_woundcare::sc3d::Geometry& first,
+                                          const rhl_woundcare::sc3d::Geometry& second,
                                           float maxMergeDistanceMeters);
 
 }

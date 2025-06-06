@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ limitations under the License.
 #include <ostream>
 #include <memory>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 struct Vec2;
@@ -70,37 +70,37 @@ struct CoordinateFrameNode;
 struct PointNode;
 }
 
-} // namespace standard_cyborg
+} // namespace rhl_woundcare
 
 
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::math::Vec2& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::math::Vec3& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::math::Vec4& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::math::Quaternion& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::math::Mat4x4& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::math::Mat3x4& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::math::Mat3x3& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::math::Vec2& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::math::Vec3& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::math::Vec4& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::math::Quaternion& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::math::Mat4x4& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::math::Mat3x4& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::math::Mat3x3& v);
 
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::Point2D& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::Size2D& v);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::Rect2D& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::Point2D& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::Size2D& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::Rect2D& v);
 
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::Face3& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::Face3& v);
 
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::Geometry& g);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::ColorImage& i);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::DepthImage& i);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::VertexSelection& selection);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::Plane& plane);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::MeshTopology::Edge& edge);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::MeshTopology::FaceEdges& edge);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::MeshTopology::MeshTopology& topology);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::Polyline& polyline);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::BoundingBox3& bbox);
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::sc3d::PerspectiveCamera& camera);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::Geometry& g);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::ColorImage& i);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::DepthImage& i);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::VertexSelection& selection);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::Plane& plane);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::MeshTopology::Edge& edge);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::MeshTopology::FaceEdges& edge);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::MeshTopology::MeshTopology& topology);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::Polyline& polyline);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::BoundingBox3& bbox);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::sc3d::PerspectiveCamera& camera);
 
 // Scene graph debugging
-std::ostream& operator<<(std::ostream& os, const standard_cyborg::scene_graph::Node& v);
+std::ostream& operator<<(std::ostream& os, const rhl_woundcare::scene_graph::Node& v);
 
 
 

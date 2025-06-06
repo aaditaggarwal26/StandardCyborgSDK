@@ -1,14 +1,14 @@
 //
 //  SurfelIndexMap.metal
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/25/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #include <metal_stdlib>
-#include "StandardCyborgFusion/DataStructures/Surfel.hpp"
-#include "StandardCyborgFusion/MetalDepthProcessor/ApplyLensCalibration.metal"
+#include "RHLwoundcare/DataStructures/Surfel.hpp"
+#include "RHLwoundcare/MetalDepthProcessor/ApplyLensCalibration.metal"
 using namespace metal;
 
 struct Vertex {

@@ -1,22 +1,22 @@
 //
 //  SceneKit+Mat3x4.m
-//  StandardCyborgData
+//  RHLwoundcareData
 //
 //  Created by Eric Arneback on 5/21/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SceneKit+Mat3x3.h"
 #include <vector>
 
-#include <standard_cyborg/math/Vec3.hpp>
-#include <standard_cyborg/math/Mat3x4.hpp>
+#include <rhl_woundcare/math/Vec3.hpp>
+#include <rhl_woundcare/math/Mat3x4.hpp>
 
 #import "SceneKit+Mat3x4.h"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
-@implementation SCNNode (StandardCyborgDataMat3x3)
+@implementation SCNNode (RHLwoundcareDataMat3x3)
 
 + (instancetype)nodeFromMat3x3:(const math::Mat3x3&)mat withScale:(float)scale
 {

@@ -1,15 +1,15 @@
 //
 //  EigenHelperTests.m
-//  StandardCyborgFusionTests
+//  RHLwoundcareTests
 //
 //  Created by Aaron Thompson on 8/6/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <RHLwoundcare/RHLwoundcare.h>
 
-#include <StandardCyborgFusion/EigenHelpers.hpp>
+#include <RHLwoundcare/EigenHelpers.hpp>
 
 @interface EigenHelperTests : XCTestCase
 @end

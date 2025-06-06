@@ -1,17 +1,17 @@
 //
 //  SceneKit+Plane.mm
-//  StandardCyborgData
+//  RHLwoundcareData
 //
 //  Created by Eric Arneback on 5/21/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SceneKit+Plane.h"
 #include <vector>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
-@implementation SCNNode (StandardCyborgDataMat3x3)
+@implementation SCNNode (RHLwoundcareDataMat3x3)
 
 // From http://jcgt.org/published/0006/01/01/
 static void revisedONB(const math::Vec3 &n, math::Vec3 &b1, math::Vec3 &b2)

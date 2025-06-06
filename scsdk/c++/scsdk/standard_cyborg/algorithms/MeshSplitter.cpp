@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,18 +14,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/algorithms/MeshSlice.hpp"
+#include "rhl_woundcare/algorithms/MeshSlice.hpp"
 
 #include <map>
 #include <queue>
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/algorithms/PrincipalAxes.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/algorithms/PrincipalAxes.hpp"
 
-using standard_cyborg::sc3d::Geometry;
-using standard_cyborg::sc3d::Face3;
+using rhl_woundcare::sc3d::Geometry;
+using rhl_woundcare::sc3d::Face3;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 
@@ -46,7 +46,7 @@ std::vector<std::shared_ptr<Geometry>> splitMeshIntoPieces(const Geometry& geome
     }
     
     for (int it = 0; it < geometry.getFaces().size(); ++it) {
-        standard_cyborg::sc3d::Face3 f = geometry.getFaces()[it];
+        rhl_woundcare::sc3d::Face3 f = geometry.getFaces()[it];
         
         adjacencies[f[0]].insert(f[1]);
         adjacencies[f[1]].insert(f[0]);
@@ -189,4 +189,4 @@ std::vector<std::shared_ptr<Geometry>> splitMeshIntoPieces(const Geometry& geome
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

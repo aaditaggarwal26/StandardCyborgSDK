@@ -1,15 +1,15 @@
 //
 //  SCPointCloud+Geometry.mm
-//  StandardCyborgData
+//  RHLwoundcareData
 //
 //  Created by Ricky Reusser on 8/8/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SCPointCloud+Geometry.h"
-#import <standard_cyborg/math/Vec3.hpp>
+#import <rhl_woundcare/math/Vec3.hpp>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @implementation SCPointCloud (Geometry)
 

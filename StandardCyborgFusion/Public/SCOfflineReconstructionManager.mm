@@ -1,9 +1,9 @@
 //
 //  SCOfflineReconstructionManager.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 12/13/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,27 +11,27 @@
 
 #include <nlohmann/json.hpp>
 
-#import <StandardCyborgFusion/DepthProcessor.hpp>
-#import <StandardCyborgFusion/GeometryHelpers.hpp>
-#import <StandardCyborgFusion/MetalDepthProcessor.hpp>
-#import <StandardCyborgFusion/MetalSurfelIndexMap.hpp>
-#import <StandardCyborgFusion/PBFModel.hpp>
-#import <StandardCyborgFusion/SurfelFusion.hpp>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <StandardCyborgFusion/SCAssimilatedFrameMetadata.h>
-#import <StandardCyborgFusion/SCAssimilatedFrameMetadata_Private.h>
-#import <StandardCyborgFusion/SCOfflineReconstructionManager.h>
-#import <StandardCyborgFusion/SCOfflineReconstructionManager_Private.h>
-#import <StandardCyborgFusion/SCPointCloud_Private.h>
+#import <RHLwoundcare/DepthProcessor.hpp>
+#import <RHLwoundcare/GeometryHelpers.hpp>
+#import <RHLwoundcare/MetalDepthProcessor.hpp>
+#import <RHLwoundcare/MetalSurfelIndexMap.hpp>
+#import <RHLwoundcare/PBFModel.hpp>
+#import <RHLwoundcare/SurfelFusion.hpp>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <RHLwoundcare/SCAssimilatedFrameMetadata.h>
+#import <RHLwoundcare/SCAssimilatedFrameMetadata_Private.h>
+#import <RHLwoundcare/SCOfflineReconstructionManager.h>
+#import <RHLwoundcare/SCOfflineReconstructionManager_Private.h>
+#import <RHLwoundcare/SCPointCloud_Private.h>
 
-#import <standard_cyborg/util/DataUtils.hpp>
+#import <rhl_woundcare/util/DataUtils.hpp>
 
 #import "GravityEstimator.hpp"
 
 #include <fstream>
 
 using JSON = nlohmann::json;
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @implementation SCOfflineReconstructionManager {
     id<MTLDevice> _metalDevice;
@@ -209,9 +209,9 @@ using namespace standard_cyborg;
         float depth = rawFrame->depths[i];
         if (!isnan(depth) && depth > 0.0 && depth < 0.5) { // Hard-coded max depth
             Surfel surfel;
-            surfel.position = standard_cyborg::toVector3f(processedFrame.positions[i]);
-            surfel.color = standard_cyborg::toVector3f(rawFrame->colors[i]);
-            surfel.normal = standard_cyborg::toVector3f(processedFrame.normals[i]);
+            surfel.position = rhl_woundcare::toVector3f(processedFrame.positions[i]);
+            surfel.color = rhl_woundcare::toVector3f(rawFrame->colors[i]);
+            surfel.normal = rhl_woundcare::toVector3f(processedFrame.normals[i]);
             surfel.weight = processedFrame.weights[i];
             surfels.push_back(surfel);
         }

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#include "standard_cyborg/test_helpers/TestHelpers.hpp"
+#include "rhl_woundcare/test_helpers/TestHelpers.hpp"
 
 #ifndef SC_TEST_DEFAULT_FIXTURES_DIR
 #define SC_TEST_DEFAULT_FIXTURES_DIR "/opt/scsdk/scsdk/c++/test_fixture_data"
@@ -22,7 +22,7 @@
 
 #include <cstdlib>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 std::string getTestCasesPath() {
     auto p = std::getenv("SC_TEST_FIXTURES_DIR");

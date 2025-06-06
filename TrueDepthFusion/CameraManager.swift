@@ -3,7 +3,7 @@
 //  TrueDepthFusion
 //
 //  Created by Aaron Thompson on 10/15/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 // Ashley's Edits
@@ -12,7 +12,7 @@
 import AVFoundation
 import Foundation
 
-import StandardCyborgFusion
+import RHLwoundcare
 
 protocol CameraManagerDelegate: AnyObject {
     func cameraDidOutput(colorBuffer: CVPixelBuffer,

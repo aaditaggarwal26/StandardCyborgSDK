@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/algorithms/EstimatePlane.hpp"
+#include "rhl_woundcare/algorithms/EstimatePlane.hpp"
 
 #include <cmath>
 #include <cstdlib>
@@ -22,16 +22,16 @@ limitations under the License.
 #include <map>
 #include <queue>
 
-#include "standard_cyborg/util/DataUtils.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/util/DataUtils.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
 
-using standard_cyborg::sc3d::Face3;
-using standard_cyborg::sc3d::Plane;
-using standard_cyborg::math::Vec3;
-using standard_cyborg::sc3d::VertexSelection;
+using rhl_woundcare::sc3d::Face3;
+using rhl_woundcare::sc3d::Plane;
+using rhl_woundcare::math::Vec3;
+using rhl_woundcare::sc3d::VertexSelection;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 
@@ -118,8 +118,8 @@ EstimatePlaneResult estimatePlane(const std::vector<Vec3>& positions,
 
         Eigen::VectorXf projectedDistanceFactor = (normal.transpose() * (positionsMatrix.colwise() - centroid) / rmsProjectedDistance).cwiseAbs();
 
-        bestFit.position = standard_cyborg::toVec3(centroid);
-        bestFit.normal = standard_cyborg::toVec3(normal);
+        bestFit.position = rhl_woundcare::toVec3(centroid);
+        bestFit.normal = rhl_woundcare::toVec3(normal);
 
         // Exit early if the RMS distance is very low, though this is unlikely to happen on any realistic data
         if (rmsProjectedDistance < absoluteConvergenceTolerance) break;
@@ -139,8 +139,8 @@ EstimatePlaneResult estimatePlane(const std::vector<Vec3>& positions,
     
     result.rmsProjectedDistance = rmsProjectedDistance;
     result.planeVertices->copy(*currentVertexSet);
-    result.plane.position = standard_cyborg::toVec3(centroid);
-    result.plane.normal = standard_cyborg::toVec3(normal);
+    result.plane.position = rhl_woundcare::toVec3(centroid);
+    result.plane.normal = rhl_woundcare::toVec3(normal);
     result.converged = true;
     
     return result;
@@ -148,4 +148,4 @@ EstimatePlaneResult estimatePlane(const std::vector<Vec3>& positions,
 
 }
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

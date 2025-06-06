@@ -1,14 +1,14 @@
 //
 //  GeometryHelpersTests.m
-//  StandardCyborgFusionTests
+//  RHLwoundcareTests
 //
 //  Created by Ricky Reusser on 8/27/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-#include <StandardCyborgFusion/GeometryHelpers.hpp>
+#include <RHLwoundcare/GeometryHelpers.hpp>
 
 #include <iostream>
 

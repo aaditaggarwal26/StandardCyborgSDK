@@ -1,16 +1,16 @@
 //
 //  SCOfflineReconstructionManager.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreVideo/CoreVideo.h>
 #import <simd/simd.h>
-#import <StandardCyborgFusion/SCAssimilatedFrameMetadata.h>
-#import <StandardCyborgFusion/SCReconstructionManagerParameters.h>
+#import <RHLwoundcare/SCAssimilatedFrameMetadata.h>
+#import <RHLwoundcare/SCReconstructionManagerParameters.h>
 
-#import <StandardCyborgFusion/PBFFinalStatistics.h>
+#import <RHLwoundcare/PBFFinalStatistics.h>
 
 @class AVCameraCalibrationData;
 @class CMDeviceMotion;

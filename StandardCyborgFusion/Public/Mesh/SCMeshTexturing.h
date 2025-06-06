@@ -1,15 +1,15 @@
 //
 //  SCMeshTexturing.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreVideo/CoreVideo.h>
 #import <Foundation/Foundation.h>
 #import <simd/simd.h>
 
-#import <StandardCyborgFusion/SCMesh.h>
+#import <RHLwoundcare/SCMesh.h>
 
 @class AVCameraCalibrationData;
 @class SCPointCloud;

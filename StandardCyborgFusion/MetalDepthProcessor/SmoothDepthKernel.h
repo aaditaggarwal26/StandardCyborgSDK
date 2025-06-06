@@ -1,13 +1,13 @@
 //
 //  SmoothDepthKernel.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/1/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Metal/Metal.h>
-#import <StandardCyborgFusion/ProcessedFrame.hpp>
+#import <RHLwoundcare/ProcessedFrame.hpp>
 #import "MetalComputeEngine.h"
 
 NS_ASSUME_NONNULL_BEGIN

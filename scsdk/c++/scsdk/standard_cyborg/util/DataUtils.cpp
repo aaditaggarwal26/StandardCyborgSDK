@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,15 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/util/DataUtils.hpp"
+#include "rhl_woundcare/util/DataUtils.hpp"
 
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat4x4.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat4x4.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 // MARK: non-const Vec3 adaptors
 
@@ -178,4 +178,4 @@ Eigen::Matrix3f columnMajorToMatrix3f(const std::vector<float>& v) {
     return m;
 }
 
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

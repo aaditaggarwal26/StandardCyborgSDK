@@ -1,21 +1,21 @@
 //
 //  GeometryHelpers.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 8/24/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #include "GeometryHelpers.hpp"
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat4x4.hpp"
-#include "standard_cyborg/math/Vec2.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/math/Vec4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat4x4.hpp"
+#include "rhl_woundcare/math/Vec2.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/math/Vec4.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 Eigen::Matrix4f perspectiveMatrixFromIntrinsics(Eigen::Matrix3f& intrinsicMatrix,
                                          Eigen::Vector2f& referenceDimensions,

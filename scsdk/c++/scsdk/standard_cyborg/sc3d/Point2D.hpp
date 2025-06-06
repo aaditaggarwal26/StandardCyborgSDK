@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@ limitations under the License.
 
 #pragma once
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 struct Point2D {
@@ -33,4 +33,4 @@ inline int Point2D::operator[](int i) const
 }
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

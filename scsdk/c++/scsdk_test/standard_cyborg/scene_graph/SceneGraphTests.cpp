@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,57 +16,57 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/scene_graph/SceneGraph.hpp"
-#include "standard_cyborg/math/Vec4.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/scene_graph/SceneGraph.hpp"
+#include "rhl_woundcare/math/Vec4.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
 
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/sc3d/Landmark.hpp"
-#include "standard_cyborg/sc3d/Plane.hpp"
-#include "standard_cyborg/sc3d/PerspectiveCamera.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/Landmark.hpp"
+#include "rhl_woundcare/sc3d/Plane.hpp"
+#include "rhl_woundcare/sc3d/PerspectiveCamera.hpp"
 
 
 /*
- #include <StandardCyborgData/DebugHelpers.hpp>
- #include <StandardCyborgData/Geometry.hpp>
- #include <StandardCyborgData/Labels.hpp>
- #include <StandardCyborgData/Plane.hpp>
- #include <StandardCyborgData/Polyline.hpp>
- #include <StandardCyborgData/SceneGraph.hpp>
- #include <StandardCyborgData/PerspectiveCamera.hpp>
+ #include <RHLwoundcareData/DebugHelpers.hpp>
+ #include <RHLwoundcareData/Geometry.hpp>
+ #include <RHLwoundcareData/Labels.hpp>
+ #include <RHLwoundcareData/Plane.hpp>
+ #include <RHLwoundcareData/Polyline.hpp>
+ #include <RHLwoundcareData/SceneGraph.hpp>
+ #include <RHLwoundcareData/PerspectiveCamera.hpp>
  */
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec4;
 using math::Vec3;
 
-using standard_cyborg::scene_graph::Node;
+using rhl_woundcare::scene_graph::Node;
 
-//using standard_cyborg::Node;
+//using rhl_woundcare::Node;
 
-//namespace math = standard_cyborg::math;
+//namespace math = rhl_woundcare::math;
 //using math::Vec4;
 
 /*
  #import <XCTest/XCTest.h>
  #import <iostream>
  
- #include <StandardCyborgData/ColorImage.hpp>
- #include <StandardCyborgData/DebugHelpers.hpp>
- #include <StandardCyborgData/Geometry.hpp>
- #include <StandardCyborgData/Labels.hpp>
- #include <StandardCyborgData/Landmark.hpp>
- #include <StandardCyborgData/Plane.hpp>
- #include <StandardCyborgData/Polyline.hpp>
- #include <StandardCyborgData/SceneGraph.hpp>
- #include <StandardCyborgData/PerspectiveCamera.hpp>
+ #include <RHLwoundcareData/ColorImage.hpp>
+ #include <RHLwoundcareData/DebugHelpers.hpp>
+ #include <RHLwoundcareData/Geometry.hpp>
+ #include <RHLwoundcareData/Labels.hpp>
+ #include <RHLwoundcareData/Landmark.hpp>
+ #include <RHLwoundcareData/Plane.hpp>
+ #include <RHLwoundcareData/Polyline.hpp>
+ #include <RHLwoundcareData/SceneGraph.hpp>
+ #include <RHLwoundcareData/PerspectiveCamera.hpp>
  
  
- using standard_cyborg::Node;
+ using rhl_woundcare::Node;
  
- namespace math = standard_cyborg::math;
+ namespace math = rhl_woundcare::math;
  using math::Vec3;
  */
 
@@ -117,7 +117,7 @@ TEST(SceneGraphTests, testSetters)
 
 TEST(SceneGraphTests, testGeometryNodeInstantiation)
 {
-    standard_cyborg::scene_graph::GeometryNode *node = new standard_cyborg::scene_graph::GeometryNode();
+    rhl_woundcare::scene_graph::GeometryNode *node = new rhl_woundcare::scene_graph::GeometryNode();
     
     EXPECT_EQ(node->numChildren(), 0);
     EXPECT_EQ(node->getGeometry().vertexCount(), 0);
@@ -127,7 +127,7 @@ TEST(SceneGraphTests, testGeometryNodeInstantiation)
 
 TEST(SceneGraphTests, testPolylineNodeInstantiation)
 {
-    standard_cyborg::scene_graph::PolylineNode *node = new standard_cyborg::scene_graph::PolylineNode();
+    rhl_woundcare::scene_graph::PolylineNode *node = new rhl_woundcare::scene_graph::PolylineNode();
     
     EXPECT_EQ(node->numChildren(), 0);
     EXPECT_EQ(node->getPolyline().vertexCount(), 0);
@@ -137,81 +137,81 @@ TEST(SceneGraphTests, testPolylineNodeInstantiation)
 
 TEST(SceneGraphTests, testGeometryNodeInstantiationFromSharedPtr)
 {
-    std::shared_ptr<standard_cyborg::sc3d::Geometry> geometry(new standard_cyborg::sc3d::Geometry({std::vector<Vec3>{{1, 2, 3}}}));
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> node(new standard_cyborg::scene_graph::GeometryNode("foo", geometry));
+    std::shared_ptr<rhl_woundcare::sc3d::Geometry> geometry(new rhl_woundcare::sc3d::Geometry({std::vector<Vec3>{{1, 2, 3}}}));
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> node(new rhl_woundcare::scene_graph::GeometryNode("foo", geometry));
     EXPECT_EQ(node->getGeometry().vertexCount(), 1);
 }
 
 TEST(SceneGraphTests, testPlaneNodeInstantiationFromSharedPtr)
 {
-    std::shared_ptr<standard_cyborg::sc3d::Plane> plane(new standard_cyborg::sc3d::Plane{{1, 2, 3}, {3, 4, 5}});
-    std::shared_ptr<standard_cyborg::scene_graph::PlaneNode> node(new standard_cyborg::scene_graph::PlaneNode("foo", plane));
-    EXPECT_TRUE(node->getPlane() == standard_cyborg::sc3d::Plane({{1, 2, 3}, {3, 4, 5}}));
+    std::shared_ptr<rhl_woundcare::sc3d::Plane> plane(new rhl_woundcare::sc3d::Plane{{1, 2, 3}, {3, 4, 5}});
+    std::shared_ptr<rhl_woundcare::scene_graph::PlaneNode> node(new rhl_woundcare::scene_graph::PlaneNode("foo", plane));
+    EXPECT_TRUE(node->getPlane() == rhl_woundcare::sc3d::Plane({{1, 2, 3}, {3, 4, 5}}));
 }
 
 TEST(SceneGraphTests, testPolylineNodeInstantiationFromSharedPtr)
 {
-    std::shared_ptr<standard_cyborg::sc3d::Polyline> polyline(new standard_cyborg::sc3d::Polyline({std::vector<Vec3>{{1, 2, 3}}}));
-    std::shared_ptr<standard_cyborg::scene_graph::PolylineNode> node(new standard_cyborg::scene_graph::PolylineNode("foo", polyline));
+    std::shared_ptr<rhl_woundcare::sc3d::Polyline> polyline(new rhl_woundcare::sc3d::Polyline({std::vector<Vec3>{{1, 2, 3}}}));
+    std::shared_ptr<rhl_woundcare::scene_graph::PolylineNode> node(new rhl_woundcare::scene_graph::PolylineNode("foo", polyline));
     EXPECT_EQ(node->getPolyline().vertexCount(), 1);
 }
 
 TEST(SceneGraphTests, testImageNodeInstantiationFromSharedPtr)
 {
-    std::shared_ptr<standard_cyborg::sc3d::ColorImage> image(new standard_cyborg::sc3d::ColorImage(4, 3));
-    std::shared_ptr<standard_cyborg::scene_graph::ColorImageNode> node(new standard_cyborg::scene_graph::ColorImageNode("foo", image));
+    std::shared_ptr<rhl_woundcare::sc3d::ColorImage> image(new rhl_woundcare::sc3d::ColorImage(4, 3));
+    std::shared_ptr<rhl_woundcare::scene_graph::ColorImageNode> node(new rhl_woundcare::scene_graph::ColorImageNode("foo", image));
     EXPECT_EQ(node->getColorImage().getWidth(), 4);
     EXPECT_EQ(node->getColorImage().getHeight(), 3);
 }
 
 TEST(SceneGraphTests, testLandmarkNodeInstantiationFromSharedPtr)
 {
-    std::shared_ptr<standard_cyborg::sc3d::Landmark> landmark(new standard_cyborg::sc3d::Landmark({"foo", {1, 2, 3}}));
-    std::shared_ptr<standard_cyborg::scene_graph::LandmarkNode> node(new standard_cyborg::scene_graph::LandmarkNode("foo", landmark));
-    EXPECT_TRUE(node->getLandmark() == standard_cyborg::sc3d::Landmark({"foo", {1, 2, 3}}));
+    std::shared_ptr<rhl_woundcare::sc3d::Landmark> landmark(new rhl_woundcare::sc3d::Landmark({"foo", {1, 2, 3}}));
+    std::shared_ptr<rhl_woundcare::scene_graph::LandmarkNode> node(new rhl_woundcare::scene_graph::LandmarkNode("foo", landmark));
+    EXPECT_TRUE(node->getLandmark() == rhl_woundcare::sc3d::Landmark({"foo", {1, 2, 3}}));
 }
 
 TEST(SceneGraphTests, testGeometryNodeInstantiationFromValue)
 {
-    standard_cyborg::sc3d::Geometry geometry({std::vector<Vec3>{{1, 2, 3}}});
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> node(new standard_cyborg::scene_graph::GeometryNode("foo", geometry));
+    rhl_woundcare::sc3d::Geometry geometry({std::vector<Vec3>{{1, 2, 3}}});
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> node(new rhl_woundcare::scene_graph::GeometryNode("foo", geometry));
     EXPECT_EQ(node->getGeometry().vertexCount(), 1);
 }
 
 TEST(SceneGraphTests, testPlaneNodeInstantiationFromValue)
 {
-    standard_cyborg::sc3d::Plane plane({{1, 2, 3}, {3, 4, 5}});
-    std::shared_ptr<standard_cyborg::scene_graph::PlaneNode> node(new standard_cyborg::scene_graph::PlaneNode("foo", plane));
-    EXPECT_TRUE(node->getPlane() == standard_cyborg::sc3d::Plane({{1, 2, 3}, {3, 4, 5}}));
+    rhl_woundcare::sc3d::Plane plane({{1, 2, 3}, {3, 4, 5}});
+    std::shared_ptr<rhl_woundcare::scene_graph::PlaneNode> node(new rhl_woundcare::scene_graph::PlaneNode("foo", plane));
+    EXPECT_TRUE(node->getPlane() == rhl_woundcare::sc3d::Plane({{1, 2, 3}, {3, 4, 5}}));
 }
 
 TEST(SceneGraphTests, testPolylineNodeInstantiationFromValue)
 {
-    standard_cyborg::sc3d::Polyline polyline(std::vector<Vec3>{{1, 2, 3}});
-    std::shared_ptr<standard_cyborg::scene_graph::PolylineNode> node(new standard_cyborg::scene_graph::PolylineNode("foo", polyline));
+    rhl_woundcare::sc3d::Polyline polyline(std::vector<Vec3>{{1, 2, 3}});
+    std::shared_ptr<rhl_woundcare::scene_graph::PolylineNode> node(new rhl_woundcare::scene_graph::PolylineNode("foo", polyline));
     EXPECT_EQ(node->getPolyline().vertexCount(), 1);
 }
 
 TEST(SceneGraphTests, testImageNodeInstantiationFromValue)
 {
-    standard_cyborg::sc3d::ColorImage image(4, 3);
-    std::shared_ptr<standard_cyborg::scene_graph::ColorImageNode> node(new standard_cyborg::scene_graph::ColorImageNode("foo", image));
+    rhl_woundcare::sc3d::ColorImage image(4, 3);
+    std::shared_ptr<rhl_woundcare::scene_graph::ColorImageNode> node(new rhl_woundcare::scene_graph::ColorImageNode("foo", image));
     EXPECT_EQ(node->getColorImage().getWidth(), 4);
     EXPECT_EQ(node->getColorImage().getHeight(), 3);
 }
 
 TEST(SceneGraphTests, testLandmarkNodeInstantiationFromValue)
 {
-    standard_cyborg::sc3d::Landmark landmark({"foo", {1, 2, 3}});
-    std::shared_ptr<standard_cyborg::scene_graph::LandmarkNode> node(new standard_cyborg::scene_graph::LandmarkNode("foo", landmark));
-    EXPECT_TRUE(node->getLandmark() == standard_cyborg::sc3d::Landmark({"foo", {1, 2, 3}}));
+    rhl_woundcare::sc3d::Landmark landmark({"foo", {1, 2, 3}});
+    std::shared_ptr<rhl_woundcare::scene_graph::LandmarkNode> node(new rhl_woundcare::scene_graph::LandmarkNode("foo", landmark));
+    EXPECT_TRUE(node->getLandmark() == rhl_woundcare::sc3d::Landmark({"foo", {1, 2, 3}}));
 }
 
 TEST(SceneGraphTests, testNodeChildren)
 {
     std::shared_ptr<Node> root(new Node("root"));
     std::shared_ptr<Node> child0(new Node("child0"));
-    std::shared_ptr<standard_cyborg::scene_graph::LandmarkNode> child1(new standard_cyborg::scene_graph::LandmarkNode("child1"));
+    std::shared_ptr<rhl_woundcare::scene_graph::LandmarkNode> child1(new rhl_woundcare::scene_graph::LandmarkNode("child1"));
     std::shared_ptr<Node> child00(new Node("child0.0"));
     
     EXPECT_TRUE(root->appendChild(child0, root));
@@ -239,15 +239,15 @@ TEST(SceneGraphTests, testNodeChildren)
     EXPECT_EQ(root->indexOfChild(root), -1);
     
     // Test template-based firstChildNamed
-    std::shared_ptr<standard_cyborg::scene_graph::LandmarkNode> landmarkChild = root->firstChildNamed<standard_cyborg::scene_graph::LandmarkNode>("child1");
+    std::shared_ptr<rhl_woundcare::scene_graph::LandmarkNode> landmarkChild = root->firstChildNamed<rhl_woundcare::scene_graph::LandmarkNode>("child1");
     EXPECT_TRUE(landmarkChild != nullptr);
     
     // Filters by node type, if specified
-    std::shared_ptr<standard_cyborg::scene_graph::LandmarkNode> foundChild1AsLandmark = root->firstChildNamed<standard_cyborg::scene_graph::LandmarkNode>("child1");
+    std::shared_ptr<rhl_woundcare::scene_graph::LandmarkNode> foundChild1AsLandmark = root->firstChildNamed<rhl_woundcare::scene_graph::LandmarkNode>("child1");
     EXPECT_EQ(foundChild1AsLandmark, child1);
     
     // Does not find if wrong type is specified
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> foundChild1AsGeometry = root->firstChildNamed<standard_cyborg::scene_graph::GeometryNode>("child1");
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> foundChild1AsGeometry = root->firstChildNamed<rhl_woundcare::scene_graph::GeometryNode>("child1");
     EXPECT_EQ(foundChild1AsGeometry, nullptr);
     
     EXPECT_TRUE(root->removeChild(child0));
@@ -279,8 +279,8 @@ TEST(SceneGraphTests, testFindNodeWithId) {
 
 TEST(SceneGraphTests, testPolylineNodeEquality)
 {
-    standard_cyborg::scene_graph::PolylineNode *node0 = new standard_cyborg::scene_graph::PolylineNode("node0");
-    standard_cyborg::scene_graph::PolylineNode *node1 = new standard_cyborg::scene_graph::PolylineNode("node0");
+    rhl_woundcare::scene_graph::PolylineNode *node0 = new rhl_woundcare::scene_graph::PolylineNode("node0");
+    rhl_woundcare::scene_graph::PolylineNode *node1 = new rhl_woundcare::scene_graph::PolylineNode("node0");
     node0->getPolyline().setPositions(std::vector<Vec3>{Vec3{1.0, 0.0, 0.0}, Vec3{0.0, 1.0, 0.0}, Vec3{0.0, 0.0, 1.0}});
     node1->getPolyline().setPositions(std::vector<Vec3>{Vec3{1.0, 0.0, 0.0}, Vec3{0.0, 1.0, 0.0}, Vec3{0.0, 0.0, 1.0}});
     
@@ -293,8 +293,8 @@ TEST(SceneGraphTests, testPolylineNodeEquality)
 
 TEST(SceneGraphTests, testPolylineNodeInequality)
 {
-    standard_cyborg::scene_graph::PolylineNode *node0 = new standard_cyborg::scene_graph::PolylineNode();
-    standard_cyborg::scene_graph::PolylineNode *node1 = new standard_cyborg::scene_graph::PolylineNode();
+    rhl_woundcare::scene_graph::PolylineNode *node0 = new rhl_woundcare::scene_graph::PolylineNode();
+    rhl_woundcare::scene_graph::PolylineNode *node1 = new rhl_woundcare::scene_graph::PolylineNode();
     node0->getPolyline().setPositions(std::vector<Vec3>{Vec3{0.0, 0.0, 0.0}, Vec3{0.0, 1.0, 0.0}, Vec3{0.0, 0.0, 1.0}});
     node1->getPolyline().setPositions(std::vector<Vec3>{Vec3{1.0, 0.0, 0.0}, Vec3{0.0, 1.0, 0.0}, Vec3{0.0, 0.0, 1.0}});
     
@@ -425,11 +425,11 @@ TEST(SceneGraphTests, testCyclicGraph)
 
 TEST(SceneGraphTests, testPlaneNode)
 {
-    standard_cyborg::sc3d::Plane plane;
+    rhl_woundcare::sc3d::Plane plane;
     plane.normal = {0, 0.3, 0.7};
     plane.position = {1, 2, 3};
     
-    standard_cyborg::scene_graph::PlaneNode node;
+    rhl_woundcare::scene_graph::PlaneNode node;
     node.setPlane(plane);
     
     EXPECT_TRUE(node.getPlane().normal == plane.normal);
@@ -450,12 +450,12 @@ TEST(SceneGraphTests, testUndoRedoManager)
         std::shared_ptr<Node> nb(new Node("nb"));
         std::shared_ptr<Node> nc(new Node("nc"));
         std::shared_ptr<Node> nx(new Node("nx"));
-        std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> ny(new standard_cyborg::scene_graph::GeometryNode("ny"));
+        std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> ny(new rhl_woundcare::scene_graph::GeometryNode("ny"));
         
         std::vector<Vec3> originalPositions = {{1.0f, 2.0f, 3.0f}};
         std::vector<Vec3> originalNormals = {{1.0f, 0.0f, 0.0f}};
         std::vector<Vec3> originalColors = {{0.0f, 1.0f, 0.0f}};
-        standard_cyborg::sc3d::Geometry geo(originalPositions, originalNormals, originalColors);
+        rhl_woundcare::sc3d::Geometry geo(originalPositions, originalNormals, originalColors);
         
         ny->getGeometry().copy(geo);
         
@@ -513,12 +513,12 @@ TEST(SceneGraphTests, testUndoRedoManager)
         std::shared_ptr<Node> nb(new Node("nb"));
         std::shared_ptr<Node> nc(new Node("nc"));
         std::shared_ptr<Node> nx(new Node("nx"));
-        std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> ny(new standard_cyborg::scene_graph::GeometryNode("ny"));
+        std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> ny(new rhl_woundcare::scene_graph::GeometryNode("ny"));
         
         std::vector<Vec3> originalPositions = {{1.0f, 2.0f, 3.0f}};
         std::vector<Vec3> originalNormals = {{1.0f, 0.0f, 0.0f}};
         std::vector<Vec3> originalColors = {{0.0f, 1.0f, 0.0f}};
-        standard_cyborg::sc3d::Geometry geo(originalPositions, originalNormals, originalColors);
+        rhl_woundcare::sc3d::Geometry geo(originalPositions, originalNormals, originalColors);
         
         ny->getGeometry().copy(geo);
         
@@ -565,10 +565,10 @@ TEST(SceneGraphTests, testDeepCopyRecursive)
      ny->setName("ny");
      */
     
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> d(new standard_cyborg::scene_graph::GeometryNode("d"));
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> d(new rhl_woundcare::scene_graph::GeometryNode("d"));
     
     std::vector<Vec3> originalPositions = {{1.0f, 2.0f, 3.0f}};
-    standard_cyborg::sc3d::Geometry geo (originalPositions);
+    rhl_woundcare::sc3d::Geometry geo (originalPositions);
     d->getGeometry().copy(geo);
     
     EXPECT_TRUE(a->appendChild(b, a));
@@ -594,8 +594,8 @@ TEST(SceneGraphTests, testDeepCopyRecursive)
     EXPECT_NE(a->getChild(0)->getChild(0), aCopy->getChild(0)->getChild(0));
     
     {
-        const standard_cyborg::sc3d::Geometry& geo = a->getChild(0)->getChild(0)->asGeometryNode()->getGeometry();
-        const standard_cyborg::sc3d::Geometry& copyGeo = aCopy->getChild(0)->getChild(0)->asGeometryNode()->getGeometry();
+        const rhl_woundcare::sc3d::Geometry& geo = a->getChild(0)->getChild(0)->asGeometryNode()->getGeometry();
+        const rhl_woundcare::sc3d::Geometry& copyGeo = aCopy->getChild(0)->getChild(0)->asGeometryNode()->getGeometry();
         
         EXPECT_FALSE(&copyGeo == &geo);
         
@@ -607,14 +607,14 @@ TEST(SceneGraphTests, testDeepCopyRecursive)
 TEST(SceneGraphTests, testGetSize)
 {   
     {
-        std::shared_ptr<standard_cyborg::scene_graph::PolylineNode> a(new standard_cyborg::scene_graph::PolylineNode("a"));
+        std::shared_ptr<rhl_woundcare::scene_graph::PolylineNode> a(new rhl_woundcare::scene_graph::PolylineNode("a"));
         a->getPolyline().setPositions(std::vector<Vec3>{Vec3{1.0, 0.0, 0.0}, Vec3{0.0, 1.0, 0.0}, Vec3{0.0, 0.0, 1.0} });
         
         EXPECT_EQ(a->approximateSizeInBytes(), sizeof(Vec3) * 3);
     }
     
     std::vector< std::shared_ptr<Node>> history;
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> a(new standard_cyborg::scene_graph::GeometryNode("a"));
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> a(new rhl_woundcare::scene_graph::GeometryNode("a"));
     
     {
         std::vector<Vec3> positions = {
@@ -636,21 +636,21 @@ TEST(SceneGraphTests, testGetSize)
             {0.0f, 1.0f, 0.0f},
         };
         
-        std::vector<standard_cyborg::sc3d::Face3> faces{
+        std::vector<rhl_woundcare::sc3d::Face3> faces{
             {0, 1, 2}
         };
         
-        standard_cyborg::sc3d::Geometry geo(positions, normals, colors, faces);
+        rhl_woundcare::sc3d::Geometry geo(positions, normals, colors, faces);
         
         a->getGeometry().copy(geo);
         
         EXPECT_TRUE(a->approximateSizeInBytes() >
                     sizeof(Vec3) * 3 * 3 + // size positions, normals, colors
-                    sizeof(standard_cyborg::sc3d::Face3)
+                    sizeof(rhl_woundcare::sc3d::Face3)
                     );
     }
     
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> d(new standard_cyborg::scene_graph::GeometryNode());
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> d(new rhl_woundcare::scene_graph::GeometryNode());
     a->setName("d");
     {
         std::vector<Vec3> positions = {
@@ -672,7 +672,7 @@ TEST(SceneGraphTests, testGetSize)
             {0.0f, 1.0f, 0.0f},
         };
         
-        standard_cyborg::sc3d::Geometry geo (positions, normals, colors);
+        rhl_woundcare::sc3d::Geometry geo (positions, normals, colors);
         
         d->getGeometry().copy(geo);
         
@@ -681,7 +681,7 @@ TEST(SceneGraphTests, testGetSize)
                     );
     }
     
-    std::shared_ptr<standard_cyborg::scene_graph::LandmarkNode> b(new standard_cyborg::scene_graph::LandmarkNode("b"));
+    std::shared_ptr<rhl_woundcare::scene_graph::LandmarkNode> b(new rhl_woundcare::scene_graph::LandmarkNode("b"));
     b->setLandmark({"ab", Vec3(1.0, 2.0f, 3.0f)});
     
     EXPECT_EQ(b->approximateSizeInBytes(), sizeof(Vec3) + 2*sizeof(char));
@@ -715,23 +715,23 @@ TEST(SceneGraphTests, testGeometryAllocatedIds)
     Node::resetAllocatedResources();
     
     std::vector< std::shared_ptr<Node>> history;
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> a(new standard_cyborg::scene_graph::GeometryNode("a"));
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> b(new standard_cyborg::scene_graph::GeometryNode("b"));
-    std::shared_ptr<standard_cyborg::scene_graph::GeometryNode> c(new standard_cyborg::scene_graph::GeometryNode("c"));
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> a(new rhl_woundcare::scene_graph::GeometryNode("a"));
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> b(new rhl_woundcare::scene_graph::GeometryNode("b"));
+    std::shared_ptr<rhl_woundcare::scene_graph::GeometryNode> c(new rhl_woundcare::scene_graph::GeometryNode("c"));
     
     {
         std::vector<Vec3> positions = {{1.0f, 2.0f, 3.0f}};
-        a->getGeometry().copy(standard_cyborg::sc3d::Geometry(positions));
+        a->getGeometry().copy(rhl_woundcare::sc3d::Geometry(positions));
     }
     
     {
         std::vector<Vec3> positions = {{1.0f, 2.0f, 3.0f}};
-        b->getGeometry().copy(standard_cyborg::sc3d::Geometry(positions));
+        b->getGeometry().copy(rhl_woundcare::sc3d::Geometry(positions));
     }
     
     {
         std::vector<Vec3> positions = {{1.0f, 2.0f, 3.0f}};
-        c->getGeometry().copy(standard_cyborg::sc3d::Geometry(positions));
+        c->getGeometry().copy(rhl_woundcare::sc3d::Geometry(positions));
     }
     
     EXPECT_TRUE(a->appendChild(std::move(b), a));
@@ -745,7 +745,7 @@ TEST(SceneGraphTests, testGeometryAllocatedIds)
         targetNode->setName("xyz", rootNode); } ));
     
     
-    EXPECT_EQ(standard_cyborg::sc3d::Geometry::getAllocatedIds().size(), 3);
+    EXPECT_EQ(rhl_woundcare::sc3d::Geometry::getAllocatedIds().size(), 3);
     
     history.push_back(Node::mutateNode(
                                        history[history.size()-1]->getChildSharedPtr(0),
@@ -763,24 +763,24 @@ TEST(SceneGraphTests, testGeometryAllocatedIds)
         rootNode->removeChild(targetNode);
     }));
     
-    EXPECT_EQ(standard_cyborg::sc3d::Geometry::getAllocatedIds().size(), 3);
+    EXPECT_EQ(rhl_woundcare::sc3d::Geometry::getAllocatedIds().size(), 3);
     
     history.erase(history.begin());
-    EXPECT_EQ(standard_cyborg::sc3d::Geometry::getAllocatedIds().size(), 3);
+    EXPECT_EQ(rhl_woundcare::sc3d::Geometry::getAllocatedIds().size(), 3);
     
     history.erase(history.begin());
-    EXPECT_EQ(standard_cyborg::sc3d::Geometry::getAllocatedIds().size(), 2);
+    EXPECT_EQ(rhl_woundcare::sc3d::Geometry::getAllocatedIds().size(), 2);
     
     history.erase(history.begin());
-    EXPECT_EQ(standard_cyborg::sc3d::Geometry::getAllocatedIds().size(), 1);
+    EXPECT_EQ(rhl_woundcare::sc3d::Geometry::getAllocatedIds().size(), 1);
     
     history.erase(history.begin());
-    EXPECT_EQ(standard_cyborg::sc3d::Geometry::getAllocatedIds().size(), 0);
+    EXPECT_EQ(rhl_woundcare::sc3d::Geometry::getAllocatedIds().size(), 0);
 }
 
 TEST(SceneGraphTests, testPerspectiveCameraNodeRepresentationGeometry) {
-    std::unique_ptr<standard_cyborg::scene_graph::PerspectiveCameraNode> node = std::make_unique<standard_cyborg::scene_graph::PerspectiveCameraNode> ();
-    standard_cyborg::sc3d::PerspectiveCamera& camera = node->getPerspectiveCamera();
+    std::unique_ptr<rhl_woundcare::scene_graph::PerspectiveCameraNode> node = std::make_unique<rhl_woundcare::scene_graph::PerspectiveCameraNode> ();
+    rhl_woundcare::sc3d::PerspectiveCamera& camera = node->getPerspectiveCamera();
     camera.setNominalIntrinsicMatrix(math::Mat3x3({1, 0, 1, 0, 1, 1, 0, 0, 1}));
     camera.setIntrinsicMatrixReferenceSize({1, 1});
     camera.setExtrinsicMatrix({
@@ -794,7 +794,7 @@ TEST(SceneGraphTests, testPerspectiveCameraNodeRepresentationGeometry) {
         -0.92258461, -0.38243119, -0.05083329, 0.0
     });
     
-    std::shared_ptr<standard_cyborg::sc3d::Geometry> frustum = node->getRepresentationGeometry();
+    std::shared_ptr<rhl_woundcare::sc3d::Geometry> frustum = node->getRepresentationGeometry();
     std::vector<Vec3> positions = frustum->getPositions();
     
     std::vector<Vec3> expectedPositions = std::vector<Vec3>({

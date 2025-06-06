@@ -3,22 +3,22 @@
 //  DepthRenderer
 //
 //  Created by Aaron Thompson on 7/5/18.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "BPLYDepthDataAccumulator.h"
-#import <standard_cyborg/math/MathHelpers.hpp>
+#import <rhl_woundcare/math/MathHelpers.hpp>
 
 #import <CoreImage/CoreImage.h>
 #import <simd/simd.h>
 #import <SSZipArchive/SSZipArchive.h>
-#import <StandardCyborgFusion/PerspectiveCamera+AVFoundation.hpp>
-#import <StandardCyborgFusion/GeometryHelpers.hpp>
-#import <StandardCyborgFusion/PointCloudIO.hpp>
-#import <StandardCyborgFusion/SCOfflineReconstructionManager.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <RHLwoundcare/PerspectiveCamera+AVFoundation.hpp>
+#import <RHLwoundcare/GeometryHelpers.hpp>
+#import <RHLwoundcare/PointCloudIO.hpp>
+#import <RHLwoundcare/SCOfflineReconstructionManager.h>
+#import <RHLwoundcare/RHLwoundcare.h>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 @interface _BPLYPointCloudWriter : NSObject
 
@@ -295,7 +295,7 @@ using namespace standard_cyborg;
     
     fprintf(file, "ply\n");
     fprintf(file, "format binary_little_endian 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", [frameworkVersionString UTF8String]);
+    fprintf(file, "comment RHLwoundcareVersion %s\n", [frameworkVersionString UTF8String]);
 }
 
 + (void)_writeHeaderMetadata:(NSDictionary *)dict toFile:(FILE *)file
@@ -303,7 +303,7 @@ using namespace standard_cyborg;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:NULL];
     
     if ([jsonData length] > 0) {
-        fprintf(file, "comment StandardCyborgFusionMetadata ");
+        fprintf(file, "comment RHLwoundcareMetadata ");
         fwrite([jsonData bytes], 1, [jsonData length], file);
         fprintf(file, "\n");
     }

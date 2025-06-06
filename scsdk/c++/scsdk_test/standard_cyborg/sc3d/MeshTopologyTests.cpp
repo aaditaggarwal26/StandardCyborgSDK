@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,11 +17,11 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/MeshTopology.hpp"
+#include "rhl_woundcare/sc3d/MeshTopology.hpp"
 
-using namespace standard_cyborg::sc3d;
+using namespace rhl_woundcare::sc3d;
 
-//namespace math = standard_cyborg::math;
+//namespace math = rhl_woundcare::math;
 //using math::Vec4;
 
 /*
@@ -30,12 +30,12 @@ using namespace standard_cyborg::sc3d;
  #include <cmath>
  #include <iostream>
  
- #include <StandardCyborgData/DebugHelpers.hpp>
- #include <StandardCyborgData/Face3.hpp>
- #include <StandardCyborgData/MeshTopology.hpp>
+ #include <RHLwoundcareData/DebugHelpers.hpp>
+ #include <RHLwoundcareData/Face3.hpp>
+ #include <RHLwoundcareData/MeshTopology.hpp>
  
  
- using namespace StandardCyborg;
+ using namespace RHLwoundcare;
  
  @interface MeshTopologyTests : XCTestCase
  

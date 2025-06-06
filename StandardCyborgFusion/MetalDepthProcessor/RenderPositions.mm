@@ -1,19 +1,19 @@
 //
 //  RenderPositions.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Eric on 8/31/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <GLKit/GLKMatrix4.h>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/math/Vec4.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/math/Vec4.hpp>
 
 #import "RenderPositions.hpp"
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 
 NS_ASSUME_NONNULL_BEGIN
 

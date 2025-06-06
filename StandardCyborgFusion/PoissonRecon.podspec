@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
                       DESC
 
 
-  s.homepage     = "https://github.com/StandardCyborg/PoissonRecon"
+  s.homepage     = "https://github.com/RHLwoundcare/PoissonRecon"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Standard Cyborg" => "sdk@standardcyborg.com" }
+  s.author             = { "RHL Woundcare" => "sdk@RHLwoundcare.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@github.com:StandardCyborg/PoissonRecon.git", :branch => "xcodeproj" }
+  s.source       = { :git => "git@github.com:RHLwoundcare/PoissonRecon.git", :branch => "xcodeproj" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

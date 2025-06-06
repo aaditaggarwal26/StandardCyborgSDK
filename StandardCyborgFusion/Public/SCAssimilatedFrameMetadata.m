@@ -1,9 +1,9 @@
 //
 //  SCAssimilatedFrameMetadata.c
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 6/4/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SCAssimilatedFrameMetadata.h"

@@ -1,9 +1,9 @@
 //
 //  PBFModel.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/25/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #include "PBFModel.hpp"
@@ -15,11 +15,11 @@
 
 #include <iostream>
 #include "crc32.hpp"
-#include <StandardCyborgFusion/PBFDefinitions.h>
-#include <standard_cyborg/util/DataUtils.hpp>
+#include <RHLwoundcare/PBFDefinitions.h>
+#include <rhl_woundcare/util/DataUtils.hpp>
 #include <cmath>
 
-#import <StandardCyborgFusion/PBFFinalStatistics.h>
+#import <RHLwoundcare/PBFFinalStatistics.h>
 
 using namespace Eigen;
 
@@ -388,9 +388,9 @@ ICPResult PBFModel::_runICP(ProcessedFrame& frame, SurfelFusionConfiguration sur
             if (_fastRNG.sample(1000) > frame.weights[i] * 1000.0f) continue;
             if (depth < surfelFusionConfiguration.minDepth || depth > surfelFusionConfiguration.maxDepth) continue;
           
-            downsampledVertices.push_back(standard_cyborg::toVec3(  Vec3TransformMat4( toVector3f(frame.positions[i]), _extrinsicMatrix)  ) );
+            downsampledVertices.push_back(rhl_woundcare::toVec3(  Vec3TransformMat4( toVector3f(frame.positions[i]), _extrinsicMatrix)  ) );
             
-            downsampledNormals.push_back(standard_cyborg::toVec3(normalTransform * standard_cyborg::toVector3f(frame.normals[i])));
+            downsampledNormals.push_back(rhl_woundcare::toVec3(normalTransform * rhl_woundcare::toVector3f(frame.normals[i])));
             
             downsampledColors.push_back(frame.rawFrame.colors[i]);
             

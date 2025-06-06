@@ -1,19 +1,19 @@
 //
 //  OfflineSurfelLandmarking.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 5/28/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <StandardCyborgFusion/Surfel.hpp>
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
-#include <StandardCyborgFusion/SparseSurfelLandmarksIndex.hpp>
-#include <StandardCyborgFusion/SurfelIndexMap.hpp>
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
+#include <RHLwoundcare/Surfel.hpp>
+#include <RHLwoundcare/ScreenSpaceLandmark.hpp>
+#include <RHLwoundcare/SparseSurfelLandmarksIndex.hpp>
+#include <RHLwoundcare/SurfelIndexMap.hpp>
+#include <RHLwoundcare/ScreenSpaceLandmark.hpp>
 #include <unordered_map>
 #include <vector>
 

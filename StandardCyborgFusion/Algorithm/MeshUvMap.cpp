@@ -1,21 +1,21 @@
 //
 //  HeadGlobalRegistration.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by eric on 2019-08-06.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 
 #import "MeshUvMap.hpp"
 
-#include "standard_cyborg/algorithms/Centroid.hpp"
-#include "standard_cyborg/algorithms/PointToPointAlignment.hpp"
-#include "standard_cyborg/algorithms/EdgeLoopFinder.hpp"
-#include "standard_cyborg/algorithms/MeshSplitter.hpp"
-#include "standard_cyborg/sc3d/MeshTopology.hpp"
-#include "standard_cyborg/sc3d/BoundingBox3.hpp"
-#include "standard_cyborg/util/AssertHelper.hpp"
+#include "rhl_woundcare/algorithms/Centroid.hpp"
+#include "rhl_woundcare/algorithms/PointToPointAlignment.hpp"
+#include "rhl_woundcare/algorithms/EdgeLoopFinder.hpp"
+#include "rhl_woundcare/algorithms/MeshSplitter.hpp"
+#include "rhl_woundcare/sc3d/MeshTopology.hpp"
+#include "rhl_woundcare/sc3d/BoundingBox3.hpp"
+#include "rhl_woundcare/util/AssertHelper.hpp"
 
 #import "maxrects.hpp"
 
@@ -39,15 +39,15 @@
 #include <igl/harmonic.h>
 #pragma clang diagnostic pop
 
-using standard_cyborg::sc3d::Geometry;
-using standard_cyborg::sc3d::Face3;
+using rhl_woundcare::sc3d::Geometry;
+using rhl_woundcare::sc3d::Face3;
 
-using standard_cyborg::math::Vec3;
-using standard_cyborg::math::Vec2;
+using rhl_woundcare::math::Vec3;
+using rhl_woundcare::math::Vec2;
 
-namespace sc3d = standard_cyborg::sc3d;
+namespace sc3d = rhl_woundcare::sc3d;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 
@@ -2591,4 +2591,4 @@ bool uvmapMesh(Geometry& geo)
 
 } // namespace algorithms
 
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

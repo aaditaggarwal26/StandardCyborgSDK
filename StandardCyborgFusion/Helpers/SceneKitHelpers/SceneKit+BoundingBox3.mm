@@ -1,19 +1,19 @@
 //
 //  SceneKit+BoundingBox3.m
-//  StandardCyborgData
+//  RHLwoundcareData
 //
 //  Created by Eric Arneback on 5/21/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import "SceneKit+BoundingBox3.h"
 #include <vector>
 
-#include <standard_cyborg/math/Vec3.hpp>
+#include <rhl_woundcare/math/Vec3.hpp>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
-@implementation SCNNode (StandardCyborgDataBoundingBox3)
+@implementation SCNNode (RHLwoundcareDataBoundingBox3)
 
 + (instancetype)nodeFromBoundingBox3:(const sc3d::BoundingBox3&)boundingBox
 {

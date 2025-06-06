@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,12 +13,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
 
-#include "standard_cyborg/algorithms/CreateVectorRotationMatrix.hpp"
+#include "rhl_woundcare/algorithms/CreateVectorRotationMatrix.hpp"
 
 #define EPSILON 0.000001
 
@@ -144,7 +144,7 @@ void fromToRotation(float from[3], float to[3], float mtx[3][3]) {
   }
 }
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 
@@ -174,4 +174,4 @@ math::Mat3x3 createVectorRotationMatrix(const math::Vec3& v0, const math::Vec3& 
 
 } // algorithms
 
-} // namespace StandardCyborg
+} // namespace RHLwoundcare

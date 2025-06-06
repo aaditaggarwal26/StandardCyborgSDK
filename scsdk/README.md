@@ -7,7 +7,7 @@ allowing outside developers to fix minor bugs they come across. But the C++ SDK 
 ## Development
 
 scsdk currently relies on dependencies through both CocoaPods 
-as well as the StandardCyborgSDK repo's more general dependencies directory.
+as well as the RHLwoundcareSDK repo's more general dependencies directory.
 When adding a new dependency, you must update configuration in [scsdk.podspec](scsdk.podspec)
 
 When modifying the root `Podfile`, run this command to update the `Pods/`

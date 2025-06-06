@@ -1,20 +1,20 @@
 //
 //  SparseSurfelLandmarksIndexTest.mm
-//  StandardCyborgFusionTests
+//  RHLwoundcareTests
 //
 //  Created by Ricky Reusser on 4/22/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
-#include <standard_cyborg/util/IncludeEigen.hpp>
-#include <StandardCyborgFusion/MetalSurfelIndexMap.hpp>
-#include <StandardCyborgFusion/PointCloudIO.hpp>
-#include <StandardCyborgFusion/SparseSurfelLandmarksIndex.hpp>
-#include <StandardCyborgFusion/MetalDepthProcessor.hpp>
-#include <StandardCyborgFusion/PBFModel.hpp>
+#import <RHLwoundcare/RHLwoundcare.h>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
+#include <RHLwoundcare/MetalSurfelIndexMap.hpp>
+#include <RHLwoundcare/PointCloudIO.hpp>
+#include <RHLwoundcare/SparseSurfelLandmarksIndex.hpp>
+#include <RHLwoundcare/MetalDepthProcessor.hpp>
+#include <RHLwoundcare/PBFModel.hpp>
 #include "Helpers/PathHelpers.h"
 #include "Helpers/ReconstructionHelpers.h"
 #include <iostream>

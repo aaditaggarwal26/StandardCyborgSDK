@@ -1,9 +1,9 @@
 //
 //  SurfelFusion.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by eric on 2020-03-12.
-//  Copyright © 2020 Standard Cyborg. All rights reserved.
+//  Copyright © 2020 RHL Woundcare. All rights reserved.
 //
 
 #ifndef SurfelFusion_hpp
@@ -11,9 +11,9 @@
 
 #include "SurfelIndexMap.hpp"
 
-#include <StandardCyborgFusion/ProcessedFrame.hpp>
-#include <StandardCyborgFusion/ScreenSpaceLandmark.hpp>
-#include <StandardCyborgFusion/SparseSurfelLandmarksIndex.hpp>
+#include <RHLwoundcare/ProcessedFrame.hpp>
+#include <RHLwoundcare/ScreenSpaceLandmark.hpp>
+#include <RHLwoundcare/SparseSurfelLandmarksIndex.hpp>
 
 struct SurfelFusionConfiguration {
     float maxSurfelIncidenceThreshold = (70 * M_PI / 180);

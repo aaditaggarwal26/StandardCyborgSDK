@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/util/DataUtils.hpp"
-#include "standard_cyborg/util/nanort.h"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/util/DataUtils.hpp"
+#include "rhl_woundcare/util/nanort.h"
 
 #include <nanoflann.hpp>
 
@@ -26,10 +26,10 @@ limitations under the License.
 #include <stack>
 #include <iostream>
 
-using standard_cyborg::math::Vec2;
-using standard_cyborg::math::Vec3;
+using rhl_woundcare::math::Vec2;
+using rhl_woundcare::math::Vec3;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 
@@ -739,4 +739,4 @@ void Geometry::setNormalsEncodeSurfelRadius(bool normalsEncodeSurfelRadius)
 
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

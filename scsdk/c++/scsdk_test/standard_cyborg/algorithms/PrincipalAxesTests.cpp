@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -19,32 +19,32 @@
 
 #include <iostream>
 
-#include "standard_cyborg/algorithms/PrincipalAxes.hpp"
+#include "rhl_woundcare/algorithms/PrincipalAxes.hpp"
 
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
 
-#include "standard_cyborg/util/DebugHelpers.hpp"
+#include "rhl_woundcare/util/DebugHelpers.hpp"
 
-#include "standard_cyborg/io/ply/GeometryFileIO_PLY.hpp"
+#include "rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp"
 
-#include "standard_cyborg/test_helpers/TestHelpers.hpp"
+#include "rhl_woundcare/test_helpers/TestHelpers.hpp"
 
 
-using namespace standard_cyborg::io::ply;
-using namespace standard_cyborg::math;
+using namespace rhl_woundcare::io::ply;
+using namespace rhl_woundcare::math;
 
-bool ReadPLY(standard_cyborg::sc3d::Geometry& geometryOut, const std::string& filename) {
-    std::string PLYPath = standard_cyborg::getTestCasesPath() + filename;
+bool ReadPLY(rhl_woundcare::sc3d::Geometry& geometryOut, const std::string& filename) {
+    std::string PLYPath = rhl_woundcare::getTestCasesPath() + filename;
     return ReadGeometryFromPLYFile(geometryOut, PLYPath);
 }
 
 TEST(PrincipalAxesTests, testNormalwisePrincipalAxes) {
     
-    standard_cyborg::sc3d::Geometry geometry;
+    rhl_woundcare::sc3d::Geometry geometry;
     EXPECT_TRUE(ReadPLY(geometry, "TestCase-mannequin-leg/mannequin-leg-meshed.ply"));
     
-    Mat3x4 alignmentMatrix = standard_cyborg::algorithms::computeNormalwisePrincipalAxes(geometry);
+    Mat3x4 alignmentMatrix = rhl_woundcare::algorithms::computeNormalwisePrincipalAxes(geometry);
     
     EXPECT_TRUE(Mat3x4::almostEqual(alignmentMatrix, Mat3x4({
         -0.998805,     0.0350284,    -0.0340911,     0.0207896,
@@ -55,10 +55,10 @@ TEST(PrincipalAxesTests, testNormalwisePrincipalAxes) {
 }
 
 TEST(PrincipalAxesTests, testPointwisePrincipalAxes) {
-    standard_cyborg::sc3d::Geometry geometry;
+    rhl_woundcare::sc3d::Geometry geometry;
     EXPECT_TRUE(ReadPLY(geometry, "TestCase-mannequin-leg/mannequin-leg-meshed.ply"));
     
-    Mat3x4 alignmentMatrix = standard_cyborg::algorithms::computePointwisePrincipalAxes(geometry);
+    Mat3x4 alignmentMatrix = rhl_woundcare::algorithms::computePointwisePrincipalAxes(geometry);
     
     EXPECT_TRUE(Mat3x4::almostEqual(alignmentMatrix, Mat3x4({
         -0.999851,     0.0136953,      0.010522,     0.0207896,
@@ -77,7 +77,7 @@ TEST(PrincipalAxesTests, testPointwisePrincipalAxesWRTVertices) {
     };
     
     
-    Mat3x4 alignment = standard_cyborg::algorithms::computePointwisePrincipalAxes(positions);
+    Mat3x4 alignment = rhl_woundcare::algorithms::computePointwisePrincipalAxes(positions);
     
     EXPECT_TRUE(Mat3x4::almostEqual(alignment, Mat3x4({
         1, 0, 0,          0,

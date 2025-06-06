@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,10 +20,10 @@ limitations under the License.
 #include <set>
 #include <vector>
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 namespace MeshTopology {
 
@@ -153,4 +153,4 @@ inline int FaceEdges::edgeIndexBefore(int currentEdgeIndex) const
 } 
 
 } // namespace sc3d
-} // namespace standard_cyborg::MeshTopology
+} // namespace rhl_woundcare::MeshTopology

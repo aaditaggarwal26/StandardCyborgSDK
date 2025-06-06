@@ -1,13 +1,13 @@
 //
 //  PointCloudIO.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/4/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
-#include <StandardCyborgFusion/PointCloudIO.hpp>
-#include <StandardCyborgFusion/GeometryHelpers.hpp>
+#include <RHLwoundcare/PointCloudIO.hpp>
+#include <RHLwoundcare/GeometryHelpers.hpp>
 
 #include <algorithm>
 #include <fstream>
@@ -81,7 +81,7 @@ bool PointCloudIO::ReadVerticesFromOBJFile(Matrix3Xf& vertices,
                 colors(2, vertexIndex) = unapplyGammaCorrection(b);
                 vertexIndex++;
             }
-        } else if (strncmp(line, "# StandardCyborgFusionVersion ", strlen("# StandardCyborgFusionVersion ")) == 0) {
+        } else if (strncmp(line, "# RHLwoundcareVersion ", strlen("# RHLwoundcareVersion ")) == 0) {
             // Don't even bother reading the version string, as we didn't write it until version 1.1.0
             flipNormals = false;
         }
@@ -147,7 +147,7 @@ bool PointCloudIO::ReadSurfelsFromOBJFile(Surfels& surfels,
                 surfel.color.z() = unapplyGammaCorrection(b);
                 vertexIndex++;
             }
-        } else if (strncmp(line, "# StandardCyborgFusionVersion ", strlen("# StandardCyborgFusionVersion ")) == 0) {
+        } else if (strncmp(line, "# RHLwoundcareVersion ", strlen("# RHLwoundcareVersion ")) == 0) {
             // Don't even bother reading the version string, as we didn't write it until version 1.1.0
             flipNormals = false;
         }
@@ -180,8 +180,8 @@ extern bool PointCloudIO::WriteVerticesToOBJFile(const Matrix3Xf& vertices,
         return false;
     }
     
-    fprintf(file, "# StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
-    fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "# RHLwoundcareVersion %s\n", SCFrameworkVersion());
+    fprintf(file, "# RHLwoundcareMetadata { \"color_space\": \"sRGB\" }\n");
     
     for (size_t i = 0; i < vertices.cols(); ++i) {
         fprintf(file, "v %f %f %f %f %f %f\n",
@@ -215,8 +215,8 @@ extern bool PointCloudIO::WriteSurfelsToOBJFile(const Surfel* surfels,
         return false;
     }
     
-    fprintf(file, "# StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
-    fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "# RHLwoundcareVersion %s\n", SCFrameworkVersion());
+    fprintf(file, "# RHLwoundcareMetadata { \"color_space\": \"sRGB\" }\n");
     
     for (size_t i = 0; i < surfelCount; ++i) {
         const Surfel& surfel = surfels[i];

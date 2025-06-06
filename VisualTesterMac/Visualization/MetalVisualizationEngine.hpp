@@ -3,14 +3,14 @@
 //  VisualTesterMac
 //
 //  Created by Ricky Reusser on 8/31/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
-#import <StandardCyborgFusion/ICP.hpp>
-#import <StandardCyborgFusion/Surfel.hpp>
+#import <RHLwoundcare/RHLwoundcare.h>
+#import <RHLwoundcare/ICP.hpp>
+#import <RHLwoundcare/Surfel.hpp>
 #import <QuartzCore/QuartzCore.h>
 #import <simd/simd.h>
 #include <vector>

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,10 +16,10 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/Rect2D.hpp"
+#include "rhl_woundcare/sc3d/Rect2D.hpp"
 
 TEST(Rect2DTests, test) {
-    standard_cyborg::sc3d::Rect2D p;
+    rhl_woundcare::sc3d::Rect2D p;
     EXPECT_EQ(p.origin.x, 0.0f);
     EXPECT_EQ(p.origin.y, 0.0f);
     EXPECT_EQ(p.size.width, 0.0f);

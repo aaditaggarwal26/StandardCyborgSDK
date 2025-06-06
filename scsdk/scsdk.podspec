@@ -10,16 +10,16 @@ libsc_deps_root = "$(PODS_ROOT)/../deps"
 Pod::Spec.new do |s|
     s.name         = "scsdk"
     s.version      = "1.0.0"
-    s.summary      = "Standard Cyborg C++ Library for Data, I/O, Algos, and more"
+    s.summary      = "RHL Woundcare C++ Library for Data, I/O, Algos, and more"
 
-    s.homepage     = "https://www.standardcyborg.com/"
+    s.homepage     = "https://www.RHLwoundcare.com/"
 
     s.license      = { 
       :type => "Proprietary", 
       :text => "No Public Release Yet"
     }
     s.authors      = { 
-      "Standard Cyborg" => "jeff@standardcyborg.com"
+      "RHL Woundcare" => "jeff@RHLwoundcare.com"
     }
 
     s.ios.deployment_target = '13.0'

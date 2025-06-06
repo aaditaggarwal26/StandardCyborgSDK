@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,10 +19,10 @@ limitations under the License.
 #include <map>
 #include <vector>
 
-#include "standard_cyborg/util/IncludeEigen.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/util/IncludeEigen.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 struct Vec3;
@@ -110,4 +110,4 @@ void deleteEntriesFromVector(std::vector<T>& dataArray, const sc3d::VertexSelect
     dataArray.resize(renumberedPosition);
 }
 
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

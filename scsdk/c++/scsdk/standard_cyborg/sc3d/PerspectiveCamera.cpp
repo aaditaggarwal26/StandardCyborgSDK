@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,17 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/sc3d/PerspectiveCamera.hpp"
+#include "rhl_woundcare/sc3d/PerspectiveCamera.hpp"
 
 #include <iostream>
 
-#include "standard_cyborg/util/DebugHelpers.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/math/Vec4.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/DepthImage.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/util/IncludeEigen.hpp"
+#include "rhl_woundcare/util/DebugHelpers.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/math/Vec4.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/util/IncludeEigen.hpp"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
@@ -34,12 +34,12 @@ limitations under the License.
 #include "Eigen/QR"
 #pragma clang diagnostic pop
 
-using standard_cyborg::math::Mat3x4;
-using standard_cyborg::math::Mat4x4;
-using standard_cyborg::math::Vec4;
-using standard_cyborg::math::Vec2;
+using rhl_woundcare::math::Mat3x4;
+using rhl_woundcare::math::Mat4x4;
+using rhl_woundcare::math::Vec4;
+using rhl_woundcare::math::Vec2;
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 static math::Vec4 computeLensDistortionCurveFit(const std::vector<float>& table) {
@@ -276,7 +276,7 @@ math::Vec3 PerspectiveCamera::unprojectDepthSample(
       float pixelRow,
       float depth) const {
 
-    using namespace standard_cyborg::math;
+    using namespace rhl_woundcare::math;
     
     const auto& intrinsicMatrixInverse = getIntrinsicMatrixInverse();
     const auto refSize = getIntrinsicMatrixReferenceSize();
@@ -323,4 +323,4 @@ Geometry PerspectiveCamera::unprojectFrame(
  */
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

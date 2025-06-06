@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@ limitations under the License.
 
 #pragma once
 
-#include <standard_cyborg/math/Vec3.hpp>
+#include <rhl_woundcare/math/Vec3.hpp>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 typedef std::pair<math::Vec3, math::Vec3> Line;
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

@@ -1,25 +1,25 @@
 //
 //  SceneKit+Geometry.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 3/28/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 class Geometry;
 }
 }
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCNGeometrySource (StandardCyborgDataGeometry)
+@interface SCNGeometrySource (RHLwoundcareDataGeometry)
 
 + (instancetype)vertexSourceFromGeometry:(const sc3d::Geometry&)geometry;
 + (instancetype)normalSourceFromGeometry:(const sc3d::Geometry&)geometry;
@@ -28,21 +28,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface SCNGeometryElement (StandardCyborgDataGeometry)
+@interface SCNGeometryElement (RHLwoundcareDataGeometry)
 
 + (instancetype)pointElementFromGeometry:(const sc3d::Geometry&)geometry;
 + (instancetype)faceElementFromGeometry:(const sc3d::Geometry&)geometry;
 
 @end
 
-@interface SCNGeometry (StandardCyborgDataGeometry)
+@interface SCNGeometry (RHLwoundcareDataGeometry)
 
 + (instancetype)geometryFromGeometry:(const sc3d::Geometry&)geometry;
 - (void)toGeometry:(sc3d::Geometry&)geometryOut;
 
 @end
 
-@interface SCNNode (StandardCyborgDataGeometry)
+@interface SCNNode (RHLwoundcareDataGeometry)
 
 + (instancetype)nodeFromGeometry:(const sc3d::Geometry&)geometry withDefaultTransform:(BOOL)useDefaultTransform;
 

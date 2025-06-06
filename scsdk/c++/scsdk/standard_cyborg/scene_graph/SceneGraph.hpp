@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ limitations under the License.
 #include <stack>
 #include <vector>
 
-#include "standard_cyborg/util/guid.hpp"
-#include "standard_cyborg/math/Transform.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/util/guid.hpp"
+#include "rhl_woundcare/math/Transform.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 struct Mat3x4;
@@ -600,4 +600,4 @@ NodeIterator end(std::shared_ptr<Node> parent);
 
 
 } // namespace scene_graph
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

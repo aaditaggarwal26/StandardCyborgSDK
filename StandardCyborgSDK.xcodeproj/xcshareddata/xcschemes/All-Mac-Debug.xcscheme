@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "76539C9F20F5B1FE009C332E"
-               BuildableName = "StandardCyborgFusionTests.xctest"
-               BlueprintName = "StandardCyborgFusionTests"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               BuildableName = "RHLwoundcareTests.xctest"
+               BlueprintName = "RHLwoundcareTests"
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "76539CB420F5BBC0009C332E"
                BuildableName = "VisualTesterMac.app"
                BlueprintName = "VisualTesterMac"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E8EB31EB24739C8C00EF7A01"
-               BuildableName = "StandardCyborgFusion.framework"
-               BlueprintName = "StandardCyborgFusionOSX"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               BuildableName = "RHLwoundcare.framework"
+               BlueprintName = "RHLwoundcareOSX"
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,7 +61,7 @@
             BlueprintIdentifier = "76539CB420F5BBC0009C332E"
             BuildableName = "VisualTesterMac.app"
             BlueprintName = "VisualTesterMac"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -70,9 +70,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "76539C9F20F5B1FE009C332E"
-               BuildableName = "StandardCyborgFusionTests.xctest"
-               BlueprintName = "StandardCyborgFusionTests"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               BuildableName = "RHLwoundcareTests.xctest"
+               BlueprintName = "RHLwoundcareTests"
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -94,7 +94,7 @@
             BlueprintIdentifier = "76539CB420F5BBC0009C332E"
             BuildableName = "VisualTesterMac.app"
             BlueprintName = "VisualTesterMac"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -108,9 +108,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "76539C9F20F5B1FE009C332E"
-            BuildableName = "StandardCyborgFusionTests.xctest"
-            BlueprintName = "StandardCyborgFusionTests"
-            ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+            BuildableName = "RHLwoundcareTests.xctest"
+            BlueprintName = "RHLwoundcareTests"
+            ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

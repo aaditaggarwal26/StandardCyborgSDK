@@ -1,14 +1,14 @@
 //
 //  KdTreeAdaptor.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/7/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <standard_cyborg/math/Vec3.hpp>
+#include <rhl_woundcare/math/Vec3.hpp>
 
 #include <nanoflann.hpp>
 
@@ -149,4 +149,4 @@ template <class MatrixType>
 class KdTreeAdaptor<const MatrixType, 3, metric_L2_Simple_DIM3, size_t>
 {};
 
-typedef KdTreeAdaptor<std::vector<standard_cyborg::math::Vec3>> SCVec3KdTreeAdaptor;
+typedef KdTreeAdaptor<std::vector<rhl_woundcare::math::Vec3>> SCVec3KdTreeAdaptor;

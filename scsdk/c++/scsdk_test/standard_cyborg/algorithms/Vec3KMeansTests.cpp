@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,17 +17,17 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/Vec3KMeans.hpp"
+#include "rhl_woundcare/algorithms/Vec3KMeans.hpp"
 
 #import <cmath>
 #import <vector>
 
-//#import <StandardCyborgData/DataUtils.hpp>
-//#import <StandardCyborgData/DebugHelpers.hpp>
+//#import <RHLwoundcareData/DataUtils.hpp>
+//#import <RHLwoundcareData/DebugHelpers.hpp>
 
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-using standard_cyborg::math::Vec3;
+using rhl_woundcare::math::Vec3;
 
 TEST(Vec3KMeansTests, testKMeans) {
     // Create two well-separated clusters
@@ -44,7 +44,7 @@ TEST(Vec3KMeansTests, testKMeans) {
                             );
     }
     
-    auto result = standard_cyborg::algorithms::Vec3KMeans::compute(positions, 2);
+    auto result = rhl_woundcare::algorithms::Vec3KMeans::compute(positions, 2);
     
     EXPECT_LT((result.centroids[0] - point2).norm(), 0.2);
     EXPECT_LT((result.centroids[1] - point1).norm(), 0.2);
@@ -69,7 +69,7 @@ TEST(Vec3KMeansTests, testKMeansWithUnspecifiedK) {
                             );
     }
     
-    auto result = standard_cyborg::algorithms::Vec3KMeans::compute(positions);
+    auto result = rhl_woundcare::algorithms::Vec3KMeans::compute(positions);
     
     EXPECT_EQ(result.centroids.size(), 7);
     EXPECT_EQ(result.assignments.size(), n);

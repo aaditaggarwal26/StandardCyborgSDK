@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,16 +15,16 @@ limitations under the License.
 */
 
 
-#include "standard_cyborg/sc3d/BoundingBox3.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/util/DebugHelpers.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/BoundingBox3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/util/DebugHelpers.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
 #include <iostream>
 
 #include <cmath>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace sc3d {
 
 using math::Vec3;
@@ -178,4 +178,4 @@ BoundingBox3 BoundingBox3::combination(const BoundingBox3& a, const BoundingBox3
 }
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

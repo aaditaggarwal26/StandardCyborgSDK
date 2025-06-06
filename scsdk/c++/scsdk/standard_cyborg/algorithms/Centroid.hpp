@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 
 #include <vector>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 struct Vec3;
@@ -37,4 +37,4 @@ math::Vec3 computeCentroid(const sc3d::Geometry& geometry);
 math::Vec3 computeCentroid(const sc3d::Polyline& polyline);
 
 } // algorithms
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

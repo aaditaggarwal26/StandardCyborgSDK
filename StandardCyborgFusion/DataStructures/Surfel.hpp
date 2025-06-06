@@ -1,9 +1,9 @@
 //
 //  Surfel.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/31/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #ifndef Surfel_hpp
@@ -21,7 +21,7 @@ using namespace metal;
 
 #else /* ! __METAL_VERSION__ */
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
 using Vector3f = Eigen::Vector3f;
 
 #endif // __METAL_VERSION__

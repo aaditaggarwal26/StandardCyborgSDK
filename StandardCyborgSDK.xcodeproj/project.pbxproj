@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03AB25389E722CF129D03913 /* libPods-StandardCyborgAlgorithmsTestbed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E24EF9BF29B2FDD64D17A57 /* libPods-StandardCyborgAlgorithmsTestbed.a */; };
+		03AB25389E722CF129D03913 /* libPods-RHLwoundcareAlgorithmsTestbed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E24EF9BF29B2FDD64D17A57 /* libPods-RHLwoundcareAlgorithmsTestbed.a */; };
 		0702F9AD234FFF8F0027D10D /* SCMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 0702F9AA234FFF8E0027D10D /* SCMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0702F9AE234FFF8F0027D10D /* SCMesh_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0702F9AB234FFF8F0027D10D /* SCMesh_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		0702F9AF234FFF8F0027D10D /* SCMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0702F9AC234FFF8F0027D10D /* SCMesh.mm */; };
@@ -16,8 +16,8 @@
 		0711F0002342C52F00F93DEB /* UvToColor.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0711EFFF2342C52F00F93DEB /* UvToColor.metal */; };
 		071BD3DC234EAD130008D0A6 /* SCMeshTexturing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 071BD3D9234EAD120008D0A6 /* SCMeshTexturing.mm */; };
 		071BD3DD234EAD130008D0A6 /* SCMeshTexturing.h in Headers */ = {isa = PBXBuildFile; fileRef = 071BD3DA234EAD120008D0A6 /* SCMeshTexturing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		072182C42294B9CE0003BDEB /* StandardCyborgFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */; };
-		072182C52294BA0A0003BDEB /* StandardCyborgFusion.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		072182C42294B9CE0003BDEB /* RHLwoundcare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* RHLwoundcare.framework */; };
+		072182C52294BA0A0003BDEB /* RHLwoundcare.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* RHLwoundcare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0723C9C42344239C008ED74E /* RenderPositions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0723C9C12344239C008ED74E /* RenderPositions.hpp */; };
 		0723C9C52344239C008ED74E /* RenderPositions.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0723C9C22344239C008ED74E /* RenderPositions.metal */; };
 		0723C9C62344239C008ED74E /* RenderPositions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0723C9C32344239C008ED74E /* RenderPositions.mm */; };
@@ -44,7 +44,7 @@
 		07F016A024E4516900EBAB19 /* maxrects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F0169E24E4516900EBAB19 /* maxrects.cpp */; };
 		07F4A70924E496D70059D80E /* MeshUvMapTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F4A70824E496D70059D80E /* MeshUvMapTests.mm */; };
 		421368622DA76EB20084F902 /* SendEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421368612DA76EB10084F902 /* SendEmailController.swift */; };
-		75079CB449930783ED401F1B /* libPods-StandardCyborgFusion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707F5A724928EB516F1BF3C /* libPods-StandardCyborgFusion.a */; };
+		75079CB449930783ED401F1B /* libPods-RHLwoundcare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707F5A724928EB516F1BF3C /* libPods-RHLwoundcare.a */; };
 		7609B71321167D4200C0C8D2 /* PointCloudIO_OBJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609B71221167D4200C0C8D2 /* PointCloudIO_OBJ.cpp */; };
 		7609B7192117B4C600C0C8D2 /* ProcessedFrame.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7609B7182117B4C600C0C8D2 /* ProcessedFrame.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
 		7609B71B21190F0500C0C8D2 /* EigenHelperTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7609B71A21190F0500C0C8D2 /* EigenHelperTests.mm */; };
@@ -97,7 +97,7 @@
 		7648B7BA23595EAD005F6756 /* SCMesh+Geometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7648B7B823595EAD005F6756 /* SCMesh+Geometry.mm */; };
 		7649BF55210A490A006030E0 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7649BF54210A490A006030E0 /* Metal.framework */; };
 		76539CA620F5B1FE009C332E /* PointBasedFusionTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76539CA520F5B1FE009C332E /* PointBasedFusionTests.mm */; };
-		76539CA820F5B1FE009C332E /* StandardCyborgFusion.h in Headers */ = {isa = PBXBuildFile; fileRef = 76539C9A20F5B1FE009C332E /* StandardCyborgFusion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76539CA820F5B1FE009C332E /* RHLwoundcare.h in Headers */ = {isa = PBXBuildFile; fileRef = 76539C9A20F5B1FE009C332E /* RHLwoundcare.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76539CB920F5BBC0009C332E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76539CB820F5BBC0009C332E /* AppDelegate.m */; };
 		76539CBE20F5BBC1009C332E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76539CBD20F5BBC1009C332E /* Assets.xcassets */; };
 		76539CC120F5BBC1009C332E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76539CBF20F5BBC1009C332E /* Main.storyboard */; };
@@ -107,7 +107,7 @@
 		7654220C22ACC445001DEA22 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BBFD49229B3E990004F9EE /* CoreML.framework */; };
 		7654220E22AD7577001DEA22 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7654220D22AD7577001DEA22 /* MetalPerformanceShaders.framework */; };
 		76558B952134E034005AECFE /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76A636742134DE8B0008546D /* ViewController.mm */; };
-		76558B992134E0BC005AECFE /* StandardCyborgFusion.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		76558B992134E0BC005AECFE /* RHLwoundcare.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* RHLwoundcare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		76558B9C2135C0C0005AECFE /* ThreadPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76558B9A2135C0C0005AECFE /* ThreadPool.cpp */; };
 		76558B9D2135C0C0005AECFE /* ThreadPool.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76558B9B2135C0C0005AECFE /* ThreadPool.hpp */; };
 		76558BA52135FE2B005AECFE /* ScanningContinued.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76558BA12135FE2B005AECFE /* ScanningContinued.wav */; };
@@ -159,8 +159,8 @@
 		768967F42394306D007179B2 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768967EE2394305D007179B2 /* SceneKit.framework */; };
 		768967F92395DC3B007179B2 /* SCEarTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 768967F72395DC3A007179B2 /* SCEarTracking.m */; };
 		768967FB2395DC7F007179B2 /* SCEarTrackingModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 768967FA2395DC7F007179B2 /* SCEarTrackingModel.mlmodel */; };
-		768C70982BF0794361E6EDFD /* libPods-StandardCyborgFusionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA7DCB706A86532C3F884E6 /* libPods-StandardCyborgFusionTests.a */; };
-		768F1BE52310BA6300DF02D3 /* SceneKit+StandardCyborgNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 768F1BE42310BA6300DF02D3 /* SceneKit+StandardCyborgNode.mm */; };
+		768C70982BF0794361E6EDFD /* libPods-RHLwoundcareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA7DCB706A86532C3F884E6 /* libPods-RHLwoundcareTests.a */; };
+		768F1BE52310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 768F1BE42310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.mm */; };
 		768F64F42121570600C1B1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768F64F22121570600C1B1DA /* Main.storyboard */; };
 		768F64F62121570700C1B1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768F64F52121570700C1B1DA /* Assets.xcassets */; };
 		768F64F92121570700C1B1DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768F64F72121570700C1B1DA /* LaunchScreen.storyboard */; };
@@ -169,8 +169,8 @@
 		768F650921215A6100C1B1DA /* ScanPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F650721215A6100C1B1DA /* ScanPreviewViewController.swift */; };
 		768F650B21215B3C00C1B1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F650A21215B3C00C1B1DA /* AppDelegate.swift */; };
 		768F650E21215BD500C1B1DA /* Scan.mm in Sources */ = {isa = PBXBuildFile; fileRef = 768F650D21215BD500C1B1DA /* Scan.mm */; };
-		768F651221215F8C00C1B1DA /* StandardCyborgFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */; };
-		768F6514212168F300C1B1DA /* StandardCyborgFusion.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		768F651221215F8C00C1B1DA /* RHLwoundcare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* RHLwoundcare.framework */; };
+		768F6514212168F300C1B1DA /* RHLwoundcare.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* RHLwoundcare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7692B7FD229DA2FD0070A6BC /* OfflineSurfelLandmarking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7692B7FB229DA2FD0070A6BC /* OfflineSurfelLandmarking.cpp */; };
 		7692B7FE229DA2FD0070A6BC /* OfflineSurfelLandmarking.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7692B7FC229DA2FD0070A6BC /* OfflineSurfelLandmarking.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
 		7693C45621587EAA005A4772 /* ScanningViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693C45521587EAA005A4772 /* ScanningViewRenderer.swift */; };
@@ -192,7 +192,7 @@
 		76A6367A2134DE8C0008546D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A636792134DE8C0008546D /* Assets.xcassets */; };
 		76A6367D2134DE8C0008546D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A6367B2134DE8C0008546D /* LaunchScreen.storyboard */; };
 		76A636802134DE8C0008546D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A6367F2134DE8C0008546D /* main.m */; };
-		76A636862134DED40008546D /* StandardCyborgFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */; };
+		76A636862134DED40008546D /* RHLwoundcare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76539C9720F5B1FE009C332E /* RHLwoundcare.framework */; };
 		76A636B62134DF5E0008546D /* ViewController.scn in Resources */ = {isa = PBXBuildFile; fileRef = 76A636B52134DF5E0008546D /* ViewController.scn */; };
 		76AF88C821CB1C7A007C47E6 /* CVPixelBufferHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A5A86D21C45F57000978E9 /* CVPixelBufferHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76AF88CB21CB1E52007C47E6 /* PerspectiveCamera+AVFoundation.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76AF88C921CB1E52007C47E6 /* PerspectiveCamera+AVFoundation.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -290,11 +290,11 @@
 		A5A5A86F21C46843000978E9 /* SCReconstructionManagerParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A5A86E21C46843000978E9 /* SCReconstructionManagerParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5A5CE912159ACCE00768FB3 /* MetalDepthProcessorData.mm in Sources */ = {isa = PBXBuildFile; fileRef = A5A5CE902159ACCE00768FB3 /* MetalDepthProcessorData.mm */; };
 		D3E611F8D755108530FFF107 /* libPods-TrueDepthFusion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE23DD5FF5A397EC09D443D /* libPods-TrueDepthFusion.a */; };
-		E208CC3F17BF98DBA674E69C /* libPods-StandardCyborgFusionOSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D3338D00CB49BE1B7CC35E /* libPods-StandardCyborgFusionOSX.a */; };
-		E8A637A02480771400A8B0EC /* StandardCyborgFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EB32C024739C8C00EF7A01 /* StandardCyborgFusion.framework */; };
-		E8E0EA572497FDD200A33D75 /* StandardCyborgFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EB32C024739C8C00EF7A01 /* StandardCyborgFusion.framework */; };
-		E8E0EA582497FE2400A33D75 /* StandardCyborgFusion.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E8EB32C024739C8C00EF7A01 /* StandardCyborgFusion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E8EB31EF24739C8C00EF7A01 /* StandardCyborgFusion.h in Headers */ = {isa = PBXBuildFile; fileRef = 76539C9A20F5B1FE009C332E /* StandardCyborgFusion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E208CC3F17BF98DBA674E69C /* libPods-RHLwoundcareOSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D3338D00CB49BE1B7CC35E /* libPods-RHLwoundcareOSX.a */; };
+		E8A637A02480771400A8B0EC /* RHLwoundcare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EB32C024739C8C00EF7A01 /* RHLwoundcare.framework */; };
+		E8E0EA572497FDD200A33D75 /* RHLwoundcare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EB32C024739C8C00EF7A01 /* RHLwoundcare.framework */; };
+		E8E0EA582497FE2400A33D75 /* RHLwoundcare.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E8EB32C024739C8C00EF7A01 /* RHLwoundcare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8EB31EF24739C8C00EF7A01 /* RHLwoundcare.h in Headers */ = {isa = PBXBuildFile; fileRef = 76539C9A20F5B1FE009C332E /* RHLwoundcare.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8EB31F024739C8C00EF7A01 /* SCAssimilatedFrameMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A5A86021C32B8A000978E9 /* SCAssimilatedFrameMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8EB31F124739C8C00EF7A01 /* CVPixelBufferHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A5A86D21C45F57000978E9 /* CVPixelBufferHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8EB31F224739C8C00EF7A01 /* MetalSurfelIndexMap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76840B66226AD72300639AD7 /* MetalSurfelIndexMap.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -439,7 +439,7 @@
 		E8EB32A024739C8C00EF7A01 /* SCEarTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 768967F72395DC3A007179B2 /* SCEarTracking.m */; };
 		E8EB32A224739C8C00EF7A01 /* MathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A3438C219A4AE9008DEEFA /* MathHelpers.m */; };
 		E8EB32A324739C8C00EF7A01 /* MetalComputeEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7627988C2112D6E600BD436E /* MetalComputeEngine.mm */; };
-		E8EB32A524739C8C00EF7A01 /* SceneKit+StandardCyborgNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 768F1BE42310BA6300DF02D3 /* SceneKit+StandardCyborgNode.mm */; };
+		E8EB32A524739C8C00EF7A01 /* SceneKit+RHLwoundcareNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 768F1BE42310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.mm */; };
 		E8EB32A724739C8C00EF7A01 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E25C66241157E300ED1EE7 /* CoreMedia.framework */; };
 		E8EB32A824739C8C00EF7A01 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E25C62241155F500ED1EE7 /* AVFoundation.framework */; };
 		E8EB32A924739C8C00EF7A01 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07317DCD240F0090006EAB2B /* Accelerate.framework */; };
@@ -464,7 +464,7 @@
 			containerPortal = 76539C8E20F5B1FE009C332E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 76539C9620F5B1FE009C332E;
-			remoteInfo = StandardCyborgFusion;
+			remoteInfo = RHLwoundcare;
 		};
 		76A636842134DEC90008546D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -485,14 +485,14 @@
 			containerPortal = 76539C8E20F5B1FE009C332E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E8EB31EB24739C8C00EF7A01;
-			remoteInfo = StandardCyborgFusionOSX;
+			remoteInfo = RHLwoundcareOSX;
 		};
 		E8E0EA552497FD8B00A33D75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 76539C8E20F5B1FE009C332E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E8EB31EB24739C8C00EF7A01;
-			remoteInfo = StandardCyborgFusionOSX;
+			remoteInfo = RHLwoundcareOSX;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -503,7 +503,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				072182C52294BA0A0003BDEB /* StandardCyborgFusion.framework in Copy Frameworks */,
+				072182C52294BA0A0003BDEB /* RHLwoundcare.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +514,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E8E0EA582497FE2400A33D75 /* StandardCyborgFusion.framework in Copy Frameworks */,
+				E8E0EA582497FE2400A33D75 /* RHLwoundcare.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -525,7 +525,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				76558B992134E0BC005AECFE /* StandardCyborgFusion.framework in Copy Frameworks */,
+				76558B992134E0BC005AECFE /* RHLwoundcare.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,7 +536,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				768F6514212168F300C1B1DA /* StandardCyborgFusion.framework in Copy Frameworks */,
+				768F6514212168F300C1B1DA /* RHLwoundcare.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,7 +567,7 @@
 		0702F9AA234FFF8E0027D10D /* SCMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMesh.h; sourceTree = "<group>"; };
 		0702F9AB234FFF8F0027D10D /* SCMesh_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMesh_Private.h; sourceTree = "<group>"; };
 		0702F9AC234FFF8F0027D10D /* SCMesh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SCMesh.mm; sourceTree = "<group>"; };
-		0707F5A724928EB516F1BF3C /* libPods-StandardCyborgFusion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StandardCyborgFusion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0707F5A724928EB516F1BF3C /* libPods-RHLwoundcare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RHLwoundcare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0711265A241AACCD0078C349 /* SurfelFusion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SurfelFusion.cpp; sourceTree = "<group>"; };
 		0711265B241AACCD0078C349 /* SurfelFusion.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SurfelFusion.hpp; sourceTree = "<group>"; };
 		0711EFFF2342C52F00F93DEB /* UvToColor.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = UvToColor.metal; sourceTree = "<group>"; };
@@ -580,9 +580,9 @@
 		07196856231F0A4500BEEE89 /* MetalTextureProjection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalTextureProjection.mm; sourceTree = "<group>"; };
 		071BD3D9234EAD120008D0A6 /* SCMeshTexturing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SCMeshTexturing.mm; sourceTree = "<group>"; };
 		071BD3DA234EAD120008D0A6 /* SCMeshTexturing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMeshTexturing.h; sourceTree = "<group>"; };
-		0723C9C12344239C008ED74E /* RenderPositions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RenderPositions.hpp; path = StandardCyborgFusion/MetalDepthProcessor/RenderPositions.hpp; sourceTree = SOURCE_ROOT; };
-		0723C9C22344239C008ED74E /* RenderPositions.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = RenderPositions.metal; path = StandardCyborgFusion/MetalDepthProcessor/RenderPositions.metal; sourceTree = SOURCE_ROOT; };
-		0723C9C32344239C008ED74E /* RenderPositions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RenderPositions.mm; path = StandardCyborgFusion/MetalDepthProcessor/RenderPositions.mm; sourceTree = SOURCE_ROOT; };
+		0723C9C12344239C008ED74E /* RenderPositions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RenderPositions.hpp; path = RHLwoundcare/MetalDepthProcessor/RenderPositions.hpp; sourceTree = SOURCE_ROOT; };
+		0723C9C22344239C008ED74E /* RenderPositions.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = RenderPositions.metal; path = RHLwoundcare/MetalDepthProcessor/RenderPositions.metal; sourceTree = SOURCE_ROOT; };
+		0723C9C32344239C008ED74E /* RenderPositions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RenderPositions.mm; path = RHLwoundcare/MetalDepthProcessor/RenderPositions.mm; sourceTree = SOURCE_ROOT; };
 		07317DCD240F0090006EAB2B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		07317DCF240F0096006EAB2B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		07317DD1240F009C006EAB2B /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
@@ -612,21 +612,21 @@
 		07F0169D24E4516900EBAB19 /* maxrects.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = maxrects.hpp; sourceTree = "<group>"; };
 		07F0169E24E4516900EBAB19 /* maxrects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = maxrects.cpp; sourceTree = "<group>"; };
 		07F4A70824E496D70059D80E /* MeshUvMapTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MeshUvMapTests.mm; sourceTree = "<group>"; };
-		127B640E07CD3829D52F87BA /* Pods-StandardCyborgFusionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusionTests.release.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusionTests/Pods-StandardCyborgFusionTests.release.xcconfig"; sourceTree = "<group>"; };
+		127B640E07CD3829D52F87BA /* Pods-RHLwoundcareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcareTests.release.xcconfig"; path = "Target Support Files/Pods-RHLwoundcareTests/Pods-RHLwoundcareTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F23236D28AB6434007143EE /* SCEarLandmarking.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SCEarLandmarking.mlmodel; sourceTree = "<group>"; };
 		1F23236E28AB6434007143EE /* EarLandmarkingAnalysis.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarLandmarkingAnalysis.m; sourceTree = "<group>"; };
 		1F23236F28AB6434007143EE /* EarLandmarkingAnalysis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarLandmarkingAnalysis.h; sourceTree = "<group>"; };
-		2061932908399EE22C9AFE48 /* Pods-StandardCyborgFusionOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusionOSX.debug.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusionOSX/Pods-StandardCyborgFusionOSX.debug.xcconfig"; sourceTree = "<group>"; };
+		2061932908399EE22C9AFE48 /* Pods-RHLwoundcareOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcareOSX.debug.xcconfig"; path = "Target Support Files/Pods-RHLwoundcareOSX/Pods-RHLwoundcareOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		24AB3219AD18613BCD891673 /* Pods-VisualTesterMac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualTesterMac.debug.xcconfig"; path = "Target Support Files/Pods-VisualTesterMac/Pods-VisualTesterMac.debug.xcconfig"; sourceTree = "<group>"; };
-		24D3338D00CB49BE1B7CC35E /* libPods-StandardCyborgFusionOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StandardCyborgFusionOSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24D3338D00CB49BE1B7CC35E /* libPods-RHLwoundcareOSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RHLwoundcareOSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5B1DA7375E5B9BE3D137F7 /* Pods-VisualTesterMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualTesterMac.release.xcconfig"; path = "Target Support Files/Pods-VisualTesterMac/Pods-VisualTesterMac.release.xcconfig"; sourceTree = "<group>"; };
-		393601E903C325BFB12CF074 /* Pods-StandardCyborgFusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusion.release.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusion/Pods-StandardCyborgFusion.release.xcconfig"; sourceTree = "<group>"; };
+		393601E903C325BFB12CF074 /* Pods-RHLwoundcare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcare.release.xcconfig"; path = "Target Support Files/Pods-RHLwoundcare/Pods-RHLwoundcare.release.xcconfig"; sourceTree = "<group>"; };
 		421368612DA76EB10084F902 /* SendEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailController.swift; sourceTree = "<group>"; };
 		47146284F4E2ED08D4BCBA37 /* Pods-TrueDepthFusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueDepthFusion.release.xcconfig"; path = "Target Support Files/Pods-TrueDepthFusion/Pods-TrueDepthFusion.release.xcconfig"; sourceTree = "<group>"; };
 		4B8A869C6ABA6C24FE824293 /* Pods-VisualTesteriOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualTesteriOS.release.xcconfig"; path = "Target Support Files/Pods-VisualTesteriOS/Pods-VisualTesteriOS.release.xcconfig"; sourceTree = "<group>"; };
 		542369A8C29974799FD116A8 /* libPods-VisualTesterMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisualTesterMac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BA7DCB706A86532C3F884E6 /* libPods-StandardCyborgFusionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StandardCyborgFusionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E24EF9BF29B2FDD64D17A57 /* libPods-StandardCyborgAlgorithmsTestbed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StandardCyborgAlgorithmsTestbed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA7DCB706A86532C3F884E6 /* libPods-RHLwoundcareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RHLwoundcareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E24EF9BF29B2FDD64D17A57 /* libPods-RHLwoundcareAlgorithmsTestbed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RHLwoundcareAlgorithmsTestbed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7609B71221167D4200C0C8D2 /* PointCloudIO_OBJ.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PointCloudIO_OBJ.cpp; sourceTree = "<group>"; };
 		7609B7182117B4C600C0C8D2 /* ProcessedFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProcessedFrame.hpp; sourceTree = "<group>"; };
 		7609B71A21190F0500C0C8D2 /* EigenHelperTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EigenHelperTests.mm; sourceTree = "<group>"; };
@@ -667,10 +667,10 @@
 		7648B7B823595EAD005F6756 /* SCMesh+Geometry.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "SCMesh+Geometry.mm"; sourceTree = "<group>"; };
 		7649BF54210A490A006030E0 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		7652F65C2339551400103299 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
-		76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StandardCyborgFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		76539C9A20F5B1FE009C332E /* StandardCyborgFusion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StandardCyborgFusion.h; sourceTree = "<group>"; };
+		76539C9720F5B1FE009C332E /* RHLwoundcare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RHLwoundcare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76539C9A20F5B1FE009C332E /* RHLwoundcare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHLwoundcare.h; sourceTree = "<group>"; };
 		76539C9B20F5B1FE009C332E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		76539CA020F5B1FE009C332E /* StandardCyborgFusionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StandardCyborgFusionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76539CA020F5B1FE009C332E /* RHLwoundcareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RHLwoundcareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76539CA520F5B1FE009C332E /* PointBasedFusionTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PointBasedFusionTests.mm; sourceTree = "<group>"; };
 		76539CA720F5B1FE009C332E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76539CB520F5BBC0009C332E /* VisualTesterMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisualTesterMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -697,7 +697,7 @@
 		765917C1235BE04F00543E45 /* SCMesh+FileIO.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "SCMesh+FileIO.mm"; sourceTree = "<group>"; };
 		765917C6235C0A5900543E45 /* SCMesh+SceneKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCMesh+SceneKit.h"; sourceTree = "<group>"; };
 		765917C7235C0A5900543E45 /* SCMesh+SceneKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCMesh+SceneKit.m"; sourceTree = "<group>"; };
-		76603F5C224D749B00C4C0C4 /* StandardCyborgAlgorithmsTestbed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StandardCyborgAlgorithmsTestbed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76603F5C224D749B00C4C0C4 /* RHLwoundcareAlgorithmsTestbed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RHLwoundcareAlgorithmsTestbed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76603F5E224D749B00C4C0C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		76603F5F224D749B00C4C0C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		76603F61224D749B00C4C0C4 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
@@ -716,7 +716,7 @@
 		767A795F21BEFB2400A3CADD /* SCReconstructionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReconstructionManager.h; sourceTree = "<group>"; };
 		767B494F22CE47270005A060 /* SCLandmarking2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCLandmarking2D.h; sourceTree = "<group>"; };
 		767B495122CE4DA60005A060 /* SCLandmark2D_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCLandmark2D_Private.h; sourceTree = "<group>"; };
-		767CD70E235C340B00E894C2 /* SCMeshTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SCMeshTests.mm; path = StandardCyborgFusionTests/SCMeshTests.mm; sourceTree = SOURCE_ROOT; };
+		767CD70E235C340B00E894C2 /* SCMeshTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SCMeshTests.mm; path = RHLwoundcareTests/SCMeshTests.mm; sourceTree = SOURCE_ROOT; };
 		767CD710235C382400E894C2 /* SquareRedImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SquareRedImage.jpeg; sourceTree = "<group>"; };
 		767F074D2177E75700764A33 /* DrawSurfelIndexMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DrawSurfelIndexMap.hpp; sourceTree = "<group>"; };
 		767F074E2177E75700764A33 /* DrawSurfelIndexMap.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DrawSurfelIndexMap.mm; sourceTree = "<group>"; };
@@ -735,8 +735,8 @@
 		768967F72395DC3A007179B2 /* SCEarTracking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCEarTracking.m; sourceTree = "<group>"; };
 		768967F82395DC3B007179B2 /* SCEarTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCEarTracking.h; sourceTree = "<group>"; };
 		768967FA2395DC7F007179B2 /* SCEarTrackingModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SCEarTrackingModel.mlmodel; sourceTree = "<group>"; };
-		768F1BE32310BA6300DF02D3 /* SceneKit+StandardCyborgNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SceneKit+StandardCyborgNode.h"; sourceTree = "<group>"; };
-		768F1BE42310BA6300DF02D3 /* SceneKit+StandardCyborgNode.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "SceneKit+StandardCyborgNode.mm"; sourceTree = "<group>"; };
+		768F1BE32310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SceneKit+RHLwoundcareNode.h"; sourceTree = "<group>"; };
+		768F1BE42310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "SceneKit+RHLwoundcareNode.mm"; sourceTree = "<group>"; };
 		768F64E82121570600C1B1DA /* TrueDepthFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueDepthFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768F64F32121570600C1B1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		768F64F52121570700C1B1DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -814,8 +814,8 @@
 		76EE33D6212E131700D62C3D /* Countdown.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Countdown.m4a; sourceTree = "<group>"; };
 		76EE33D7212E131800D62C3D /* ScanningFinished.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ScanningFinished.m4a; sourceTree = "<group>"; };
 		76FFDF112150559300500A84 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		7DE545049E45E18955D27995 /* Pods-StandardCyborgFusionOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusionOSX.release.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusionOSX/Pods-StandardCyborgFusionOSX.release.xcconfig"; sourceTree = "<group>"; };
-		927CBAD83870E97BE0537CAB /* Pods-StandardCyborgFusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusion.debug.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusion/Pods-StandardCyborgFusion.debug.xcconfig"; sourceTree = "<group>"; };
+		7DE545049E45E18955D27995 /* Pods-RHLwoundcareOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcareOSX.release.xcconfig"; path = "Target Support Files/Pods-RHLwoundcareOSX/Pods-RHLwoundcareOSX.release.xcconfig"; sourceTree = "<group>"; };
+		927CBAD83870E97BE0537CAB /* Pods-RHLwoundcare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcare.debug.xcconfig"; path = "Target Support Files/Pods-RHLwoundcare/Pods-RHLwoundcare.debug.xcconfig"; sourceTree = "<group>"; };
 		98E3CF7034A0504BCB87F3BF /* Pods-VisualTesteriOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualTesteriOS.debug.xcconfig"; path = "Target Support Files/Pods-VisualTesteriOS/Pods-VisualTesteriOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A5092C2E21C1BC50003B20BC /* crc32.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = crc32.cpp; sourceTree = "<group>"; };
 		A5092C2F21C1BC50003B20BC /* crc32.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = crc32.hpp; sourceTree = "<group>"; };
@@ -881,16 +881,16 @@
 		A5A5A86D21C45F57000978E9 /* CVPixelBufferHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVPixelBufferHelpers.h; sourceTree = "<group>"; };
 		A5A5A86E21C46843000978E9 /* SCReconstructionManagerParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCReconstructionManagerParameters.h; sourceTree = "<group>"; };
 		A5A5CE902159ACCE00768FB3 /* MetalDepthProcessorData.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalDepthProcessorData.mm; sourceTree = "<group>"; };
-		A5DADA619DFD99A82DB95052 /* Pods-StandardCyborgFusionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusionTests.debug.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusionTests/Pods-StandardCyborgFusionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5DADA619DFD99A82DB95052 /* Pods-RHLwoundcareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcareTests.debug.xcconfig"; path = "Target Support Files/Pods-RHLwoundcareTests/Pods-RHLwoundcareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5F19811229336CF00D72A12 /* SceneKit+Geometry.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "SceneKit+Geometry.mm"; sourceTree = "<group>"; };
 		A5F19813229336E400D72A12 /* SceneKit+Geometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SceneKit+Geometry.h"; sourceTree = "<group>"; };
 		A5F198212293404C00D72A12 /* SceneKit+Polyline.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "SceneKit+Polyline.mm"; sourceTree = "<group>"; };
 		A5F198232293405500D72A12 /* SceneKit+Polyline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SceneKit+Polyline.h"; sourceTree = "<group>"; };
 		A6C93955F9D56AC9010462FF /* libPods-VisualTesteriOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisualTesteriOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD9F19495B7CE2877D348A64 /* Pods-StandardCyborgAlgorithmsTestbed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgAlgorithmsTestbed.release.xcconfig"; path = "Target Support Files/Pods-StandardCyborgAlgorithmsTestbed/Pods-StandardCyborgAlgorithmsTestbed.release.xcconfig"; sourceTree = "<group>"; };
-		C89A39FC2B177E662133A75F /* Pods-StandardCyborgAlgorithmsTestbed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgAlgorithmsTestbed.debug.xcconfig"; path = "Target Support Files/Pods-StandardCyborgAlgorithmsTestbed/Pods-StandardCyborgAlgorithmsTestbed.debug.xcconfig"; sourceTree = "<group>"; };
+		BD9F19495B7CE2877D348A64 /* Pods-RHLwoundcareAlgorithmsTestbed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcareAlgorithmsTestbed.release.xcconfig"; path = "Target Support Files/Pods-RHLwoundcareAlgorithmsTestbed/Pods-RHLwoundcareAlgorithmsTestbed.release.xcconfig"; sourceTree = "<group>"; };
+		C89A39FC2B177E662133A75F /* Pods-RHLwoundcareAlgorithmsTestbed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHLwoundcareAlgorithmsTestbed.debug.xcconfig"; path = "Target Support Files/Pods-RHLwoundcareAlgorithmsTestbed/Pods-RHLwoundcareAlgorithmsTestbed.debug.xcconfig"; sourceTree = "<group>"; };
 		E6689CCA27ED6C9280FE8C2A /* Pods-TrueDepthFusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueDepthFusion.debug.xcconfig"; path = "Target Support Files/Pods-TrueDepthFusion/Pods-TrueDepthFusion.debug.xcconfig"; sourceTree = "<group>"; };
-		E8EB32C024739C8C00EF7A01 /* StandardCyborgFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StandardCyborgFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8EB32C024739C8C00EF7A01 /* RHLwoundcare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RHLwoundcare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE23DD5FF5A397EC09D443D /* libPods-TrueDepthFusion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrueDepthFusion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -915,7 +915,7 @@
 				A53A598E21B0B2DC00CD4638 /* QuartzCore.framework in Frameworks */,
 				768967EF2394305D007179B2 /* SceneKit.framework in Frameworks */,
 				76B0788422937904005CA179 /* Vision.framework in Frameworks */,
-				75079CB449930783ED401F1B /* libPods-StandardCyborgFusion.a in Frameworks */,
+				75079CB449930783ED401F1B /* libPods-RHLwoundcare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,7 +923,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A637A02480771400A8B0EC /* StandardCyborgFusion.framework in Frameworks */,
+				E8A637A02480771400A8B0EC /* RHLwoundcare.framework in Frameworks */,
 				76BBFD53229B40400004F9EE /* CoreGraphics.framework in Frameworks */,
 				76BBFD56229B40710004F9EE /* CoreImage.framework in Frameworks */,
 				7654220C22ACC445001DEA22 /* CoreML.framework in Frameworks */,
@@ -931,7 +931,7 @@
 				76BBFD55229B406D0004F9EE /* CoreVideo.framework in Frameworks */,
 				76BBFD54229B404F0004F9EE /* ImageIO.framework in Frameworks */,
 				762D840F2123ADB800BB941B /* Metal.framework in Frameworks */,
-				768C70982BF0794361E6EDFD /* libPods-StandardCyborgFusionTests.a in Frameworks */,
+				768C70982BF0794361E6EDFD /* libPods-RHLwoundcareTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,7 +944,7 @@
 				A52430B2213F482D00A39A38 /* MetalKit.framework in Frameworks */,
 				767F31EE227B4EB200D75BC3 /* QuartzCore.framework in Frameworks */,
 				768967F023943068007179B2 /* SceneKit.framework in Frameworks */,
-				E8E0EA572497FDD200A33D75 /* StandardCyborgFusion.framework in Frameworks */,
+				E8E0EA572497FDD200A33D75 /* RHLwoundcare.framework in Frameworks */,
 				A4130292EC0C27E692B9EF84 /* libPods-VisualTesterMac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -954,9 +954,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				767001C8227B8C830037210E /* QuartzCore.framework in Frameworks */,
-				072182C42294B9CE0003BDEB /* StandardCyborgFusion.framework in Frameworks */,
+				072182C42294B9CE0003BDEB /* RHLwoundcare.framework in Frameworks */,
 				768967F223943069007179B2 /* SceneKit.framework in Frameworks */,
-				03AB25389E722CF129D03913 /* libPods-StandardCyborgAlgorithmsTestbed.a in Frameworks */,
+				03AB25389E722CF129D03913 /* libPods-RHLwoundcareAlgorithmsTestbed.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,7 +965,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				767001C3227B82580037210E /* MetalKit.framework in Frameworks */,
-				768F651221215F8C00C1B1DA /* StandardCyborgFusion.framework in Frameworks */,
+				768F651221215F8C00C1B1DA /* RHLwoundcare.framework in Frameworks */,
 				768967F42394306D007179B2 /* SceneKit.framework in Frameworks */,
 				D3E611F8D755108530FFF107 /* libPods-TrueDepthFusion.a in Frameworks */,
 			);
@@ -977,7 +977,7 @@
 			files = (
 				767001C4227B827C0037210E /* Metal.framework in Frameworks */,
 				768967F123943068007179B2 /* SceneKit.framework in Frameworks */,
-				76A636862134DED40008546D /* StandardCyborgFusion.framework in Frameworks */,
+				76A636862134DED40008546D /* RHLwoundcare.framework in Frameworks */,
 				7D1F2D2BC1ABD85DC0453DA6 /* libPods-VisualTesteriOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,7 +1002,7 @@
 				E8EB32B424739C8C00EF7A01 /* QuartzCore.framework in Frameworks */,
 				E8EB32B524739C8C00EF7A01 /* SceneKit.framework in Frameworks */,
 				E8EB32B624739C8C00EF7A01 /* Vision.framework in Frameworks */,
-				E208CC3F17BF98DBA674E69C /* libPods-StandardCyborgFusionOSX.a in Frameworks */,
+				E208CC3F17BF98DBA674E69C /* libPods-RHLwoundcareOSX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,10 +1044,10 @@
 				A53A598D21B0B2DC00CD4638 /* QuartzCore.framework */,
 				768967EE2394305D007179B2 /* SceneKit.framework */,
 				76B0788322937904005CA179 /* Vision.framework */,
-				24D3338D00CB49BE1B7CC35E /* libPods-StandardCyborgFusionOSX.a */,
-				6BA7DCB706A86532C3F884E6 /* libPods-StandardCyborgFusionTests.a */,
-				6E24EF9BF29B2FDD64D17A57 /* libPods-StandardCyborgAlgorithmsTestbed.a */,
-				0707F5A724928EB516F1BF3C /* libPods-StandardCyborgFusion.a */,
+				24D3338D00CB49BE1B7CC35E /* libPods-RHLwoundcareOSX.a */,
+				6BA7DCB706A86532C3F884E6 /* libPods-RHLwoundcareTests.a */,
+				6E24EF9BF29B2FDD64D17A57 /* libPods-RHLwoundcareAlgorithmsTestbed.a */,
+				0707F5A724928EB516F1BF3C /* libPods-RHLwoundcare.a */,
 				FAE23DD5FF5A397EC09D443D /* libPods-TrueDepthFusion.a */,
 				542369A8C29974799FD116A8 /* libPods-VisualTesterMac.a */,
 				A6C93955F9D56AC9010462FF /* libPods-VisualTesteriOS.a */,
@@ -1058,12 +1058,12 @@
 		76539C8D20F5B1FE009C332E = {
 			isa = PBXGroup;
 			children = (
-				76539C9920F5B1FE009C332E /* StandardCyborgFusion */,
-				76539CA420F5B1FE009C332E /* StandardCyborgFusionTests */,
+				76539C9920F5B1FE009C332E /* RHLwoundcare */,
+				76539CA420F5B1FE009C332E /* RHLwoundcareTests */,
 				76539CB620F5BBC0009C332E /* VisualTesterMac */,
 				76A6366F2134DE8B0008546D /* VisualTesteriOS */,
 				768F64E92121570600C1B1DA /* TrueDepthFusion */,
-				76603F5D224D749B00C4C0C4 /* StandardCyborgAlgorithmsTestbed */,
+				76603F5D224D749B00C4C0C4 /* RHLwoundcareAlgorithmsTestbed */,
 				76539C9820F5B1FE009C332E /* Products */,
 				3ABB72D98D8717B89DD61411 /* Frameworks */,
 				D4BAB590CAEC601056B0C070 /* Pods */,
@@ -1073,22 +1073,22 @@
 		76539C9820F5B1FE009C332E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */,
-				76539CA020F5B1FE009C332E /* StandardCyborgFusionTests.xctest */,
+				76539C9720F5B1FE009C332E /* RHLwoundcare.framework */,
+				76539CA020F5B1FE009C332E /* RHLwoundcareTests.xctest */,
 				76539CB520F5BBC0009C332E /* VisualTesterMac.app */,
 				768F64E82121570600C1B1DA /* TrueDepthFusion.app */,
 				76A6366E2134DE8B0008546D /* VisualTesteriOS.app */,
-				76603F5C224D749B00C4C0C4 /* StandardCyborgAlgorithmsTestbed.app */,
-				E8EB32C024739C8C00EF7A01 /* StandardCyborgFusion.framework */,
+				76603F5C224D749B00C4C0C4 /* RHLwoundcareAlgorithmsTestbed.app */,
+				E8EB32C024739C8C00EF7A01 /* RHLwoundcare.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		76539C9920F5B1FE009C332E /* StandardCyborgFusion */ = {
+		76539C9920F5B1FE009C332E /* RHLwoundcare */ = {
 			isa = PBXGroup;
 			children = (
 				76539C9B20F5B1FE009C332E /* Info.plist */,
-				76539C9A20F5B1FE009C332E /* StandardCyborgFusion.h */,
+				76539C9A20F5B1FE009C332E /* RHLwoundcare.h */,
 				A5375AFA21C866FB005B2BED /* Public */,
 				767A795321BEF22600A3CADD /* DataStructures */,
 				767A795721BEF23800A3CADD /* Algorithm */,
@@ -1097,10 +1097,10 @@
 				1F23236C28AB6434007143EE /* EarLandmarking */,
 				766A9C66214EBCD300689BD6 /* MetalDepthProcessor */,
 			);
-			path = StandardCyborgFusion;
+			path = RHLwoundcare;
 			sourceTree = "<group>";
 		};
-		76539CA420F5B1FE009C332E /* StandardCyborgFusionTests */ = {
+		76539CA420F5B1FE009C332E /* RHLwoundcareTests */ = {
 			isa = PBXGroup;
 			children = (
 				A56EC4EF227A3E6C00207FE0 /* Helpers */,
@@ -1115,7 +1115,7 @@
 				767CD70E235C340B00E894C2 /* SCMeshTests.mm */,
 				07F4A70824E496D70059D80E /* MeshUvMapTests.mm */,
 			);
-			path = StandardCyborgFusionTests;
+			path = RHLwoundcareTests;
 			sourceTree = "<group>";
 		};
 		76539CB620F5BBC0009C332E /* VisualTesterMac */ = {
@@ -1188,7 +1188,7 @@
 			path = Landmark;
 			sourceTree = "<group>";
 		};
-		76603F5D224D749B00C4C0C4 /* StandardCyborgAlgorithmsTestbed */ = {
+		76603F5D224D749B00C4C0C4 /* RHLwoundcareAlgorithmsTestbed */ = {
 			isa = PBXGroup;
 			children = (
 				769DE0E4224D7D7F00ACAD89 /* TestViewControllers */,
@@ -1203,7 +1203,7 @@
 				76603F6F224D749B00C4C0C4 /* Info.plist */,
 				76603F70224D749B00C4C0C4 /* main.m */,
 			);
-			path = StandardCyborgAlgorithmsTestbed;
+			path = RHLwoundcareAlgorithmsTestbed;
 			sourceTree = "<group>";
 		};
 		766A9C66214EBCD300689BD6 /* MetalDepthProcessor */ = {
@@ -1516,8 +1516,8 @@
 				075815DA2294568E00D13A32 /* SceneKit+Plane.mm */,
 				A5F198232293405500D72A12 /* SceneKit+Polyline.h */,
 				A5F198212293404C00D72A12 /* SceneKit+Polyline.mm */,
-				768F1BE32310BA6300DF02D3 /* SceneKit+StandardCyborgNode.h */,
-				768F1BE42310BA6300DF02D3 /* SceneKit+StandardCyborgNode.mm */,
+				768F1BE32310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.h */,
+				768F1BE42310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.mm */,
 			);
 			path = SceneKitHelpers;
 			sourceTree = "<group>";
@@ -1525,20 +1525,20 @@
 		D4BAB590CAEC601056B0C070 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				927CBAD83870E97BE0537CAB /* Pods-StandardCyborgFusion.debug.xcconfig */,
-				393601E903C325BFB12CF074 /* Pods-StandardCyborgFusion.release.xcconfig */,
+				927CBAD83870E97BE0537CAB /* Pods-RHLwoundcare.debug.xcconfig */,
+				393601E903C325BFB12CF074 /* Pods-RHLwoundcare.release.xcconfig */,
 				E6689CCA27ED6C9280FE8C2A /* Pods-TrueDepthFusion.debug.xcconfig */,
 				47146284F4E2ED08D4BCBA37 /* Pods-TrueDepthFusion.release.xcconfig */,
-				2061932908399EE22C9AFE48 /* Pods-StandardCyborgFusionOSX.debug.xcconfig */,
-				7DE545049E45E18955D27995 /* Pods-StandardCyborgFusionOSX.release.xcconfig */,
-				A5DADA619DFD99A82DB95052 /* Pods-StandardCyborgFusionTests.debug.xcconfig */,
-				127B640E07CD3829D52F87BA /* Pods-StandardCyborgFusionTests.release.xcconfig */,
+				2061932908399EE22C9AFE48 /* Pods-RHLwoundcareOSX.debug.xcconfig */,
+				7DE545049E45E18955D27995 /* Pods-RHLwoundcareOSX.release.xcconfig */,
+				A5DADA619DFD99A82DB95052 /* Pods-RHLwoundcareTests.debug.xcconfig */,
+				127B640E07CD3829D52F87BA /* Pods-RHLwoundcareTests.release.xcconfig */,
 				24AB3219AD18613BCD891673 /* Pods-VisualTesterMac.debug.xcconfig */,
 				2F5B1DA7375E5B9BE3D137F7 /* Pods-VisualTesterMac.release.xcconfig */,
 				98E3CF7034A0504BCB87F3BF /* Pods-VisualTesteriOS.debug.xcconfig */,
 				4B8A869C6ABA6C24FE824293 /* Pods-VisualTesteriOS.release.xcconfig */,
-				C89A39FC2B177E662133A75F /* Pods-StandardCyborgAlgorithmsTestbed.debug.xcconfig */,
-				BD9F19495B7CE2877D348A64 /* Pods-StandardCyborgAlgorithmsTestbed.release.xcconfig */,
+				C89A39FC2B177E662133A75F /* Pods-RHLwoundcareAlgorithmsTestbed.debug.xcconfig */,
+				BD9F19495B7CE2877D348A64 /* Pods-RHLwoundcareAlgorithmsTestbed.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1550,7 +1550,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76539CA820F5B1FE009C332E /* StandardCyborgFusion.h in Headers */,
+				76539CA820F5B1FE009C332E /* RHLwoundcare.h in Headers */,
 				A5A5A86121C32B8A000978E9 /* SCAssimilatedFrameMetadata.h in Headers */,
 				76AF88C821CB1C7A007C47E6 /* CVPixelBufferHelpers.h in Headers */,
 				76840B68226AD72300639AD7 /* MetalSurfelIndexMap.hpp in Headers */,
@@ -1633,7 +1633,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8EB31EF24739C8C00EF7A01 /* StandardCyborgFusion.h in Headers */,
+				E8EB31EF24739C8C00EF7A01 /* RHLwoundcare.h in Headers */,
 				E8EB31F024739C8C00EF7A01 /* SCAssimilatedFrameMetadata.h in Headers */,
 				E8EB31F124739C8C00EF7A01 /* CVPixelBufferHelpers.h in Headers */,
 				E8EB31F224739C8C00EF7A01 /* MetalSurfelIndexMap.hpp in Headers */,
@@ -1713,9 +1713,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		76539C9620F5B1FE009C332E /* StandardCyborgFusion */ = {
+		76539C9620F5B1FE009C332E /* RHLwoundcare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76539CAB20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "StandardCyborgFusion" */;
+			buildConfigurationList = 76539CAB20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "RHLwoundcare" */;
 			buildPhases = (
 				16EC0AC01C6CACF769092476 /* [CP] Check Pods Manifest.lock */,
 				76539C9420F5B1FE009C332E /* Headers */,
@@ -1729,14 +1729,14 @@
 			);
 			dependencies = (
 			);
-			name = StandardCyborgFusion;
+			name = RHLwoundcare;
 			productName = PointBasedFusion;
-			productReference = 76539C9720F5B1FE009C332E /* StandardCyborgFusion.framework */;
+			productReference = 76539C9720F5B1FE009C332E /* RHLwoundcare.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		76539C9F20F5B1FE009C332E /* StandardCyborgFusionTests */ = {
+		76539C9F20F5B1FE009C332E /* RHLwoundcareTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76539CAE20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "StandardCyborgFusionTests" */;
+			buildConfigurationList = 76539CAE20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "RHLwoundcareTests" */;
 			buildPhases = (
 				573D2E226CC1AA45D411328C /* [CP] Check Pods Manifest.lock */,
 				76539C9C20F5B1FE009C332E /* Sources */,
@@ -1748,9 +1748,9 @@
 			dependencies = (
 				E8A6379F247E3D3D00A8B0EC /* PBXTargetDependency */,
 			);
-			name = StandardCyborgFusionTests;
+			name = RHLwoundcareTests;
 			productName = PointBasedFusionTests;
-			productReference = 76539CA020F5B1FE009C332E /* StandardCyborgFusionTests.xctest */;
+			productReference = 76539CA020F5B1FE009C332E /* RHLwoundcareTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		76539CB420F5BBC0009C332E /* VisualTesterMac */ = {
@@ -1773,9 +1773,9 @@
 			productReference = 76539CB520F5BBC0009C332E /* VisualTesterMac.app */;
 			productType = "com.apple.product-type.application";
 		};
-		76603F5B224D749B00C4C0C4 /* StandardCyborgAlgorithmsTestbed */ = {
+		76603F5B224D749B00C4C0C4 /* RHLwoundcareAlgorithmsTestbed */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76603F72224D749B00C4C0C4 /* Build configuration list for PBXNativeTarget "StandardCyborgAlgorithmsTestbed" */;
+			buildConfigurationList = 76603F72224D749B00C4C0C4 /* Build configuration list for PBXNativeTarget "RHLwoundcareAlgorithmsTestbed" */;
 			buildPhases = (
 				41588AA2E6EDB5DD8A5AD974 /* [CP] Check Pods Manifest.lock */,
 				76603F58224D749B00C4C0C4 /* Sources */,
@@ -1788,9 +1788,9 @@
 			dependencies = (
 				072182C32294B9660003BDEB /* PBXTargetDependency */,
 			);
-			name = StandardCyborgAlgorithmsTestbed;
-			productName = StandardCyborgAlgorithmsTestbed;
-			productReference = 76603F5C224D749B00C4C0C4 /* StandardCyborgAlgorithmsTestbed.app */;
+			name = RHLwoundcareAlgorithmsTestbed;
+			productName = RHLwoundcareAlgorithmsTestbed;
+			productReference = 76603F5C224D749B00C4C0C4 /* RHLwoundcareAlgorithmsTestbed.app */;
 			productType = "com.apple.product-type.application";
 		};
 		768F64E72121570600C1B1DA /* TrueDepthFusion */ = {
@@ -1835,9 +1835,9 @@
 			productReference = 76A6366E2134DE8B0008546D /* VisualTesteriOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E8EB31EB24739C8C00EF7A01 /* StandardCyborgFusionOSX */ = {
+		E8EB31EB24739C8C00EF7A01 /* RHLwoundcareOSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8EB32BD24739C8C00EF7A01 /* Build configuration list for PBXNativeTarget "StandardCyborgFusionOSX" */;
+			buildConfigurationList = E8EB32BD24739C8C00EF7A01 /* Build configuration list for PBXNativeTarget "RHLwoundcareOSX" */;
 			buildPhases = (
 				E8EB31EC24739C8C00EF7A01 /* [CP] Check Pods Manifest.lock */,
 				E8EB31EE24739C8C00EF7A01 /* Headers */,
@@ -1851,9 +1851,9 @@
 			);
 			dependencies = (
 			);
-			name = StandardCyborgFusionOSX;
+			name = RHLwoundcareOSX;
 			productName = PointBasedFusion;
-			productReference = E8EB32C024739C8C00EF7A01 /* StandardCyborgFusion.framework */;
+			productReference = E8EB32C024739C8C00EF7A01 /* RHLwoundcare.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1864,7 +1864,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1540;
-				ORGANIZATIONNAME = "Standard Cyborg";
+				ORGANIZATIONNAME = "RHL Woundcare";
 				TargetAttributes = {
 					76539C9620F5B1FE009C332E = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1894,7 +1894,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 76539C9120F5B1FE009C332E /* Build configuration list for PBXProject "StandardCyborgSDK" */;
+			buildConfigurationList = 76539C9120F5B1FE009C332E /* Build configuration list for PBXProject "RHLwoundcareSDK" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1907,10 +1907,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76603F5B224D749B00C4C0C4 /* StandardCyborgAlgorithmsTestbed */,
-				76539C9620F5B1FE009C332E /* StandardCyborgFusion */,
-				E8EB31EB24739C8C00EF7A01 /* StandardCyborgFusionOSX */,
-				76539C9F20F5B1FE009C332E /* StandardCyborgFusionTests */,
+				76603F5B224D749B00C4C0C4 /* RHLwoundcareAlgorithmsTestbed */,
+				76539C9620F5B1FE009C332E /* RHLwoundcare */,
+				E8EB31EB24739C8C00EF7A01 /* RHLwoundcareOSX */,
+				76539C9F20F5B1FE009C332E /* RHLwoundcareTests */,
 				76539CB420F5BBC0009C332E /* VisualTesterMac */,
 				76A6366D2134DE8B0008546D /* VisualTesteriOS */,
 				768F64E72121570600C1B1DA /* TrueDepthFusion */,
@@ -1997,7 +1997,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StandardCyborgFusion-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RHLwoundcare-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2019,7 +2019,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StandardCyborgAlgorithmsTestbed-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RHLwoundcareAlgorithmsTestbed-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2041,7 +2041,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StandardCyborgFusionTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RHLwoundcareTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2205,7 +2205,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StandardCyborgFusionOSX-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RHLwoundcareOSX-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2331,7 +2331,7 @@
 				768967F92395DC3B007179B2 /* SCEarTracking.m in Sources */,
 				76A3438E219A4AE9008DEEFA /* MathHelpers.m in Sources */,
 				7627988E2112D6E600BD436E /* MetalComputeEngine.mm in Sources */,
-				768F1BE52310BA6300DF02D3 /* SceneKit+StandardCyborgNode.mm in Sources */,
+				768F1BE52310BA6300DF02D3 /* SceneKit+RHLwoundcareNode.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2505,7 +2505,7 @@
 				E8EB32A024739C8C00EF7A01 /* SCEarTracking.m in Sources */,
 				E8EB32A224739C8C00EF7A01 /* MathHelpers.m in Sources */,
 				E8EB32A324739C8C00EF7A01 /* MetalComputeEngine.mm in Sources */,
-				E8EB32A524739C8C00EF7A01 /* SceneKit+StandardCyborgNode.mm in Sources */,
+				E8EB32A524739C8C00EF7A01 /* SceneKit+RHLwoundcareNode.mm in Sources */,
 				07278A1724EC6C8100564C56 /* MeshUvMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2515,27 +2515,27 @@
 /* Begin PBXTargetDependency section */
 		072182C32294B9660003BDEB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 76539C9620F5B1FE009C332E /* StandardCyborgFusion */;
+			target = 76539C9620F5B1FE009C332E /* RHLwoundcare */;
 			targetProxy = 072182C22294B9660003BDEB /* PBXContainerItemProxy */;
 		};
 		76A636852134DEC90008546D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 76539C9620F5B1FE009C332E /* StandardCyborgFusion */;
+			target = 76539C9620F5B1FE009C332E /* RHLwoundcare */;
 			targetProxy = 76A636842134DEC90008546D /* PBXContainerItemProxy */;
 		};
 		A599F0302130BA140032A65A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 76539C9620F5B1FE009C332E /* StandardCyborgFusion */;
+			target = 76539C9620F5B1FE009C332E /* RHLwoundcare */;
 			targetProxy = A599F02F2130BA140032A65A /* PBXContainerItemProxy */;
 		};
 		E8A6379F247E3D3D00A8B0EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E8EB31EB24739C8C00EF7A01 /* StandardCyborgFusionOSX */;
+			target = E8EB31EB24739C8C00EF7A01 /* RHLwoundcareOSX */;
 			targetProxy = E8A6379E247E3D3D00A8B0EC /* PBXContainerItemProxy */;
 		};
 		E8E0EA562497FD8B00A33D75 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E8EB31EB24739C8C00EF7A01 /* StandardCyborgFusionOSX */;
+			target = E8EB31EB24739C8C00EF7A01 /* RHLwoundcareOSX */;
 			targetProxy = E8E0EA552497FD8B00A33D75 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2750,7 +2750,7 @@
 		};
 		76539CAC20F5B1FE009C332E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 927CBAD83870E97BE0537CAB /* Pods-StandardCyborgFusion.debug.xcconfig */;
+			baseConfigurationReference = 927CBAD83870E97BE0537CAB /* Pods-RHLwoundcare.debug.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "";
@@ -2761,7 +2761,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				INFOPLIST_FILE = StandardCyborgFusion/Info.plist;
+				INFOPLIST_FILE = RHLwoundcare/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2789,7 +2789,7 @@
 					UIKit,
 				);
 				"OTHER_LDFLAGS[sdk=macosx*]" = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.RHLwoundcare;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2802,7 +2802,7 @@
 		};
 		76539CAD20F5B1FE009C332E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 393601E903C325BFB12CF074 /* Pods-StandardCyborgFusion.release.xcconfig */;
+			baseConfigurationReference = 393601E903C325BFB12CF074 /* Pods-RHLwoundcare.release.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "";
@@ -2813,7 +2813,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				INFOPLIST_FILE = StandardCyborgFusion/Info.plist;
+				INFOPLIST_FILE = RHLwoundcare/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2842,7 +2842,7 @@
 					UIKit,
 				);
 				"OTHER_LDFLAGS[sdk=macosx*]" = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.RHLwoundcare;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -2852,7 +2852,7 @@
 		};
 		76539CAF20F5B1FE009C332E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5DADA619DFD99A82DB95052 /* Pods-StandardCyborgFusionTests.debug.xcconfig */;
+			baseConfigurationReference = A5DADA619DFD99A82DB95052 /* Pods-RHLwoundcareTests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				DEVELOPMENT_TEAM = "";
@@ -2862,35 +2862,35 @@
 				);
 				"HEADER_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion/**",
+					"$(PROJECT_DIR)/RHLwoundcare/**",
 					"$(PROJECT_DIR)/deps/nanoflann/include",
 				);
 				"HEADER_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion/**",
+					"$(PROJECT_DIR)/RHLwoundcare/**",
 					"$(PROJECT_DIR)/deps/nanoflann/include",
 				);
 				"HEADER_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion/**",
+					"$(PROJECT_DIR)/RHLwoundcare/**",
 					"$(PROJECT_DIR)/deps/nanoflann/include",
 					"$(PROJECT_DIR)/deps/json/include",
 				);
-				INFOPLIST_FILE = StandardCyborgFusion/Info.plist;
+				INFOPLIST_FILE = RHLwoundcare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.PointBasedFusionTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.PointBasedFusionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		76539CB020F5B1FE009C332E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 127B640E07CD3829D52F87BA /* Pods-StandardCyborgFusionTests.release.xcconfig */;
+			baseConfigurationReference = 127B640E07CD3829D52F87BA /* Pods-RHLwoundcareTests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				DEVELOPMENT_TEAM = "";
@@ -2900,27 +2900,27 @@
 				);
 				"HEADER_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion/**",
+					"$(PROJECT_DIR)/RHLwoundcare/**",
 					"$(PROJECT_DIR)/deps/nanoflann/include",
 				);
 				"HEADER_SEARCH_PATHS[sdk=iphonesimulator*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion/**",
+					"$(PROJECT_DIR)/RHLwoundcare/**",
 					"$(PROJECT_DIR)/deps/nanoflann/include",
 				);
 				"HEADER_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion/**",
+					"$(PROJECT_DIR)/RHLwoundcare/**",
 					"$(PROJECT_DIR)/deps/nanoflann/include",
 				);
-				INFOPLIST_FILE = StandardCyborgFusion/Info.plist;
+				INFOPLIST_FILE = RHLwoundcare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.PointBasedFusionTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.PointBasedFusionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2943,7 +2943,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.VisualTesterMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.VisualTesterMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VisualTesterMac/VisualTesterMac-Bridging-Header.h";
 			};
@@ -2967,7 +2967,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.VisualTesterMac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.VisualTesterMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VisualTesterMac/VisualTesterMac-Bridging-Header.h";
 			};
@@ -2975,13 +2975,13 @@
 		};
 		76603F73224D749B00C4C0C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C89A39FC2B177E662133A75F /* Pods-StandardCyborgAlgorithmsTestbed.debug.xcconfig */;
+			baseConfigurationReference = C89A39FC2B177E662133A75F /* Pods-RHLwoundcareAlgorithmsTestbed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2JD889U6XW;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
+				INFOPLIST_FILE = RHLwoundcareAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2994,7 +2994,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.RHLwoundcareAlgorithmsTestbed123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3003,13 +3003,13 @@
 		};
 		76603F74224D749B00C4C0C4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD9F19495B7CE2877D348A64 /* Pods-StandardCyborgAlgorithmsTestbed.release.xcconfig */;
+			baseConfigurationReference = BD9F19495B7CE2877D348A64 /* Pods-RHLwoundcareAlgorithmsTestbed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2JD889U6XW;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
+				INFOPLIST_FILE = RHLwoundcareAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3022,7 +3022,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.RHLwoundcareAlgorithmsTestbed123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3040,7 +3040,7 @@
 				DEVELOPMENT_TEAM = 2JD889U6XW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion",
+					"$(PROJECT_DIR)/RHLwoundcare",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3053,7 +3053,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.TrueDepthFusion123;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";
@@ -3072,7 +3072,7 @@
 				DEVELOPMENT_TEAM = 2JD889U6XW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/StandardCyborgFusion",
+					"$(PROJECT_DIR)/RHLwoundcare",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3085,7 +3085,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.TrueDepthFusion123;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";
@@ -3110,7 +3110,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.VisualTesteriOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.VisualTesteriOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -3135,7 +3135,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.VisualTesteriOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.VisualTesteriOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -3145,7 +3145,7 @@
 		};
 		E8EB32BE24739C8C00EF7A01 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2061932908399EE22C9AFE48 /* Pods-StandardCyborgFusionOSX.debug.xcconfig */;
+			baseConfigurationReference = 2061932908399EE22C9AFE48 /* Pods-RHLwoundcareOSX.debug.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "";
@@ -3155,7 +3155,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				INFOPLIST_FILE = StandardCyborgFusion/Info.plist;
+				INFOPLIST_FILE = RHLwoundcare/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3168,8 +3168,8 @@
 				);
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 c++17";
 				MTL_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgFusion;
-				PRODUCT_NAME = StandardCyborgFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.RHLwoundcare;
+				PRODUCT_NAME = RHLwoundcare;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 			};
@@ -3177,7 +3177,7 @@
 		};
 		E8EB32BF24739C8C00EF7A01 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DE545049E45E18955D27995 /* Pods-StandardCyborgFusionOSX.release.xcconfig */;
+			baseConfigurationReference = 7DE545049E45E18955D27995 /* Pods-RHLwoundcareOSX.release.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				CODE_SIGN_IDENTITY = "";
@@ -3187,7 +3187,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				INFOPLIST_FILE = StandardCyborgFusion/Info.plist;
+				INFOPLIST_FILE = RHLwoundcare/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3201,8 +3201,8 @@
 				LLVM_LTO = YES;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 c++17";
 				MTL_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgFusion;
-				PRODUCT_NAME = StandardCyborgFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RHLwoundcare.RHLwoundcare;
+				PRODUCT_NAME = RHLwoundcare;
 				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Release;
@@ -3210,7 +3210,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76539C9120F5B1FE009C332E /* Build configuration list for PBXProject "StandardCyborgSDK" */ = {
+		76539C9120F5B1FE009C332E /* Build configuration list for PBXProject "RHLwoundcareSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76539CA920F5B1FE009C332E /* Debug */,
@@ -3219,7 +3219,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76539CAB20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "StandardCyborgFusion" */ = {
+		76539CAB20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "RHLwoundcare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76539CAC20F5B1FE009C332E /* Debug */,
@@ -3228,7 +3228,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76539CAE20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "StandardCyborgFusionTests" */ = {
+		76539CAE20F5B1FE009C332E /* Build configuration list for PBXNativeTarget "RHLwoundcareTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76539CAF20F5B1FE009C332E /* Debug */,
@@ -3246,7 +3246,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76603F72224D749B00C4C0C4 /* Build configuration list for PBXNativeTarget "StandardCyborgAlgorithmsTestbed" */ = {
+		76603F72224D749B00C4C0C4 /* Build configuration list for PBXNativeTarget "RHLwoundcareAlgorithmsTestbed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76603F73224D749B00C4C0C4 /* Debug */,
@@ -3273,7 +3273,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8EB32BD24739C8C00EF7A01 /* Build configuration list for PBXNativeTarget "StandardCyborgFusionOSX" */ = {
+		E8EB32BD24739C8C00EF7A01 /* Build configuration list for PBXNativeTarget "RHLwoundcareOSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8EB32BE24739C8C00EF7A01 /* Debug */,

@@ -1,23 +1,23 @@
 //
 //  SCOfflineReconstructionManager_Private.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 12/18/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 // NOTE: This is Objective-C++. Guarding as such.
 #ifdef __cplusplus
 
-#import <StandardCyborgFusion/SCOfflineReconstructionManager.h>
-#import <StandardCyborgFusion/SCReconstructionManagerParameters_Private.h>
-#import <StandardCyborgFusion/ICP.hpp>
-#import <StandardCyborgFusion/EigenHelpers.hpp>
-#import <StandardCyborgFusion/Surfel.hpp>
-#import <StandardCyborgFusion/RawFrame.hpp>
-#import <StandardCyborgFusion/PBFAssimilatedFrameMetadata.hpp>
+#import <RHLwoundcare/SCOfflineReconstructionManager.h>
+#import <RHLwoundcare/SCReconstructionManagerParameters_Private.h>
+#import <RHLwoundcare/ICP.hpp>
+#import <RHLwoundcare/EigenHelpers.hpp>
+#import <RHLwoundcare/Surfel.hpp>
+#import <RHLwoundcare/RawFrame.hpp>
+#import <RHLwoundcare/PBFAssimilatedFrameMetadata.hpp>
 #import <memory>
-#import <StandardCyborgFusion/PBFFinalStatistics.h>
+#import <RHLwoundcare/PBFFinalStatistics.h>
 
 
 @protocol SCOfflineReconstructionManagerDelegate;

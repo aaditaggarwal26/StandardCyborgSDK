@@ -1,16 +1,16 @@
 //
 //  BaseTestViewController.m
-//  StandardCyborgGeometryTestbed
+//  RHLwoundcareGeometryTestbed
 //
 //  Created by Aaron Thompson on 4/5/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <SceneKit/SceneKit.h>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
-#import <StandardCyborgFusion/SceneKit+Geometry.h>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
+#import <RHLwoundcare/SceneKit+Geometry.h>
+#import <RHLwoundcare/RHLwoundcare.h>
 
 
 #import "BaseTestViewController.h"

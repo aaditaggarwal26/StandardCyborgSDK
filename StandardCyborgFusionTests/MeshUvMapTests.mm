@@ -1,20 +1,20 @@
 //
 //  MeshUvMapTests.mm
-//  StandardCyborgAlgorithmsTests
+//  RHLwoundcareAlgorithmsTests
 //
 //  Created by eric on 2019-08-13.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import <sstream>
 
-#import <standard_cyborg/sc3d/Face3.hpp>
-#import <standard_cyborg/sc3d/Geometry.hpp>
-#import <standard_cyborg/math/Vec3.hpp>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
+#import <rhl_woundcare/sc3d/Face3.hpp>
+#import <rhl_woundcare/sc3d/Geometry.hpp>
+#import <rhl_woundcare/math/Vec3.hpp>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
 
-#import <StandardCyborgFusion/MeshUvMap.hpp>
+#import <RHLwoundcare/MeshUvMap.hpp>
 
 @interface MeshUvMapTests : XCTestCase
 
@@ -22,10 +22,10 @@
 
 @implementation MeshUvMapTests
 
-using namespace standard_cyborg;
-using namespace standard_cyborg::algorithms;
-using namespace standard_cyborg::math;
-using namespace standard_cyborg::sc3d;
+using namespace rhl_woundcare;
+using namespace rhl_woundcare::algorithms;
+using namespace rhl_woundcare::math;
+using namespace rhl_woundcare::sc3d;
 
 - (void)testSeamCutMeshBySegmentation2Segment {
     
@@ -544,7 +544,7 @@ using namespace standard_cyborg::sc3d;
 
 /*
 - (void)testUvmapMeshStressTest {
-    using namespace StandardCyborg;
+    using namespace RHLwoundcare;
     
     std::vector<NSString*> testCases {
         @"stress-test-colinear-tri-points.ply",
@@ -560,8 +560,8 @@ using namespace standard_cyborg::sc3d;
         std::string cppPath([PLYPath UTF8String]);
         ReadGeometryFromPLYFile(geometry, cppPath);
         XCTAssertTrue(geometry.faceCount() > 0);
-        if (!StandardCyborg::uvmapMesh(geometry)) {
-            printf("UV unwrapping failed %s\n %s", cppPath.c_str(), StandardCyborg::getUvmapMeshErrorMessage().c_str());
+        if (!RHLwoundcare::uvmapMesh(geometry)) {
+            printf("UV unwrapping failed %s\n %s", cppPath.c_str(), RHLwoundcare::getUvmapMeshErrorMessage().c_str());
             XCTAssertTrue(false);
         }
     }

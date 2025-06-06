@@ -1,21 +1,21 @@
 //
 //  MetalDepthProcessorData.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 9/24/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import "MetalDepthProcessorData.hpp"
 #import <Foundation/Foundation.h>
 #include <iostream>
-#import <StandardCyborgFusion/MathHelpers.h>
+#import <RHLwoundcare/MathHelpers.h>
 
 #include <vector>
 
 using namespace Eigen;
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 MetalDepthProcessorData::MetalDepthProcessorData() {}
 

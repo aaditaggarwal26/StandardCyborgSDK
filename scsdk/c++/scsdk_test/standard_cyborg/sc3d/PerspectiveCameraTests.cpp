@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/sc3d/PerspectiveCamera.hpp"
+#include "rhl_woundcare/sc3d/PerspectiveCamera.hpp"
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 TEST(PerspectiveCameraTests, testDistortionTableConstantsComputation) {
     sc3d::PerspectiveCamera camera;
@@ -78,11 +78,11 @@ TEST(PerspectiveCameraTests, testConstructor) {
 }
 
 TEST(PerspectiveCameraTests, UnprojectDepthSampleTests) {
-    namespace sc3d = standard_cyborg::sc3d;
-    using standard_cyborg::math::Mat3x4;
-    using standard_cyborg::math::Mat3x3;
-    using standard_cyborg::math::Vec2;
-    using standard_cyborg::math::Vec3;
+    namespace sc3d = rhl_woundcare::sc3d;
+    using rhl_woundcare::math::Mat3x4;
+    using rhl_woundcare::math::Mat3x3;
+    using rhl_woundcare::math::Vec2;
+    using rhl_woundcare::math::Vec3;
     
     sc3d::PerspectiveCamera camera;
     

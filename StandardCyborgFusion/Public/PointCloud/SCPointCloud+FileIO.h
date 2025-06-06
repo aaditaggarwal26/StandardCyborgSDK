@@ -1,12 +1,12 @@
 //
 //  SCPointCloud+FileIO.h
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <StandardCyborgFusion/SCPointCloud.h>
+#import <RHLwoundcare/SCPointCloud.h>
 
 @class SCLandmark3D;
 

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -16,15 +16,15 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/Centroid.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
+#include "rhl_woundcare/algorithms/Centroid.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
 
 #include <vector>
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 using math::Vec3;
 
 
@@ -36,7 +36,7 @@ TEST(CentroidTests, testVectorOfVec3Centroid) {
         {2.0f, 5.0f, 4.0f},
     };
     
-    Vec3 centroid = standard_cyborg::algorithms::computeCentroid(positions);
+    Vec3 centroid = rhl_woundcare::algorithms::computeCentroid(positions);
     
     EXPECT_NEAR(centroid.x, 3.0f / 4.0f, FLT_EPSILON);
     EXPECT_NEAR(centroid.y, 7.0f / 4.0f, FLT_EPSILON);
@@ -51,14 +51,14 @@ TEST(CentroidTests, testGeometryCentroidWithFaces) {
         {2.0f, 5.0f, 4.0f},
     };
     
-    std::vector<standard_cyborg::sc3d::Face3> faces {
+    std::vector<rhl_woundcare::sc3d::Face3> faces {
         { 0, 1, 2 },
         { 0, 1, 3 }
     };
     
-    standard_cyborg::sc3d::Geometry geometry (positions, faces);
+    rhl_woundcare::sc3d::Geometry geometry (positions, faces);
     
-    Vec3 centroid = standard_cyborg::algorithms::computeCentroid(geometry);
+    Vec3 centroid = rhl_woundcare::algorithms::computeCentroid(geometry);
     
     EXPECT_NEAR(centroid.x, 0.767176f, 1e-6f);
     EXPECT_NEAR(centroid.y, 1.317430f, 1e-6f);
@@ -74,9 +74,9 @@ TEST(CentroidTests, testGeometryCentroidWithoutFaces) {
         {2.0f, 5.0f, 4.0f},
     };
     
-    standard_cyborg::sc3d::Geometry geometry (positions);
+    rhl_woundcare::sc3d::Geometry geometry (positions);
     
-    Vec3 centroid = standard_cyborg::algorithms::computeCentroid(geometry);
+    Vec3 centroid = rhl_woundcare::algorithms::computeCentroid(geometry);
     
     // Reduces to the equivalent above result for a point cloud
     EXPECT_NEAR(centroid.x, 3.0f / 4.0f, FLT_EPSILON);
@@ -87,9 +87,9 @@ TEST(CentroidTests, testGeometryCentroidWithoutFaces) {
 TEST(CentroidTests, testGeometryCentroidEmpty) {
     std::vector<Vec3> positions { };
     
-    standard_cyborg::sc3d::Geometry geometry (positions);
+    rhl_woundcare::sc3d::Geometry geometry (positions);
     
-    Vec3 centroid = standard_cyborg::algorithms::computeCentroid(geometry);
+    Vec3 centroid = rhl_woundcare::algorithms::computeCentroid(geometry);
     
     // Reduces to the equivalent above result for a point cloud
     EXPECT_NEAR(centroid.x, 0.0f, FLT_EPSILON);
@@ -105,9 +105,9 @@ TEST(CentroidTests, testCentroidPointCloud) {
         {-9.0f, +4.0f, +1.0f},
     };
     
-    standard_cyborg::sc3d::Geometry tri(positions);
+    rhl_woundcare::sc3d::Geometry tri(positions);
     
-    Vec3 centroid = standard_cyborg::algorithms::computeCentroid(tri.getPositions());
+    Vec3 centroid = rhl_woundcare::algorithms::computeCentroid(tri.getPositions());
     
     EXPECT_NEAR(centroid.x, -4.0f / 4.0f, FLT_EPSILON);
     EXPECT_NEAR(centroid.y, 12.0f / 4.0f, FLT_EPSILON);
@@ -126,9 +126,9 @@ TEST(CentroidTests, testPolylineCentroid) {
         {-2.0f, -2.0f, 0.0f}
     };
     
-    standard_cyborg::sc3d::Polyline curve (positions);
+    rhl_woundcare::sc3d::Polyline curve (positions);
     
-    Vec3 centroid = standard_cyborg::algorithms::computeCentroid(curve);
+    Vec3 centroid = rhl_woundcare::algorithms::computeCentroid(curve);
     
     EXPECT_NEAR(centroid.x, 0.0f, FLT_EPSILON);
     EXPECT_NEAR(centroid.y, 0.0f, FLT_EPSILON);
@@ -143,9 +143,9 @@ TEST(CentroidTests, testCentroidPointCloudSelection) {
         {-9.0f, +4.0f, +1.0f},
     };
     
-    standard_cyborg::sc3d::Geometry points(positions);
+    rhl_woundcare::sc3d::Geometry points(positions);
     
-    Vec3 centroid = standard_cyborg::algorithms::computeCentroid(points.getPositions(), standard_cyborg::sc3d::VertexSelection(4, {1, 3}));
+    Vec3 centroid = rhl_woundcare::algorithms::computeCentroid(points.getPositions(), rhl_woundcare::sc3d::VertexSelection(4, {1, 3}));
     
     EXPECT_NEAR(centroid.x, -3.0f / 2.0f, FLT_EPSILON);
     EXPECT_NEAR(centroid.y, 11.0f / 2.0f, FLT_EPSILON);

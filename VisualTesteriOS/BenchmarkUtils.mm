@@ -1,9 +1,9 @@
 //
 //  BenchmarkUtils.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by eric on 2019-10-24.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #include "BenchmarkUtils.hpp"
@@ -18,13 +18,13 @@
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
 #import <nlohmann/json.hpp>
-#import <StandardCyborgFusion/StandardCyborgFusion.h>
-#import <StandardCyborgFusion/SCOfflineReconstructionManager.h>
-#import <StandardCyborgFusion/SCOfflineReconstructionManager_Private.h>
-#import <standard_cyborg/io/ply/GeometryFileIO_PLY.hpp>
+#import <RHLwoundcare/RHLwoundcare.h>
+#import <RHLwoundcare/SCOfflineReconstructionManager.h>
+#import <RHLwoundcare/SCOfflineReconstructionManager_Private.h>
+#import <rhl_woundcare/io/ply/GeometryFileIO_PLY.hpp>
 #import <UIKit/UIKit.h>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 // Not really geometry, but close enough
 static const float kGammaCorrection = 1.0 / 2.2;
@@ -71,7 +71,7 @@ void calcChamferDistance(const sc3d::Geometry &geo0,
                          float& colorChamferDistance,
                          float& normalChamferDistance)
 {
-    using namespace standard_cyborg::math;
+    using namespace rhl_woundcare::math;
     
     const std::vector<Vec3> &positions0 = geo0.getPositions();
     const std::vector<Vec3> &colors0 = geo0.getColors();
@@ -118,7 +118,7 @@ static bool MyWriteSurfelsToPLYFile(const Surfel *surfels,
 
     fprintf(file, "ply\n");
     fprintf(file, "format ascii 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "comment RHLwoundcareMetadata { \"color_space\": \"sRGB\" }\n");
     fprintf(file, "element vertex %ld\n", surfelCount);
     fprintf(file, "property float x\n");
     fprintf(file, "property float y\n");

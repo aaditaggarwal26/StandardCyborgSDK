@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -17,18 +17,18 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/io/ply/RawFrameDataIO_PLY.hpp"
+#include "rhl_woundcare/io/ply/RawFrameDataIO_PLY.hpp"
 
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/DepthImage.hpp"
-#include "standard_cyborg/sc3d/PerspectiveCamera.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/sc3d/PerspectiveCamera.hpp"
 
-#include "standard_cyborg/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
 
-#include "standard_cyborg/test_helpers/TestHelpers.hpp"
+#include "rhl_woundcare/test_helpers/TestHelpers.hpp"
 
 /*
- #import <StandardCyborgIO/RawFrameDataIO_PLY.hpp>
+ #import <RHLwoundcareIO/RawFrameDataIO_PLY.hpp>
  
  #import "DebugHelpers.hpp"
  #import "TestHelpers/PathHelpers.h"
@@ -36,17 +36,17 @@
 
 
 
-using namespace standard_cyborg::sc3d;
-using namespace standard_cyborg::math;
+using namespace rhl_woundcare::sc3d;
+using namespace rhl_woundcare::math;
 
 TEST(BPLYFrameFileIOTests, testReading) {
-    std::string testFrame = standard_cyborg::getTestCasesPath() + std::string("frame-000.ply");
+    std::string testFrame = rhl_woundcare::getTestCasesPath() + std::string("frame-000.ply");
     
     ColorImage image;
     DepthImage depth;
     PerspectiveCamera camera;
     
-    bool ok = standard_cyborg::io::ply::ReadRawFrameDataFromPLYFile(image, depth, camera, testFrame);
+    bool ok = rhl_woundcare::io::ply::ReadRawFrameDataFromPLYFile(image, depth, camera, testFrame);
     EXPECT_TRUE(ok);
     
     EXPECT_EQ(image.getWidth(), 320);

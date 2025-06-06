@@ -1,14 +1,14 @@
 //
 //  CVPixelBufferHelpers.m
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 12/14/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreVideo/CoreVideo.h>
-#import <StandardCyborgFusion/CVPixelBufferHelpers.h>
+#import <RHLwoundcare/CVPixelBufferHelpers.h>
 
 void CVPixelBufferReplaceNaNs(CVPixelBufferRef buffer, float replacement)
 {

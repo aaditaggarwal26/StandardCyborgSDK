@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -23,13 +23,13 @@
 /*
  #import <XCTest/XCTest.h>
  
- #import <StandardCyborgData/DataUtils.hpp>
- #import <StandardCyborgData/DebugHelpers.hpp>
- #import <StandardCyborgData/Vec3.hpp>
+ #import <RHLwoundcareData/DataUtils.hpp>
+ #import <RHLwoundcareData/DebugHelpers.hpp>
+ #import <RHLwoundcareData/Vec3.hpp>
  
- #import "../StandardCyborgAlgorithms/DBScan.hpp"
+ #import "../RHLwoundcareAlgorithms/DBScan.hpp"
  
- namespace math = StandardCyborg::math;
+ namespace math = RHLwoundcare::math;
  using math::Vec3;
  
  @interface DBScanTests : XCTestCase
@@ -42,14 +42,14 @@
 
 #include <gtest/gtest.h>
 
-#include "standard_cyborg/algorithms/DBScan.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/algorithms/DBScan.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-//#include "standard_cyborg/sc3d/VertexSelection.hpp"
+//#include "rhl_woundcare/sc3d/VertexSelection.hpp"
 
-//#include "standard_cyborg/util/DebugHelpers.hpp"
+//#include "rhl_woundcare/util/DebugHelpers.hpp"
 
-namespace math = standard_cyborg::math;
+namespace math = rhl_woundcare::math;
 
 using math::Vec3;
 
@@ -98,7 +98,7 @@ TEST(DBScanTests, testDBscan) {
      https://en.wikipedia.org/wiki/DBSCAN
      for explanation of parameters.
      */
-    auto result = standard_cyborg::algorithms::DBScan::compute(positions, 10, 0.2);
+    auto result = rhl_woundcare::algorithms::DBScan::compute(positions, 10, 0.2);
     
     EXPECT_EQ(result.size(), positions.size());
     

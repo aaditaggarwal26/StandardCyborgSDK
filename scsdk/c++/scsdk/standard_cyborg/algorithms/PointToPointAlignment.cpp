@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,23 +13,23 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-#include "standard_cyborg/algorithms/PointToPointAlignment.hpp"
+#include "rhl_woundcare/algorithms/PointToPointAlignment.hpp"
 
-#include "standard_cyborg/util/IncludeEigen.hpp"
+#include "rhl_woundcare/util/IncludeEigen.hpp"
 
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
 #include <Eigen/Jacobi>
 #pragma clang diagnostic pop
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 
-standard_cyborg::math::Mat3x4 PointToPointAlignment(const std::vector<standard_cyborg::math::Vec3>& sourcePositions, const std::vector<standard_cyborg::math::Vec3>& targetPositions)
+rhl_woundcare::math::Mat3x4 PointToPointAlignment(const std::vector<rhl_woundcare::math::Vec3>& sourcePositions, const std::vector<rhl_woundcare::math::Vec3>& targetPositions)
 {
     int N = (int)sourcePositions.size();
     
@@ -57,7 +57,7 @@ standard_cyborg::math::Mat3x4 PointToPointAlignment(const std::vector<standard_c
     // translation
     t = avgQ - R * avgP;
     
-    standard_cyborg::math::Mat3x4 r = {
+    rhl_woundcare::math::Mat3x4 r = {
         R(0, 0), R(0, 1), R(0, 2), t(0),
         R(1, 0), R(1, 1), R(1, 2), t(1),
         R(2, 0), R(2, 1), R(2, 2), t(2),

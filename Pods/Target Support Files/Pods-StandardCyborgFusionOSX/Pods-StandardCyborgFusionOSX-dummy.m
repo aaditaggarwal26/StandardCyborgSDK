@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_StandardCyborgFusionOSX : NSObject
+@interface PodsDummy_Pods_RHLwoundcareOSX : NSObject
 @end
-@implementation PodsDummy_Pods_StandardCyborgFusionOSX
+@implementation PodsDummy_Pods_RHLwoundcareOSX
 @end

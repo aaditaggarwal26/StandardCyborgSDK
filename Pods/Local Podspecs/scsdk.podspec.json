@@ -1,21 +1,21 @@
 {
   "name": "scsdk",
   "version": "1.0.0",
-  "summary": "Standard Cyborg C++ Library for Data, I/O, Algos, and more",
-  "homepage": "https://www.standardcyborg.com/",
+  "summary": "RHL Woundcare C++ Library for Data, I/O, Algos, and more",
+  "homepage": "https://www.RHLwoundcare.com/",
   "license": {
     "type": "Proprietary",
     "text": "No Public Release Yet"
   },
   "authors": {
-    "Standard Cyborg": "jeff@standardcyborg.com"
+    "RHL Woundcare": "jeff@RHLwoundcare.com"
   },
   "platforms": {
     "ios": "13.0",
     "osx": "11.0"
   },
   "source": {
-    "path": "file:///Users/aaditaggarwal/StandardCyborgSDK/scsdk/"
+    "path": "file:///Users/aaditaggarwal/RHLwoundcareSDK/scsdk/"
   },
   "source_files": [
     "c++/scsdk/**/*.{h,hpp,cc,cpp}"

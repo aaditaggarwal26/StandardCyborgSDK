@@ -1,17 +1,17 @@
 //
 //  GeometryHelpers.hpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 8/24/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #pragma once
 
-#include <standard_cyborg/util/IncludeEigen.hpp>
+#include <rhl_woundcare/util/IncludeEigen.hpp>
 #include <simd/simd.h>
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 struct Mat3x3;
@@ -35,18 +35,18 @@ extern Eigen::Matrix4f perspectiveMatrixFromIntrinsics(Eigen::Matrix3f& intrinsi
 extern Eigen::Matrix3f rotationFromEulerAngles(const Eigen::Vector3f& alphaBetaGamma);
 
 // SC --> simd
-extern simd_float3x3 toSimdFloat3x3(const standard_cyborg::math::Mat3x3& m);
-extern simd_float4x4 toSimdFloat4x4(const standard_cyborg::math::Mat3x4& m);
-extern simd_float4x4 toSimdFloat4x4(const standard_cyborg::math::Mat4x4& m);
-extern simd_float2 toSimdFloat2(standard_cyborg::math::Vec2 m);
-extern simd_float3 toSimdFloat3(standard_cyborg::math::Vec3 m);
-extern simd_float4 toSimdFloat4(standard_cyborg::math::Vec4 m);
+extern simd_float3x3 toSimdFloat3x3(const rhl_woundcare::math::Mat3x3& m);
+extern simd_float4x4 toSimdFloat4x4(const rhl_woundcare::math::Mat3x4& m);
+extern simd_float4x4 toSimdFloat4x4(const rhl_woundcare::math::Mat4x4& m);
+extern simd_float2 toSimdFloat2(rhl_woundcare::math::Vec2 m);
+extern simd_float3 toSimdFloat3(rhl_woundcare::math::Vec3 m);
+extern simd_float4 toSimdFloat4(rhl_woundcare::math::Vec4 m);
 
 // simd --> SC
-extern standard_cyborg::math::Mat3x3 toMat3x3(simd_float3x3 m);
-extern standard_cyborg::math::Mat3x4 toMat3x4(simd_float3x3 m);
-extern standard_cyborg::math::Mat3x4 toMat3x4(simd_float4x4 m);
-extern standard_cyborg::math::Mat3x4 toMat3x4(simd_float4x3 m);
+extern rhl_woundcare::math::Mat3x3 toMat3x3(simd_float3x3 m);
+extern rhl_woundcare::math::Mat3x4 toMat3x4(simd_float3x3 m);
+extern rhl_woundcare::math::Mat3x4 toMat3x4(simd_float4x4 m);
+extern rhl_woundcare::math::Mat3x4 toMat3x4(simd_float4x3 m);
 
 // Not really geometry, but close enough
 static const float kGammaCorrection = 1.0/2.2;

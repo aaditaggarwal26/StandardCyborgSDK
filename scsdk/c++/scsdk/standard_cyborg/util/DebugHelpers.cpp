@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,42 +14,42 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/util/DebugHelpers.hpp"
+#include "rhl_woundcare/util/DebugHelpers.hpp"
 #include <map>
 #include <algorithm>
 #include <sstream>
 
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat4x4.hpp"
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/math/Vec2.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
-#include "standard_cyborg/math/Vec4.hpp"
-#include "standard_cyborg/math/Quaternion.hpp"
-#include "standard_cyborg/sc3d/BoundingBox3.hpp"
-#include "standard_cyborg/sc3d/ColorImage.hpp"
-#include "standard_cyborg/sc3d/DepthImage.hpp"
-#include "standard_cyborg/sc3d/Face3.hpp"
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/sc3d/MeshTopology.hpp"
-#include "standard_cyborg/sc3d/Plane.hpp"
-#include "standard_cyborg/sc3d/Polyline.hpp"
-#include "standard_cyborg/sc3d/VertexSelection.hpp"
-#include "standard_cyborg/sc3d/Point2D.hpp"
-#include "standard_cyborg/sc3d/Size2D.hpp"
-#include "standard_cyborg/sc3d/Rect2D.hpp"
-#include "standard_cyborg/sc3d/PerspectiveCamera.hpp"
-#include "standard_cyborg/sc3d/Landmark.hpp"
-#include "standard_cyborg/scene_graph/SceneGraph.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat4x4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Vec2.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
+#include "rhl_woundcare/math/Vec4.hpp"
+#include "rhl_woundcare/math/Quaternion.hpp"
+#include "rhl_woundcare/sc3d/BoundingBox3.hpp"
+#include "rhl_woundcare/sc3d/ColorImage.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/sc3d/Face3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/sc3d/MeshTopology.hpp"
+#include "rhl_woundcare/sc3d/Plane.hpp"
+#include "rhl_woundcare/sc3d/Polyline.hpp"
+#include "rhl_woundcare/sc3d/VertexSelection.hpp"
+#include "rhl_woundcare/sc3d/Point2D.hpp"
+#include "rhl_woundcare/sc3d/Size2D.hpp"
+#include "rhl_woundcare/sc3d/Rect2D.hpp"
+#include "rhl_woundcare/sc3d/PerspectiveCamera.hpp"
+#include "rhl_woundcare/sc3d/Landmark.hpp"
+#include "rhl_woundcare/scene_graph/SceneGraph.hpp"
 
 #include <iomanip>
 
-using namespace standard_cyborg;
-using namespace standard_cyborg::math;
-using namespace standard_cyborg::sc3d;
-using namespace standard_cyborg::scene_graph;
+using namespace rhl_woundcare;
+using namespace rhl_woundcare::math;
+using namespace rhl_woundcare::sc3d;
+using namespace rhl_woundcare::scene_graph;
 
-// namespace standard_cyborg {
+// namespace rhl_woundcare {
 
 // namespace math {
 
@@ -468,4 +468,4 @@ std::ostream& operator<<(std::ostream& os, const Node& node)
 
 // } // namespace scene_graph
 
-// } // namespace standard_cyborg
+// } // namespace rhl_woundcare

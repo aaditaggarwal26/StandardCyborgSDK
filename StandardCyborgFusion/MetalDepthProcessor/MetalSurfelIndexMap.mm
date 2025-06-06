@@ -1,14 +1,14 @@
 //
 //  MetalSurfelIndexMap.mm
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 7/26/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #include <CoreGraphics/CoreGraphics.h>
 #include <iostream>
-#include <standard_cyborg/util/DataUtils.hpp>
+#include <rhl_woundcare/util/DataUtils.hpp>
 
 #include "crc32.hpp"
 #include "DebugLog.h"
@@ -66,7 +66,7 @@ MetalSurfelIndexMap::MetalSurfelIndexMap(id<MTLDevice> device, id<MTLCommandQueu
     _commandQueue(commandQueue)
 {
     NSError *error;
-    _library = [_device newDefaultLibraryWithBundle:[NSBundle bundleWithIdentifier:@"com.standardcyborg.StandardCyborgFusion"] error:&error];
+    _library = [_device newDefaultLibraryWithBundle:[NSBundle bundleWithIdentifier:@"com.RHLwoundcare.RHLwoundcare"] error:&error];
     if (_library == nil) { NSLog(@"Unable to create library: %@", error); }
     
     id<MTLFunction> vertexFunction = [_library newFunctionWithName:forColor ? @"SurfelIndexMapForColorVertex" : @"SurfelIndexMapVertex"];

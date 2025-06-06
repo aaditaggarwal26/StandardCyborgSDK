@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,19 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "standard_cyborg/io/json/PerspectiveCameraFileIO_JSON.hpp"
-#include "standard_cyborg/io/json/PerspectiveCameraFileIO_JSON_Private.hpp"
-#include "standard_cyborg/sc3d/PerspectiveCamera.hpp"
+#include "rhl_woundcare/io/json/PerspectiveCameraFileIO_JSON.hpp"
+#include "rhl_woundcare/io/json/PerspectiveCameraFileIO_JSON_Private.hpp"
+#include "rhl_woundcare/sc3d/PerspectiveCamera.hpp"
 
 #include <fstream>
 #include <sstream>
 #include <iomanip>
 #include <iostream>
 
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace json {
 
@@ -187,4 +187,4 @@ bool WritePerspectiveCameraToJSONStream(std::ostream& output, const sc3d::Perspe
 
 } // namespace json
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

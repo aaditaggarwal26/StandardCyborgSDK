@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@ limitations under the License.
 */
 
 
-#include "standard_cyborg/io/ply/DepthImageFileIO_PLY.hpp"
+#include "rhl_woundcare/io/ply/DepthImageFileIO_PLY.hpp"
 
-#include "standard_cyborg/sc3d/DepthImage.hpp"
+#include "rhl_woundcare/sc3d/DepthImage.hpp"
 
 #include <algorithm>
 #include <iostream>
@@ -26,7 +26,7 @@ limitations under the License.
 #include "happly.h"
 #pragma clang diagnostic pop
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 namespace io {
 namespace ply {
 
@@ -113,4 +113,4 @@ bool WriteDepthImageToPLYStream(std::ostream& output, const DepthImage& depthIma
 
 } // namespace ply
 } // namespace io
-} // namespace standard_cyborg
+} // namespace rhl_woundcare

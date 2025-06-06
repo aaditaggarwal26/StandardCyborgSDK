@@ -3,11 +3,11 @@
 //  TrueDepthFusion
 //
 //  Created by Aaron Thompson on 11/7/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 import MediaPlayer
-import StandardCyborgFusion
+import RHLwoundcare
 import UIKit
 
 class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconstructionManagerDelegate {

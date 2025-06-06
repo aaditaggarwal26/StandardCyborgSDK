@@ -1,15 +1,15 @@
 //
 //  OutlierDetector.cpp
-//  StandardCyborgFusion
+//  RHLwoundcare
 //
 //  Created by Ricky Reusser on 8/13/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #include "OutlierDetector.hpp"
 #include <cmath>
 
-using namespace StandardCyborg;
+using namespace RHLwoundcare;
 
 OutlierDetector::OutlierDetector (float _meanDecayTime, float _varianceDecayTime, float _outlierCutoff, bool _filterOutliers)
     : meanDecayTime(_meanDecayTime),

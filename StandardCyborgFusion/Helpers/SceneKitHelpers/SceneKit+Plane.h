@@ -1,20 +1,20 @@
 //
 //  SceneKit+Plane.h
-//  StandardCyborgSDK
+//  RHLwoundcareSDK
 //
 //  Created by Eric Arneback on 5/21/19.
-//  Copyright © 2019 Standard Cyborg. All rights reserved.
+//  Copyright © 2019 RHL Woundcare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <SceneKit/SceneKit.h>
-#import <standard_cyborg/sc3d/Plane.hpp>
+#import <rhl_woundcare/sc3d/Plane.hpp>
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCNNode (StandardCyborgDataPlane)
+@interface SCNNode (RHLwoundcareDataPlane)
 
 + (instancetype)nodeFromPlane:(const sc3d::Plane&)plane
                       ofWidth:(float)width

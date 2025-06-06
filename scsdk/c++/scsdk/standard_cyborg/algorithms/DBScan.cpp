@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,15 +13,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-#include "standard_cyborg/algorithms/DBScan.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/algorithms/DBScan.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
 #include <algorithm>
 #include <random>
 #include <nanoflann.hpp>
 
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace algorithms {
 

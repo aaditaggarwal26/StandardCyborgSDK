@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Standard Cyborg
+Copyright 2020 RHL Woundcare
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,14 +20,14 @@ limitations under the License.
 #include <string>
 #include <vector>
 
-#include "standard_cyborg/math/Mat3x3.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Mat4x4.hpp"
-#include "standard_cyborg/math/Vec2.hpp"
-#include "standard_cyborg/math/Vec4.hpp"
-#include "standard_cyborg/sc3d/Size2D.hpp"
+#include "rhl_woundcare/math/Mat3x3.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Mat4x4.hpp"
+#include "rhl_woundcare/math/Vec2.hpp"
+#include "rhl_woundcare/math/Vec4.hpp"
+#include "rhl_woundcare/sc3d/Size2D.hpp"
 
-namespace standard_cyborg {
+namespace rhl_woundcare {
 
 namespace math {
 struct Vec3;
@@ -286,5 +286,5 @@ private:
 };
 
 } // namespace sc3d
-} // namespace standard_cyborg
+} // namespace rhl_woundcare
 

@@ -17,9 +17,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "76539C9F20F5B1FE009C332E"
-               BuildableName = "StandardCyborgFusionTests.xctest"
-               BlueprintName = "StandardCyborgFusionTests"
-               ReferencedContainer = "container:StandardCyborgSDK.xcodeproj">
+               BuildableName = "RHLwoundcareTests.xctest"
+               BlueprintName = "RHLwoundcareTests"
+               ReferencedContainer = "container:RHLwoundcareSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

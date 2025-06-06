@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Standard Cyborg
+ Copyright 2020 RHL Woundcare
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,16 +18,16 @@
 #include <gtest/gtest.h>
 
 
-#include "standard_cyborg/algorithms/SparseICPWrapper.hpp"
+#include "rhl_woundcare/algorithms/SparseICPWrapper.hpp"
 
 
-#include "standard_cyborg/sc3d/Geometry.hpp"
-#include "standard_cyborg/math/Mat3x4.hpp"
-#include "standard_cyborg/math/Vec3.hpp"
+#include "rhl_woundcare/sc3d/Geometry.hpp"
+#include "rhl_woundcare/math/Mat3x4.hpp"
+#include "rhl_woundcare/math/Vec3.hpp"
 
-using standard_cyborg::math::Mat3x4;
-using standard_cyborg::math::Vec3;
-using standard_cyborg::sc3d::Geometry;
+using rhl_woundcare::math::Mat3x4;
+using rhl_woundcare::math::Vec3;
+using rhl_woundcare::sc3d::Geometry;
 
 TEST(SparseICP, testSparseICP) {
     
@@ -52,7 +52,7 @@ TEST(SparseICP, testSparseICP) {
     Geometry geo0 (positions0, normals);
     Geometry geo1 (positions1, normals);
     
-    standard_cyborg::algorithms::SparseICPParameters pars;
+    rhl_woundcare::algorithms::SparseICPParameters pars;
     
     pars.p = 0.2;
     pars.max_icp = 15;
@@ -61,7 +61,7 @@ TEST(SparseICP, testSparseICP) {
     pars.max_inner = 1;
     pars.print_icpn = true;
     
-    Mat3x4 m = standard_cyborg::algorithms::SparseICPPointToPlane(geo0, geo1, pars);
+    Mat3x4 m = rhl_woundcare::algorithms::SparseICPPointToPlane(geo0, geo1, pars);
     
     EXPECT_TRUE(Mat3x4::almostEqual(m, Mat3x4({
         1, 0, 0, +0.0,

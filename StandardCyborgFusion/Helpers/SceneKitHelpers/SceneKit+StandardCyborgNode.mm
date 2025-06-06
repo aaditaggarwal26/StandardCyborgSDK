@@ -1,22 +1,22 @@
 //
-//  SCNNode+StandardCyborgNode.mm
-//  StandardCyborgFusion
+//  SCNNode+RHLwoundcareNode.mm
+//  RHLwoundcare
 //
 //  Created by Aaron Thompson on 8/6/19.
-//  Copyright © 2019 StandardCyborg. All rights reserved.
+//  Copyright © 2019 RHLwoundcare. All rights reserved.
 //
 
-#import <standard_cyborg/sc3d/Landmark.hpp>
+#import <rhl_woundcare/sc3d/Landmark.hpp>
 
 #import "SceneKit+Geometry.h"
 #import "SceneKit+Plane.h"
 #import "SceneKit+Polyline.h"
-#import "SceneKit+StandardCyborgNode.h"
+#import "SceneKit+RHLwoundcareNode.h"
 
 using namespace std;
 
-using namespace standard_cyborg;
-namespace sg = standard_cyborg::scene_graph;
+using namespace rhl_woundcare;
+namespace sg = rhl_woundcare::scene_graph;
 
 static simd_float4x4 simd_float4x4FromMat3x4(math::Mat3x4 mat)
 {
@@ -28,9 +28,9 @@ static simd_float4x4 simd_float4x4FromMat3x4(math::Mat3x4 mat)
     };
 }
 
-@implementation SCNNode (StandardCyborgNode)
+@implementation SCNNode (RHLwoundcareNode)
 
-+ (SCNNode *)nodeFromStandardCyborgNode:(shared_ptr<sg::Node>)node withDefaultTransform:(BOOL)useDefaultTransform
++ (SCNNode *)nodeFromRHLwoundcareNode:(shared_ptr<sg::Node>)node withDefaultTransform:(BOOL)useDefaultTransform
 {
     if (node == nullptr) { return nil; }
     
@@ -98,7 +98,7 @@ static simd_float4x4 simd_float4x4FromMat3x4(math::Mat3x4 mat)
     resultNode.simdTransform = simd_float4x4FromMat3x4(math::Mat3x4::fromTransform(node->getTransform()));
     
     for (auto child : node) {
-        SCNNode *childNode = [self nodeFromStandardCyborgNode:child withDefaultTransform:NO];
+        SCNNode *childNode = [self nodeFromRHLwoundcareNode:child withDefaultTransform:NO];
         
         if (childNode != nil) {
             [resultNode addChildNode:childNode];

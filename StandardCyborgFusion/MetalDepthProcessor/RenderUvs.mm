@@ -3,19 +3,19 @@
 //  VisualTesterMac
 //
 //  Created by Eric on 8/31/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
+//  Copyright © 2018 RHL Woundcare. All rights reserved.
 //
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <GLKit/GLKMatrix4.h>
-#import <standard_cyborg/math/Vec4.hpp>
+#import <rhl_woundcare/math/Vec4.hpp>
 
 #import "GeometryHelpers.hpp"
 #import "RenderUvs.hpp"
 
 NS_ASSUME_NONNULL_BEGIN
 
-using namespace standard_cyborg;
+using namespace rhl_woundcare;
 
 
 static inline size_t __roundUpToMultiple(size_t value, size_t multiple) {
