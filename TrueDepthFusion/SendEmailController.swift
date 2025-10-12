@@ -21,7 +21,7 @@ struct SendEmailController: View {
 
                 // Check if the file URL exists and attach it
                 if let zipFileURL = zipFileURL, let fileData = try? Data(contentsOf: zipFileURL) {
-                    mail.addAttachmentData(fileData, mimeType: "application/zip", fileName: "Scan-\(NSDate()).zip")
+                    mail.addAttachmentData(fileData, mimeType: "application/zip", fileName: "Mesh-\(NSDate()).zip")
                 }
 
                 UIApplication.shared.windows.last?.rootViewController?.present(mail, animated: true, completion: nil)

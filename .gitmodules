@@ -16,9 +16,6 @@
 [submodule "deps/libigl"]
 	path = deps/libigl
 	url = git@github.com:StandardCyborg/libigl.git
-[submodule "deps/lz4"]
-	path = deps/lz4
-	url = https://github.com/lz4/lz4.git
 [submodule "deps/SparseICP"]
 	path = deps/SparseICP
 	url = git@github.com:StandardCyborg/SparseICP.git
