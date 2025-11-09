@@ -409,7 +409,7 @@ struct DenseNodeData< Data , UIntPack< FEMSigs ... > > : public _SparseOrDenseNo
 	Data& operator[]( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) { return _data[ node->nodeData.nodeIndex ]; }
 	Data* operator()( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) { return ( node==NULL || node->nodeData.nodeIndex>=(int)_sz ) ? NULL : &_data[ node->nodeData.nodeIndex ]; }
 	const Data* operator()( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) const { return ( node==NULL || node->nodeData.nodeIndex>=(int)_sz ) ? NULL : &_data[ node->nodeData.nodeIndex ]; }
-	int index( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) const { return ( !node || node->nodeData.nodeIndex<0 || node->nodeData.nodeIndex>=(int)this->_data.size() ) ? -1 : node->nodeData.nodeIndex; }
+	int index( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) const { return ( !node || node->nodeData.nodeIndex<0 || node->nodeData.nodeIndex>=(int)this->_data->size() ) ? -1 : node->nodeData.nodeIndex; }
 	Pointer( Data ) operator()( void ) { return _data; }
 	ConstPointer( Data ) operator()( void ) const { return ( ConstPointer( Data ) )_data; }
 protected:
@@ -1923,12 +1923,12 @@ protected:
 		if( node )
 		{
 			int d , off[Dim] ; node->depthAndOffset( d , off );
-			BaseFEMIntegrator::template ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , d , off , start , end );
+			BaseFEMIntegrator::ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , d , off , start , end );
 		}
 	}
 	template< unsigned int ... FEMDegrees1 , unsigned int ... FEMDegrees2 > static void _SetParentOverlapBounds( UIntPack< FEMDegrees1 ... > , UIntPack< FEMDegrees2 ... > , int cIdx , int start[Dim] , int end[Dim] )
 	{
-		BaseFEMIntegrator::template ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , cIdx , start , end );
+		BaseFEMIntegrator::ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , cIdx , start , end );
 	}
 
 	template< unsigned int ... FEMSigs >
