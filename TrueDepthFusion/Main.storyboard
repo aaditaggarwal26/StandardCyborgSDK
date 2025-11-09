@@ -17,97 +17,145 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEi-yu-aZh">
-                                <rect key="frame" x="10.666666666666657" y="107.33333333333331" width="353.66666666666674" height="488.99999999999994"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gradient-bg-view">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                <color key="backgroundColor" red="0.4" green="0.227" blue="0.718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="gradient-height"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="main-stack">
+                                <rect key="frame" x="30" y="120" width="315" height="572"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcb-p1-rfP" userLabel="Padding View">
-                                        <rect key="frame" x="20" y="20" width="313.66666666666669" height="449"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RHL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHL-brand-label">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="95.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="80"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a depth scan using the RHL App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COD-9v-apx">
+                                        <rect key="frame" x="0.0" y="127.66666666666669" width="315" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="card-view">
+                                        <rect key="frame" x="0.0" y="219.66666666666669" width="315" height="352.33333333333331"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="T66-Xb-m22">
-                                                <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="T66-Xb-m22" secondAttribute="height" multiplier="1:1" id="K8o-qn-DE7"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="16"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a Depth Scan with your iPhone X" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COD-9v-apx">
-                                                <rect key="frame" x="0.0" y="203" width="313.66666666666669" height="86"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-NZ-27z">
-                                                <rect key="frame" x="0.0" y="337" width="313.66666666666669" height="50"/>
-                                                <color key="backgroundColor" red="0.14117647059999999" green="0.52941176469999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                                <state key="normal" title="SCAN">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="scan:" destination="d18-9B-5GY" eventType="touchUpInside" id="8OG-4j-6r5"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ok9-gs-oV1">
-                                                <rect key="frame" x="101.33333333333331" y="411.00000000000006" width="111" height="38"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                <state key="normal" title="View Scans"/>
-                                                <connections>
-                                                    <segue destination="m1K-Dn-evK" kind="show" id="tVo-JF-wmq"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="card-stack">
+                                                <rect key="frame" x="24" y="24" width="267" height="304.33333333333331"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advanced 3D Scanning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="card-title">
+                                                        <rect key="frame" x="0.0" y="0.0" width="267" height="29"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture high-quality 3D scans with professional-grade depth camera technology" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="card-desc">
+                                                        <rect key="frame" x="0.0" y="45" width="267" height="62"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-NZ-27z">
+                                                        <rect key="frame" x="0.0" y="123" width="267" height="58"/>
+                                                        <color key="backgroundColor" red="0.4" green="0.227" blue="0.718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="58" id="btn-height"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="bold" pointSize="20"/>
+                                                        <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                                        <state key="normal" title="Start Scanning">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="29"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="scan:" destination="d18-9B-5GY" eventType="touchUpInside" id="8OG-4j-6r5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ok9-gs-oV1">
+                                                        <rect key="frame" x="0.0" y="197" width="267" height="58"/>
+                                                        <color key="backgroundColor" white="0.95" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="58" id="btn2-height"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                                        <state key="normal" title="Browse My Scans">
+                                                            <color key="titleColor" red="0.4" green="0.227" blue="0.718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="29"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <segue destination="m1K-Dn-evK" kind="show" id="tVo-JF-wmq"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓ TrueDepth Technology" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="footer-label">
+                                                        <rect key="frame" x="0.0" y="271" width="267" height="33.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" systemColor="tertiaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="rf1-NZ-27z" firstAttribute="leading" secondItem="fcb-p1-rfP" secondAttribute="leading" id="34G-GZ-UKV"/>
-                                            <constraint firstItem="ok9-gs-oV1" firstAttribute="centerX" secondItem="fcb-p1-rfP" secondAttribute="centerX" id="3fR-41-U3d"/>
-                                            <constraint firstItem="T66-Xb-m22" firstAttribute="top" secondItem="fcb-p1-rfP" secondAttribute="top" id="4WE-87-0e7"/>
-                                            <constraint firstItem="ok9-gs-oV1" firstAttribute="top" secondItem="rf1-NZ-27z" secondAttribute="bottom" constant="24" id="D4h-jC-bXq"/>
-                                            <constraint firstAttribute="bottom" secondItem="ok9-gs-oV1" secondAttribute="bottom" id="Dw5-wR-efI"/>
-                                            <constraint firstAttribute="trailing" secondItem="COD-9v-apx" secondAttribute="trailing" id="XV2-4k-f5u"/>
-                                            <constraint firstItem="rf1-NZ-27z" firstAttribute="top" secondItem="COD-9v-apx" secondAttribute="bottom" constant="48" id="XxL-H5-1Ld"/>
-                                            <constraint firstItem="COD-9v-apx" firstAttribute="top" secondItem="T66-Xb-m22" secondAttribute="bottom" constant="48" id="kfh-Bf-Qmw"/>
-                                            <constraint firstAttribute="trailing" secondItem="rf1-NZ-27z" secondAttribute="trailing" id="mVk-9Z-CWv"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="360" id="oQV-jv-qbt"/>
-                                            <constraint firstItem="COD-9v-apx" firstAttribute="leading" secondItem="fcb-p1-rfP" secondAttribute="leading" id="vaY-sS-Vvm"/>
-                                            <constraint firstItem="T66-Xb-m22" firstAttribute="leading" secondItem="fcb-p1-rfP" secondAttribute="leading" id="vz1-wm-5rm"/>
+                                            <constraint firstItem="card-stack" firstAttribute="leading" secondItem="card-view" secondAttribute="leading" constant="24" id="card-lead"/>
+                                            <constraint firstAttribute="trailing" secondItem="card-stack" secondAttribute="trailing" constant="24" id="card-trail"/>
+                                            <constraint firstItem="card-stack" firstAttribute="top" secondItem="card-view" secondAttribute="top" constant="24" id="card-top"/>
+                                            <constraint firstAttribute="bottom" secondItem="card-stack" secondAttribute="bottom" constant="24" id="card-bottom"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <real key="value" value="0.15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                <size key="value" width="0.0" height="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="fcb-p1-rfP" secondAttribute="bottom" constant="20" id="6OC-Sm-VXz"/>
-                                    <constraint firstAttribute="trailing" secondItem="fcb-p1-rfP" secondAttribute="trailing" constant="20" id="RDh-wS-gHa"/>
-                                    <constraint firstItem="fcb-p1-rfP" firstAttribute="top" secondItem="TEi-yu-aZh" secondAttribute="top" constant="20" id="r0q-tS-9qz"/>
-                                    <constraint firstItem="fcb-p1-rfP" firstAttribute="leading" secondItem="TEi-yu-aZh" secondAttribute="leading" constant="20" id="xlf-Vt-P7z"/>
+                                    <constraint firstItem="card-view" firstAttribute="leading" secondItem="main-stack" secondAttribute="leading" id="card-lead-stack"/>
+                                    <constraint firstItem="card-view" firstAttribute="trailing" secondItem="main-stack" secondAttribute="trailing" id="card-trail-stack"/>
+                                    <constraint firstItem="COD-9v-apx" firstAttribute="leading" secondItem="main-stack" secondAttribute="leading" id="desc-lead"/>
+                                    <constraint firstItem="COD-9v-apx" firstAttribute="trailing" secondItem="main-stack" secondAttribute="trailing" id="desc-trail"/>
+                                    <constraint firstItem="RHL-brand-label" firstAttribute="leading" secondItem="main-stack" secondAttribute="leading" id="brand-lead"/>
+                                    <constraint firstItem="RHL-brand-label" firstAttribute="trailing" secondItem="main-stack" secondAttribute="trailing" id="brand-trail"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QxL-Yf-Kqx"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.96" green="0.96" blue="0.97" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TEi-yu-aZh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QxL-Yf-Kqx" secondAttribute="leading" id="1Q8-XW-nGG"/>
-                            <constraint firstItem="TEi-yu-aZh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QxL-Yf-Kqx" secondAttribute="top" id="A4e-4a-l5g"/>
-                            <constraint firstItem="TEi-yu-aZh" firstAttribute="centerX" secondItem="QxL-Yf-Kqx" secondAttribute="centerX" id="Jw1-wO-PE9"/>
-                            <constraint firstItem="TEi-yu-aZh" firstAttribute="centerY" secondItem="QxL-Yf-Kqx" secondAttribute="centerY" multiplier="0.85" id="XIc-18-cOb"/>
-                            <constraint firstItem="QxL-Yf-Kqx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TEi-yu-aZh" secondAttribute="trailing" id="jH7-UV-i7l"/>
-                            <constraint firstItem="QxL-Yf-Kqx" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TEi-yu-aZh" secondAttribute="bottom" id="rev-ZF-0tx"/>
+                            <constraint firstItem="gradient-bg-view" firstAttribute="leading" secondItem="bhg-ug-afR" secondAttribute="leading" id="grad-lead"/>
+                            <constraint firstItem="gradient-bg-view" firstAttribute="trailing" secondItem="bhg-ug-afR" secondAttribute="trailing" id="grad-trail"/>
+                            <constraint firstItem="gradient-bg-view" firstAttribute="top" secondItem="bhg-ug-afR" secondAttribute="top" id="grad-top"/>
+                            <constraint firstItem="main-stack" firstAttribute="leading" secondItem="QxL-Yf-Kqx" secondAttribute="leading" constant="30" id="stack-lead"/>
+                            <constraint firstItem="QxL-Yf-Kqx" firstAttribute="trailing" secondItem="main-stack" secondAttribute="trailing" constant="30" id="stack-trail"/>
+                            <constraint firstItem="main-stack" firstAttribute="top" secondItem="QxL-Yf-Kqx" secondAttribute="top" constant="72" id="stack-top"/>
+                            <constraint firstItem="QxL-Yf-Kqx" firstAttribute="bottom" secondItem="main-stack" secondAttribute="bottom" constant="86" id="stack-bottom"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="mWi-X6-7AU"/>
+                    <navigationItem key="navigationItem" title="3D Scanner" id="mWi-X6-7AU"/>
                     <connections>
                         <outlet property="introLabel" destination="COD-9v-apx" id="c2w-w3-UD8"/>
                         <segue destination="RyE-1f-wRL" kind="presentation" identifier="ScanningViewController" id="vZh-bL-Dkg"/>
@@ -363,10 +411,10 @@ Cg
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdG-j4-j9h">
                                 <rect key="frame" x="20" y="708" width="154.66666666666666" height="50"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.894" green="0.267" blue="0.267" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="DELETE">
+                                <state key="normal" title="DISCARD">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -380,10 +428,10 @@ Cg
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3i-OO-LiB">
                                 <rect key="frame" x="200.66666666666663" y="708" width="154.33333333333337" height="50"/>
-                                <color key="backgroundColor" red="0.13725490200000001" green="0.53333333329999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.4" green="0.227" blue="0.718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="DONE">
+                                <state key="normal" title="SAVE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -404,7 +452,7 @@ Cg
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvG-xA-ZpF" userLabel="Mesh Button">
                                 <rect key="frame" x="20" y="48.666666666666664" width="38" height="29.999999999999993"/>
-                                <state key="normal" title="Mesh"/>
+                                <state key="normal" title="Process"/>
                                 <connections>
                                     <action selector="_runMeshing:" destination="L0a-pL-1bz" eventType="touchUpInside" id="wtc-Ch-mAh"/>
                                 </connections>
@@ -418,7 +466,7 @@ Cg
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kkX-1a-2FY">
                                                 <rect key="frame" x="20" y="129" width="215" height="4"/>
                                             </progressView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meshing…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceY-J5-Ugd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Processing…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceY-J5-Ugd">
                                                 <rect key="frame" x="18" y="20" width="215" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="darkTextColor"/>
@@ -431,7 +479,7 @@ Cg
                                                     <action selector="cancelMeshing:" destination="L0a-pL-1bz" eventType="touchUpInside" id="zeb-OU-rH2"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="If an email confirmation screen does not pop up after mesh completes, please rescan." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M82-nQ-gXl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="Processing may take a moment. Please wait for completion before proceeding." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M82-nQ-gXl">
                                                 <rect key="frame" x="18" y="49" width="211" height="63"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="M82-nQ-gXl" secondAttribute="height" multiplier="211:63" id="6FS-tB-Bjq"/>
@@ -513,10 +561,10 @@ Cg
             </objects>
             <point key="canvasLocation" x="-932" y="900.73891625615772"/>
         </scene>
-        <!--Scans-->
+        <!--My Scans-->
         <scene sceneID="PXS-s1-FEc">
             <objects>
-                <tableViewController storyboardIdentifier="ScansViewController" title="Scans" id="m1K-Dn-evK" customClass="ScansViewController" customModule="TrueDepthFusion" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ScansViewController" title="My Scans" id="m1K-Dn-evK" customClass="ScansViewController" customModule="TrueDepthFusion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9KR-pU-tDg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

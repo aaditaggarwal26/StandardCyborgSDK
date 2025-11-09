@@ -14,7 +14,7 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var introLabel: UILabel!
     
     override func viewDidLoad() {
-        introLabel.text = "Take a Depth Scan with your " + UIDevice.current.localizedModel
+        // Text is now set in storyboard
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             view.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
