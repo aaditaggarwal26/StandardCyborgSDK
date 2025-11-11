@@ -121,13 +121,33 @@ class ScansViewController: UITableViewController {
     private func _export(_ scan: Scan) {
         if scan.plyPath != nil {
             let compressedScanURL = scan.writeCompressedPLY()
-            let controller = UIActivityViewController(activityItems: [compressedScanURL], applicationActivities: nil)
-            if  let popoverController = controller.popoverPresentationController,
-                let scanIndex = _scans.firstIndex(of: scan)
+            
+            // Create activity view controller with the scan file
+            let activityVC = UIActivityViewController(activityItems: [compressedScanURL], applicationActivities: nil)
+            
+            // Add completion handler to show confirmation
+            activityVC.completionWithItemsHandler = { activityType, completed, returnedItems, error in
+                if completed {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(
+                            title: "Scan Exported",
+                            message: "Your scan has been exported successfully.\n\n📁 All scans are automatically saved to:\nFiles app → On My iPhone → RHL Scans\n\n✓ Also accessible via iTunes/Finder\n✓ Share via AirDrop, email, or iCloud Drive",
+                            preferredStyle: .alert
+                        )
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(alert, animated: true)
+                    }
+                }
+            }
+            
+            // Set up popover for iPad
+            if let popoverController = activityVC.popoverPresentationController,
+               let scanIndex = _scans.firstIndex(of: scan)
             {
                 popoverController.sourceView = tableView.cellForRow(at: IndexPath(row: scanIndex, section: 0))?.contentView
             }
-            present(controller, animated: true)
+            
+            present(activityVC, animated: true)
         }
     }
     

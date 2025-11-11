@@ -10,6 +10,8 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>RHL Woundcare</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -25,6 +27,34 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Camera access is required to capture depth data for 3D scanning</string>
 	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>3D Scan PLY File</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.rhl.woundcare.ply</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ply</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/ply</string>
+					<string>text/plain</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>UISupportsDocumentBrowser</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

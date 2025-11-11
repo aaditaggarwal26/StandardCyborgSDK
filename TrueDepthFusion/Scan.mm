@@ -159,10 +159,17 @@
 - (NSURL *)writeCompressedPLY
 {
     NSString *plyPath = _plyPath;
-    NSString *zipPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"scan.ply.zip"];
+    
+    // Create a better filename with date and time
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd_HH-mm-ss"];
+    NSString *dateString = [formatter stringFromDate:_dateCreated];
+    NSString *fileName = [NSString stringWithFormat:@"RHL_Scan_%@.ply.zip", dateString];
+    NSString *zipPath = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
     
     if (plyPath == nil) {
-        plyPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"scan.ply"];
+        NSString *tempPLYName = [NSString stringWithFormat:@"RHL_Scan_%@.ply", dateString];
+        plyPath = [NSTemporaryDirectory() stringByAppendingPathComponent:tempPLYName];
         
         [_pointCloud writeToPLYAtPath:plyPath];
     }

@@ -40,9 +40,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 try scan.write(toContainerPath: _scansContainerURL.path)
                 scans.insert(scan, at: 0)
+                
+                // Automatically backup scan to user-accessible location
+                backupScanToDocuments(scan)
             } catch {
                 print("Error saving scan: \(error)")
             }
+        }
+    }
+    
+    private func backupScanToDocuments(_ scan: Scan) {
+        // Create a "RHL Scans" folder in Documents that's accessible via Files app
+        let fileManager = FileManager.default
+        guard let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+        
+        let backupFolderURL = documentsURL.appendingPathComponent("RHL Scans")
+        
+        // Create the folder if it doesn't exist
+        if !fileManager.fileExists(atPath: backupFolderURL.path) {
+            try? fileManager.createDirectory(at: backupFolderURL, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        // Export the scan with a timestamped filename
+        DispatchQueue.global(qos: .background).async {
+            let compressedURL = scan.writeCompressedPLY()
+            let destinationURL = backupFolderURL.appendingPathComponent(compressedURL.lastPathComponent)
+            
+            // Copy the file
+            try? fileManager.copyItem(at: compressedURL, to: destinationURL)
+            
+            print("✓ Scan automatically backed up to: \(destinationURL.path)")
         }
     }
     

@@ -27,15 +27,32 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     
     @IBAction private func _export(_ sender: AnyObject) {
         if let scan = scan {
-            // Skip meshing entirely, this just exports the point cloud directly .
+            // Export the point cloud directly
             let shareURL = scan.writeCompressedPLY()
             
             _quickLookOBJURL = shareURL
             
-            // Send directly to email with the point cloud data
-            let emailView = SendEmailController(zipFileURL: shareURL)
-            let emailController = UIHostingController(rootView: emailView)
-            self.present(emailController, animated: true, completion: nil)
+            // Show share sheet for exporting
+            let activityVC = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
+            activityVC.completionWithItemsHandler = { activityType, completed, returnedItems, error in
+                if completed {
+                    let alert = UIAlertController(
+                        title: "Scan Exported",
+                        message: "Your scan has been exported successfully.\n\n• All scans are automatically saved to 'RHL Scans' folder in Files app\n• You can also access them via iTunes/Finder file sharing\n• Share via AirDrop, email, or save to iCloud Drive",
+                        preferredStyle: .alert
+                    )
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true)
+                }
+            }
+            
+            if let popoverController = activityVC.popoverPresentationController {
+                popoverController.sourceView = self.view
+                popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                popoverController.permittedArrowDirections = []
+            }
+            
+            self.present(activityVC, animated: true, completion: nil)
         }
     }
     
