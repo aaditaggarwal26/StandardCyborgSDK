@@ -1,6 +1,6 @@
 [submodule "deps/happly"]
 	path = deps/happly
-	url = git@github.com:StandardCyborg/happly.git
+	url = https://github.com/StandardCyborg/happly.git
 [submodule "deps/json"]
 	path = deps/json
 	url = https://github.com/nlohmann/json.git
@@ -12,16 +12,16 @@
 	url = https://github.com/nothings/stb.git
 [submodule "deps/tinygltf"]
 	path = deps/tinygltf
-	url = git@github.com:StandardCyborg/tinygltf.git
+	url = https://github.com/StandardCyborg/tinygltf.git
 [submodule "deps/libigl"]
 	path = deps/libigl
-	url = git@github.com:StandardCyborg/libigl.git
+	url = https://github.com/StandardCyborg/libigl.git
 [submodule "deps/lz4"]
 	path = deps/lz4
 	url = https://github.com/lz4/lz4.git
 [submodule "deps/SparseICP"]
 	path = deps/SparseICP
-	url = git@github.com:StandardCyborg/SparseICP.git
+	url = https://github.com/StandardCyborg/SparseICP.git
 [submodule "deps/XcodeClangFormatWarnings"]
 	path = deps/XcodeClangFormatWarnings
-	url = git@github.com:StandardCyborg/XcodeClangFormatWarnings.git
+	url = https://github.com/StandardCyborg/XcodeClangFormatWarnings.git
