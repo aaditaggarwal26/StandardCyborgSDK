@@ -15,6 +15,11 @@
 
 #import "Scan.h"
 
+@interface Scan ()
+// Declared here so the Compression category below can resolve it too.
++ (NSString * _Nullable)_thumbnailPathForPLYPath:(NSString *)plyPath;
+@end
+
 @implementation Scan {
     SCNGeometrySource *_vertexSource;
     SCNGeometrySource *_normalSource;
@@ -73,11 +78,16 @@
     NSString *plyPath = [containerPath stringByAppendingPathComponent:plyFilename];
     NSString *jpegPath = [[self class] _thumbnailPathForPLYPath:plyPath];
     
-    @autoreleasepool {
-        NSData *jpegData = UIImageJPEGRepresentation(_thumbnail, 0.8);
-        success = [jpegData writeToFile:jpegPath options:NSDataWritingAtomic error:errorOut];
+    // Write the 2D image alongside the PLY. A missing thumbnail must not stop the
+    // point cloud itself from being saved, which is what used to happen: -writeToFile:
+    // on nil data returns NO and took the whole save down with it.
+    if (_thumbnail != nil) {
+        @autoreleasepool {
+            NSData *jpegData = UIImageJPEGRepresentation(_thumbnail, 0.8);
+            success = [jpegData writeToFile:jpegPath options:NSDataWritingAtomic error:errorOut];
+        }
     }
-    
+
     if (success) {
         success = [_pointCloud writeToPLYAtPath:plyPath];
     }
@@ -173,9 +183,31 @@
         
         [_pointCloud writeToPLYAtPath:plyPath];
     }
-    
-    [SSZipArchive createZipFileAtPath:zipPath withFilesAtPaths:@[plyPath]];
-    
+
+    NSMutableArray<NSString *> *filesToZip = [NSMutableArray arrayWithObject:plyPath];
+
+    // Bundle the 2D image in with the point cloud. A saved scan already has its
+    // JPEG on disk next to the PLY; a scan that has not been saved yet needs it
+    // written out to the temporary directory first. Both share the PLY's base
+    // name, so the two files stay paired inside the zip.
+    NSString *jpegPath = [[self class] _thumbnailPathForPLYPath:plyPath];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    if (jpegPath != nil) {
+        if (![fileManager fileExistsAtPath:jpegPath] && self.thumbnail != nil) {
+            @autoreleasepool {
+                NSData *jpegData = UIImageJPEGRepresentation(self.thumbnail, 0.8);
+                [jpegData writeToFile:jpegPath options:NSDataWritingAtomic error:NULL];
+            }
+        }
+
+        if ([fileManager fileExistsAtPath:jpegPath]) {
+            [filesToZip addObject:jpegPath];
+        }
+    }
+
+    [SSZipArchive createZipFileAtPath:zipPath withFilesAtPaths:filesToZip];
+
     return [NSURL fileURLWithPath:zipPath];
 }
 

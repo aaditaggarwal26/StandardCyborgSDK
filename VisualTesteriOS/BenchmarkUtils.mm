@@ -118,7 +118,7 @@ static bool MyWriteSurfelsToPLYFile(const Surfel *surfels,
 
     fprintf(file, "ply\n");
     fprintf(file, "format ascii 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "comment RHLMetadata { \"color_space\": \"sRGB\" }\n");
     fprintf(file, "element vertex %ld\n", surfelCount);
     fprintf(file, "property float x\n");
     fprintf(file, "property float y\n");

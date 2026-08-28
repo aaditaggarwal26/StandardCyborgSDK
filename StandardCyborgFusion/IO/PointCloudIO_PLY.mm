@@ -67,8 +67,11 @@ bool PointCloudIO::ReadSurfelsFromPLYFile(Surfels& surfels, std::string filename
 
             surfels.push_back(surfel);
         }
-        else if (strncmp(line, "comment StandardCyborgFusionVersion ", strlen("comment StandardCyborgFusionVersion ")) == 0) {
-            // Don't even bother reading the version string, as we didn't write it until version 1.1.0
+        else if (strncmp(line, "comment RHLVersion ", strlen("comment RHLVersion ")) == 0 ||
+                 strncmp(line, "comment StandardCyborgFusionVersion ", strlen("comment StandardCyborgFusionVersion ")) == 0) {
+            // Don't even bother reading the version string, as we didn't write it until version 1.1.0.
+            // The legacy StandardCyborgFusion spelling is still matched so files exported before
+            // the rename keep loading with the same normal and gamma handling.
             flipNormals = false;
             unapplyGamma = true;
         }
@@ -94,8 +97,8 @@ bool PointCloudIO::WriteSurfelsToPLYFile(const Surfel* surfels,
     
     fprintf(file, "ply\n");
     fprintf(file, "format ascii 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
-    fprintf(file, "comment StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "comment RHLVersion %s\n", RHL_FORMAT_VERSION);
+    fprintf(file, "comment RHLMetadata { \"color_space\": \"sRGB\" }\n");
     fprintf(file, "element vertex %ld\n", surfelCount);
     fprintf(file, "property float x\n");
     fprintf(file, "property float y\n");
@@ -231,7 +234,7 @@ void PointCloudIO::WriteRawFrameToBPLYFile(const RawFrame& rawFrame, std::string
     // Header
     fprintf(file, "ply\n");
     fprintf(file, "format binary_little_endian 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
+    fprintf(file, "comment RHLVersion %s\n", RHL_FORMAT_VERSION);
     fprintf(file, "element metadata %ld\n", metadataString.size());
     fprintf(file, "property uchar char\n");
     fprintf(file, "element color %ld\n", rawFrame.colors.size());

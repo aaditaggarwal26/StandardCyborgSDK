@@ -290,12 +290,9 @@ using namespace standard_cyborg;
 
 + (void)_writeHeaderStartToFile:(FILE *)file
 {
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *frameworkVersionString = [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    
     fprintf(file, "ply\n");
     fprintf(file, "format binary_little_endian 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", [frameworkVersionString UTF8String]);
+    fprintf(file, "comment RHLVersion %s\n", RHL_FORMAT_VERSION);
 }
 
 + (void)_writeHeaderMetadata:(NSDictionary *)dict toFile:(FILE *)file
@@ -303,7 +300,7 @@ using namespace standard_cyborg;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:NULL];
     
     if ([jsonData length] > 0) {
-        fprintf(file, "comment StandardCyborgFusionMetadata ");
+        fprintf(file, "comment RHLMetadata ");
         fwrite([jsonData bytes], 1, [jsonData length], file);
         fprintf(file, "\n");
     }

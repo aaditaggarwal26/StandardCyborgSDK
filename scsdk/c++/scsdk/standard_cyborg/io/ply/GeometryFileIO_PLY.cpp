@@ -330,7 +330,7 @@ void FragileWriteGeometryToPLYStream(std::ostream& output, const Geometry& geome
 
     output << "ply\n";
     output << "format ascii 1.0\n";
-    output << "comment StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n";
+    output << "comment RHLMetadata { \"color_space\": \"sRGB\" }\n";
     output << "element vertex " << vertexCount << "\n";
     output << "property float x\n";
     output << "property float y\n";

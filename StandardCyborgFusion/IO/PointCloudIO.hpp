@@ -21,7 +21,7 @@ using JSON = nlohmann::json;
 using namespace standard_cyborg;
 
 extern const char *SCFrameworkVersion();
-
+#define RHL_FORMAT_VERSION "1.2"
 class PointCloudIO {
 public:
     /** Assumes file has sRGB color space, and reads into linear color space */

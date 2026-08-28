@@ -1,3 +1,5 @@
+import AVFoundation
+import CoreImage
 import MediaPlayer
 import StandardCyborgFusion
 import UIKit
@@ -196,6 +198,9 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
                          depthTime: CMTime,
                          depthCalibrationData: AVCameraCalibrationData)
     {
+        // Held onto so the finished scan can be saved with a real photograph
+        _latestColorBuffer = colorBuffer
+
         let pointCloud: SCPointCloud
         
         if _scanning {
@@ -384,7 +389,7 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
                 let pointCloud = self._reconstructionManager.buildPointCloud()
                 
                 let scan = Scan(pointCloud: pointCloud,
-                                thumbnail: nil,
+                                thumbnail: self._photoFromLatestColorBuffer(),
                                 meshTexturing: nil)
                 
                 self._scanPreviewViewController.scan = scan
@@ -400,27 +405,121 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
     }
     
     // MARK: - Volume Shutter Button
-    
+
+    /// The volume is parked here after every press so that pressing down always has
+    /// room to register. Without it the shutter goes dead once the volume bottoms out.
+    private static let _volumeShutterBaseline: Float = 0.5
+
+    private let _volumeView = MPVolumeView(frame: CGRect(x: -1000, y: -1000, width: 200, height: 40))
+    private var _volumeObservation: NSKeyValueObservation?
+    private var _lastVolume: Float = BPLYScanningViewController._volumeShutterBaseline
+    private var _isResettingVolume = false
+
     private func _installVolumeShutterButton() {
-        let volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0.0, width: 0.0, height: 0.0))
-        view.addSubview(volumeView)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(_volumeChanged(_:)),
-                                               name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"),
-                                               object: nil)
-        
-    }
-    
-    @objc private func _volumeChanged(_ notification: Notification) {
-        if  let userInfo = notification.userInfo,
-			let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String
-        {
-			if volumeChangeType == "ExplicitVolumeChange" {
-				shutterTapped(nil)
-            }
+        // An MPVolumeView in the hierarchy suppresses the system volume HUD, which
+        // would otherwise cover the scanning view on every press.
+        _volumeView.alpha = 0.01
+        view.addSubview(_volumeView)
+
+        let audioSession = AVAudioSession.sharedInstance()
+        try? audioSession.setCategory(.ambient, mode: .default, options: [.mixWithOthers])
+        try? audioSession.setActive(true)
+        _lastVolume = audioSession.outputVolume
+
+        // Observe outputVolume rather than the old private
+        // AVSystemController_SystemVolumeDidChangeNotification, which stopped firing
+        // reliably on current iOS and is why the button did nothing.
+        _volumeObservation = audioSession.observe(\.outputVolume, options: [.new]) { [weak self] _, change in
+            guard let newVolume = change.newValue else { return }
+
+            DispatchQueue.main.async { self?._handleVolumeChanged(to: newVolume) }
+        }
+
+        // MPVolumeView builds its slider asynchronously, so park the volume once it exists
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?._resetVolumeToBaseline()
         }
     }
-    
+
+    private func _handleVolumeChanged(to newVolume: Float) {
+        guard !_isResettingVolume else { return }
+
+        let pressedVolumeDown = newVolume < _lastVolume
+        _lastVolume = newVolume
+
+        // Re-park right away so the next press registers whichever way this one went
+        _resetVolumeToBaseline()
+
+        guard pressedVolumeDown else { return }
+
+        _animateShutterButtonPress()
+        shutterTapped(nil)
+    }
+
+    private func _resetVolumeToBaseline() {
+        guard let volumeSlider = _volumeSlider() else { return }
+
+        _isResettingVolume = true
+        volumeSlider.setValue(BPLYScanningViewController._volumeShutterBaseline, animated: false)
+        volumeSlider.sendActions(for: .valueChanged)
+        _lastVolume = BPLYScanningViewController._volumeShutterBaseline
+
+        // outputVolume reports our own reset back asynchronously, so stay suppressed
+        // briefly, otherwise we read it as a button press and fire twice.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            self?._isResettingVolume = false
+        }
+    }
+
+    /// The slider lives somewhere inside MPVolumeView and has moved between iOS
+    /// versions, so search the whole subtree rather than just the direct subviews.
+    private func _volumeSlider() -> UISlider? {
+        var stack: [UIView] = [_volumeView]
+
+        while let candidate = stack.popLast() {
+            if let slider = candidate as? UISlider { return slider }
+
+            stack.append(contentsOf: candidate.subviews)
+        }
+
+        return nil
+    }
+
+    /// Flash the on-screen shutter so a volume press looks like a tap, the way the
+    /// system Camera app does.
+    private func _animateShutterButtonPress() {
+        UIView.animate(withDuration: 0.08, animations: {
+            self.shutterButton.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+            self.shutterButton.alpha = 0.55
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.16) {
+                self.shutterButton.transform = .identity
+                self.shutterButton.alpha = 1.0
+            }
+        })
+    }
+
+    // MARK: - Wound Photo
+
+    private lazy var _ciContext = CIContext()
+    private var _latestColorBuffer: CVPixelBuffer?
+
+    /// The most recent color frame, saved next to the point cloud so the export
+    /// carries an actual photograph rather than a render of the points.
+    ///
+    /// If the photo comes out rotated or mirrored on device, change the orientation
+    /// below. For this front-facing camera the candidates are .leftMirrored,
+    /// .rightMirrored, .right and .left.
+    private func _photoFromLatestColorBuffer() -> UIImage? {
+        guard let colorBuffer = _latestColorBuffer else { return nil }
+
+        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.leftMirrored)
+
+        guard let cgImage = _ciContext.createCGImage(ciImage, from: ciImage.extent) else { return nil }
+
+        return UIImage(cgImage: cgImage)
+    }
+
 }
 
 // Helper function inserted by Swift 4.2 migrator.
