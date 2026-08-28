@@ -2,90 +2,110 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>StringsTable</key>
-	<string>Root</string>
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Tap to start/stop</string>
+			<key>DefaultValue</key>
+			<false/>
 			<key>Key</key>
 			<string>tap_to_start_stop</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
+			<key>Title</key>
+			<string>Tap to start/stop</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Full resolution depth frames</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<false/>
 			<key>Key</key>
 			<string>full_resolution_depth_frames</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
+			<key>Title</key>
+			<string>Full resolution depth frames</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Dump raw frames to Binary PLY</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<false/>
 			<key>Key</key>
 			<string>dump_raw_frames_to_bply</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
+			<key>Title</key>
+			<string>Dump raw frames to Binary PLY</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Stop scanning on reconstruction failure</string>
-			<key>Key</key>
-			<string>stop_scanning_on_reconstruction_failure</string>
+		</dict>
+		<dict>
 			<key>DefaultValue</key>
 			<true/>
+			<key>Key</key>
+			<string>stop_scanning_on_reconstruction_failure</string>
+			<key>Title</key>
+			<string>Stop scanning on reconstruction failure</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>ICP max iteration count</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSSliderSpecifier</string>
-			<key>Key</key>
-			<string>icp_max_iteration_count</string>
 			<key>DefaultValue</key>
 			<integer>80</integer>
-			<key>MinimumValue</key>
-			<integer>25</integer>
+			<key>Key</key>
+			<string>icp_max_iteration_count</string>
 			<key>MaximumValue</key>
 			<integer>125</integer>
+			<key>MinimumValue</key>
+			<integer>25</integer>
+			<key>Type</key>
+			<string>PSSliderSpecifier</string>
 			<key>showValue</key>
 			<true/>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>ICP tolerance</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSSliderSpecifier</string>
-			<key>Key</key>
-			<string>icp_tolerance</string>
 			<key>DefaultValue</key>
 			<real>2e-05</real>
-			<key>MinimumValue</key>
-			<real>1e-05</real>
+			<key>Key</key>
+			<string>icp_tolerance</string>
 			<key>MaximumValue</key>
 			<real>0.0001</real>
+			<key>MinimumValue</key>
+			<real>1e-05</real>
+			<key>Type</key>
+			<string>PSSliderSpecifier</string>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Point cloud overlay opacity</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<real>1.0</real>
+			<key>Key</key>
+			<string>pointcloud_overlay_opacity</string>
+			<key>MaximumValue</key>
+			<real>1.0</real>
+			<key>MinimumValue</key>
+			<real>0.0</real>
+			<key>Type</key>
+			<string>PSSliderSpecifier</string>
 			<key>showValue</key>
 			<true/>
 		</dict>
 	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
 </dict>
 </plist>

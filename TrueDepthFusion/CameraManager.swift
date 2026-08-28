@@ -340,6 +340,22 @@ class CameraManager: NSObject, AVCaptureDataOutputSynchronizerDelegate {
         _outputSynchronizer!.setDelegate(self, queue: _dataOutputQueue)
         _captureSession.commitConfiguration()
         
+        // Diagnostics for the iPhone 17 front-sensor rotation change. Safe to delete
+        // once the orientation handling is confirmed on a 17.
+        if let videoConnection = _videoDataOutput.connection(with: .video) {
+            if #available(iOS 17.0, *) {
+                print("[diag] video rotationAngle=\(videoConnection.videoRotationAngle) mirrored=\(videoConnection.isVideoMirrored)")
+            } else {
+                print("[diag] video orientation=\(videoConnection.videoOrientation.rawValue) mirrored=\(videoConnection.isVideoMirrored)")
+            }
+        }
+        if let depthConnection = _depthDataOutput.connection(with: .depthData) {
+            if #available(iOS 17.0, *) {
+                print("[diag] depth rotationAngle=\(depthConnection.videoRotationAngle)")
+            }
+        }
+        print("[diag] activeFormat=\(videoDevice.activeFormat)")
+
         return .success
     }
     

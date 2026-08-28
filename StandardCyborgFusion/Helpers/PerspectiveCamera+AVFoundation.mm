@@ -48,11 +48,23 @@ sc3d::PerspectiveCamera PerspectiveCameraFromAVCameraCalibrationData(AVCameraCal
     // z axis by 90 degrees so that the model is unprojected out along the negative z axis. This
     // means that if you look at the screen with x to the right and y up, then you see the model
     // in front of you.
-    math::Mat3x4 desiredOrientation({
-        0, 1, 0, 0,
-        1, 0, 0, 0,
-        0, 0, -1, 0
-    });
+    //
+    // On iPhone 17, iPhone Air and iPhone 17 Pro the front sensor is mounted in
+    // portrait rather than landscape-left, so the frame arrives already upright and
+    // the 90 degree swap above would over-rotate it. Detect that from the calibration
+    // reference dimensions and drop the swap. Every device shipped before the 17
+    // reports a landscape reference frame, so their matrix is unchanged.
+    BOOL sensorIsPortraitMounted =
+        calibrationData.intrinsicMatrixReferenceDimensions.height >
+        calibrationData.intrinsicMatrixReferenceDimensions.width;
+
+    math::Mat3x4 desiredOrientation = sensorIsPortraitMounted
+        ? math::Mat3x4(-1, 0,  0, 0,
+                        0, 1,  0, 0,
+                        0, 0, -1, 0)
+        : math::Mat3x4( 0, 1,  0, 0,
+                        1, 0,  0, 0,
+                        0, 0, -1, 0);
     // We construct a baseline extrinsic matrix strictly to nail down our desired output given
     // expected input, with the additional expectation that if the extrinsic matrix returned by
     // Apple changed for some reason, we'd actually want to pick up those changes. That is to say,

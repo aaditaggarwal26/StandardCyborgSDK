@@ -55,13 +55,17 @@ class DepthColoringFilter {
     }
     
     private class func _buildRotateAspectFitTransform(sourceWidth: Int, sourceHeight: Int,
-                                                      resultWidth: Int, resultHeight: Int)
+                                                      resultWidth: Int, resultHeight: Int,
+                                                      sensorIsPortraitMounted: Bool)
     -> simd_float3x3
     {
-        // Note that the source aspect ratio is inverted. This is because the source
-        // data is sideways. It makes things much, much easier to reason about if we
-        // think of things in terms of how they show up on the screen
-        let sourceAspectRatio = Float(sourceHeight) / Float(sourceWidth)
+        // The source aspect ratio is inverted because on every iPhone up to the 16 the
+        // front sensor is mounted landscape-left, so the frame arrives sideways. On
+        // iPhone 17, iPhone Air and iPhone 17 Pro it is mounted portrait and the frame
+        // is already upright, so the inversion must not be applied there.
+        let sourceAspectRatio = sensorIsPortraitMounted
+            ? Float(sourceWidth) / Float(sourceHeight)
+            : Float(sourceHeight) / Float(sourceWidth)
         let resultAspectRatio = Float(resultWidth) / Float(resultHeight)
         
         // The matrix below is derived in maxima through following steps:
@@ -90,11 +94,23 @@ class DepthColoringFilter {
         }
         
         var transform = simd_float3x3(0)
-        transform[1][0] = 1.0 / (imageScale[1] * Float(resultHeight))
-        transform[2][0] = 0.5 * (1.0 - 1.0 / imageScale[1])
-        transform[0][1] = 1.0 / (imageScale[0] * Float(resultWidth))
-        transform[2][1] = 0.5 * (1.0 - 1.0 / imageScale[0])
-        
+
+        if sensorIsPortraitMounted {
+            // The legacy transform below is a transpose, which is a 90 degree rotation
+            // composed with a mirror. Since the portrait-mounted frame already arrives
+            // upright, the rotation cancels and only the mirror should remain, so that
+            // handedness still matches what older devices display.
+            transform[0][0] = -1.0 / (imageScale[0] * Float(resultWidth))
+            transform[2][0] = 0.5 * (1.0 + 1.0 / imageScale[0])
+            transform[1][1] = 1.0 / (imageScale[1] * Float(resultHeight))
+            transform[2][1] = 0.5 * (1.0 - 1.0 / imageScale[1])
+        } else {
+            transform[1][0] = 1.0 / (imageScale[1] * Float(resultHeight))
+            transform[2][0] = 0.5 * (1.0 - 1.0 / imageScale[1])
+            transform[0][1] = 1.0 / (imageScale[0] * Float(resultWidth))
+            transform[2][1] = 0.5 * (1.0 - 1.0 / imageScale[0])
+        }
+
         return transform
     }
     
@@ -109,7 +125,8 @@ class DepthColoringFilter {
             sourceWidth: colorTexture.width,
             sourceHeight: colorTexture.height,
             resultWidth: outputTexture.width,
-            resultHeight: outputTexture.height)
+            resultHeight: outputTexture.height,
+            sensorIsPortraitMounted: colorTexture.height > colorTexture.width)
         
         if let depthBuffer = depthBuffer {
             CVPixelBufferReplaceNaNs(depthBuffer, 0)

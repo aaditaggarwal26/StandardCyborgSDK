@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device library:(id<MTLLibrary>)library;
 
+/// How opaque the point cloud overlay is drawn over the camera image, 0 to 1.
+/// Defaults to 1, which renders identically to how it did before this was adjustable.
+@property (nonatomic) float overlayOpacity;
+
 - (void)encodeCommandsOntoBuffer:(id<MTLCommandBuffer>)commandBuffer
                       pointCloud:(SCPointCloud *)pointCloud
       depthCameraCalibrationData:(AVCameraCalibrationData *)depthCameraCalibrationData

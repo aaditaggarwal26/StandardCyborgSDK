@@ -201,6 +201,16 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         // Held onto so the finished scan can be saved with a real photograph
         _latestColorBuffer = colorBuffer
 
+        // Diagnostics for the iPhone 17 front-sensor rotation change. Prints once so it
+        // does not flood the console at 30fps. Safe to delete along with _loggedFrameDiagnostics.
+        if !_loggedFrameDiagnostics {
+            _loggedFrameDiagnostics = true
+            print("[diag] color=\(CVPixelBufferGetWidth(colorBuffer))x\(CVPixelBufferGetHeight(colorBuffer)) " +
+                  "depth=\(CVPixelBufferGetWidth(depthBuffer))x\(CVPixelBufferGetHeight(depthBuffer)) " +
+                  "ref=\(depthCalibrationData.intrinsicMatrixReferenceDimensions)")
+            print("[diag] portraitMountedSensor=\(CVPixelBufferGetHeight(colorBuffer) > CVPixelBufferGetWidth(colorBuffer))")
+        }
+
         let pointCloud: SCPointCloud
         
         if _scanning {
@@ -503,6 +513,7 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
 
     private lazy var _ciContext = CIContext()
     private var _latestColorBuffer: CVPixelBuffer?
+    private var _loggedFrameDiagnostics = false
 
     /// The most recent color frame, saved next to the point cloud so the export
     /// carries an actual photograph rather than a render of the points.

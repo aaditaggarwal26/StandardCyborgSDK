@@ -28,6 +28,7 @@ typedef struct {
     simd_float4x4 viewMatrix;
     simd_float4x4 viewProjectionMatrix;
     float pointSize;
+    float overlayOpacity;
 } SharedUniforms;
 
 // MARK: - MetalVisualization
@@ -54,6 +55,7 @@ typedef struct {
     self = [super init];
     if (self) {
         _device = device;
+        _overlayOpacity = 1.0;
         
         _textureLoader = [[MTKTextureLoader alloc] initWithDevice:device];
         _matcapTexture = [_textureLoader newTextureWithName:@"matcap" scaleFactor:1.0 bundle:nil options:@{MTKTextureLoaderOptionSRGB: @NO} error:NULL];
@@ -66,6 +68,16 @@ typedef struct {
         pipelineDescriptor.fragmentFunction = fragmentFunction;
         pipelineDescriptor.vertexDescriptor = [[self class] pointCloudVertexDescriptor];
         pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
+
+        // Standard source-over blending, so overlayOpacity actually does something.
+        // At an opacity of 1 this reduces to src * 1 + dst * 0, i.e. the original output.
+        pipelineDescriptor.colorAttachments[0].blendingEnabled = YES;
+        pipelineDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperationAdd;
+        pipelineDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperationAdd;
+        pipelineDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactorSourceAlpha;
+        pipelineDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactorSourceAlpha;
+        pipelineDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
+        pipelineDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
         pipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormatDepth32Float;
         pipelineDescriptor.label = @"SCPointCloudRenderer._pipelineState";
         
@@ -141,6 +153,7 @@ typedef struct {
     [commandEncoder setVertexBuffer:pointsBuffer offset:0 atIndex:0];
     [commandEncoder setVertexBuffer:_sharedUniformsBuffer offset:0 atIndex:1];
     [commandEncoder setFragmentTexture:_matcapTexture atIndex:0];
+    [commandEncoder setFragmentBuffer:_sharedUniformsBuffer offset:0 atIndex:0];
     [commandEncoder drawPrimitives:MTLPrimitiveTypePoint vertexStart:0 vertexCount:[pointCloud pointCount]];
     
     [commandEncoder endEncoding];
@@ -188,8 +201,14 @@ typedef struct {
     // NB: the source aspect ratio is inverted because the incoming frame is sideways
     // relative to what we display. It's much, much, much easier to reason about if
     // we just flip it.
+    // On iPhone 17 and later the front sensor is mounted portrait, so the frame is
+    // already upright and the inversion below must not be applied.
+    BOOL sensorIsPortraitMounted = sourceHeight > sourceWidth;
+
     float resultAspectRatio = (float)resultWidth / (float)resultHeight;
-    float sourceAspectRatio = (float)sourceHeight / (float)sourceWidth;
+    float sourceAspectRatio = sensorIsPortraitMounted
+        ? (float)sourceWidth / (float)sourceHeight
+        : (float)sourceHeight / (float)sourceWidth;
     
     // These magic numbers are chosen to anchor a nominal point size with the initial setup,
     // then to scale it correctly with the shape of the input and output.
@@ -204,11 +223,11 @@ typedef struct {
         // The source data is wider than the result display
         imageScale[0] = 1.0 / resultAspectRatio;
         imageScale[1] = 1.0;
-        referenceSize = sourceWidth;
+        referenceSize = sensorIsPortraitMounted ? sourceHeight : sourceWidth;
     } else {
         imageScale[0] = 1.0;
         imageScale[1] = resultAspectRatio;
-        referenceSize = sourceHeight;
+        referenceSize = sensorIsPortraitMounted ? sourceWidth : sourceHeight;
     }
 
     simd_float4x4 projection = {
@@ -259,6 +278,7 @@ typedef struct {
     sharedUniforms.viewNormalMatrix = viewNormalMatrix;
     sharedUniforms.viewProjectionMatrix = viewProjectionMatrix;
     sharedUniforms.pointSize = pointSize;
+    sharedUniforms.overlayOpacity = _overlayOpacity;
     
     memcpy([_sharedUniformsBuffer contents], &sharedUniforms, sizeof(SharedUniforms));
 }

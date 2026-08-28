@@ -28,6 +28,7 @@ struct Uniforms {
     float4x4 viewMatrix;
     float4x4 viewProjectionMatrix;
     float pointSize;
+    float overlayOpacity;
 };
 
 #define INV_SQRT_8 0.35355339059327373
@@ -56,7 +57,8 @@ vertex ProjectedVertex RenderSCPointCloudVertex(Vertex v [[stage_in]],
 }
 
 fragment float4 RenderSCPointCloudFragment(ProjectedVertex inVertex [[stage_in]],
-                                           texture2d<float, access::sample> matcap [[texture(0)]])
+                                           texture2d<float, access::sample> matcap [[texture(0)]],
+                                           constant Uniforms *uniforms [[buffer(0)]])
 {
     constexpr sampler matcapSampler(coord::normalized, address::clamp_to_edge, filter::linear);
     
@@ -67,5 +69,5 @@ fragment float4 RenderSCPointCloudFragment(ProjectedVertex inVertex [[stage_in]]
     
     float3 matcapColor = matcap.sample(matcapSampler, float2(1.0 - matcapLookup.x, matcapLookup.y)).xyz;
     
-    return float4(matcapColor, 1);
+    return float4(matcapColor, uniforms->overlayOpacity);
 }
