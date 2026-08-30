@@ -87,6 +87,7 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         _visualizationCommandQueue.label = "BPLYScanningViewController._visualizationCommandQueue"
         
         _installVolumeShutterButton()
+        _installOverlayOpacityControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(_thermalStateChanged(notification:)),
                                                name: ProcessInfo.thermalStateDidChangeNotification, object: nil)
@@ -414,6 +415,44 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         }
     }
     
+    // MARK: - Overlay Opacity
+
+    /// A live control for the point cloud overlay, so it can be adjusted while
+    /// framing a scan rather than only from the settings panel. The renderer reads
+    /// the same key every frame, so a change shows up on the next one.
+    private func _installOverlayOpacityControl() {
+        let label = UILabel()
+        label.text = "Overlay"
+        label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        let slider = UISlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.value = AppSetting.float(AppSetting.pointCloudOverlayOpacity, 1.0)
+        slider.addTarget(self, action: #selector(_overlayOpacityChanged(_:)), for: .valueChanged)
+        slider.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(label)
+        view.addSubview(slider)
+
+        let guide = view.safeAreaLayoutGuide
+
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 20),
+            label.centerYAnchor.constraint(equalTo: slider.centerYAnchor),
+
+            slider.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 12),
+            slider.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20),
+            slider.topAnchor.constraint(equalTo: guide.topAnchor, constant: 8),
+        ])
+    }
+
+    @objc private func _overlayOpacityChanged(_ sender: UISlider) {
+        UserDefaults.standard.set(sender.value, forKey: AppSetting.pointCloudOverlayOpacity)
+    }
+
     // MARK: - Volume Shutter Button
 
     /// The volume is parked here after every press so that pressing down always has
