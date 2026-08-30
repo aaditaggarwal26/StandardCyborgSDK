@@ -47,6 +47,25 @@ enum AppSetting {
     }
 }
 
+extension UIViewController {
+
+    /// Shared by every entry point into the settings panel, so the presentation
+    /// style stays consistent and each button is a one-line hookup.
+    @objc func presentInAppSettings() {
+        let settings = InAppSettingsViewController()
+        settings.modalPresentationStyle = .formSheet
+
+        present(settings, animated: true, completion: nil)
+    }
+
+    /// The gear used on every screen that offers settings.
+    static func inAppSettingsIcon() -> UIImage? {
+        let configuration = UIImage.SymbolConfiguration(pointSize: 22, weight: .regular)
+
+        return UIImage(systemName: "gearshape", withConfiguration: configuration)
+    }
+}
+
 class InAppSettingsViewController: UIViewController {
 
     // MARK: - UIViewController

@@ -21,6 +21,15 @@ class ScansViewController: UITableViewController {
         _noScansLabel.textAlignment = NSTextAlignment.center
         _noScansLabel.textColor = UIColor.gray
         _noScansLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.medium)
+
+        // This screen un-hides the navigation bar in viewWillAppear, so unlike the
+        // initial screen it can use a real bar button item.
+        let settingsItem = UIBarButtonItem(image: UIViewController.inAppSettingsIcon(),
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(presentInAppSettings))
+        settingsItem.accessibilityLabel = "Settings"
+        navigationItem.rightBarButtonItem = settingsItem
     }
     
     override func viewWillAppear(_ animated: Bool) {

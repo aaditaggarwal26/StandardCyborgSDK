@@ -38,11 +38,14 @@ class InitialViewController: UIViewController {
     /// parameters are both fixed by then, so editing them mid-scan would look like it
     /// did nothing. Overlay opacity is the exception, and also has a live control on
     /// the scanning screen itself.
+    /// A plain button rather than a bar button item: this screen sits inside the
+    /// storyboard's navigation controller, but that controller keeps its bar hidden,
+    /// so a navigationItem button would never appear.
     private func _installSettingsButton() {
         let button = UIButton(type: .system)
-        button.setTitle("Settings", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-        button.addTarget(self, action: #selector(_settingsPressed), for: .touchUpInside)
+        button.setImage(UIViewController.inAppSettingsIcon(), for: .normal)
+        button.accessibilityLabel = "Settings"
+        button.addTarget(self, action: #selector(presentInAppSettings), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
 
         view.addSubview(button)
@@ -50,16 +53,12 @@ class InitialViewController: UIViewController {
         let guide = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
-            button.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20),
+            button.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant:
+                -20),
             button.topAnchor.constraint(equalTo: guide.topAnchor, constant: 12),
+            button.widthAnchor.constraint(greaterThanOrEqualToConstant: 44),
+            button.heightAnchor.constraint(greaterThanOrEqualToConstant: 44),
         ])
-    }
-
-    @objc private func _settingsPressed() {
-        let settings = InAppSettingsViewController()
-        settings.modalPresentationStyle = .formSheet
-
-        present(settings, animated: true, completion: nil)
     }
 
 }
