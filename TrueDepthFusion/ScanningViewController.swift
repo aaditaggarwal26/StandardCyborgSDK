@@ -87,7 +87,7 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         _visualizationCommandQueue.label = "BPLYScanningViewController._visualizationCommandQueue"
         
         _installVolumeShutterButton()
-        _installOverlayOpacityControl()
+        _installPreviewControls()
         
         NotificationCenter.default.addObserver(self, selector: #selector(_thermalStateChanged(notification:)),
                                                name: ProcessInfo.thermalStateDidChangeNotification, object: nil)
@@ -415,38 +415,68 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         }
     }
     
-    // MARK: - Overlay Opacity
+    // MARK: - Live Preview Controls
 
-    /// A live control for the point cloud overlay, so it can be adjusted while
-    /// framing a scan rather than only from the settings panel. The renderer reads
-    /// the same key every frame, so a change shows up on the next one.
-    private func _installOverlayOpacityControl() {
-        let label = UILabel()
-        label.text = "Overlay"
-        label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
-        label.textColor = UIColor.white
-        label.translatesAutoresizingMaskIntoConstraints = false
+    /// Brightness of the camera image and opacity of the point cloud drawn over it.
+    /// Both are read by the renderer every frame, so they can be dialled in while
+    /// framing a scan rather than only from the settings panel. They interact: the
+    /// preview used to be dimmed to make the overlay stand out, so raising one
+    /// usually means adjusting the other.
+    private func _installPreviewControls() {
+        let brightness = _makeControlRow(title: "Bright",
+                                         minimum: 0.3,
+                                         value: AppSetting.float(AppSetting.previewBrightness, 1.0),
+                                         action: #selector(_previewBrightnessChanged(_:)))
 
-        let slider = UISlider()
-        slider.minimumValue = 0
-        slider.maximumValue = 1
-        slider.value = AppSetting.float(AppSetting.pointCloudOverlayOpacity, 1.0)
-        slider.addTarget(self, action: #selector(_overlayOpacityChanged(_:)), for: .valueChanged)
-        slider.translatesAutoresizingMaskIntoConstraints = false
+        let overlay = _makeControlRow(title: "Overlay",
+                                      minimum: 0,
+                                      value: AppSetting.float(AppSetting.pointCloudOverlayOpacity, 1.0),
+                                      action: #selector(_overlayOpacityChanged(_:)))
 
-        view.addSubview(label)
-        view.addSubview(slider)
+        let stack = UIStackView(arrangedSubviews: [brightness, overlay])
+        stack.axis = .vertical
+        stack.spacing = 4
+        stack.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(stack)
 
         let guide = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 20),
-            label.centerYAnchor.constraint(equalTo: slider.centerYAnchor),
-
-            slider.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 12),
-            slider.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20),
-            slider.topAnchor.constraint(equalTo: guide.topAnchor, constant: 8),
+            stack.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 20),
+            stack.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20),
+            stack.topAnchor.constraint(equalTo: guide.topAnchor, constant: 8),
         ])
+    }
+
+    private func _makeControlRow(title: String,
+                                 minimum: Float,
+                                 value: Float,
+                                 action: Selector) -> UIStackView
+    {
+        let label = UILabel()
+        label.text = title
+        label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        label.textColor = UIColor.white
+        label.setContentHuggingPriority(.required, for: .horizontal)
+        label.widthAnchor.constraint(equalToConstant: 56).isActive = true
+
+        let slider = UISlider()
+        slider.minimumValue = minimum
+        slider.maximumValue = 1
+        slider.value = value
+        slider.addTarget(self, action: action, for: .valueChanged)
+
+        let row = UIStackView(arrangedSubviews: [label, slider])
+        row.axis = .horizontal
+        row.alignment = .center
+        row.spacing = 8
+
+        return row
+    }
+
+    @objc private func _previewBrightnessChanged(_ sender: UISlider) {
+        UserDefaults.standard.set(sender.value, forKey: AppSetting.previewBrightness)
     }
 
     @objc private func _overlayOpacityChanged(_ sender: UISlider) {

@@ -19,21 +19,6 @@ class ScanningViewRenderer
     private let _depthColoringFilter: DepthColoringFilter
     private let _pointCloudRenderer: SCPointCloudRenderer
     
-    /// Read straight from the Settings bundle rather than cached, so changing the
-    /// slider takes effect as soon as the user returns to the app.
-    ///
-    /// Settings-bundle defaults are only registered once the user visits the settings
-    /// page, so an untouched key is absent rather than 1.0. Reading it as a plain float
-    /// would yield 0 and make the overlay invisible on a fresh install, hence the
-    /// explicit fallback.
-    private static var _overlayOpacitySetting: Float {
-        guard let value = UserDefaults.standard.object(forKey: "pointcloud_overlay_opacity") as? NSNumber else {
-            return 1.0
-        }
-
-        return min(max(value.floatValue, 0.0), 1.0)
-    }
-
     init(device: MTLDevice, commandQueue: MTLCommandQueue) {
         _device = device
         _commandQueue = commandQueue
@@ -58,7 +43,8 @@ class ScanningViewRenderer
             guard let drawable = metalLayer.nextDrawable() else { return }
             let outputTexture = drawable.texture
 
-            _pointCloudRenderer.overlayOpacity = ScanningViewRenderer._overlayOpacitySetting
+            _pointCloudRenderer.overlayOpacity = AppSetting.float(AppSetting.pointCloudOverlayOpacity, 1.0)
+            _depthColoringFilter.previewBrightness = AppSetting.float(AppSetting.previewBrightness, 1.0)
             
             _depthColoringFilter.encodeCommands(onto: commandBuffer,
                                                 colorBuffer: colorBuffer,

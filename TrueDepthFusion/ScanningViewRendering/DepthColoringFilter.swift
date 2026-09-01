@@ -14,22 +14,32 @@ import StandardCyborgFusion
 
 class DepthColoringFilter {
     
+    /// Field order matters: this has to match the Metal struct exactly, including
+    /// where the padding falls.
     private struct Uniforms {
         var minDepth: Float = 0
         var maxDepth: Float = .greatestFiniteMagnitude
+        var previewBrightness: Float = 1.0
         var transform = simd_float3x3(0)
     }
-    
+
     var inputImage: CIImage?
-    
+
     var minDepth: Float {
         get { return _uniforms.minDepth }
         set { _uniforms.minDepth = newValue }
     }
-    
+
     var maxDepth: Float {
         get { return _uniforms.maxDepth }
         set { _uniforms.maxDepth = newValue }
+    }
+
+    /// How brightly the camera image is drawn behind the point cloud, 0 to 1.
+    /// The shader previously hardcoded this at 0.3.
+    var previewBrightness: Float {
+        get { return _uniforms.previewBrightness }
+        set { _uniforms.previewBrightness = newValue }
     }
     
     private let _colorPipelineState: MTLComputePipelineState

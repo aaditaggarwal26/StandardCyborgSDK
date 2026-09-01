@@ -24,6 +24,7 @@ enum AppSetting {
     static let icpMaxIterationCount = "icp_max_iteration_count"
     static let icpTolerance = "icp_tolerance"
     static let pointCloudOverlayOpacity = "pointcloud_overlay_opacity"
+    static let previewBrightness = "preview_brightness"
 
     /// Settings-bundle defaults are only registered once the user visits that page,
     /// so an untouched key reads back as absent rather than as its default. Every
@@ -135,6 +136,11 @@ class InAppSettingsViewController: UIViewController {
 
     private func _buildContent() {
         _addSectionHeader("Applies immediately")
+
+        _addSlider(key: AppSetting.previewBrightness,
+                   title: "Camera preview brightness",
+                   minimum: 0.3, maximum: 1, fallback: 1.0,
+                   format: { String(format: "%.2f", $0) })
 
         _addSlider(key: AppSetting.pointCloudOverlayOpacity,
                    title: "Point cloud overlay opacity",

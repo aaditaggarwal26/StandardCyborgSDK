@@ -14,6 +14,9 @@ struct Uniforms
 {
     float minDepth;
     float maxDepth;
+    // Sits here rather than after the transform so it occupies padding that already
+    // existed, leaving every other field at the offset it had before.
+    float previewBrightness;
     float3x3 transform;
 };
 
@@ -53,7 +56,11 @@ kernel void DrawColorTexture(texture2d<float, access::sample> colorTexture [[tex
     float2 uv = (uniforms->transform * float3(float2(gid), 1.0)).xy;
     
     float4 color = colorTexture.sample(colorSampler, uv);
-    color.rgb *= minAlpha;
-    
+
+    // This used to be a flat multiply by minAlpha, which dimmed the whole camera
+    // preview to 30% and is why the scanning screen looked so much darker than the
+    // system camera. It is now adjustable, defaulting to full brightness.
+    color.rgb *= uniforms->previewBrightness;
+
     resultTexture.write(color, gid);
 }

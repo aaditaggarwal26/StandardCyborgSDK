@@ -86,6 +86,26 @@
 		</dict>
 		<dict>
 			<key>Title</key>
+			<string>Camera preview brightness</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<real>1.0</real>
+			<key>Key</key>
+			<string>preview_brightness</string>
+			<key>MaximumValue</key>
+			<real>1.0</real>
+			<key>MinimumValue</key>
+			<real>0.3</real>
+			<key>Type</key>
+			<string>PSSliderSpecifier</string>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Title</key>
 			<string>Point cloud overlay opacity</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
