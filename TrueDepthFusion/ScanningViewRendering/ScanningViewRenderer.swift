@@ -18,7 +18,19 @@ class ScanningViewRenderer
     private let _commandQueue: MTLCommandQueue
     private let _depthColoringFilter: DepthColoringFilter
     private let _pointCloudRenderer: SCPointCloudRenderer
-    
+
+    /// Caps how many frames may be queued to the GPU at once.
+    ///
+    /// This draw runs on the capture queue, and used to end by blocking on
+    /// `waitUntilCompleted`. That made every frame cost CPU time *plus* GPU time
+    /// rather than whichever is larger, and because the capture outputs discard
+    /// late frames, anything the camera produced while the queue was blocked was
+    /// thrown away — which is what the judder was.
+    ///
+    /// Letting frames overlap fixes that, but an unbounded queue would only trade
+    /// judder for latency, so two is the cap: one being drawn, one being prepared.
+    private let _inFlightFrames = DispatchSemaphore(value: 2)
+
     init(device: MTLDevice, commandQueue: MTLCommandQueue) {
         _device = device
         _commandQueue = commandQueue
@@ -37,10 +49,16 @@ class ScanningViewRenderer
               flipsInputHorizontally: Bool)
     {
         autoreleasepool {
+            _inFlightFrames.wait()
+
             let commandBuffer = _commandQueue.makeCommandBuffer()!
             commandBuffer.label = "ScanningViewRenderer.commandBuffer"
-            
-            guard let drawable = metalLayer.nextDrawable() else { return }
+
+            guard let drawable = metalLayer.nextDrawable() else {
+                commandBuffer.commit()
+                _inFlightFrames.signal()
+                return
+            }
             let outputTexture = drawable.texture
 
             _pointCloudRenderer.overlayOpacity = AppSetting.float(AppSetting.pointCloudOverlayOpacity, 1.0)
@@ -67,9 +85,12 @@ class ScanningViewRenderer
                                                    flipsInputHorizontally: flipsInputHorizontally)
             }
             
+            commandBuffer.addCompletedHandler { [weak self] _ in
+                self?._inFlightFrames.signal()
+            }
+
             commandBuffer.present(drawable)
             commandBuffer.commit()
-            commandBuffer.waitUntilCompleted()
         }
     }
 }
