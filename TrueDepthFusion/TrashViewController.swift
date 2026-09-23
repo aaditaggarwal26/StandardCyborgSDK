@@ -22,7 +22,7 @@ class TrashViewController: UITableViewController {
 
         title = "Trash"
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: _cellIdentifier)
+        tableView.register(TrashedScanCell.self, forCellReuseIdentifier: _cellIdentifier)
         tableView.rowHeight = 88
 
         _emptyItem = UIBarButtonItem(title: "Empty",
@@ -55,12 +55,14 @@ class TrashViewController: UITableViewController {
         let scan = _scans[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: _cellIdentifier, for: indexPath)
 
-        var content = cell.defaultContentConfiguration()
-        content.text = TrashViewController._dateFormatter.string(from: scan.dateCreated)
-        content.secondaryText = TrashViewController._timeFormatter.string(from: scan.dateCreated)
-        content.image = scan.thumbnail
-        content.imageProperties.maximumSize = CGSize(width: 64, height: 64)
-        cell.contentConfiguration = content
+        cell.textLabel?.text = TrashViewController._dateFormatter.string(from: scan.dateCreated)
+        cell.detailTextLabel?.text = TrashViewController._timeFormatter.string(from: scan.dateCreated)
+        cell.detailTextLabel?.textColor = UIColor.gray
+
+        // The classic cell image view sizes itself to the image, so the thumbnail is
+        // scaled down rather than constrained. `contentConfiguration` would do this
+        // for us but is iOS 14, and this project deploys to 13.
+        cell.imageView?.image = scan.thumbnail?.resized(toWidth: 64)
 
         cell.selectionStyle = .none
 
@@ -161,5 +163,19 @@ class TrashViewController: UITableViewController {
         })
 
         present(alert, animated: true)
+    }
+}
+
+/// Exists only to force the subtitle style, which a cell registered by class cannot
+/// otherwise get — `register(_:forCellReuseIdentifier:)` always builds it with
+/// `.default`, and `.default` has no `detailTextLabel` to put the time in.
+private class TrashedScanCell: UITableViewCell {
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
