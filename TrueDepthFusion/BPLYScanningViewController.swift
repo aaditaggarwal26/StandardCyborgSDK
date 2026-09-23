@@ -102,6 +102,11 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         _cameraManager.configureCaptureSession(maxColorResolution: 1920, maxDepthResolution: _useFullResolutionDepthFrames ? 640 : 320, maxFramerate: 30)
         _reconstructionManager.delegate = self
         _reconstructionManager.includesColorBuffersInMetadata = true
+
+        // Mirror at the source rather than only on screen. See ScanningViewController
+        // for the reasoning; both scanning paths have to agree or scans taken through
+        // one would export mirrored relative to the other.
+        _reconstructionManager.flipsInputHorizontally = true
         
         _algorithmCommandQueue.label = "ScanningViewController._algorithmCommandQueue"
         _visualizationCommandQueue.label = "ScanningViewController._visualizationCommandQueue"

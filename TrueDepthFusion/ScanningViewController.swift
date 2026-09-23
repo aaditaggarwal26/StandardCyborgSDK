@@ -82,6 +82,14 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         _cameraManager.configureCaptureSession(maxColorResolution: 1920, maxDepthResolution: _useFullResolutionDepthFrames ? 640 : 320, maxFramerate: 30)
         _reconstructionManager.delegate = self
         _reconstructionManager.includesColorBuffersInMetadata = true
+
+        // Mirror at the source rather than only on screen. The TrueDepth camera faces
+        // the user, so the preview is shown selfie-style; with this off, the geometry
+        // written to the PLY came out as the mirror image of what was on screen, and
+        // the preview screen had to flip its node to compensate. Setting it here flips
+        // the depth and color input before reconstruction, so the live view, the saved
+        // photo, the preview and the exported PLY all agree.
+        _reconstructionManager.flipsInputHorizontally = true
         
         _algorithmCommandQueue.label = "BPLYScanningViewController._algorithmCommandQueue"
         _visualizationCommandQueue.label = "BPLYScanningViewController._visualizationCommandQueue"

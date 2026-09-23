@@ -127,10 +127,10 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         didSet {
             _pointCloudNode?.name = "point cloud"
 
-            // The TrueDepth camera faces the user, so the reconstruction arrives
-            // mirrored and the preview showed the subject backwards. Flip the node
-            // for display only: the geometry written to the PLY is untouched.
-            _pointCloudNode?.scale = SCNVector3(-1, 1, 1)
+            // No display flip here any more. The reconstruction now mirrors the depth
+            // and color input at the source, so the point cloud already matches what
+            // was on screen during the scan. Scaling by -1 as well would mirror it
+            // back and put this screen out of step with both the scan and the PLY.
 
             // Make sure the view is loaded first
             _ = self.view
