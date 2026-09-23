@@ -85,6 +85,96 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+
+    // MARK: - Trash
+
+    private var _trashContainerURL: URL {
+        return _scansContainerURL.appendingPathComponent("Trash")
+    }
+
+    /// Scans are plain files in one folder and `reloadScans()` lists that folder
+    /// without recursing, so moving a scan into a subfolder is all it takes to take
+    /// it out of the list while keeping the files intact.
+    func moveToTrash(_ scan: Scan) {
+        guard let plyPath = scan.plyPath else { return }
+
+        try? FileManager.default.createDirectory(at: _trashContainerURL,
+                                                 withIntermediateDirectories: true,
+                                                 attributes: nil)
+
+        if _moveScan(atPLYPath: plyPath, into: _trashContainerURL),
+           let index = scans.firstIndex(of: scan)
+        {
+            scans.remove(at: index)
+        }
+    }
+
+    func trashedScans() -> [Scan] {
+        guard let urls = try? FileManager.default.contentsOfDirectory(at: _trashContainerURL,
+                                                                      includingPropertiesForKeys: nil,
+                                                                      options: [])
+        else { return [] }
+
+        return urls
+            .filter { $0.pathExtension == "ply" }
+            .map { url in Scan(plyPath: url.path) }
+            .sorted { $0.dateCreated.compare($1.dateCreated) == .orderedDescending }
+    }
+
+    func restoreFromTrash(_ scan: Scan) {
+        guard let plyPath = scan.plyPath else { return }
+
+        if _moveScan(atPLYPath: plyPath, into: _scansContainerURL) {
+            reloadScans()
+        }
+    }
+
+    func deletePermanently(_ scan: Scan) {
+        do {
+            try scan.deleteFiles()
+        } catch {
+            print("Error deleting files: \(error)")
+        }
+    }
+
+    func emptyTrash() {
+        for scan in trashedScans() {
+            deletePermanently(scan)
+        }
+    }
+
+    /// Moves a scan's PLY and its thumbnail together. The thumbnail is found by
+    /// filename rather than stored alongside, so leaving it behind would orphan it
+    /// and the restored scan would come back without a preview image.
+    ///
+    /// Refuses rather than overwriting if the destination name is taken, since the
+    /// file being overwritten would be somebody's scan.
+    private func _moveScan(atPLYPath plyPath: String, into directory: URL) -> Bool {
+        let fileManager = FileManager.default
+        let sourcePLY = URL(fileURLWithPath: plyPath)
+        let sourceJPEG = sourcePLY.deletingPathExtension().appendingPathExtension("jpeg")
+        let destinationPLY = directory.appendingPathComponent(sourcePLY.lastPathComponent)
+        let destinationJPEG = directory.appendingPathComponent(sourceJPEG.lastPathComponent)
+
+        guard !fileManager.fileExists(atPath: destinationPLY.path) else {
+            print("Not moving \(sourcePLY.lastPathComponent): a file of that name is already there")
+            return false
+        }
+
+        do {
+            try fileManager.moveItem(at: sourcePLY, to: destinationPLY)
+        } catch {
+            print("Error moving scan: \(error)")
+            return false
+        }
+
+        // A scan whose thumbnail failed to write should still move.
+        if fileManager.fileExists(atPath: sourceJPEG.path) {
+            try? fileManager.moveItem(at: sourceJPEG, to: destinationJPEG)
+        }
+
+        return true
+    }
     
     func createBPLYScanDirectory() -> String {
         let directoryName = Scan.string(from: Date())

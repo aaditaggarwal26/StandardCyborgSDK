@@ -273,7 +273,9 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         
         scanVC.deletionHandler = { [unowned self] in
             if scanVC.scan!.plyPath != nil {
-                self._appDelegate.remove(scanVC.scan!)
+                // Already written to disk, so it goes to the trash like any other
+                // saved scan. An unsaved scan has nothing on disk to keep.
+                self._appDelegate.moveToTrash(scanVC.scan!)
             }
             self.dismiss(animated: true, completion: nil)
         }

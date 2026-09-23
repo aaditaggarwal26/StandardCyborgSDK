@@ -29,7 +29,19 @@ class ScansViewController: UITableViewController {
                                            target: self,
                                            action: #selector(presentInAppSettings))
         settingsItem.accessibilityLabel = "Settings"
-        navigationItem.rightBarButtonItem = settingsItem
+
+        let trashConfiguration = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)
+        let trashItem = UIBarButtonItem(image: UIImage(systemName: "trash", withConfiguration: trashConfiguration),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(_showTrash))
+        trashItem.accessibilityLabel = "Trash"
+
+        navigationItem.rightBarButtonItems = [settingsItem, trashItem]
+    }
+
+    @objc private func _showTrash() {
+        navigationController?.pushViewController(TrashViewController(style: .plain), animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,7 +129,7 @@ class ScansViewController: UITableViewController {
     private lazy var _scanPreviewViewController: ScanPreviewViewController = {
         let scanVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanPreviewViewController") as! ScanPreviewViewController
         scanVC.deletionHandler = { [unowned self, scanVC] in
-            self._appDelegate.remove(scanVC.scan!)
+            self._appDelegate.moveToTrash(scanVC.scan!)
             self.dismiss(animated: true, completion: nil)
         }
         scanVC.doneHandler = { [unowned self] in
@@ -162,14 +174,16 @@ class ScansViewController: UITableViewController {
     
     private func _deleteScan(at indexPath: IndexPath) {
         let scan = _scans[indexPath.row]
-        
-         _appDelegate.remove(scan)
-        
+
+        // Moves the files into the Trash folder rather than removing them, so the
+        // scan can be recovered from the trash screen until it is emptied.
+        _appDelegate.moveToTrash(scan)
+
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .automatic)
         _scans.remove(at: indexPath.row)
         tableView.endUpdates()
-        
+
         _updateNoScansLabel()
     }
     
