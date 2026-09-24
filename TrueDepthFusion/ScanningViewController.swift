@@ -78,18 +78,22 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         metalContainerView.layer.addSublayer(_metalLayer)
         metalContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(focusOnTap)))
         
+        // The TrueDepth camera faces the user, so the preview is drawn selfie-style.
+        // With the mirror adapter fitted the camera is looking at a scene instead,
+        // and that flip makes the view track the wrong way: moving the phone right
+        // slid the subject left. Transforming the container mirrors the camera image
+        // and the point cloud overlay together, so they stay aligned with each other.
+        metalContainerView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        
         _cameraManager.delegate = self
         _cameraManager.configureCaptureSession(maxColorResolution: 1920, maxDepthResolution: _useFullResolutionDepthFrames ? 640 : 320, maxFramerate: 30)
         _reconstructionManager.delegate = self
         _reconstructionManager.includesColorBuffersInMetadata = true
 
-        // Mirror at the source rather than only on screen. The TrueDepth camera faces
-        // the user, so the preview is shown selfie-style; with this off, the geometry
-        // written to the PLY came out as the mirror image of what was on screen, and
-        // the preview screen had to flip its node to compensate. Setting it here flips
-        // the depth and color input before reconstruction, so the live view, the saved
-        // photo, the preview and the exported PLY all agree.
-        _reconstructionManager.flipsInputHorizontally = true
+        // The preview is mirrored below for the rear mirror adapter, so the geometry
+        // is left unmirrored to match it. These two move together: flipping one
+        // without the other puts the exported PLY out of step with what was seen.
+        _reconstructionManager.flipsInputHorizontally = false
         
         _algorithmCommandQueue.label = "BPLYScanningViewController._algorithmCommandQueue"
         _visualizationCommandQueue.label = "BPLYScanningViewController._visualizationCommandQueue"
@@ -603,7 +607,7 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
     private func _photoFromLatestColorBuffer() -> UIImage? {
         guard let colorBuffer = _latestColorBuffer else { return nil }
 
-        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.leftMirrored)
+        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.right)
 
         guard let cgImage = _ciContext.createCGImage(ciImage, from: ciImage.extent) else { return nil }
 

@@ -58,7 +58,12 @@ class ScansViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        // Pushing the trash screen also lands here. Hiding the bar on the way
+        // forward leaves that screen with no navigation bar, and so no back
+        // button, so only hide it when this screen is actually being popped.
+        if isMovingFromParent {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
     }
     
     // MARK: - UITableViewDataSource

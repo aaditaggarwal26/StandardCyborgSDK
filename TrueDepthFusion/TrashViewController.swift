@@ -42,6 +42,10 @@ class TrashViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // The scan list hides the bar on its way out, so make sure it is up here
+        // regardless of the order those two run in.
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+
         _reload()
     }
 

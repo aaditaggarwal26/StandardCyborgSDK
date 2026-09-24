@@ -98,15 +98,22 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         metalContainerView.layer.addSublayer(_metalLayer)
         metalContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(focusOnTap)))
         
+        // The TrueDepth camera faces the user, so the preview is drawn selfie-style.
+        // With the mirror adapter fitted the camera is looking at a scene instead,
+        // and that flip makes the view track the wrong way: moving the phone right
+        // slid the subject left. Transforming the container mirrors the camera image
+        // and the point cloud overlay together, so they stay aligned with each other.
+        metalContainerView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        
         _cameraManager.delegate = self
         _cameraManager.configureCaptureSession(maxColorResolution: 1920, maxDepthResolution: _useFullResolutionDepthFrames ? 640 : 320, maxFramerate: 30)
         _reconstructionManager.delegate = self
         _reconstructionManager.includesColorBuffersInMetadata = true
 
-        // Mirror at the source rather than only on screen. See ScanningViewController
-        // for the reasoning; both scanning paths have to agree or scans taken through
-        // one would export mirrored relative to the other.
-        _reconstructionManager.flipsInputHorizontally = true
+        // The preview is mirrored below for the rear mirror adapter, so the geometry
+        // is left unmirrored to match it. These two move together: flipping one
+        // without the other puts the exported PLY out of step with what was seen.
+        _reconstructionManager.flipsInputHorizontally = false
         
         _algorithmCommandQueue.label = "ScanningViewController._algorithmCommandQueue"
         _visualizationCommandQueue.label = "ScanningViewController._visualizationCommandQueue"
@@ -639,7 +646,7 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     private func _photoFromLatestColorBuffer() -> UIImage? {
         guard let colorBuffer = _latestColorBuffer else { return nil }
 
-        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.leftMirrored)
+        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.right)
 
         guard let cgImage = _ciContext.createCGImage(ciImage, from: ciImage.extent) else { return nil }
 
