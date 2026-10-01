@@ -127,6 +127,8 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         didSet {
             _pointCloudNode?.name = "point cloud"
 
+            _applyPointSize(to: _pointCloudNode)
+
             // No display flip here any more. The reconstruction now mirrors the depth
             // and color input at the source, so the point cloud already matches what
             // was on screen during the scan. Scaling by -1 as well would mirror it
@@ -138,6 +140,23 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
             if let node = _pointCloudNode {
                 sceneView.scene!.rootNode.addChildNode(node)
             }
+        }
+    }
+
+    /// SceneKit sizes points in world units, projects that, then clamps the result to
+    /// a screen-space radius range. The geometry arrives capped at 5 points, so zooming
+    /// in widened the gaps between points without widening the points themselves, which
+    /// is what made a close-up look sparse. Raising the ceiling lets them grow with the
+    /// zoom; the floor stays where it was so the zoomed-out view is unchanged.
+    private func _applyPointSize(to node: SCNNode?) {
+        guard let elements = node?.geometry?.elements else { return }
+
+        let pointSize = CGFloat(AppSetting.float(AppSetting.scanPointSize, 4))
+
+        for element in elements where element.primitiveType == .point {
+            element.pointSize = pointSize
+            element.minimumPointScreenSpaceRadius = 3
+            element.maximumPointScreenSpaceRadius = 60
         }
     }
 }

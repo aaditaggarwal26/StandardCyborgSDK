@@ -25,6 +25,7 @@ enum AppSetting {
     static let icpTolerance = "icp_tolerance"
     static let pointCloudOverlayOpacity = "pointcloud_overlay_opacity"
     static let previewBrightness = "preview_brightness"
+    static let scanPointSize = "scan_point_size"
 
     /// Settings-bundle defaults are only registered once the user visits that page,
     /// so an untouched key reads back as absent rather than as its default. Every
@@ -150,6 +151,14 @@ class InAppSettingsViewController: UIViewController {
         _addSwitch(key: AppSetting.stopScanningOnReconstructionFailure,
                    title: "Stop scanning on reconstruction failure",
                    fallback: true)
+
+        _addSectionHeader("Applies to the next scan opened")
+        _addNote("Read when a saved scan is opened, so reopen the scan to see a change.")
+
+        _addSlider(key: AppSetting.scanPointSize,
+                   title: "Scan point size",
+                   minimum: 1, maximum: 20, fallback: 4,
+                   format: { String(format: "%.1f", $0) })
 
         _addSectionHeader("Applies to the next scan")
         _addNote("These are read when the scanning screen opens, so changes take effect the next time you start a scan rather than during one.")
