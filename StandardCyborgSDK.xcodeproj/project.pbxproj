@@ -241,6 +241,11 @@
 		82A8EEF13063956F00ABEA8A /* WoundMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A8EEEF3063956F00ABEA8A /* WoundMeasurement.swift */; };
 		82A8EEF23063956F00ABEA8A /* EdgeNeXtEncoder.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 82A8EEEC3063956F00ABEA8A /* EdgeNeXtEncoder.mlpackage */; };
 		82A8EEF33063956F00ABEA8A /* WoundClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A8EEED3063956F00ABEA8A /* WoundClassificationViewController.swift */; };
+		82B0B5E13074A39B00A624D2 /* ExportScansButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0B5E03074A39B00A624D2 /* ExportScansButton.swift */; };
+		82B0B5E33074A3A100A624D2 /* ScanExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0B5E23074A3A100A624D2 /* ScanExporter.swift */; };
+		82B0B5E53074A3A800A624D2 /* ScanReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0B5E43074A3A700A624D2 /* ScanReviewView.swift */; };
+		82B0B5E73074A3AD00A624D2 /* WoundTypeCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0B5E63074A3AD00A624D2 /* WoundTypeCatalog.swift */; };
+		82B0B5E93074A3B400A624D2 /* ClassificationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0B5E83074A3B400A624D2 /* ClassificationRecord.swift */; };
 		A4130292EC0C27E692B9EF84 /* libPods-VisualTesterMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 542369A8C29974799FD116A8 /* libPods-VisualTesterMac.a */; };
 		A5092C3021C1BC50003B20BC /* crc32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5092C2E21C1BC50003B20BC /* crc32.cpp */; };
 		A5092C3121C1BC50003B20BC /* crc32.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A5092C2F21C1BC50003B20BC /* crc32.hpp */; };
@@ -829,6 +834,11 @@
 		82A8EEED3063956F00ABEA8A /* WoundClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundClassificationViewController.swift; sourceTree = "<group>"; };
 		82A8EEEE3063956F00ABEA8A /* WoundClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundClassifier.swift; sourceTree = "<group>"; };
 		82A8EEEF3063956F00ABEA8A /* WoundMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundMeasurement.swift; sourceTree = "<group>"; };
+		82B0B5E03074A39B00A624D2 /* ExportScansButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportScansButton.swift; sourceTree = "<group>"; };
+		82B0B5E23074A3A100A624D2 /* ScanExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanExporter.swift; sourceTree = "<group>"; };
+		82B0B5E43074A3A700A624D2 /* ScanReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanReviewView.swift; sourceTree = "<group>"; };
+		82B0B5E63074A3AD00A624D2 /* WoundTypeCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoundTypeCatalog.swift; sourceTree = "<group>"; };
+		82B0B5E83074A3B400A624D2 /* ClassificationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationRecord.swift; sourceTree = "<group>"; };
 		927CBAD83870E97BE0537CAB /* Pods-StandardCyborgFusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCyborgFusion.debug.xcconfig"; path = "Target Support Files/Pods-StandardCyborgFusion/Pods-StandardCyborgFusion.debug.xcconfig"; sourceTree = "<group>"; };
 		98E3CF7034A0504BCB87F3BF /* Pods-VisualTesteriOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualTesteriOS.debug.xcconfig"; path = "Target Support Files/Pods-VisualTesteriOS/Pods-VisualTesteriOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A5092C2E21C1BC50003B20BC /* crc32.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = crc32.cpp; sourceTree = "<group>"; };
@@ -1349,17 +1359,22 @@
 				82A8EEEC3063956F00ABEA8A /* EdgeNeXtEncoder.mlpackage */,
 				82A8EEED3063956F00ABEA8A /* WoundClassificationViewController.swift */,
 				82A8EEEE3063956F00ABEA8A /* WoundClassifier.swift */,
+				82B0B5E03074A39B00A624D2 /* ExportScansButton.swift */,
+				768F650721215A6100C1B1DA /* ScanPreviewViewController.swift */,
 				82A8EEEF3063956F00ABEA8A /* WoundMeasurement.swift */,
 				5E9F01873061C92A0075D298 /* prototypes.json */,
 				5E9F01863061C92A0075D298 /* SCPointCloudPositions.swift */,
 				5E73328630441B14003CE45F /* InAppSettingsViewController.swift */,
 				7693C45421587E30005A4772 /* ScanningViewRendering */,
 				768F650A21215B3C00C1B1DA /* AppDelegate.swift */,
+				82B0B5E43074A3A700A624D2 /* ScanReviewView.swift */,
+				82B0B5E23074A3A100A624D2 /* ScanExporter.swift */,
 				76871D022193AB9D00C1ABA0 /* InitialViewController.swift */,
 				768F65042121591F00C1B1DA /* ScanningViewController.swift */,
+				82B0B5E63074A3AD00A624D2 /* WoundTypeCatalog.swift */,
 				76857187222CCB4000066B6E /* BPLYScanningViewController.swift */,
 				768F650621215A6000C1B1DA /* ScanPreviewViewController.scn */,
-				768F650721215A6100C1B1DA /* ScanPreviewViewController.swift */,
+				82B0B5E83074A3B400A624D2 /* ClassificationRecord.swift */,
 				421368612DA76EB10084F902 /* SendEmailController.swift */,
 				76E2E7E2212BC452006BEAC6 /* ScansViewController.swift */,
 				768F650C21215BD500C1B1DA /* Scan.h */,
@@ -2418,14 +2433,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7685718B222CCB4000066B6E /* BPLYScanningViewController.swift in Sources */,
+				82B0B5E73074A3AD00A624D2 /* WoundTypeCatalog.swift in Sources */,
 				7693C45621587EAA005A4772 /* ScanningViewRenderer.swift in Sources */,
 				768F65052121591F00C1B1DA /* ScanningViewController.swift in Sources */,
 				76C7C6B221759CC3000941E7 /* CameraManager.swift in Sources */,
 				5E73328730441B14003CE45F /* InAppSettingsViewController.swift in Sources */,
+				82B0B5E93074A3B400A624D2 /* ClassificationRecord.swift in Sources */,
 				7693C461215886FC005A4772 /* SCPointCloudRenderer.metal in Sources */,
 				76EE33D3212E0D9000D62C3D /* SoundEffect.m in Sources */,
 				421368622DA76EB20084F902 /* SendEmailController.swift in Sources */,
+				82B0B5E13074A39B00A624D2 /* ExportScansButton.swift in Sources */,
 				7667811221CD77F8005BFAA2 /* UIImageHelpers.swift in Sources */,
+				82B0B5E33074A3A100A624D2 /* ScanExporter.swift in Sources */,
 				76EE33CD212DDD9300D62C3D /* AudioAndHapticEngine.swift in Sources */,
 				7693C45F215886D4005A4772 /* SCPointCloudRenderer.m in Sources */,
 				5E9F01883061C92A0075D298 /* SCPointCloudPositions.swift in Sources */,
@@ -2440,6 +2459,7 @@
 				76999472215C9FF0007CF275 /* PaddedLabel.swift in Sources */,
 				76385562212F390500C7DA06 /* DepthColoringFilter.swift in Sources */,
 				76871D032193AB9D00C1ABA0 /* InitialViewController.swift in Sources */,
+				82B0B5E53074A3A800A624D2 /* ScanReviewView.swift in Sources */,
 				768F650E21215BD500C1B1DA /* Scan.mm in Sources */,
 				768F650B21215B3C00C1B1DA /* AppDelegate.swift in Sources */,
 			);
