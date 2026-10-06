@@ -3,6 +3,10 @@
 > A C++ SDK for 3D computer vision, paired with Cocoa frameworks for TrueDepth-based 3D scanning,
 > meshing, and ML landmarking models + analysis for face, foot, and ear
 
+## Data Access
+
+Data for the study is available at: https://drive.proton.me/urls/40DCJMMWQC#2uACU6KHkopx with passcode RemoteHubLab1*.
+
 ## Introduction
 
 A native (iOS/macOS) C++ library containing data structures, I/O, and algorithms,
