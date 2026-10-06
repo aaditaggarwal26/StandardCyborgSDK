@@ -224,6 +224,7 @@
 		76CE99FF2137471C002F5510 /* ComputePointsKernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 76CE99FE2137471C002F5510 /* ComputePointsKernel.h */; };
 		76CE9A012137472B002F5510 /* ComputePointsKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = 76CE9A002137472B002F5510 /* ComputePointsKernel.metal */; };
 		76E2E7E3212BC452006BEAC6 /* ScansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2E7E2212BC452006BEAC6 /* ScansViewController.swift */; };
+		D01CA51000FEEDA000C0DE02 /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01CA51000FEEDA000C0DE01 /* TrashViewController.swift */; };
 		76E693B822A7791600D36F37 /* SCAssimilatedFrameMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E693B722A7791600D36F37 /* SCAssimilatedFrameMetadata.m */; };
 		76E88D4921C040AE008793AB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E88D4521C040AE008793AB /* CoreVideo.framework */; };
 		76EADEE721110E82006854BF /* Surfel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76EADEE521110E82006854BF /* Surfel.hpp */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -816,6 +817,7 @@
 		76CE99FE2137471C002F5510 /* ComputePointsKernel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComputePointsKernel.h; sourceTree = "<group>"; };
 		76CE9A002137472B002F5510 /* ComputePointsKernel.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ComputePointsKernel.metal; sourceTree = "<group>"; };
 		76E2E7E2212BC452006BEAC6 /* ScansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScansViewController.swift; sourceTree = "<group>"; };
+		D01CA51000FEEDA000C0DE01 /* TrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		76E693B722A7791600D36F37 /* SCAssimilatedFrameMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAssimilatedFrameMetadata.m; sourceTree = "<group>"; };
 		76E88D4521C040AE008793AB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		76EADEE521110E82006854BF /* Surfel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Surfel.hpp; sourceTree = "<group>"; };
@@ -1377,6 +1379,7 @@
 				82B0B5E83074A3B400A624D2 /* ClassificationRecord.swift */,
 				421368612DA76EB10084F902 /* SendEmailController.swift */,
 				76E2E7E2212BC452006BEAC6 /* ScansViewController.swift */,
+				D01CA51000FEEDA000C0DE01 /* TrashViewController.swift */,
 				768F650C21215BD500C1B1DA /* Scan.h */,
 				768F650D21215BD500C1B1DA /* Scan.mm */,
 				76C7C6B121759CC3000941E7 /* CameraManager.swift */,
@@ -2449,6 +2452,7 @@
 				7693C45F215886D4005A4772 /* SCPointCloudRenderer.m in Sources */,
 				5E9F01883061C92A0075D298 /* SCPointCloudPositions.swift in Sources */,
 				76E2E7E3212BC452006BEAC6 /* ScansViewController.swift in Sources */,
+				D01CA51000FEEDA000C0DE02 /* TrashViewController.swift in Sources */,
 				768F650921215A6100C1B1DA /* ScanPreviewViewController.swift in Sources */,
 				82A8EEF03063956F00ABEA8A /* WoundClassifier.swift in Sources */,
 				82A8EEF13063956F00ABEA8A /* WoundMeasurement.swift in Sources */,

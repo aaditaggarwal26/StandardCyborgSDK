@@ -1,18 +1,10 @@
-//
-//  BPLYScanningViewController.swift
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 11/7/18.
-//  Copyright © 2018 Standard Cyborg. All rights reserved.
-//
-
 import AVFoundation
 import CoreImage
 import MediaPlayer
 import StandardCyborgFusion
 import UIKit
 
-class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconstructionManagerDelegate {
+class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCReconstructionManagerDelegate {
     
     private enum ScanningTerminationReason {
         case canceled
@@ -24,11 +16,9 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     @IBOutlet private weak var metalContainerView: UIView!
     @IBOutlet private weak var scanDurationContainerView: UIView!
     @IBOutlet private weak var scanDurationLabel: UILabel!
-    @IBOutlet private weak var showScansButton: UIButton!
     @IBOutlet private weak var elapsedDurationLabel: UILabel!
     @IBOutlet private weak var shutterButton: UIButton!
     @IBOutlet private weak var countdownLabel: UILabel!
-    @IBOutlet private weak var scanFailedLabel: UILabel!
     
     // MARK: -
     
@@ -54,14 +44,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction private func showLatestScan(_ sender: UIButton) {
-        guard let scan = _appDelegate.scans.first else { return }
-        
-        _scanPreviewViewController.scan = scan
-        
-        present(_scanPreviewViewController, animated: true, completion: nil)
-    }
-    
     // MARK: - Properties
     
     private let _appDelegate = UIApplication.shared.delegate! as! AppDelegate
@@ -72,8 +54,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     
     private var _latestViewMatrix = matrix_identity_float4x4
     private var _scanningTimer: Timer?
-    
-    // Removed meshing-related properties
     
     private lazy var _algorithmCommandQueue: MTLCommandQueue = _metalDevice.makeCommandQueue()!
     private lazy var _visualizationCommandQueue: MTLCommandQueue = _metalDevice.makeCommandQueue()!
@@ -98,18 +78,25 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         metalContainerView.layer.addSublayer(_metalLayer)
         metalContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(focusOnTap)))
         
+        // The TrueDepth camera faces the user, so the preview is drawn selfie-style.
+        // With the mirror adapter fitted the camera is looking at a scene instead,
+        // and that flip makes the view track the wrong way: moving the phone right
+        // slid the subject left. Transforming the container mirrors the camera image
+        // and the point cloud overlay together, so they stay aligned with each other.
+        metalContainerView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        
         _cameraManager.delegate = self
         _cameraManager.configureCaptureSession(maxColorResolution: 1920, maxDepthResolution: _useFullResolutionDepthFrames ? 640 : 320, maxFramerate: 30)
         _reconstructionManager.delegate = self
         _reconstructionManager.includesColorBuffersInMetadata = true
 
-        // Mirror at the source rather than only on screen. See ScanningViewController
-        // for the reasoning; both scanning paths have to agree or scans taken through
-        // one would export mirrored relative to the other.
-        _reconstructionManager.flipsInputHorizontally = true
+        // The preview is mirrored below for the rear mirror adapter, so the geometry
+        // is left unmirrored to match it. These two move together: flipping one
+        // without the other puts the exported PLY out of step with what was seen.
+        _reconstructionManager.flipsInputHorizontally = false
         
-        _algorithmCommandQueue.label = "ScanningViewController._algorithmCommandQueue"
-        _visualizationCommandQueue.label = "ScanningViewController._visualizationCommandQueue"
+        _algorithmCommandQueue.label = "BPLYScanningViewController._algorithmCommandQueue"
+        _visualizationCommandQueue.label = "BPLYScanningViewController._visualizationCommandQueue"
         
         _installVolumeShutterButton()
         _installPreviewControls()
@@ -121,8 +108,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let latestScan = _appDelegate.scans.first
-        showScansButton.setBackgroundImage(latestScan?.thumbnail, for: UIControl.State.normal)
         scanDurationContainerView.isHidden = _tapToStartStop
         
         _cameraManager.startSession { result in
@@ -226,8 +211,14 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
                          depthTime: CMTime,
                          depthCalibrationData: AVCameraCalibrationData)
     {
-        // Held onto so the finished scan can be saved with a real photograph
-        _latestColorBuffer = colorBuffer
+        // Capture the first color frame of the scan so the export carries a
+        // photograph from when the camera was first positioned on the subject,
+        // rather than the final frame (often grabbed as the phone pulls away).
+        // Converted to a UIImage immediately so no camera pool buffer is retained
+        // for the duration of the scan.
+        if _scanning && _firstFramePhoto == nil {
+            _firstFramePhoto = _photo(from: colorBuffer)
+        }
 
         // Diagnostics for the iPhone 17 front-sensor rotation change. Prints once so it
         // does not flood the console at 30fps. Safe to delete along with _loggedFrameDiagnostics.
@@ -274,14 +265,10 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     {
         _latestViewMatrix = metadata.viewMatrix
         
-        // Removed meshing-related code from here
-        
         if _stopScanOnReconFail && metadata.result == .failed {
             let assimilatedTooFewFrames = statistics.succeededCount < self._failedScanShowPreviewMinFrameCount
             
             self._stopScanning(reason: assimilatedTooFewFrames ? .canceled : .finished)
-            
-            self._showScanFailedMessage()
         }
     }
     
@@ -296,7 +283,9 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         
         scanVC.deletionHandler = { [unowned self] in
             if scanVC.scan!.plyPath != nil {
-                self._appDelegate.remove(scanVC.scan!)
+                // Already written to disk, so it goes to the trash like any other
+                // saved scan. An unsaved scan has nothing on disk to keep.
+                self._appDelegate.moveToTrash(scanVC.scan!)
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -405,8 +394,8 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         RunLoop.current.add(_scanningTimer!, forMode: RunLoop.Mode.default)
         
         _elapsedSeconds = 0
+        _firstFramePhoto = nil
         _scanning = true
-        // Removed meshing reset
     }
     
     private func _stopScanning(reason: ScanningTerminationReason) {
@@ -431,9 +420,8 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
             _reconstructionManager.finalize {
                 let pointCloud = self._reconstructionManager.buildPointCloud()
                 
-                // No longer pass meshTexturing - just pass nil
                 let scan = Scan(pointCloud: pointCloud,
-                                thumbnail: self._photoFromLatestColorBuffer(),
+                                thumbnail: self._firstFramePhoto,
                                 meshTexturing: nil)
                 
                 self._scanPreviewViewController.scan = scan
@@ -446,17 +434,6 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
             _reconstructionManager.reset()
             _cameraManager.paused = false
         }
-    }
-    
-    private func _showScanFailedMessage() {
-        scanFailedLabel.isHidden = false
-        scanFailedLabel.alpha = 1
-        
-        UIView.animate(withDuration: 0.8, delay: 3.0, options: [], animations: {
-            self.scanFailedLabel.alpha = 0
-        }, completion: { finished in
-            self.scanFailedLabel.isHidden = true
-        })
     }
     
     // MARK: - Live Preview Controls
@@ -535,7 +512,7 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
 
     private let _volumeView = MPVolumeView(frame: CGRect(x: -1000, y: -1000, width: 200, height: 40))
     private var _volumeObservation: NSKeyValueObservation?
-    private var _lastVolume: Float = ScanningViewController._volumeShutterBaseline
+    private var _lastVolume: Float = BPLYScanningViewController._volumeShutterBaseline
     private var _isResettingVolume = false
 
     private func _installVolumeShutterButton() {
@@ -583,9 +560,9 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
         guard let volumeSlider = _volumeSlider() else { return }
 
         _isResettingVolume = true
-        volumeSlider.setValue(ScanningViewController._volumeShutterBaseline, animated: false)
+        volumeSlider.setValue(BPLYScanningViewController._volumeShutterBaseline, animated: false)
         volumeSlider.sendActions(for: .valueChanged)
-        _lastVolume = ScanningViewController._volumeShutterBaseline
+        _lastVolume = BPLYScanningViewController._volumeShutterBaseline
 
         // outputVolume reports our own reset back asynchronously, so stay suppressed
         // briefly, otherwise we read it as a button press and fire twice.
@@ -625,19 +602,19 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
     // MARK: - Wound Photo
 
     private lazy var _ciContext = CIContext()
-    private var _latestColorBuffer: CVPixelBuffer?
+    private var _firstFramePhoto: UIImage?
     private var _loggedFrameDiagnostics = false
 
-    /// The most recent color frame, saved next to the point cloud so the export
-    /// carries an actual photograph rather than a render of the points.
+    /// Converts a camera color frame into a UIImage, saved next to the point cloud
+    /// so the export carries an actual photograph rather than a render of the points.
+    /// Called once, on the first frame of a scan, so the pixel buffer is not retained
+    /// from the capture pool for the whole scan.
     ///
     /// If the photo comes out rotated or mirrored on device, change the orientation
     /// below. For this front-facing camera the candidates are .leftMirrored,
     /// .rightMirrored, .right and .left.
-    private func _photoFromLatestColorBuffer() -> UIImage? {
-        guard let colorBuffer = _latestColorBuffer else { return nil }
-
-        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.leftMirrored)
+    private func _photo(from colorBuffer: CVPixelBuffer) -> UIImage? {
+        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.right)
 
         guard let cgImage = _ciContext.createCGImage(ciImage, from: ciImage.extent) else { return nil }
 
