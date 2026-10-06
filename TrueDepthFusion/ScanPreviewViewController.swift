@@ -95,6 +95,7 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         _setupClassificationUI()
         _setupMeasurementUI()
         _setupMeasurementGesture()
+        _setupReviewButton()
 
         // Drives _updatePointSize(forZoom:) every rendered frame so the dots can grow
         // as the user pinch-zooms in.
@@ -429,6 +430,7 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     private var _classifyButton: UIButton?
     private var _woundClassifier: WoundClassifier?
     private var _classifierLoadError: String?
+    private var _reviewButton: UIButton?
 
     private func _setupClassificationUI() {
         let button = UIButton(type: .system)
@@ -456,6 +458,27 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
             _classifierLoadError = error.localizedDescription
             button.setTitle("🔬 Classify (unavailable)", for: .normal)
         }
+    }
+    private func _setupReviewButton() {
+        let button = UIButton(type: .system)
+        button.setTitle("📋 Review", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(_reviewTapped), for: .touchUpInside)
+        view.addSubview(button)
+
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            button.leadingAnchor.constraint(equalTo: _classifyButton?.trailingAnchor ?? view.leadingAnchor, constant: 12)
+        ])
+
+        _reviewButton = button
+    }
+
+    @objc private func _reviewTapped() {
+        guard let scan = scan else { return }
+        let review = ScanReviewView(scan: scan)
+        let host = UIHostingController(rootView: review)
+        present(host, animated: true)
     }
 
     @objc private func _classifyTapped() {
@@ -503,6 +526,14 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
             let message = lines.joined(separator: "\n")
                 + "\n\nLower distance = closer match. This is a research prototype, not a diagnostic tool."
             _presentClassificationAlert(title: "Wound Classification (Beta)", message: message)
+
+            // Persist as a sidecar next to the scan, same pattern as measurements.
+            let record = ClassificationRecord(
+                modelPredictions: predictions.map {
+                    ClassificationRecord.ModelPrediction(label: $0.label, distance: $0.distance)
+                }
+            )
+            scan?.saveClassification(record)
         }
     }
 
