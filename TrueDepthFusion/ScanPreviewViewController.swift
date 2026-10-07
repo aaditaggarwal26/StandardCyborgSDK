@@ -196,6 +196,7 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     private var _measurementModeEnabled = false
     private var _pendingFirstPoint: SIMD3<Float>?
     private var _completedMeasurements: [WoundMeasurement] = []
+    private var _pendingClassification: ClassificationRecord?
     private var _measurementNodes: [SCNNode] = []
 
     private func _setupMeasurementUI() {
@@ -462,13 +463,19 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     private func _setupReviewButton() {
         let button = UIButton(type: .system)
         button.setTitle("📋 Review", for: .normal)
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.65)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 8
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(_reviewTapped), for: .touchUpInside)
         view.addSubview(button)
 
+        // Second row, left-aligned under Classify -- the first row (Classify,
+        // Measure, Reset) already fills the left side of the safe area.
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            button.leadingAnchor.constraint(equalTo: _classifyButton?.trailingAnchor ?? view.leadingAnchor, constant: 12)
+            button.topAnchor.constraint(equalTo: _classifyButton!.bottomAnchor, constant: 12),
+            button.leadingAnchor.constraint(equalTo: _classifyButton!.leadingAnchor)
         ])
 
         _reviewButton = button
@@ -476,7 +483,11 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
 
     @objc private func _reviewTapped() {
         guard let scan = scan else { return }
-        let review = ScanReviewView(scan: scan)
+        let review = ScanReviewView(
+            scan: scan,
+            liveClassification: _pendingClassification,
+            liveMeasurements: _completedMeasurements
+        )
         let host = UIHostingController(rootView: review)
         present(host, animated: true)
     }
@@ -527,14 +538,34 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
                 + "\n\nLower distance = closer match. This is a research prototype, not a diagnostic tool."
             _presentClassificationAlert(title: "Wound Classification (Beta)", message: message)
 
-            // Persist as a sidecar next to the scan, same pattern as measurements.
+            // Held in memory first, same pattern as _completedMeasurements --
+            // the scan may not have a plyPath yet (not written to disk until
+            // "Done" is tapped), so _persistClassification() below is a no-op
+            // until then, same as _persistMeasurements().
             let record = ClassificationRecord(
                 modelPredictions: predictions.map {
                     ClassificationRecord.ModelPrediction(label: $0.label, distance: $0.distance)
                 }
             )
-            scan?.saveClassification(record)
+            _pendingClassification = record
+            _persistClassification()
         }
+    }
+
+    /// Saves _pendingClassification to disk if the scan has been written already
+    /// (has a plyPath). If not, this is a no-op -- flushClassificationToDiskIfNeeded()
+    /// handles the case where classification ran before the first save.
+    private func _persistClassification() {
+        guard let scan = scan, scan.plyPath != nil, let record = _pendingClassification else { return }
+        scan.saveClassification(record)
+    }
+
+    /// Call this right after the scan has been written to disk for the first time
+    /// (i.e. right after AppDelegate.add(_:) succeeds), alongside
+    /// flushMeasurementsToDiskIfNeeded(). Classification run before that point has
+    /// no plyPath to save alongside yet, so it's held in memory until now.
+    func flushClassificationToDiskIfNeeded() {
+        _persistClassification()
     }
 
     private func _presentClassificationAlert(title: String, message: String) {

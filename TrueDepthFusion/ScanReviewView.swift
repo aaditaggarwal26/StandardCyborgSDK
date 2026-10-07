@@ -10,6 +10,12 @@ import SwiftUI
 /// in TrueDepthFusion.
 struct ScanReviewView: View {
     let scan: Scan
+    /// Current in-memory state from an active ScanPreviewViewController session,
+    /// for a scan not yet written to disk (no plyPath, so nothing in the
+    /// sidecars yet). When nil, falls back to whatever is already on disk --
+    /// the normal case when reviewing a previously-saved scan.
+    var liveClassification: ClassificationRecord? = nil
+    var liveMeasurements: [WoundMeasurement]? = nil
 
     @State private var classification: ClassificationRecord?
     @State private var measurements: [WoundMeasurement] = []
@@ -91,8 +97,8 @@ struct ScanReviewView: View {
     }
 
     private func loadExistingState() {
-        measurements = scan.loadMeasurements()
-        if let existing = scan.loadClassification() {
+        measurements = liveMeasurements ?? scan.loadMeasurements()
+        if let existing = liveClassification ?? scan.loadClassification() {
             classification = existing
             woundType = existing.clinicianWoundType ?? existing.topModelPrediction?.label ?? WoundTypeCatalog.knownTypes[0]
             notes = existing.clinicianNotes ?? ""

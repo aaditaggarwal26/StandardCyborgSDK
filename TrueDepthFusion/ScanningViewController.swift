@@ -321,6 +321,10 @@ class ScanningViewController: UIViewController, CameraManagerDelegate, SCReconst
             if scanVC.scan!.plyPath == nil {
                 self._appDelegate.add(scanVC.scan!)
             }
+            // Now that plyPath exists (or already did), flush anything that was
+            // only held in memory until a save location existed.
+            scanVC.flushMeasurementsToDiskIfNeeded()
+            scanVC.flushClassificationToDiskIfNeeded()
             self.dismiss(animated: true, completion: nil)
         }
         
