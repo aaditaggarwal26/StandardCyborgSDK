@@ -25,6 +25,7 @@ enum AppSetting {
     static let icpTolerance = "icp_tolerance"
     static let pointCloudOverlayOpacity = "pointcloud_overlay_opacity"
     static let previewBrightness = "preview_brightness"
+    static let selfieMode = "selfie_mode"
 
     /// Settings-bundle defaults are only registered once the user visits that page,
     /// so an untouched key reads back as absent rather than as its default. Every
@@ -152,6 +153,12 @@ class InAppSettingsViewController: UIViewController {
                    fallback: true)
 
         _addSectionHeader("Applies to the next scan")
+        _addNote("Selfie mode mirrors the preview the way a front camera normally shows you. Turn it off when using the rear mirror adapter, so moving the phone right moves the subject right. The exported scan follows whichever mode was used.")
+
+        _addSwitch(key: AppSetting.selfieMode,
+                   title: "Selfie mode (mirrored)",
+                   fallback: false)
+
         _addNote("These are read when the scanning screen opens, so changes take effect the next time you start a scan rather than during one.")
 
         _addSwitch(key: AppSetting.tapToStartStop,

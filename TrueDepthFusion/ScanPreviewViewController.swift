@@ -140,6 +140,10 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         }
     }
 
+    /// Set by the scanning screen alongside `scan`. Saved once the scan has been
+    /// written and has a path to hang a sidecar off, which is not true yet here.
+    var pendingSession: ScanSessionRecord?
+
     var deletionHandler: (() -> Void)?
     var doneHandler: (() -> Void)?
 

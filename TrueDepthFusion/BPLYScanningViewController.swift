@@ -52,6 +52,8 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
     private let _cameraManager = CameraManager()
     private let _motionManager = CMMotionManager()
     
+    private var _selfieMode = false
+    private var _scanStartedAt: Date?
     private var _latestViewMatrix = matrix_identity_float4x4
     private var _scanningTimer: Timer?
     
@@ -83,7 +85,19 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         // and that flip makes the view track the wrong way: moving the phone right
         // slid the subject left. Transforming the container mirrors the camera image
         // and the point cloud overlay together, so they stay aligned with each other.
-        metalContainerView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        // Selfie mode shows the preview the way a front camera normally does. With
+        // the rear mirror adapter fitted the camera is looking at a scene instead,
+        // and that flip makes the view track backwards -- moving the phone right
+        // slid the subject left -- so the container is mirrored to cancel it.
+        //
+        // The display, the reconstruction and the saved photo all follow the same
+        // setting. Flipping one without the others would put the exported PLY out
+        // of step with what was on screen.
+        _selfieMode = AppSetting.bool(AppSetting.selfieMode, false)
+
+        if !_selfieMode {
+            metalContainerView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        }
         
         _cameraManager.delegate = self
         _cameraManager.configureCaptureSession(maxColorResolution: 1920, maxDepthResolution: _useFullResolutionDepthFrames ? 640 : 320, maxFramerate: 30)
@@ -93,7 +107,7 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         // The preview is mirrored below for the rear mirror adapter, so the geometry
         // is left unmirrored to match it. These two move together: flipping one
         // without the other puts the exported PLY out of step with what was seen.
-        _reconstructionManager.flipsInputHorizontally = false
+        _reconstructionManager.flipsInputHorizontally = _selfieMode
         
         _algorithmCommandQueue.label = "BPLYScanningViewController._algorithmCommandQueue"
         _visualizationCommandQueue.label = "BPLYScanningViewController._visualizationCommandQueue"
@@ -294,6 +308,11 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
             // Save the scan
             if scanVC.scan!.plyPath == nil {
                 self._appDelegate.add(scanVC.scan!)
+
+                // Only now does the scan have a path to hang a sidecar off.
+                if let session = scanVC.pendingSession {
+                    scanVC.scan!.saveSession(session)
+                }
             }
             // Now that plyPath exists (or already did), flush anything that was
             // only held in memory until a save location existed.
@@ -399,11 +418,20 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
         
         _elapsedSeconds = 0
         _firstFramePhoto = nil
+        _scanStartedAt = Date()
         _scanning = true
     }
     
     private func _stopScanning(reason: ScanningTerminationReason) {
         guard _scanning else { return }
+        
+        // Measured here rather than in the completion below, so it reflects how
+        // long the clinician held the phone and not how long reconstruction took.
+        let startedAt = _scanStartedAt ?? Date()
+        let session = ScanSessionRecord(startedAt: startedAt,
+                                        durationSeconds: Date().timeIntervalSince(startedAt),
+                                        selfieMode: _selfieMode)
+        _scanStartedAt = nil
         
         _cameraManager.paused = true
         _scanning = false
@@ -429,6 +457,7 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
                                 meshTexturing: nil)
                 
                 self._scanPreviewViewController.scan = scan
+                self._scanPreviewViewController.pendingSession = session
                 self.present(self._scanPreviewViewController, animated: true, completion: nil)
                 
                 self._reconstructionManager.reset()
@@ -618,7 +647,10 @@ class BPLYScanningViewController: UIViewController, CameraManagerDelegate, SCRec
     /// below. For this front-facing camera the candidates are .leftMirrored,
     /// .rightMirrored, .right and .left.
     private func _photo(from colorBuffer: CVPixelBuffer) -> UIImage? {
-        let ciImage = CIImage(cvPixelBuffer: colorBuffer).oriented(.right)
+        // .leftMirrored and .right are a mirror pair, so this keeps the saved
+        // photograph facing the same way as the preview did.
+        let ciImage = CIImage(cvPixelBuffer: colorBuffer)
+            .oriented(_selfieMode ? .leftMirrored : .right)
 
         guard let cgImage = _ciContext.createCGImage(ciImage, from: ciImage.extent) else { return nil }
 

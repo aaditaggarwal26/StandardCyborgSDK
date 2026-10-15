@@ -143,18 +143,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    /// Moves a scan's PLY and its thumbnail together. The thumbnail is found by
-    /// filename rather than stored alongside, so leaving it behind would orphan it
-    /// and the restored scan would come back without a preview image.
+    /// Moves a scan's PLY along with everything found by its filename — the
+    /// thumbnail and the measurement, classification and session sidecars. None of
+    /// them are referenced from inside the PLY, so anything left behind is orphaned
+    /// in the scans folder, and a restored scan would come back stripped of its
+    /// preview image and its clinical record.
     ///
     /// Refuses rather than overwriting if the destination name is taken, since the
     /// file being overwritten would be somebody's scan.
     private func _moveScan(atPLYPath plyPath: String, into directory: URL) -> Bool {
         let fileManager = FileManager.default
         let sourcePLY = URL(fileURLWithPath: plyPath)
-        let sourceJPEG = sourcePLY.deletingPathExtension().appendingPathExtension("jpeg")
         let destinationPLY = directory.appendingPathComponent(sourcePLY.lastPathComponent)
-        let destinationJPEG = directory.appendingPathComponent(sourceJPEG.lastPathComponent)
 
         guard !fileManager.fileExists(atPath: destinationPLY.path) else {
             print("Not moving \(sourcePLY.lastPathComponent): a file of that name is already there")
@@ -168,9 +168,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
 
-        // A scan whose thumbnail failed to write should still move.
-        if fileManager.fileExists(atPath: sourceJPEG.path) {
-            try? fileManager.moveItem(at: sourceJPEG, to: destinationJPEG)
+        // Companions are optional: a scan that was never classified, or whose
+        // thumbnail failed to write, should still move.
+        let base = sourcePLY.deletingPathExtension().path
+        let companions = [base + ".jpeg",
+                          base + "-measurements.json",
+                          base + "-classification.json",
+                          base + "-session.json"]
+
+        for path in companions where fileManager.fileExists(atPath: path) {
+            let source = URL(fileURLWithPath: path)
+            try? fileManager.moveItem(at: source,
+                                      to: directory.appendingPathComponent(source.lastPathComponent))
         }
 
         return true
