@@ -68,7 +68,6 @@ enum ScanExporter {
                 "finalWoundType": classification?.finalWoundType as Any,
                 "wasReviewed": classification?.wasReviewed ?? false,
                 "clinicianOverrodeModel": didClinicianOverride(classification),
-                "reviewedBy": classification?.reviewedBy as Any,
                 "scanDurationSeconds": session?.durationSeconds as Any,
                 "selfieMode": session?.selfieMode as Any,
                 "measurementCount": measurements.count,
@@ -141,9 +140,6 @@ enum ScanExporter {
                     lines.append("  Clinician reviewed and agreed with the model")
                 }
 
-                if let reviewedBy = classification.reviewedBy, !reviewedBy.isEmpty {
-                    lines.append("    Reviewed by: \(reviewedBy)")
-                }
                 if let reviewedAt = classification.reviewedAt {
                     lines.append("    Reviewed at: \(readableFormatter.string(from: reviewedAt))")
                 }

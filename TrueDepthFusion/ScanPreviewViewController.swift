@@ -89,10 +89,9 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
 
     override func viewDidLoad() {
         _initialPointOfView = sceneView.pointOfView!.transform
-        // Classification UI is set up first so the measurement buttons can anchor
-        // horizontally to the classify button — both now live on the left, leaving
-        // the top-right corner clear for the Share button.
-        _setupClassificationUI()
+        // Load the classifier up front (no UI — classification now runs
+        // automatically in the background; see _classifyInBackgroundIfNeeded).
+        _setupClassifier()
         _setupMeasurementUI()
         _setupMeasurementGesture()
         _setupReviewButton()
@@ -115,6 +114,9 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
             let snapshot = sceneView.snapshot()
             scan.thumbnail = snapshot.resized(toWidth: 640)
         }
+        // The thumbnail (the classifier's input) is guaranteed present by this
+        // point, so kick off automatic classification. No-ops if already done.
+        _classifyInBackgroundIfNeeded()
     }
 
     // MARK: - Public
@@ -124,6 +126,7 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
             _pointCloudNode = scan?.pointCloud.buildNode()
             _cachedPositions = []
             _pendingFirstPoint = nil
+            _pendingClassification = nil
             _completedMeasurements = scan?.loadMeasurements() ?? []
             _redrawAllMeasurements()
             _updateSummaryLabel()
@@ -237,13 +240,11 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
 
-        // _classifyButton is guaranteed non-nil here because _setupClassificationUI()
-        // runs before _setupMeasurementUI() (see viewDidLoad).
         NSLayoutConstraint.activate([
-            // Sit the Measure button just to the right of the Classify button so both
-            // live on the left, keeping the top-right corner clear for the Share button.
+            // Measure sits in the top-left corner (the slot the Classify button used
+            // to occupy), keeping the top-right corner clear for the Share button.
             button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            button.leadingAnchor.constraint(equalTo: _classifyButton!.trailingAnchor, constant: 8),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
 
             // Reset sits to the right of Measure (only visible in measurement mode).
             resetButton.topAnchor.constraint(equalTo: button.topAnchor),
@@ -432,38 +433,17 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
 
     // MARK: - Wound Classification (Beta)
 
-    private var _classifyButton: UIButton?
     private var _woundClassifier: WoundClassifier?
-    private var _classifierLoadError: String?
     private var _reviewButton: UIButton?
+    private var _isClassifying = false
 
-    private func _setupClassificationUI() {
-        let button = UIButton(type: .system)
-        button.setTitle("🔬 Classify (Beta)", for: .normal)
-        button.backgroundColor = UIColor.black.withAlphaComponent(0.65)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8
-        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(_classifyTapped), for: .touchUpInside)
-        view.addSubview(button)
-
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
-        ])
-
-        _classifyButton = button
-
-        // Load the model once, up front, so a load failure surfaces immediately
-        // rather than on first tap.
-        do {
-            _woundClassifier = try WoundClassifier()
-        } catch {
-            _classifierLoadError = error.localizedDescription
-            button.setTitle("🔬 Classify (unavailable)", for: .normal)
-        }
+    private func _setupClassifier() {
+        // Load the model once, up front, so classification is ready to run as
+        // soon as a scan's thumbnail is available. If loading fails the
+        // classifier stays nil and _classifyInBackgroundIfNeeded() no-ops.
+        _woundClassifier = try? WoundClassifier()
     }
+
     private func _setupReviewButton() {
         let button = UIButton(type: .system)
         button.setTitle("📋 Review", for: .normal)
@@ -475,11 +455,12 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         button.addTarget(self, action: #selector(_reviewTapped), for: .touchUpInside)
         view.addSubview(button)
 
-        // Second row, left-aligned under Classify -- the first row (Classify,
-        // Measure, Reset) already fills the left side of the safe area.
+        // Second row, left-aligned under the Measure button, which occupies the
+        // top-left corner (the first row — Measure, Reset — fills the left side
+        // of the safe area).
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: _classifyButton!.bottomAnchor, constant: 12),
-            button.leadingAnchor.constraint(equalTo: _classifyButton!.leadingAnchor)
+            button.topAnchor.constraint(equalTo: _measureButton!.bottomAnchor, constant: 12),
+            button.leadingAnchor.constraint(equalTo: _measureButton!.leadingAnchor)
         ])
 
         _reviewButton = button
@@ -496,63 +477,41 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         present(host, animated: true)
     }
 
-    @objc private func _classifyTapped() {
-        if let loadError = _classifierLoadError {
-            _presentClassificationAlert(title: "Classifier Unavailable", message: loadError)
-            return
-        }
-
+    /// Runs classification automatically, off the main thread, as soon as a
+    /// thumbnail is available. Results are stored silently (no alert) and
+    /// surfaced only in the Review screen. Safe to call repeatedly: it no-ops if
+    /// the classifier failed to load, if there's no image yet, if a run is
+    /// already in flight, or if this scan already has a classification (in memory
+    /// or on disk) — so classification happens at most once per scan.
+    private func _classifyInBackgroundIfNeeded() {
         guard let classifier = _woundClassifier else { return }
-        guard let image = scan?.thumbnail else {
-            _presentClassificationAlert(title: "No Image Available", message: "This scan doesn't have a thumbnail to classify yet.")
-            return
-        }
+        guard let scan = scan, let image = scan.thumbnail else { return }
+        guard !_isClassifying else { return }
+        guard _pendingClassification == nil, scan.loadClassification() == nil else { return }
 
-        _classifyButton?.isEnabled = false
-        _classifyButton?.setTitle("Classifying…", for: .normal)
-
+        _isClassifying = true
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            do {
-                let predictions = try classifier.classify(image)
-                DispatchQueue.main.async {
-                    self?._handleClassificationResult(.success(predictions))
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self?._handleClassificationResult(.failure(error))
-                }
+            let predictions = try? classifier.classify(image)
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self._isClassifying = false
+
+                // On failure leave _pendingClassification nil so a later
+                // viewDidAppear retries.
+                guard let predictions = predictions else { return }
+
+                // Held in memory first, same pattern as _completedMeasurements --
+                // the scan may not have a plyPath yet (not written to disk until
+                // "Done" is tapped), so _persistClassification() is a no-op until
+                // then; flushClassificationToDiskIfNeeded() covers that case.
+                let record = ClassificationRecord(
+                    modelPredictions: predictions.map {
+                        ClassificationRecord.ModelPrediction(label: $0.label, distance: $0.distance)
+                    }
+                )
+                self._pendingClassification = record
+                self._persistClassification()
             }
-        }
-    }
-
-    private func _handleClassificationResult(_ result: Result<[WoundClassifier.Prediction], Error>) {
-        _classifyButton?.isEnabled = true
-        _classifyButton?.setTitle("🔬 Classify (Beta)", for: .normal)
-
-        switch result {
-        case .failure(let error):
-            _presentClassificationAlert(title: "Classification Failed", message: error.localizedDescription)
-
-        case .success(let predictions):
-            let top3 = predictions.prefix(3)
-            let lines = top3.enumerated().map { index, prediction in
-                String(format: "%d. %@ — distance %.2f", index + 1, prediction.label, prediction.distance)
-            }
-            let message = lines.joined(separator: "\n")
-                + "\n\nLower distance = closer match. This is a research prototype, not a diagnostic tool."
-            _presentClassificationAlert(title: "Wound Classification (Beta)", message: message)
-
-            // Held in memory first, same pattern as _completedMeasurements --
-            // the scan may not have a plyPath yet (not written to disk until
-            // "Done" is tapped), so _persistClassification() below is a no-op
-            // until then, same as _persistMeasurements().
-            let record = ClassificationRecord(
-                modelPredictions: predictions.map {
-                    ClassificationRecord.ModelPrediction(label: $0.label, distance: $0.distance)
-                }
-            )
-            _pendingClassification = record
-            _persistClassification()
         }
     }
 
@@ -570,12 +529,6 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     /// no plyPath to save alongside yet, so it's held in memory until now.
     func flushClassificationToDiskIfNeeded() {
         _persistClassification()
-    }
-
-    private func _presentClassificationAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
 
     // MARK: - Zoom-adaptive point size

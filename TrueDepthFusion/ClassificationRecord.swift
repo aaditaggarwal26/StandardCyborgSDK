@@ -28,7 +28,6 @@ struct ClassificationRecord: Codable {
 
     var clinicianWoundType: String?
     var clinicianNotes: String?
-    var reviewedBy: String?
     var reviewedAt: Date?
 
     init(modelPredictions: [ModelPrediction], dateCreated: Date = Date()) {

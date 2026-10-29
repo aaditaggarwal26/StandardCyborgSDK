@@ -22,14 +22,12 @@ struct ScanReviewView: View {
 
     @State private var woundType: String = WoundTypeCatalog.knownTypes[0]
     @State private var notes: String = ""
-    @State private var clinicianName: String = ""
 
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
             Form {
-                modelResultSection
                 clinicianReviewSection
                 measurementsSection
             }
@@ -40,28 +38,9 @@ struct ScanReviewView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") { saveReview() }
-                        .disabled(clinicianName.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
             .onAppear(perform: loadExistingState)
-        }
-    }
-
-    @ViewBuilder
-    private var modelResultSection: some View {
-        if let classification, let top = classification.topModelPrediction {
-            Section("Model result") {
-                LabeledContent("Predicted type", value: top.label)
-                LabeledContent("Distance to match", value: String(format: "%.2f (lower = closer)", top.distance))
-                ForEach(classification.modelPredictions.dropFirst().prefix(2), id: \.label) { pred in
-                    LabeledContent(pred.label, value: String(format: "%.2f", pred.distance))
-                }
-            }
-        } else {
-            Section("Model result") {
-                Text("No classification run yet for this scan.")
-                    .foregroundStyle(.secondary)
-            }
         }
     }
 
@@ -70,7 +49,6 @@ struct ScanReviewView: View {
             Picker("Final wound type", selection: $woundType) {
                 ForEach(WoundTypeCatalog.knownTypes, id: \.self) { Text($0) }
             }
-            TextField("Clinician name", text: $clinicianName)
             TextEditor(text: $notes)
                 .frame(minHeight: 100)
         }
@@ -102,7 +80,6 @@ struct ScanReviewView: View {
             classification = existing
             woundType = existing.clinicianWoundType ?? existing.topModelPrediction?.label ?? WoundTypeCatalog.knownTypes[0]
             notes = existing.clinicianNotes ?? ""
-            clinicianName = existing.reviewedBy ?? ""
         }
     }
 
@@ -117,7 +94,6 @@ struct ScanReviewView: View {
         var record = classification ?? ClassificationRecord(modelPredictions: [])
         record.clinicianWoundType = woundType
         record.clinicianNotes = notes.isEmpty ? nil : notes
-        record.reviewedBy = clinicianName
         record.reviewedAt = Date()
         scan.saveClassification(record)
         dismiss()
