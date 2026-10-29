@@ -91,8 +91,8 @@ using namespace standard_cyborg;
             return false;
         }
         
-        fprintf(file, "# StandardCyborgFusionVersion %s\n", SC_FORMAT_VERSION);
-        fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+        fprintf(file, "# Version %s\n", SC_FORMAT_VERSION);
+        fprintf(file, "# Metadata { \"color_space\": \"sRGB\" }\n");
         
         fprintf(file, "mtllib %s\n", [mtlFilename UTF8String]);
         fprintf(file, "o %s\n", [objZipName UTF8String]);
@@ -146,8 +146,8 @@ using namespace standard_cyborg;
             return false;
         }
         
-        fprintf(file, "# StandardCyborgFusionVersion %s\n", SC_FORMAT_VERSION);
-        fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+        fprintf(file, "# Version %s\n", SC_FORMAT_VERSION);
+        fprintf(file, "# Metadata { \"color_space\": \"sRGB\" }\n");
         
         fprintf(file, "newmtl Texture\n");
         fprintf(file, "Ns 0.000000\n");

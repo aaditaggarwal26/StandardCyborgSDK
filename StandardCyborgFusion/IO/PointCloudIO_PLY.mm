@@ -68,11 +68,13 @@ bool PointCloudIO::ReadSurfelsFromPLYFile(Surfels& surfels, std::string filename
             surfels.push_back(surfel);
         }
         else if (strncmp(line, "comment RHLVersion ", strlen("comment RHLVersion ")) == 0 ||
-                 strncmp(line, "comment StandardCyborgFusionVersion ", strlen("comment StandardCyborgFusionVersion ")) == 0) {
+                 strncmp(line, "comment StandardCyborgFusionVersion ", strlen("comment StandardCyborgFusionVersion ")) == 0 ||
+                 strncmp(line, "comment Version ", strlen("comment Version ")) == 0) {
             // Don't even bother reading the version string, as we didn't write it until version 1.1.0.
-            // Both spellings are matched: the header was briefly written as RHLVersion,
-            // so files exported in that window keep loading with the same normal and
-            // gamma handling as ones written before or since.
+            // All three spellings are matched. The header has been written as
+            // StandardCyborgFusionVersion, briefly as RHLVersion, and now as plain
+            // Version; its presence is the behaviour flag, so files from every era
+            // keep loading with the same normal and gamma handling.
             flipNormals = false;
             unapplyGamma = true;
         }
@@ -98,8 +100,8 @@ bool PointCloudIO::WriteSurfelsToPLYFile(const Surfel* surfels,
     
     fprintf(file, "ply\n");
     fprintf(file, "format ascii 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", SC_FORMAT_VERSION);
-    fprintf(file, "comment StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "comment Version %s\n", SC_FORMAT_VERSION);
+    fprintf(file, "comment Metadata { \"color_space\": \"sRGB\" }\n");
     fprintf(file, "element vertex %ld\n", surfelCount);
     fprintf(file, "property float x\n");
     fprintf(file, "property float y\n");
@@ -235,7 +237,7 @@ void PointCloudIO::WriteRawFrameToBPLYFile(const RawFrame& rawFrame, std::string
     // Header
     fprintf(file, "ply\n");
     fprintf(file, "format binary_little_endian 1.0\n");
-    fprintf(file, "comment StandardCyborgFusionVersion %s\n", SC_FORMAT_VERSION);
+    fprintf(file, "comment Version %s\n", SC_FORMAT_VERSION);
     fprintf(file, "element metadata %ld\n", metadataString.size());
     fprintf(file, "property uchar char\n");
     fprintf(file, "element color %ld\n", rawFrame.colors.size());

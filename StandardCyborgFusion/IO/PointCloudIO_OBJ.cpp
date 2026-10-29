@@ -82,11 +82,13 @@ bool PointCloudIO::ReadVerticesFromOBJFile(Matrix3Xf& vertices,
                 vertexIndex++;
             }
         } else if (strncmp(line, "# RHLVersion ", strlen("# RHLVersion ")) == 0 ||
-                   strncmp(line, "# StandardCyborgFusionVersion ", strlen("# StandardCyborgFusionVersion ")) == 0) {
+                   strncmp(line, "# StandardCyborgFusionVersion ", strlen("# StandardCyborgFusionVersion ")) == 0 ||
+                   strncmp(line, "# Version ", strlen("# Version ")) == 0) {
             // Don't even bother reading the version string, as we didn't write it until version 1.1.0.
-            // Both spellings are matched: the header was briefly written as RHLVersion,
-            // so files exported in that window keep loading with the same normal and
-            // gamma handling as ones written before or since.
+            // All three spellings are matched. The header has been written as
+            // StandardCyborgFusionVersion, briefly as RHLVersion, and now as plain
+            // Version; its presence is the behaviour flag, so files from every era
+            // keep loading with the same normal and gamma handling.
             flipNormals = false;
         }
         
@@ -152,11 +154,13 @@ bool PointCloudIO::ReadSurfelsFromOBJFile(Surfels& surfels,
                 vertexIndex++;
             }
         } else if (strncmp(line, "# RHLVersion ", strlen("# RHLVersion ")) == 0 ||
-                   strncmp(line, "# StandardCyborgFusionVersion ", strlen("# StandardCyborgFusionVersion ")) == 0) {
+                   strncmp(line, "# StandardCyborgFusionVersion ", strlen("# StandardCyborgFusionVersion ")) == 0 ||
+                   strncmp(line, "# Version ", strlen("# Version ")) == 0) {
             // Don't even bother reading the version string, as we didn't write it until version 1.1.0.
-            // Both spellings are matched: the header was briefly written as RHLVersion,
-            // so files exported in that window keep loading with the same normal and
-            // gamma handling as ones written before or since.
+            // All three spellings are matched. The header has been written as
+            // StandardCyborgFusionVersion, briefly as RHLVersion, and now as plain
+            // Version; its presence is the behaviour flag, so files from every era
+            // keep loading with the same normal and gamma handling.
             flipNormals = false;
         }
         
@@ -188,8 +192,8 @@ extern bool PointCloudIO::WriteVerticesToOBJFile(const Matrix3Xf& vertices,
         return false;
     }
     
-    fprintf(file, "# StandardCyborgFusionVersion %s\n", SC_FORMAT_VERSION);
-    fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "# Version %s\n", SC_FORMAT_VERSION);
+    fprintf(file, "# Metadata { \"color_space\": \"sRGB\" }\n");
     
     for (size_t i = 0; i < vertices.cols(); ++i) {
         fprintf(file, "v %f %f %f %f %f %f\n",
@@ -223,8 +227,8 @@ extern bool PointCloudIO::WriteSurfelsToOBJFile(const Surfel* surfels,
         return false;
     }
     
-    fprintf(file, "# StandardCyborgFusionVersion %s\n", SC_FORMAT_VERSION);
-    fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
+    fprintf(file, "# Version %s\n", SC_FORMAT_VERSION);
+    fprintf(file, "# Metadata { \"color_space\": \"sRGB\" }\n");
     
     for (size_t i = 0; i < surfelCount; ++i) {
         const Surfel& surfel = surfels[i];
