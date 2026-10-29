@@ -29,7 +29,6 @@ struct ScanReviewView: View {
     var body: some View {
         NavigationStack {
             Form {
-                modelResultSection
                 clinicianReviewSection
                 measurementsSection
             }
@@ -40,28 +39,9 @@ struct ScanReviewView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") { saveReview() }
-                        .disabled(clinicianName.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
             .onAppear(perform: loadExistingState)
-        }
-    }
-
-    @ViewBuilder
-    private var modelResultSection: some View {
-        if let classification, let top = classification.topModelPrediction {
-            Section("Model result") {
-                LabeledContent("Predicted type", value: top.label)
-                LabeledContent("Distance to match", value: String(format: "%.2f (lower = closer)", top.distance))
-                ForEach(classification.modelPredictions.dropFirst().prefix(2), id: \.label) { pred in
-                    LabeledContent(pred.label, value: String(format: "%.2f", pred.distance))
-                }
-            }
-        } else {
-            Section("Model result") {
-                Text("No classification run yet for this scan.")
-                    .foregroundStyle(.secondary)
-            }
         }
     }
 
@@ -70,7 +50,7 @@ struct ScanReviewView: View {
             Picker("Final wound type", selection: $woundType) {
                 ForEach(WoundTypeCatalog.knownTypes, id: \.self) { Text($0) }
             }
-            TextField("Clinician name", text: $clinicianName)
+            TextField("Clinician name (optional)", text: $clinicianName)
             TextEditor(text: $notes)
                 .frame(minHeight: 100)
         }
@@ -114,10 +94,10 @@ struct ScanReviewView: View {
     private func saveReview() {
         // If classification hasn't run yet, still let the clinician record a
         // manual wound type + notes rather than blocking on a model run.
-        var record = classification ?? ClassificationRecord(modelPredictions: [])
+        var record = classification ?? liveClassification ?? ClassificationRecord(modelPredictions: [])
         record.clinicianWoundType = woundType
         record.clinicianNotes = notes.isEmpty ? nil : notes
-        record.reviewedBy = clinicianName
+        record.reviewedBy = clinicianName.isEmpty ? nil : clinicianName
         record.reviewedAt = Date()
         scan.saveClassification(record)
         dismiss()
