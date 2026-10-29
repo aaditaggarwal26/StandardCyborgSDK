@@ -89,7 +89,10 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
 
     override func viewDidLoad() {
         _initialPointOfView = sceneView.pointOfView!.transform
-        _loadClassifier()
+        // Classification UI is set up first so the measurement buttons can anchor
+        // horizontally to the classify button — both now live on the left, leaving
+        // the top-right corner clear for the Share button.
+        _setupClassificationUI()
         _setupMeasurementUI()
         _setupMeasurementGesture()
         _setupReviewButton()
@@ -184,8 +187,6 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
             if let node = _pointCloudNode {
                 sceneView.scene!.rootNode.addChildNode(node)
             }
-
-            _autoClassifyIfNeeded()
         }
     }
 
@@ -236,11 +237,13 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
 
+        // _classifyButton is guaranteed non-nil here because _setupClassificationUI()
+        // runs before _setupMeasurementUI() (see viewDidLoad).
         NSLayoutConstraint.activate([
-            // Measure now holds the left edge that Classify used to, keeping the
-            // top-right corner clear for the Share button.
+            // Sit the Measure button just to the right of the Classify button so both
+            // live on the left, keeping the top-right corner clear for the Share button.
             button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            button.leadingAnchor.constraint(equalTo: _classifyButton!.trailingAnchor, constant: 8),
 
             // Reset sits to the right of Measure (only visible in measurement mode).
             resetButton.topAnchor.constraint(equalTo: button.topAnchor),
@@ -429,24 +432,38 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
 
     // MARK: - Wound Classification (Beta)
 
+    private var _classifyButton: UIButton?
     private var _woundClassifier: WoundClassifier?
     private var _classifierLoadError: String?
     private var _reviewButton: UIButton?
 
-    /// Loads the model up front. There is no Classify button any more: a scan is
-    /// classified automatically when it opens. A prediction that only existed if
-    /// someone pressed a button meant most scans reached review without one, and
-    /// the wound type picker then opened on the first item in the list rather
-    /// than on anything the model had said.
-    private func _loadClassifier() {
+    private func _setupClassificationUI() {
+        let button = UIButton(type: .system)
+        button.setTitle("🔬 Classify (Beta)", for: .normal)
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.65)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 8
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(_classifyTapped), for: .touchUpInside)
+        view.addSubview(button)
+
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
+        ])
+
+        _classifyButton = button
+
+        // Load the model once, up front, so a load failure surfaces immediately
+        // rather than on first tap.
         do {
             _woundClassifier = try WoundClassifier()
         } catch {
             _classifierLoadError = error.localizedDescription
-            print("Wound classifier unavailable: \(error.localizedDescription)")
+            button.setTitle("🔬 Classify (unavailable)", for: .normal)
         }
     }
-
     private func _setupReviewButton() {
         let button = UIButton(type: .system)
         button.setTitle("📋 Review", for: .normal)
@@ -458,11 +475,11 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         button.addTarget(self, action: #selector(_reviewTapped), for: .touchUpInside)
         view.addSubview(button)
 
-        // Second row, left-aligned under Measure -- the first row (Measure, Reset)
-        // already fills the left side of the safe area.
+        // Second row, left-aligned under Classify -- the first row (Classify,
+        // Measure, Reset) already fills the left side of the safe area.
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: _measureButton!.bottomAnchor, constant: 12),
-            button.leadingAnchor.constraint(equalTo: _measureButton!.leadingAnchor)
+            button.topAnchor.constraint(equalTo: _classifyButton!.bottomAnchor, constant: 12),
+            button.leadingAnchor.constraint(equalTo: _classifyButton!.leadingAnchor)
         ])
 
         _reviewButton = button
@@ -479,46 +496,86 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
         present(host, animated: true)
     }
 
-    /// Runs once per scan, in the background, without reporting anything. A scan
-    /// that already carries a classification is skipped, so reopening an old one
-    /// cannot quietly overwrite a result a clinician has already reviewed.
-    private func _autoClassifyIfNeeded() {
-        guard let scan = scan, let classifier = _woundClassifier, _classifierLoadError == nil else { return }
-        guard _pendingClassification == nil, scan.loadClassification() == nil else { return }
-        guard let image = scan.thumbnail else { return }
+    @objc private func _classifyTapped() {
+        if let loadError = _classifierLoadError {
+            _presentClassificationAlert(title: "Classifier Unavailable", message: loadError)
+            return
+        }
 
-        DispatchQueue.global(qos: .utility).async { [weak self] in
-            let result: Result<[WoundClassifier.Prediction], Error>
+        guard let classifier = _woundClassifier else { return }
+        guard let image = scan?.thumbnail else {
+            _presentClassificationAlert(title: "No Image Available", message: "This scan doesn't have a thumbnail to classify yet.")
+            return
+        }
+
+        _classifyButton?.isEnabled = false
+        _classifyButton?.setTitle("Classifying…", for: .normal)
+
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             do {
-                result = .success(try classifier.classify(image))
+                let predictions = try classifier.classify(image)
+                DispatchQueue.main.async {
+                    self?._handleClassificationResult(.success(predictions))
+                }
             } catch {
-                result = .failure(error)
-            }
-
-            DispatchQueue.main.async {
-                self?._handleClassificationResult(result)
+                DispatchQueue.main.async {
+                    self?._handleClassificationResult(.failure(error))
+                }
             }
         }
     }
 
     private func _handleClassificationResult(_ result: Result<[WoundClassifier.Prediction], Error>) {
+        _classifyButton?.isEnabled = true
+        _classifyButton?.setTitle("🔬 Classify (Beta)", for: .normal)
+
         switch result {
         case .failure(let error):
-            // Nothing was asked for, so nothing is reported. A clinician can still
-            // set the wound type by hand in Review.
-            print("Automatic classification failed: \(error.localizedDescription)")
+            _presentClassificationAlert(title: "Classification Failed", message: error.localizedDescription)
 
         case .success(let predictions):
-            // Held in memory first, same as _completedMeasurements: a freshly
-            // captured scan has no plyPath until Done is tapped, and the scanning
-            // screen calls flushClassificationToDiskIfNeeded() once it does.
-            _pendingClassification = ClassificationRecord(
+            let top3 = predictions.prefix(3)
+            let lines = top3.enumerated().map { index, prediction in
+                String(format: "%d. %@ — distance %.2f", index + 1, prediction.label, prediction.distance)
+            }
+            let message = lines.joined(separator: "\n")
+                + "\n\nLower distance = closer match. This is a research prototype, not a diagnostic tool."
+            _presentClassificationAlert(title: "Wound Classification (Beta)", message: message)
+
+            // Held in memory first, same pattern as _completedMeasurements --
+            // the scan may not have a plyPath yet (not written to disk until
+            // "Done" is tapped), so _persistClassification() below is a no-op
+            // until then, same as _persistMeasurements().
+            let record = ClassificationRecord(
                 modelPredictions: predictions.map {
                     ClassificationRecord.ModelPrediction(label: $0.label, distance: $0.distance)
                 }
             )
+            _pendingClassification = record
             _persistClassification()
         }
+    }
+
+    /// Saves _pendingClassification to disk if the scan has been written already
+    /// (has a plyPath). If not, this is a no-op -- flushClassificationToDiskIfNeeded()
+    /// handles the case where classification ran before the first save.
+    private func _persistClassification() {
+        guard let scan = scan, scan.plyPath != nil, let record = _pendingClassification else { return }
+        scan.saveClassification(record)
+    }
+
+    /// Call this right after the scan has been written to disk for the first time
+    /// (i.e. right after AppDelegate.add(_:) succeeds), alongside
+    /// flushMeasurementsToDiskIfNeeded(). Classification run before that point has
+    /// no plyPath to save alongside yet, so it's held in memory until now.
+    func flushClassificationToDiskIfNeeded() {
+        _persistClassification()
+    }
+
+    private func _presentClassificationAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 
     // MARK: - Zoom-adaptive point size
